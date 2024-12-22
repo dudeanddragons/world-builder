@@ -1,4 +1,4 @@
-// encounter-mountains-warm.js
+// encounter-mountains-warm.js (edit)
 // Rolls for warm mountains encounter with rarity and detailed encounter tables.
 
 async function executeWarmMountainsEncounter() {

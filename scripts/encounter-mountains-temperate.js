@@ -1,4 +1,4 @@
-// encounter-mountains-temperate.js
+// encounter-mountains-temperate.js (edit)
 export async function execute() {
     console.log("Executing temperate mountains encounter...");
   

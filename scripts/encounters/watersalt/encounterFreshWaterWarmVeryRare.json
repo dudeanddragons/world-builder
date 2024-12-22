@@ -1,0 +1,34 @@
+{
+    "tableName": "tblEncounterWaterSaltWarmVeryRare",
+    "entries": [
+      { "encounter": "Bronze dragon (MM)" },
+      { "encounter": "Mist dragon (MM)" },
+      { "encounter": "Dragon Turtle (MM)" },
+      { "encounter": "Elemental, Water Kin, Nereid (MM)" },
+      { "encounter": "Elemental, Water Kin, Water weird (MM)" },
+      { "encounter": "Fish, Pungi Ray (MM)" },
+      { "encounter": "Fish, Giant Seahorse (MM)" },
+      { "encounter": "Fish, Giant Shark (MM)" },
+      { "encounter": "Fish, Sting Ray (MM)" },
+      { "encounter": "Ghoul, Lacedon (MM); night" },
+      { "encounter": "Giant, Reef (MM); day" },
+      { "encounter": "Ixitxachitl (MM)" },
+      { "encounter": "Lycanthrope, Seawolf, Lesser (MM)" },
+      { "encounter": "Morgkoth (MM); night" },
+      { "encounter": "Plant, Intelligent, Kelpie (MM)" },
+      { "encounter": "Squid, Kraken (MM)" },
+      { "encounter": "Tako, Female (MM)" },
+      { "encounter": "Urchin, Silver (MM)" },
+      { "encounter": "Whale, Giant (MM)" },
+      { "encounter": "Whale, Leviathan (MM)" },
+      { "encounter": "Vrungs (FR2)" },
+      { "encounter": "Dragon, Neutral, Pearl (MM)" },
+      { "encounter": "Nautilus, Giant (MCA)" },
+      { "encounter": "Amph Rasol (MCA)" },
+      { "encounter": "Lycanthrope, Wershark (MCB)" },
+      { "encounter": "Fish, Deep Ocean, Death Minnow (MCD)" },
+      { "encounter": "Fish, Deep Ocean, Gulpel Eel (MCD)" },
+      { "encounter": "Amonite, Golden (MCD)" }
+    ]
+  }
+  

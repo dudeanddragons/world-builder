@@ -1,0 +1,21 @@
+{
+    "tableName": "tblEncounterWaterSaltWarmUncommon",
+    "entries": [
+      { "encounter": "Dolphin (MM)" },
+      { "encounter": "Sea Lion (MM); day" },
+      { "encounter": "Troll, Saltwater (MM); night" },
+      { "encounter": "Urchin, Black (MM)" },
+      { "encounter": "Fish, Hetfish (MCB)" },
+      { "encounter": "Fish, Masher (MCB); night" },
+      { "encounter": "Jellyfish, Giant (MCB)" },
+      { "encounter": "Fish, Deep Ocean, Angler Fish (MCD)" },
+      { "encounter": "Fish, Deep Ocean, Gulpel (MCD)" },
+      { "encounter": "Fish, Deep Ocean, Viperfish (MCD)" },
+      { "encounter": "Fish, Tropical, Giant Grouper (MCD)" },
+      { "encounter": "Fish, Tropical, Morena (MCD)" },
+      { "encounter": "Fish, Tropical, Porcupine Fish (MCD)" },
+      { "encounter": "Fish, Tropical, Electric Ray (MCD)" },
+      { "encounter": "Octopus, Oto-Jelly (MCD)" }
+    ]
+  }
+  

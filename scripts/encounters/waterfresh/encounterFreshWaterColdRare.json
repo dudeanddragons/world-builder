@@ -1,0 +1,16 @@
+{
+    "tableName": "tblEncounterFreshWaterColdRare",
+    "entries": [
+      { "encounter": "Fish, Quipper (MM)" },
+      { "encounter": "Frog, Poisonous (MM)" },
+      { "encounter": "Hag, Sea (MM); night" },
+      { "encounter": "Hippocampus (MM)" },
+      { "encounter": "Giant Toad, Ice (MM); day" },
+      { "encounter": "Troll, Freshwater (MM); day" },
+      { "encounter": "Umber Hulk, Vodyanoi (MM)" },
+      { "encounter": "Elemental Vermin, Water (Spitter) (MCA)" },
+      { "encounter": "Lythlyx (MCA)" },
+      { "encounter": "Marl (MCB); day" }
+    ]
+  }
+  

@@ -1,0 +1,18 @@
+{
+    "tableName": "tblEncounterFreshWaterWarmRare",
+    "entries": [
+      { "encounter": "Fish, Electric Eel (MM)" },
+      { "encounter": "Fish, Lamprey (MM)" },
+      { "encounter": "Fish, Piranha (MM)" },
+      { "encounter": "Frog, Poisonous (MM)" },
+      { "encounter": "Hag, Sea (MM); night" },
+      { "encounter": "Hippocampus (MM)" },
+      { "encounter": "Giant Toad, Fire (MM)" },
+      { "encounter": "Troll, Freshwater (MM); day" },
+      { "encounter": "Umber Hulk, Vodyanoi (MM)" },
+      { "encounter": "Banlar (MCA)" },
+      { "encounter": "Lythlyx (MCA)" },
+      { "encounter": "Marl (MCB); day" }
+    ]
+  }
+  

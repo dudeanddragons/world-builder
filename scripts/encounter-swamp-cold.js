@@ -1,4 +1,4 @@
-// encounter-swamp-cold.js
+// encounter-swamp-cold.js (edit)
 export async function execute() {
     console.log("Executing cold swamp encounter...");
 

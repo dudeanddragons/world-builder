@@ -1,0 +1,31 @@
+{
+    "tableName": "tblEncounterDesertColdUncommon",
+    "entries": [
+      { "encounter": "Gargoyle (MM)" },
+      { "encounter": "Ghoul (MM); night" },
+      { "encounter": "Human, Barbarian/Nomad (MM)" },
+      { "encounter": "Human, Berserker/Dervish (MM)" },
+      { "encounter": "Wight (MM); night" },
+      { "encounter": "Wraith (MM); night" },
+      { "encounter": "Ghoul, Ghast (MM); night" },
+      { "encounter": "Skeleton (MM)" },
+      { "encounter": "Skeleton, Giant (MM)" },
+      { "encounter": "Zombie, Common (MM); night" },
+      { "encounter": "Helmed Horror (MCA)" },
+      { "encounter": "Ghoul-kin, Soultaker (MCB); night" },
+      { "encounter": "Ghoul-kin, Witherer (MCB); night" },
+      { "encounter": "Wraith-Spider (MCB); night" },
+      { "encounter": "Bane dead (MCC)" },
+      { "encounter": "Bat, Bonebat (MCB)" },
+      { "encounter": "Dread Warrior (MCC)" },
+      { "encounter": "Deadly Pudding, White (MM)" },
+      { "encounter": "Troll, Ice (MM)" },
+      { "encounter": "Haundar (FR1); day" },
+      { "encounter": "Mara (“Great Walker”) (FR1); night" },
+      { "encounter": "Sha’ae (FR1); day" },
+      { "encounter": "Sealtie (FF); night" },
+      { "encounter": "Troll, Snow (MCB); night" },
+      { "encounter": "Dwarf, Arctic - Inugaakalikurit (MCC)" }
+    ]
+  }
+  

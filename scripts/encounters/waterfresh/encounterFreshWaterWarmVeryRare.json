@@ -1,0 +1,23 @@
+{
+    "tableName": "tblEncounterFreshWaterWarmVeryRare",
+    "entries": [
+      { "encounter": "Giant crocodile (MM)" },
+      { "encounter": "Bronze dragon (MM)" },
+      { "encounter": "Mist dragon (MM)" },
+      { "encounter": "Dragon Turtle (MM)" },
+      { "encounter": "Elemental, Water Kin, Nereid (MM)" },
+      { "encounter": "Elemental, Water Kin, Water weird (MM)" },
+      { "encounter": "Fish, Giant Eel (MM)" },
+      { "encounter": "Fish, Giant Gar (MM)" },
+      { "encounter": "Fish, Giant Piranha (MM)" },
+      { "encounter": "Frog, Killer (MM)" },
+      { "encounter": "Ghoul, Lacedon (MM); night" },
+      { "encounter": "Fish, Giant Storm (MM)" },
+      { "encounter": "Insect, Dragonfly, Giant (MM)" },
+      { "encounter": "Skrue (FR1)" },
+      { "encounter": "Sirine (MM)" },
+      { "encounter": "Undead Lake Monster (MCA)" },
+      { "encounter": "Fish, Verne (MCB)" }
+    ]
+  }
+  

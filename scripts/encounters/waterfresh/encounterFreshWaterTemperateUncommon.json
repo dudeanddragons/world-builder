@@ -1,0 +1,14 @@
+{
+    "tableName": "tblEncounterFreshWaterTemperateUncommon",
+    "entries": [
+      { "encounter": "Giant crayfish (MM)" },
+      { "encounter": "Frog, Giant (MM)" },
+      { "encounter": "Naga, Water (MM)" },
+      { "encounter": "Ogre, Merrow (MM)" },
+      { "encounter": "Giant Toad, Poisonous (MM)" },
+      { "encounter": "Fish, Hetfish (MCB)" },
+      { "encounter": "Snake, Poison, Normal (MM)" },
+      { "encounter": "Snake, Poison, Giant (MM)" }
+    ]
+  }
+  

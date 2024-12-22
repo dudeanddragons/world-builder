@@ -1,0 +1,9 @@
+{
+    "tableName": "tblEncounterWaterSaltColdUncommon",
+    "entries": [
+      { "encounter": "Dolphin (MM)" },
+      { "encounter": "Troll, Saltwater (MM); night" },
+      { "encounter": "Fish, Hetfish (MCB)" }
+    ]
+  }
+  

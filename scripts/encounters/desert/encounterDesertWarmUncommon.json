@@ -1,0 +1,28 @@
+{
+    "tableName": "tblEncounterDesertWarmUncommon",
+    "entries": [
+      { "encounter": "Cockatrice (MM)" },
+      { "encounter": "Goblin (MM)" },
+      { "encounter": "Hobgoblin (MM)" },
+      { "encounter": "Human, Nomad (MM)" },
+      { "encounter": "Lizard, Elemental (MM)" },
+      { "encounter": "Thri-Kreen (MM)" },
+      { "encounter": "Snake, Sand (FR)" },
+      { "encounter": "Sand Cat (FR)" },
+      { "encounter": "Adherer (MCA)" },
+      { "encounter": "Baazrag (MCG): day" },
+      { "encounter": "Beetle, Boring (MM)" },
+      { "encounter": "Snake, Poison, Normal (MM)" },
+      { "encounter": "Lamia Lesser (MM)" },
+      { "encounter": "Ghoul (MM)" },
+      { "encounter": "Lizard, Thorny (MM)" },
+      { "encounter": "Orc (MM)" },
+      { "encounter": "Rat, Giant (MM)" },
+      { "encounter": "Skeleton, Giant" },
+      { "encounter": "Manticore (MM)" },
+      { "encounter": "Giant Scorpion (MM)" },
+      { "encounter": "Troll, Cave (MM)" },
+      { "encounter": "Hyena, Spotted (MM)" }
+    ]
+  }
+  

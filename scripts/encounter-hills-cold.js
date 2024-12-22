@@ -1,4 +1,4 @@
-// encounter-hills-cold.js
+// encounter-hills-cold.js (edit)
 export async function execute() {
     console.log("Executing cold hills encounter...");
   

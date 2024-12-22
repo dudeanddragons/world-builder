@@ -1,0 +1,34 @@
+{
+    "tableName": "tblEncounterSwampWarmUncommon",
+    "entries": [
+      { "encounter": "Basilisk, lesser (MM); day" },
+      { "encounter": "Bat, large (giant) (MCA); night" },
+      { "encounter": "Bat, night hunter (MM); night" },
+      { "encounter": "Bear, cave (MM); day" },
+      { "encounter": "War dog (MM)" },
+      { "encounter": "Gargoyle (MM)" },
+      { "encounter": "Ghoul (MM); night" },
+      { "encounter": "Human, Pilgrim (MM)" },
+      { "encounter": "Kenku (MM)" },
+      { "encounter": "Kobold (MM); night" },
+      { "encounter": "Lycanthrope, Wererat (MM); night" },
+      { "encounter": "Manticore (MM)" },
+      { "encounter": "Orc, Orog (MM)" },
+      { "encounter": "Snake, Poison, Normal (MM)" },
+      { "encounter": "Snake, Poison, Giant (MM)" },
+      { "encounter": "Troll (MM); night" },
+      { "encounter": "Wight (MM); night" },
+      { "encounter": "Ruve (FF)" },
+      { "encounter": "Aranea (MCC)" },
+      { "encounter": "Cockatrice (MM)" },
+      { "encounter": "Frog, Giant (MM)" },
+      { "encounter": "Gnoll (MM); night" },
+      { "encounter": "Goblin (MM); night" },
+      { "encounter": "Hydra (MM)" },
+      { "encounter": "Wolf (MM)" },
+      { "encounter": "Snake, Constrictor, Giant (MM)" },
+      { "encounter": "Whipsting (MCA)" },
+      { "encounter": "Snake, Mahogany Constrictor (MCD)" }
+    ]
+  }
+  

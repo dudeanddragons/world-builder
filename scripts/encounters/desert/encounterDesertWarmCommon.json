@@ -1,0 +1,20 @@
+{
+    "tableName": "tblEncounterDesertWarmCommon",
+    "entries": [
+      { "encounter": "Camel (MCA)" },
+      { "encounter": "Beetle, giant, boring (MM): night" },
+      { "encounter": "Beetle, giant, fire (MM): night" },
+      { "encounter": "Beetle, giant (MM): night" },
+      { "encounter": "Centipede, giant (MM)" },
+      { "encounter": "Gnoll (MM)" },
+      { "encounter": "Human, Peasant/Serf (MM)" },
+      { "encounter": "Human, Slave (MM)" },
+      { "encounter": "Hyena, Spotted (MM)" },
+      { "encounter": "Lizard, Thorny (MM)" },
+      { "encounter": "Ogre (MM)" },
+      { "encounter": "Orc (MM)" },
+      { "encounter": "Rat, Giant (MM)" },
+      { "encounter": "Jarro (MCA)" }
+    ]
+  }
+  

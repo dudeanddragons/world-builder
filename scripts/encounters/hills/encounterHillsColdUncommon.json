@@ -1,0 +1,34 @@
+{
+    "tableName": "tblEncounterHillsColdUncommon",
+    "entries": [
+      { "encounter": "Basilisk, lesser (MM); day" },
+      { "encounter": "Bear, cave (MM); day" },
+      { "encounter": "War dog (MM)" },
+      { "encounter": "Gargoyle (MM)" },
+      { "encounter": "Ghoul (MM); night" },
+      { "encounter": "Human, Pilgrim (MM)" },
+      { "encounter": "Human, Soldier (MM)" },
+      { "encounter": "Kenku (MM)" },
+      { "encounter": "Kobold (MM); night" },
+      { "encounter": "Lycanthrope, Wererat (MM); night" },
+      { "encounter": "Manticore (MM)" },
+      { "encounter": "Orc, Orog (MM)" },
+      { "encounter": "Snake, Poison, Normal (MM)" },
+      { "encounter": "Snake, Poison, Giant (MM)" },
+      { "encounter": "Troll (MM)" },
+      { "encounter": "Wight (MM); night" },
+      { "encounter": "Worm, Rot Grub (MM)" },
+      { "encounter": "Wraith (MM); night" },
+      { "encounter": "Ruve (FF)" },
+      { "encounter": "Aranea (MCC)" },
+      { "encounter": "Giant, Verbeeg (MM)" },
+      { "encounter": "Horse, Wild (MM); day" },
+      { "encounter": "Human, Police/Constabulary (MM)" },
+      { "encounter": "Wolf (MM)" },
+      { "encounter": "Xvart (FF)" },
+      { "encounter": "Gnasher (MCA); day" },
+      { "encounter": "Whipsting (MCA)" },
+      { "encounter": "Herd Mammal, Giant Goat (MCB)" }
+    ]
+  }
+  

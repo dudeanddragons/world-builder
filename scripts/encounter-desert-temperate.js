@@ -1,4 +1,4 @@
-// encounter-desert-temperate.js
+// encounter-desert-temperate.js (edit)
 export async function execute() {
     console.log("Executing temperate desert encounter...");
   

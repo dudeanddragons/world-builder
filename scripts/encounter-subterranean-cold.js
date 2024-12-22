@@ -1,4 +1,4 @@
-// encounter-cold-subterranean.js
+// encounter-cold-subterranean.js (edit)
 export async function execute() {
     console.log("Executing cold subterranean encounter...");
 

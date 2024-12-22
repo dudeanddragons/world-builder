@@ -1,0 +1,38 @@
+{
+    "tableName": "tblEncounterWaterSaltWarmRare",
+    "entries": [
+      { "encounter": "Crabman (MM)" },
+      { "encounter": "Giant crab (MM)" },
+      { "encounter": "Fish, Dragonfish (MM)" },
+      { "encounter": "Fish, Lamprey (MM); rare" },
+      { "encounter": "Fish, Manta Ray (MM)" },
+      { "encounter": "Fish, Shark (MM)" },
+      { "encounter": "Gargoyle, Margoyle (MM)" },
+      { "encounter": "Hag, Sea (MM); night" },
+      { "encounter": "Hippocampus (MM)" },
+      { "encounter": "Locathah (MM)" },
+      { "encounter": "Octopus, Giant (MM)" },
+      { "encounter": "Sprite, Sea (MM); day" },
+      { "encounter": "Squid, Giant (MM)" },
+      { "encounter": "Tako, Male (MM)" },
+      { "encounter": "Triton (MM)" },
+      { "encounter": "Urchin, Green (MM)" },
+      { "encounter": "Urchin, Red Urchin (MM)" },
+      { "encounter": "Whale, Narwhal (MM)" },
+      { "encounter": "Zombie, Sea (MM); night" },
+      { "encounter": "Ascallion, Adult Female (Mother) (FR2)" },
+      { "encounter": "Ascallion, Young (Biter) (FR2)" },
+      { "encounter": "Ascallion, Adult Male (Shadow) (FR2)" },
+      { "encounter": "Fladwerf (FF)" },
+      { "encounter": "Frog, Killer (MM)" },
+      { "encounter": "Lythlyx (MCA)" },
+      { "encounter": "Xantravar (Stinging Horror) (MCA)" },
+      { "encounter": "Dragon-kin, Sea Wyrm (MCA)" },
+      { "encounter": "Fish, Floating Eye (MCB)" },
+      { "encounter": "Eel, Giant Morsy (MCC)" },
+      { "encounter": "Anemone, Giant Sea (MCD)" },
+      { "encounter": "Clam, Giant (Oyster) (MCD)" },
+      { "encounter": "Octopus, Octo-Hide (MCD)" }
+    ]
+  }
+  

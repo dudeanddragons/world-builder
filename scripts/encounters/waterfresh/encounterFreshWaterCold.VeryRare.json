@@ -1,0 +1,13 @@
+{
+  "tableName": "tblEncounterFreshWaterColdVeryRare",
+  "entries": [
+    { "encounter": "Elemental, Water Kin, Water weird (MM)" },
+    { "encounter": "Fish, Giant Catfish (MM)" },
+    { "encounter": "Fish, Giant Pike (MM)" },
+    { "encounter": "Frog, Killer (MM)" },
+    { "encounter": "Ghoul, Lacedon (MM); night" },
+    { "encounter": "Skuz (FR1)" },
+    { "encounter": "Undead Lake Monster (MCA)" },
+    { "encounter": "Fish, Verne (MCB)" }
+  ]
+}

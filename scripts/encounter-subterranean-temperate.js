@@ -1,4 +1,4 @@
-// encounter-temperate-subterranean.js
+// encounter-temperate-subterranean.js (edit)
 export async function execute() {
     console.log("Executing temperate subterranean encounter...");
 

@@ -1,0 +1,18 @@
+{
+    "tableName": "tblEncounterFreshWaterTemperateRare",
+    "entries": [
+      { "encounter": "Fish, Quipper (MM)" },
+      { "encounter": "Frog, Poisonous (MM)" },
+      { "encounter": "Hag, Sea (MM); night" },
+      { "encounter": "Hippocampus (MM)" },
+      { "encounter": "Sprite, Nixie (MM); day" },
+      { "encounter": "Giant Toad, Fire (MM)" },
+      { "encounter": "Troll, Freshwater (MM); day" },
+      { "encounter": "Umber Hulk, Vodyanoi (MM)" },
+      { "encounter": "Bunyrip (FR2)" },
+      { "encounter": "Banelar (MCA)" },
+      { "encounter": "Elemental Vermin, Water (Spitter) (MCA)" },
+      { "encounter": "Lythlyx (MCA)" }
+    ]
+  }
+  

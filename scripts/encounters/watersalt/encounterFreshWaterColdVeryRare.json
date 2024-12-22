@@ -1,0 +1,23 @@
+{
+    "tableName": "tblEncounterWaterSaltColdVeryRare",
+    "entries": [
+      { "encounter": "Topaz dragon (MM)" },
+      { "encounter": "Elemental, Water Kin, Water weird (MM)" },
+      { "encounter": "Fish, Shark (MM)" },
+      { "encounter": "Fish, Giant Shark (MM)" },
+      { "encounter": "Ghoul, Lacedon (MM); night" },
+      { "encounter": "Lycanthrope, Seawolf, Lesser (MM)" },
+      { "encounter": "Lycanthrope, Seawolf, Greater (MM)" },
+      { "encounter": "Morkoth (MM); night" },
+      { "encounter": "Selkie (MM)" },
+      { "encounter": "Squid, Kraken (MM)" },
+      { "encounter": "Whale, Giant (MM)" },
+      { "encounter": "Whale, Leviathan (MM)" },
+      { "encounter": "Vrungs (FR2)" },
+      { "encounter": "Nautilus, Giant (MCA)" },
+      { "encounter": "Amiq Rasol (MCB)" },
+      { "encounter": "Dragon, Brine (MCB)" },
+      { "encounter": "Lycanthrope, Wershark (MCB)" }
+    ]
+  }
+  

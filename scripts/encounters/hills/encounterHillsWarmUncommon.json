@@ -1,0 +1,26 @@
+{
+    "tableName": "tblEncounterHillsWarmUncommon",
+    "entries": [
+      { "encounter": "Basilisk, lesser (MM); day" },
+      { "encounter": "Bat, large (giant) (MCA); night" },
+      { "encounter": "Bat, night hunter (MM); night" },
+      { "encounter": "Bear, cave (MM); day" },
+      { "encounter": "Ghoul (MM); night" },
+      { "encounter": "Human, Pilgrim (MM)" },
+      { "encounter": "Human, Soldier (MM)" },
+      { "encounter": "Kenku (MM)" },
+      { "encounter": "Kobold (MM); night" },
+      { "encounter": "Lycanthrope, Wererat (MM); night" },
+      { "encounter": "Mountain lion (MM) (dawn or dusk)" },
+      { "encounter": "Gnoll (MM); night" },
+      { "encounter": "Hobgoblin (MM)" },
+      { "encounter": "Human, Police/Constabulary (MM)" },
+      { "encounter": "Leprechaun (MM)" },
+      { "encounter": "Scorpion, Giant (MM)" },
+      { "encounter": "Carnivorous Plant, Witherweed (FR1)" },
+      { "encounter": "Gryphon (MM); day" },
+      { "encounter": "Lizard, Giant (MM); day" },
+      { "encounter": "Rohch (FR1); night" }
+    ]
+  }
+  

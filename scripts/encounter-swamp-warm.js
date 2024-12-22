@@ -1,4 +1,4 @@
-// encounter-warm-swamp.js
+// encounter-warm-swamp.js (edit)
 export async function execute() {
     console.log("Executing warm swamp encounter...");
 

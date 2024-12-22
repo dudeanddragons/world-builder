@@ -1,0 +1,14 @@
+{
+  "tableName": "tblTerrainTypeCold",
+  "entries": [
+    { "type": "Plains", "ruggedness": "Moderate", "time": "3 Hours", "encounters": [1, 2] },
+    { "type": "Forest", "ruggedness": "Moderate", "time": "3 Hours", "encounters": [1, 2] },
+    { "type": "Hills", "ruggedness": "Moderate", "time": "3 Hours", "encounters": [1, 2] },
+    { "type": "Mountains", "ruggedness": "Difficult", "time": "4 Hours", "encounters": [1, 2, 3] },
+    { "type": "Tundra", "ruggedness": "Moderate", "time": "3 Hours", "encounters": [1, 2] },
+    { "type": "Glacier", "ruggedness": "Difficult", "time": "4 Hours", "encounters": [1, 2, 3] },
+    { "type": "Steppe", "ruggedness": "Moderate", "time": "3 Hours", "encounters": [1, 2] }
+  ]
+}
+
+  

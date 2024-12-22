@@ -1,0 +1,13 @@
+{
+    "tableName": "tblEncounterWaterSaltWarmCommon",
+    "entries": [
+      { "encounter": "Fish, Barracuda (MM)" },
+      { "encounter": "Human, Merchant Sailor/Fisherman (MM)" },
+      { "encounter": "Human, Pirate/Buccaneer (MM)" },
+      { "encounter": "Human, Sailor (MM)" },
+      { "encounter": "Plant, Intelligent, Strangle-weed (MM)" },
+      { "encounter": "Whale, Common (MM)" },
+      { "encounter": "Whale, Killer (Orca) (MM)" }
+    ]
+  }
+  

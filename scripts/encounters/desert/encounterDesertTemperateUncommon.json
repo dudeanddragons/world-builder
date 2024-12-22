@@ -1,0 +1,38 @@
+{
+    "tableName": "tblEncounterDesertTemperateUncommon",
+    "entries": [
+      { "encounter": "Basilisk, lesser (MM); day" },
+      { "encounter": "Bat, large (giant) (MCA); night" },
+      { "encounter": "Bat, night hunter (MM); night" },
+      { "encounter": "Bear, cave (MM); day" },
+      { "encounter": "War dog (MM)" },
+      { "encounter": "Gargoyle (MM)" },
+      { "encounter": "Ghoul (MM); night" },
+      { "encounter": "Human, Pilgrim (MM)" },
+      { "encounter": "Human, Soldier (MM)" },
+      { "encounter": "Kenku (MM)" },
+      { "encounter": "Kobold (MM); night" },
+      { "encounter": "Lycanthrope, Wererat (MM); night" },
+      { "encounter": "Manticore (MM)" },
+      { "encounter": "Orc, Orog (MM)" },
+      { "encounter": "Snake, Poison, Normal (MM)" },
+      { "encounter": "Snake, Poison, Giant (MM)" },
+      { "encounter": "Troll (MM); night" },
+      { "encounter": "Wight (MM); night" },
+      { "encounter": "Worm, Rot Grub (MM)" },
+      { "encounter": "Wraith (MM); night" },
+      { "encounter": "Ruve (FF)" },
+      { "encounter": "Aranea (MCC)" },
+      { "encounter": "Cockatrice (MM)" },
+      { "encounter": "Goblin (MM); night" },
+      { "encounter": "Hobgoblin (MM)" },
+      { "encounter": "Horse, Wild (MM); day" },
+      { "encounter": "Thri-Kreen (MM)" },
+      { "encounter": "Morin (FR1)" },
+      { "encounter": "Sand Cat (FR2); night" },
+      { "encounter": "Fire, Falcon (FF); day" },
+      { "encounter": "Dog, Saluqi (MCA); night" },
+      { "encounter": "Addazahr (MCB); day" }
+    ]
+  }
+  

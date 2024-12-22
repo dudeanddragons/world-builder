@@ -1,0 +1,9 @@
+{
+    "tableName": "tblEncounterFreshWaterColdCommon",
+    "entries": [
+      { "encounter": "Beetle, giant, water (MM)" },
+      { "encounter": "Human, Merchant Sailor/Fisherman (MM)" },
+      { "encounter": "Human, Sailor (MM)" }
+    ]
+  }
+  

@@ -1,4 +1,4 @@
-// encounter-swamp-temperate.js
+// encounter-swamp-temperate.js (edit)
 export async function execute() {
     console.log("Executing temperate swamp encounter...");
 

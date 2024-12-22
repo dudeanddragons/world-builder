@@ -1,0 +1,31 @@
+{
+    "tableName": "tblEncounterDesertWarmRare",
+    "entries": [
+      { "encounter": "Chimera (MM)" },
+      { "encounter": "Phoenix" },
+      { "encounter": "Dragon, Brown" },
+      { "encounter": "Elemental, Fire (MM)" },
+      { "encounter": "Giant, Fire (MM)" },
+      { "encounter": "Hobgoblin (MM)" },
+      { "encounter": "Lamia (MM)" },
+      { "encounter": "Manticore" },
+      { "encounter": "Nagpa (MCA)" },
+      { "encounter": "Troll, Ice" },
+      { "encounter": "Wight" },
+      { "encounter": "Yeti" },
+      { "encounter": "Beetle, Fire (MM)" },
+      { "encounter": "Boalisk (MCA)" },
+      { "encounter": "Naga, Spirit" },
+      { "encounter": "Mummy" },
+      { "encounter": "Gibbering Mouther (MM)" },
+      { "encounter": "Beetle, Flame (MCA)" },
+      { "encounter": "Salamander, Flame (MM)" },
+      { "encounter": "Dragon, Bronze" },
+      { "encounter": "Basilisk, Sand" },
+      { "encounter": "Dragon, Silver" },
+      { "encounter": "Lamia Noble" },
+      { "encounter": "Warg (MM)" },
+      { "encounter": "Sphinx, Androsphinx (MM)" }
+    ]
+  }
+  

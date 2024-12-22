@@ -1,0 +1,18 @@
+{
+    "tableName": "tblEncounterSwampColdCommon",
+    "entries": [
+      { "encounter": "Bat, common (MCA); night" },
+      { "encounter": "Beetle, giant, boring (MM); night" },
+      { "encounter": "Beetle, giant, fire (MM); night" },
+      { "encounter": "Broken one, common (MM); night" },
+      { "encounter": "Centipede, giant (MM)" },
+      { "encounter": "Centipede, huge (MM)" },
+      { "encounter": "Ore (MM)" },
+      { "encounter": "Human, Peasant/Serf (MM)" },
+      { "encounter": "Human, Slaver (MM)" },
+      { "encounter": "Lycanthrope, Werewolf (MM); night" },
+      { "encounter": "Ogre (MM)" },
+      { "encounter": "Rat, Giant (MM); night" }
+    ]
+  }
+  

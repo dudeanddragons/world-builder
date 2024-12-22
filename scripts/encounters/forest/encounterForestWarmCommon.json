@@ -1,0 +1,29 @@
+{
+    "tableName": "tblEncounterForestWarmCommon",
+    "entries": [
+      { "encounter": "Bat, common (MCA); night" },
+      { "encounter": "Cattle (MCA)" },
+      { "encounter": "Sheep (MCA)" },
+      { "encounter": "Beetle, giant, boring (MM); night" },
+      { "encounter": "Beetle, giant, fire (MM); night" },
+      { "encounter": "Broken one, common (MM); night" },
+      { "encounter": "Centipede, giant (MM)" },
+      { "encounter": "Centipede, huge (MM)" },
+      { "encounter": "Wild dog (MM)" },
+      { "encounter": "Human, Peasant/Serf (MM)" },
+      { "encounter": "Human, Slave (MM)" },
+      { "encounter": "Lycanthrope, Werewolf (MM); night" },
+      { "encounter": "Ore (MM)" },
+      { "encounter": "Ogre (MM)" },
+      { "encounter": "Rat, Giant (MM); night" },
+      { "encounter": "Human, Bandit/Brigand (MM)" },
+      { "encounter": "Mammal, Carnivorous Ape (MM)" },
+      { "encounter": "Scorpion, Huge (MM)" },
+      { "encounter": "Spider, Hairy (MM)" },
+      { "encounter": "Spider Huge (MM)" },
+      { "encounter": "Giant Toad" },
+      { "encounter": "Snake, Giant Cobra (MCA); day" },
+      { "encounter": "Herd Mammal, Bull (Wild Ox) (MCB)" }
+    ]
+  }
+  

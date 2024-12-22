@@ -1,0 +1,20 @@
+{
+    "tableName": "tblEncounterForestColdCommon",
+    "entries": [
+      { "encounter": "Cattle (MCA)" },
+      { "encounter": "Sheep (MCA)" },
+      { "encounter": "Beetle, giant, boring (MM); night" },
+      { "encounter": "Beetle, giant, fire (MM); night" },
+      { "encounter": "Broken one, common (MM); night" },
+      { "encounter": "Wild dog (MM)" },
+      { "encounter": "Human, Peasant/Serf (MM)" },
+      { "encounter": "Lycanthrope, Werewolf (MM); night" },
+      { "encounter": "Ogre (MM)" },
+      { "encounter": "Ore (MM)" },
+      { "encounter": "Rat, Giant (MM); night" },
+      { "encounter": "Beetle, giant, bombardier (MM); day" },
+      { "encounter": "Beetle, giant, stag (MM)" },
+      { "encounter": "Mammal, Wild Boar (MM)" }
+    ]
+  }
+  

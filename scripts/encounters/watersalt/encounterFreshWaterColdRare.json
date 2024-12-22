@@ -1,0 +1,22 @@
+{
+    "tableName": "tblEncounterWaterSaltColdRare",
+    "entries": [
+      { "encounter": "Giant crab (MM)" },
+      { "encounter": "Gargoyle, Margoyle (MM)" },
+      { "encounter": "Hag, Sea (MM); night" },
+      { "encounter": "Hippocampus (MM)" },
+      { "encounter": "Octopus, Giant (MM)" },
+      { "encounter": "Squid, Giant (MM)" },
+      { "encounter": "Triton (MM); day" },
+      { "encounter": "Whale, Narwhal (MM)" },
+      { "encounter": "Zombie, Sea (MM); night" },
+      { "encounter": "Ascallion, Adult Female (Mother) (FR2)" },
+      { "encounter": "Ascallion, Young (Biter) (FR2)" },
+      { "encounter": "Ascallion, Adult Male (Shadow) (FR2)" },
+      { "encounter": "Elemental Vermin, Water (Spitter) (MCA)" },
+      { "encounter": "Lythlyx (MCA)" },
+      { "encounter": "Xantravar (Stinging Horror) (MCA)" },
+      { "encounter": "Fish, Floating Eye (MCB)" }
+    ]
+  }
+  

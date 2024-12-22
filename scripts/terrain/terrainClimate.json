@@ -1,0 +1,9 @@
+{
+    "tableName": "tblTerrainClimate",
+    "entries": [
+      { "id": 1, "value": "cold" },
+      { "id": 2, "value": "temperate" },
+      { "id": 3, "value": "warm" }
+    ]
+  }
+  

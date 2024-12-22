@@ -1,0 +1,11 @@
+{
+    "tableName": "tblEncounterWaterSaltTemperateCommon",
+    "entries": [
+      { "encounter": "Human, Merchant Sailor/Fisherman (MM)" },
+      { "encounter": "Human, Pirate/Buccaneer (MM)" },
+      { "encounter": "Human, Sailor (MM)" },
+      { "encounter": "Whale, Common (MM)" },
+      { "encounter": "Whale, Killer (Orca) (MM)" }
+    ]
+  }
+  

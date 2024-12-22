@@ -1,4 +1,4 @@
-// encounter-desert-warm.js
+// encounter-desert-warm.js (edit   )
 // Rolls for warm desert encounter with rarity and detailed encounter tables.
 
 async function executeWarmDesertEncounter() {

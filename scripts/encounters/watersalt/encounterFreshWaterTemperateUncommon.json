@@ -1,0 +1,14 @@
+{
+    "tableName": "tblEncounterWaterSaltTemperateUncommon",
+    "entries": [
+      { "encounter": "Dolphin (MM)" },
+      { "encounter": "Merman (MM)" },
+      { "encounter": "Sahuagin (MM); night" },
+      { "encounter": "Troll, Saltwater (MM); night" },
+      { "encounter": "Fish, Hetfish (MCB)" },
+      { "encounter": "Fish, Deep Ocean, Angler Fish (MCD)" },
+      { "encounter": "Fish, Deep Ocean, Gulper (MCD)" },
+      { "encounter": "Fish, Deep Ocean, Viperfish (MCD)" }
+    ]
+  }
+  

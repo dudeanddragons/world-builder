@@ -1,0 +1,29 @@
+{
+    "tableName": "tblEncounterHillsColdCommon",
+    "entries": [
+      { "encounter": "Camel (MCA)" },
+      { "encounter": "Cattle (MCA)" },
+      { "encounter": "Sheep (MCA)" },
+      { "encounter": "Beetle, giant, boring (MM); night" },
+      { "encounter": "Beetle, giant, fire (MM); night" },
+      { "encounter": "Broken one, common (MM); night" },
+      { "encounter": "Wild dog (MM)" },
+      { "encounter": "Human, Peasant/Serf (MM)" },
+      { "encounter": "Human, Slaver (MM)" },
+      { "encounter": "Lycanthrope, Werewolf (MM); night" },
+      { "encounter": "Ogre (MM)" },
+      { "encounter": "Orc (MM)" },
+      { "encounter": "Rat, Giant (MM); night" },
+      { "encounter": "Dwarf, Hill (MM)" },
+      { "encounter": "Human, Bandit/Brigand (MM)" },
+      { "encounter": "Human, Farmer/Herder (MM)" },
+      { "encounter": "Human, Gentry (MM)" },
+      { "encounter": "Human, Merchant/Trader (MM)" },
+      { "encounter": "Human, Middle Class (MM)" },
+      { "encounter": "Human, Thief/Thug (MM)" },
+      { "encounter": "Human, Tradesman/Craftsman (MM)" },
+      { "encounter": "Mammal, Rothe (MM)" },
+      { "encounter": "Herd Mammal, Caribou (MCB)" }
+    ]
+  }
+  

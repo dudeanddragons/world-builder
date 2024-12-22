@@ -1,0 +1,13 @@
+{
+    "tableName": "tblEncounterFreshWaterWarmCommon",
+    "entries": [
+      { "encounter": "Beetle, giant, water (MM)" },
+      { "encounter": "Crocodile (MM)" },
+      { "encounter": "Human, Merchant Sailor/Fisherman (MM)" },
+      { "encounter": "Human, Sailor (MM)" },
+      { "encounter": "Bird, Swan (MM)" },
+      { "encounter": "Giant Toad (MM)" },
+      { "encounter": "Herd Mammal, Hippopotamus (MCB)" }
+    ]
+  }
+  

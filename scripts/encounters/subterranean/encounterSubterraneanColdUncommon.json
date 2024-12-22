@@ -1,0 +1,36 @@
+{
+    "tableName": "tblEncounterSubterraneanColdUncommon",
+    "entries": [
+      { "encounter": "Basilisk, lesser (MM); day" },
+      { "encounter": "Bat, large (giant) (MCA); night" },
+      { "encounter": "Bat, night hunter (MM); night" },
+      { "encounter": "Bear, cave (MM); day" },
+      { "encounter": "War dog (MM)" },
+      { "encounter": "Gargoyle (MM)" },
+      { "encounter": "Ghoul (MM); night" },
+      { "encounter": "Human, Pilgrim (MM)" },
+      { "encounter": "Kobold (MM); night" },
+      { "encounter": "Lycanthrope, Wererat (MM); night" },
+      { "encounter": "Manticore (MM)" },
+      { "encounter": "Orc, Orog (MM)" },
+      { "encounter": "Snake, Poison, Normal (MM)" },
+      { "encounter": "Snake, Poison, Giant (MM)" },
+      { "encounter": "Troll (MM); night" },
+      { "encounter": "Wight (MM); night" },
+      { "encounter": "Ruve (FF)" },
+      { "encounter": "Aranea (MCC)" },
+      { "encounter": "Bugbear (MM)" },
+      { "encounter": "Giant, Fomorian (MM)" },
+      { "encounter": "Gnoll (MM); night" },
+      { "encounter": "Goblin (MM); night" },
+      { "encounter": "Gremlin, Jermlaine (MM)" },
+      { "encounter": "Lizard, Subterranean; day (MM)" },
+      { "encounter": "Wolf (MM)" },
+      { "encounter": "Xvart (FF)" },
+      { "encounter": "Whipsting (MCA)" },
+      { "encounter": "Giant Toad, Poisonous (MM)" },
+      { "encounter": "Wall-Walker (MCB)" },
+      { "encounter": "Varkha (MCD)" }
+    ]
+  }
+  

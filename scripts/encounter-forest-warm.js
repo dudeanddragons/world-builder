@@ -1,4 +1,4 @@
-// encounter-forest-warm.js
+// encounter-forest-warm.js (edit)
 export async function execute() {
     console.log("Executing warm forest encounter...");
   

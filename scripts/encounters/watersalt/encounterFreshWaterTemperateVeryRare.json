@@ -1,0 +1,34 @@
+{
+    "tableName": "tblEncounterWaterSaltTemperateVeryRare",
+    "entries": [
+      { "encounter": "Topaz dragon (MM)" },
+      { "encounter": "Dragon Turtle (MM)" },
+      { "encounter": "Elemental, Water Kin, Nereid (MM)" },
+      { "encounter": "Elemental, Water Kin, Water weird (MM)" },
+      { "encounter": "Elf, Aquatic (FR1)" },
+      { "encounter": "Fish, Giant Eel (MM)" },
+      { "encounter": "Fish, Marine Eel (MM)" },
+      { "encounter": "Fish, Giant Seahorse (MM)" },
+      { "encounter": "Fish, Giant Shark (MM)" },
+      { "encounter": "Ghoul, Lacedon (MM); night" },
+      { "encounter": "Giant, Storm (MM)" },
+      { "encounter": "Lycanthrope, Seawolf, Lesser (MM)" },
+      { "encounter": "Lycanthrope, Seawolf, Greater (MM)" },
+      { "encounter": "Morkoth (MM); night" },
+      { "encounter": "Plant, Intelligent, Kelpie (MM)" },
+      { "encounter": "Squid, Kraken (MM)" },
+      { "encounter": "Tako, Female (MM)" },
+      { "encounter": "Whale, Giant (MM)" },
+      { "encounter": "Whale, Leviathan (MM)" },
+      { "encounter": "Vrungs (FR2)" },
+      { "encounter": "Dragon, Neutral, Pearl (MCA)" },
+      { "encounter": "Nautilus, Giant (MCA)" },
+      { "encounter": "Amiq Rasol (MCB)" },
+      { "encounter": "Dragon, Brine (MCB)" },
+      { "encounter": "Lycanthrope, Wershark (MCB)" },
+      { "encounter": "Fish, Deep Ocean, Death Minnow (MCD)" },
+      { "encounter": "Fish, Vurgens (Giant Gulpel Eel) (MCD)" },
+      { "encounter": "Amonite, Golden (MCD)" }
+    ]
+  }
+  

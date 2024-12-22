@@ -1,4 +1,4 @@
-// encounter-fresh-water-temperate.js
+// encounter-fresh-water-temperate.js (edit)
 export async function execute() {
     console.log("Executing temperate sweet water encounter...");
 
