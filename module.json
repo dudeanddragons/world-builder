@@ -1,0 +1,54 @@
+{
+  "id": "world-builder",
+  "title": "World Builder",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "DudeandDragons",
+      "flags": {}
+    }
+  ],
+  "packs": [
+    {
+      "name": "world-builder-journals",
+      "label": "World Builder Journals",
+      "path": "packs/world-builder-journals",
+      "type": "JournalEntry",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    }
+  ],
+  "scripts": [
+    "scripts/worldbuilder.js",
+    "scripts/ruins.js",
+    "scripts/relics.js",
+    "scripts/remains.js",
+    "scripts/vestiges.js",
+    "scripts/remnants.js",
+    "scripts/refuse.js",
+    "scripts/wrecks.js",
+    "scripts/skeletons.js",
+    "scripts/antiques.js",
+    "scripts/artifacts.js",
+    "scripts/dungeon.js",
+    "scripts/cave.js",
+    "scripts/burrows.js",
+    "scripts/camp.js",
+    "scripts/dwelling.js",
+    "scripts/shipwreck.js",
+    "scripts/ledge.js",
+    "scripts/crevice.js",
+    "scripts/encounter-desert-warm.js"
+  ],
+  "styles": ["styles/worldbuilder.css"],
+  "template": ["template/worldbuilder.hbs"],
+  "manifest": "modules/world-builder/module.json",
+  "download": ""
+}
