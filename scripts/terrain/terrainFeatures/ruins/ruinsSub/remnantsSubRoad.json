@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubRoad",
+    "entries": [
+      { "id": 1, "value": "Track" },
+      { "id": 2, "value": "Trail" },
+      { "id": 3, "value": "Gravel" },
+      { "id": 4, "value": "Paved" },
+      { "id": 5, "value": "Asphalt" },
+      { "id": 6, "value": "Concrete" }
+    ]
+  }
+  

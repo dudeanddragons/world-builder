@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRelicsSubTools",
+    "entries": [
+      { "id": 1, "value": "Ladder" },
+      { "id": 2, "value": "Plow" },
+      { "id": 3, "value": "Pick" },
+      { "id": 4, "value": "Clock" },
+      { "id": 5, "value": "Hoe" },
+      { "id": 6, "value": "Axe" }
+    ]
+  }
+  

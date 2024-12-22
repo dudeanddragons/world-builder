@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemainsSubTomes",
+    "entries": [
+      { "id": 1, "value": "Lexicon" },
+      { "id": 2, "value": "Scroll" },
+      { "id": 3, "value": "Manual" },
+      { "id": 4, "value": "Tablet" },
+      { "id": 5, "value": "Book" },
+      { "id": 6, "value": "Codex" }
+    ]
+  }
+  

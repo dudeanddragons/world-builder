@@ -1,0 +1,11 @@
+{
+  "tableName": "tblRelics",
+  "entries": [
+    { "id": 1, "name": "Tools" },
+    { "id": 2, "name": "Machines" },
+    { "id": 3, "name": "Tombs" },
+    { "id": 4, "name": "Armor" },
+    { "id": 5, "name": "Weapons" },
+    { "id": 6, "name": "Containers" }
+  ]
+}

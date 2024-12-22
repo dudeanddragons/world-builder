@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRefuseConditionOfDiscards",
+    "entries": [
+      { "id": 1, "value": "Unusable" },
+      { "id": 2, "value": "Unusable" },
+      { "id": 3, "value": "Disgusting but usable" },
+      { "id": 4, "value": "Unpleasant but usable" },
+      { "id": 5, "value": "Usable" },
+      { "id": 6, "value": "Good as new" }
+    ]
+  }
+  

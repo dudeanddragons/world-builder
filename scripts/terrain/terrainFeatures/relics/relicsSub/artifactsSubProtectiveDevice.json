@@ -1,0 +1,12 @@
+{
+    "tableName": "tblArtifactsSubProtectiveDevice",
+    "entries": [
+      { "id": 1, "value": "Machine" },
+      { "id": 2, "value": "Staff" },
+      { "id": 3, "value": "Vial" },
+      { "id": 4, "value": "Garment" },
+      { "id": 5, "value": "Talisman" },
+      { "id": 6, "value": "Armor" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblWrecksSubLandVehicle",
+    "entries": [
+      { "id": 1, "value": "Sledge" },
+      { "id": 2, "value": "Wagon" },
+      { "id": 3, "value": "Litter" },
+      { "id": 4, "value": "Carriage" },
+      { "id": 5, "value": "Chariot" },
+      { "id": 6, "value": "Unusual" }
+    ]
+  }
+  

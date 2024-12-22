@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubBridge",
+    "entries": [
+      { "id": 1, "value": "Rope" },
+      { "id": 2, "value": "Wood" },
+      { "id": 3, "value": "Stone" },
+      { "id": 4, "value": "Earth" },
+      { "id": 5, "value": "Natural" },
+      { "id": 6, "value": "Brick" }
+    ]
+  }
+  

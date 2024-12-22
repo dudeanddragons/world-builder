@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemainsSubUtensils",
+    "entries": [
+      { "id": 1, "value": "Eating" },
+      { "id": 2, "value": "Digging" },
+      { "id": 3, "value": "Writing" },
+      { "id": 4, "value": "Navigating" },
+      { "id": 5, "value": "Measuring" },
+      { "id": 6, "value": "Musical" }
+    ]
+  }
+  

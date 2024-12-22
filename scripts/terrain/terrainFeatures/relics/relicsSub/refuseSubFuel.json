@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRefuseSubFuel",
+    "entries": [
+      { "id": 1, "value": "Wood" },
+      { "id": 2, "value": "Coal" },
+      { "id": 3, "value": "Peat" },
+      { "id": 4, "value": "Dried Dung" },
+      { "id": 5, "value": "Petroleum" },
+      { "id": 6, "value": "Wax" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubEdifice",
+    "entries": [
+      { "id": 1, "value": "Carved Cliff" },
+      { "id": 2, "value": "Sculptured Mound" },
+      { "id": 3, "value": "Colossal Statue" },
+      { "id": 4, "value": "Palace" },
+      { "id": 5, "value": "Mill" },
+      { "id": 6, "value": "Calendar Stone" }
+    ]
+  }
+  

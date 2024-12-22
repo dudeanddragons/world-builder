@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVestigesSubPyramid",
+    "entries": [
+      { "id": 1, "value": "Burial Tomb" },
+      { "id": 2, "value": "Temple" },
+      { "id": 3, "value": "Observatory" },
+      { "id": 4, "value": "Palace" },
+      { "id": 5, "value": "Menagerie" },
+      { "id": 6, "value": "Alien Base" }
+    ]
+  }
+  

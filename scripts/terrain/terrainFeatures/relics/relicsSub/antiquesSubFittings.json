@@ -1,0 +1,12 @@
+{
+    "tableName": "tblAntiquesSubFittings",
+    "entries": [
+      { "id": 1, "value": "Faucet" },
+      { "id": 2, "value": "Lamp" },
+      { "id": 3, "value": "Bell" },
+      { "id": 4, "value": "Fresco" },
+      { "id": 5, "value": "Hinges" },
+      { "id": 6, "value": "Knocker" }
+    ]
+  }
+  

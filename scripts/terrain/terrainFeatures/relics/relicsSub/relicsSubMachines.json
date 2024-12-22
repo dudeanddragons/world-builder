@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRelicsSubMachines",
+    "entries": [
+      { "id": 1, "value": "Loom" },
+      { "id": 2, "value": "Grinding Wheel" },
+      { "id": 3, "value": "Clock" },
+      { "id": 4, "value": "Balance" },
+      { "id": 5, "value": "Potter's Wheel" },
+      { "id": 6, "value": "Printing Press" }
+    ]
+  }
+  

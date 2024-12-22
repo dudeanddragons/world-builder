@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRuinsSubVillage",
+    "entries": [
+      { "id": 1, "value": "2d6 Huts" },
+      { "id": 2, "value": "4d6 Hovels" },
+      { "id": 3, "value": "6d6 Cottages" },
+      { "id": 4, "value": "6d6 Cottages w/ Ditch" },
+      { "id": 5, "value": "6d6 Cottages w/ Palisade" },
+      { "id": 6, "value": "6d6 Cottages w/ Palisade & Moat" }
+    ]
+  }
+  

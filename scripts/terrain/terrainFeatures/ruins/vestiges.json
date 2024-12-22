@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVestiges",
+    "entries": [
+      { "id": 1, "value": "Pyramid" },
+      { "id": 2, "value": "Mound" },
+      { "id": 3, "value": "Totem" },
+      { "id": 4, "value": "Fountain" },
+      { "id": 5, "value": "Sewers" },
+      { "id": 6, "value": "Monolith" }
+    ]
+  }
+  

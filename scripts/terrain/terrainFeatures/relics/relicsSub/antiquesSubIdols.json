@@ -1,0 +1,12 @@
+{
+    "tableName": "tblAntiquesSubIdols",
+    "entries": [
+      { "id": 1, "value": "Stone" },
+      { "id": 2, "value": "Plaster" },
+      { "id": 3, "value": "Metal" },
+      { "id": 4, "value": "Wooden" },
+      { "id": 5, "value": "Crystal" },
+      { "id": 6, "value": "Bone" }
+    ]
+  }
+  

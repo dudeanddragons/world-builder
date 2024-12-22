@@ -1,0 +1,12 @@
+{
+    "tableName": "tblArtifactsSubInformativeDevice",
+    "entries": [
+      { "id": 1, "value": "Stone" },
+      { "id": 2, "value": "Flask" },
+      { "id": 3, "value": "Orb" },
+      { "id": 4, "value": "Diadem" },
+      { "id": 5, "value": "Crystal Ball" },
+      { "id": 6, "value": "Necklace" }
+    ]
+  }
+  

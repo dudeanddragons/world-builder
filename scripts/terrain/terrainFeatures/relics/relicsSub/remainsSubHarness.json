@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemainsSubHarness",
+    "entries": [
+      { "id": 1, "value": "Swimmer" },
+      { "id": 2, "value": "Flyer" },
+      { "id": 3, "value": "Giant-Animal" },
+      { "id": 4, "value": "Small-Animal" },
+      { "id": 5, "value": "Man-Sized" },
+      { "id": 6, "value": "Colossal" }
+    ]
+  }
+  

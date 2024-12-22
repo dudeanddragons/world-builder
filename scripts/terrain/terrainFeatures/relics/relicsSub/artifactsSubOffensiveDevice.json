@@ -1,0 +1,12 @@
+{
+    "tableName": "tblArtifactsSubOffensiveDevice",
+    "entries": [
+      { "id": 1, "value": "Hand" },
+      { "id": 2, "value": "Vase" },
+      { "id": 3, "value": "Eye" },
+      { "id": 4, "value": "Box" },
+      { "id": 5, "value": "Horn" },
+      { "id": 6, "value": "Vat" }
+    ]
+  }
+  

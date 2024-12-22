@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRefuseSubFood",
+    "entries": [
+      { "id": 1, "value": "Fat" },
+      { "id": 2, "value": "Fruit" },
+      { "id": 3, "value": "Seeds" },
+      { "id": 4, "value": "Vegetables" },
+      { "id": 5, "value": "Minerals" },
+      { "id": 6, "value": "Meat" }
+    ]
+  }
+  

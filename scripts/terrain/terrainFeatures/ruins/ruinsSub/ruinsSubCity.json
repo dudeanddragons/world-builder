@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRuinsSubCity",
+    "entries": [
+      { "id": 1, "value": "7d6 Houses & Citadel" },
+      { "id": 2, "value": "8d6 Houses" },
+      { "id": 3, "value": "9d6 Houses & Wall" },
+      { "id": 4, "value": "9d6 Houses & Wall with 1d4 Citadels" },
+      { "id": 5, "value": "2d6 Houses" },
+      { "id": 6, "value": "2d6 Houses & 1d4 Temples" }
+    ]
+  }
+  

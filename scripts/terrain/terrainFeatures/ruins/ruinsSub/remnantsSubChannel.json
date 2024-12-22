@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubChannel",
+    "entries": [
+      { "id": 1, "value": "Tunnel" },
+      { "id": 2, "value": "Pipe" },
+      { "id": 3, "value": "Well" },
+      { "id": 4, "value": "Passage" },
+      { "id": 5, "value": "Canal" },
+      { "id": 6, "value": "Aqueduct" }
+    ]
+  }
+  

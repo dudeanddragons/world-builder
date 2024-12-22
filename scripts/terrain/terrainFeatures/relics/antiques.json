@@ -1,0 +1,12 @@
+{
+    "tableName": "tblAntiques",
+    "entries": [
+      { "id": 1, "value": "Statues" },
+      { "id": 2, "value": "Furniture" },
+      { "id": 3, "value": "Engravings" },
+      { "id": 4, "value": "Idols" },
+      { "id": 5, "value": "Fittings" },
+      { "id": 6, "value": "Handicrafts" }
+    ]
+  }
+  

@@ -1,0 +1,11 @@
+{
+  "tableName": "tblWrecks",
+  "entries": [
+    { "id": 1, "name": "Sea Vehicle" },
+    { "id": 2, "name": "Land Vehicle" },
+    { "id": 3, "name": "Air Vehicle" },
+    { "id": 4, "name": "War Engine" },
+    { "id": 5, "name": "Submarine" },
+    { "id": 6, "name": "Subterranean Vehicle" }
+  ]
+}

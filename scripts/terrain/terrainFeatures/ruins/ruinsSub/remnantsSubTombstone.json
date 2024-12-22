@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubTombstone",
+    "entries": [
+      { "id": 1, "value": "Plaque" },
+      { "id": 2, "value": "Cairn" },
+      { "id": 3, "value": "Staff" },
+      { "id": 4, "value": "Beacon" },
+      { "id": 5, "value": "Pyre" },
+      { "id": 6, "value": "Stone Pile" }
+    ]
+  }
+  

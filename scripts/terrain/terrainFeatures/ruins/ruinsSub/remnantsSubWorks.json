@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubWorks",
+    "entries": [
+      { "id": 1, "value": "Arsenal" },
+      { "id": 2, "value": "Granary" },
+      { "id": 3, "value": "Paved Plaza" },
+      { "id": 4, "value": "Viaduct" },
+      { "id": 5, "value": "Reservoir" },
+      { "id": 6, "value": "Cistern" }
+    ]
+  }
+  

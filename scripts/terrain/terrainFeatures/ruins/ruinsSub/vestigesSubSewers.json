@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVestigesSubSewers",
+    "entries": [
+      { "id": 1, "value": "1' deep ditch" },
+      { "id": 2, "value": "2' deep trench" },
+      { "id": 3, "value": "1' high pipe" },
+      { "id": 4, "value": "2' high culvert" },
+      { "id": 5, "value": "4' high tunnels" },
+      { "id": 6, "value": "8' high passages" }
+    ]
+  }
+  

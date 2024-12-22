@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRuins",
+    "entries": [
+      { "id": 1, "value": "Manor" },
+      { "id": 2, "value": "Village" },
+      { "id": 3, "value": "City" },
+      { "id": 4, "value": "Citadel" },
+      { "id": 5, "value": "Castle" },
+      { "id": 6, "value": "Temple" }
+    ]
+  }
+  

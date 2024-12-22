@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubMasonry",
+    "entries": [
+      { "id": 1, "value": "Mud Bricks" },
+      { "id": 2, "value": "Stone Bricks" },
+      { "id": 3, "value": "Marble Blocks" },
+      { "id": 4, "value": "Plaster" },
+      { "id": 5, "value": "Wattle" },
+      { "id": 6, "value": "Stone Blocks" }
+    ]
+  }
+  

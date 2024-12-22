@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRefuseSubOffal",
+    "entries": [
+      { "id": 1, "value": "Viscera" },
+      { "id": 2, "value": "Bones" },
+      { "id": 3, "value": "Gore" },
+      { "id": 4, "value": "Grizzle" },
+      { "id": 5, "value": "Fat" },
+      { "id": 6, "value": "Talons" }
+    ]
+  }
+  

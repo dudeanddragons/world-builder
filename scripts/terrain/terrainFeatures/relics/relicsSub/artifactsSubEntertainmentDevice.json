@@ -1,0 +1,12 @@
+{
+    "tableName": "tblArtifactsSubEntertainmentDevice",
+    "entries": [
+      { "id": 1, "value": "Animated" },
+      { "id": 2, "value": "Musical" },
+      { "id": 3, "value": "Dancing" },
+      { "id": 4, "value": "Serving" },
+      { "id": 5, "value": "Intensifying" },
+      { "id": 6, "value": "Dreaming" }
+    ]
+  }
+  

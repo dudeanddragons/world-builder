@@ -1,0 +1,12 @@
+{
+    "tableName": "tblSkeletonsSubManSized",
+    "entries": [
+      { "id": 1, "value": "Human" },
+      { "id": 2, "value": "Elven" },
+      { "id": 3, "value": "Orc" },
+      { "id": 4, "value": "Hobgoblin" },
+      { "id": 5, "value": "Lizard Man" },
+      { "id": 6, "value": "Snake" }
+    ]
+  }
+  

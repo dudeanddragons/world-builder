@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRefuseSubParts",
+    "entries": [
+      { "id": 1, "value": "Buckle" },
+      { "id": 2, "value": "Lacing" },
+      { "id": 3, "value": "Crossbar" },
+      { "id": 4, "value": "Pommels" },
+      { "id": 5, "value": "Arrowhead" },
+      { "id": 6, "value": "Spike" }
+    ]
+  }
+  

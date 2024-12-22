@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemainsSubToys",
+    "entries": [
+      { "id": 1, "value": "Doll" },
+      { "id": 2, "value": "Vehicle" },
+      { "id": 3, "value": "Weapon" },
+      { "id": 4, "value": "Tool" },
+      { "id": 5, "value": "Game" },
+      { "id": 6, "value": "House" }
+    ]
+  }
+  

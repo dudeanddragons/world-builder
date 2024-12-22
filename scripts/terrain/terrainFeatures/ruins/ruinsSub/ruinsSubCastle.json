@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRuinsSubCastle",
+    "entries": [
+      { "id": 1, "value": "Keep & Palisade" },
+      { "id": 2, "value": "Keep, Palisade, & Moat" },
+      { "id": 3, "value": "Keep, Palisade, Moat, & Walls" },
+      { "id": 4, "value": "Keep, Palisade, Moat, Walls, & Manor" },
+      { "id": 5, "value": "Keep, Palisade, Moat, Walls, Manor, & 4 Towers" },
+      { "id": 6, "value": "Keep, Palisade, Moat, Walls, Manor, 4 Towers, & Outer Walls" }
+    ]
+  }
+  

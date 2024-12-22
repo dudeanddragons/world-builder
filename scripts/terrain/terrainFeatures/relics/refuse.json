@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRefuse",
+    "entries": [
+      { "id": 1, "value": "Offal" },
+      { "id": 2, "value": "Sewage" },
+      { "id": 3, "value": "Parts" },
+      { "id": 4, "value": "Discards" },
+      { "id": 5, "value": "Food" },
+      { "id": 6, "value": "Fuel" }
+    ]
+  }
+  

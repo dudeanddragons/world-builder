@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRefuseSubDiscards",
+    "entries": [
+      { "id": 1, "value": "Leather Scraps" },
+      { "id": 2, "value": "Papyrus Scraps" },
+      { "id": 3, "value": "Handle" },
+      { "id": 4, "value": "Shield Boss" },
+      { "id": 5, "value": "Pole" },
+      { "id": 6, "value": "Linen Scraps" }
+    ]
+  }
+  

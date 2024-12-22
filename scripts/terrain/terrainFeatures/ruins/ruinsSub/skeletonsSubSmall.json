@@ -1,0 +1,12 @@
+{
+    "tableName": "tblSkeletonsSubSmall",
+    "entries": [
+      { "id": 1, "value": "Goblin" },
+      { "id": 2, "value": "Fairy" },
+      { "id": 3, "value": "Dwarven" },
+      { "id": 4, "value": "Pixie" },
+      { "id": 5, "value": "Gnome" },
+      { "id": 6, "value": "Kobold" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubStructure",
+    "entries": [
+      { "id": 1, "value": "Stairway" },
+      { "id": 2, "value": "Ramp" },
+      { "id": 3, "value": "Shaft" },
+      { "id": 4, "value": "Spire" },
+      { "id": 5, "value": "Roof" },
+      { "id": 6, "value": "Tunnel" }
+    ]
+  }
+  

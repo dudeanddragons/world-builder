@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVestigesSubFountain",
+    "entries": [
+      { "id": 1, "value": "Giant" },
+      { "id": 2, "value": "Statue" },
+      { "id": 3, "value": "Miniature" },
+      { "id": 4, "value": "Geometric" },
+      { "id": 5, "value": "Wishing" },
+      { "id": 6, "value": "Spray" }
+    ]
+  }
+  

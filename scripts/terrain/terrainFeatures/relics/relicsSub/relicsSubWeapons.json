@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRelicsSubWeapons",
+    "entries": [
+      { "id": 1, "value": "Dagger" },
+      { "id": 2, "value": "Scimitar" },
+      { "id": 3, "value": "Hand Axe" },
+      { "id": 4, "value": "Spear" },
+      { "id": 5, "value": "Trident" },
+      { "id": 6, "value": "Battle Axe" }
+    ]
+  }
+  

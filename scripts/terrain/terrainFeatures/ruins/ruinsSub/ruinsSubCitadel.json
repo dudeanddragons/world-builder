@@ -1,0 +1,11 @@
+{
+  "tableName": "tblRuinsSubCitadel",
+  "entries": [
+    { "id": 1, "value": "Tower" },
+    { "id": 2, "value": "Tower & Outer Wall" },
+    { "id": 3, "value": "Great Keep" },
+    { "id": 4, "value": "Keep & 4 Towers" },
+    { "id": 5, "value": "Keep, 4 Towers, & Outer Wall" },
+    { "id": 6, "value": "Keep, 4 Towers, Outer Wall, & Moat" }
+  ]
+}

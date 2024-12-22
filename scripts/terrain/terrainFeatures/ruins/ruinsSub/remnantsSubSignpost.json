@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubSignpost",
+    "entries": [
+      { "id": 1, "value": "Guide" },
+      { "id": 2, "value": "Omen" },
+      { "id": 3, "value": "Trade" },
+      { "id": 4, "value": "Warning" },
+      { "id": 5, "value": "Emblem" },
+      { "id": 6, "value": "Boundary Stone" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblArtifactsSubWeapon",
+    "entries": [
+      { "id": 1, "value": "Sword" },
+      { "id": 2, "value": "Hammer" },
+      { "id": 3, "value": "Axe" },
+      { "id": 4, "value": "Club" },
+      { "id": 5, "value": "Battle Axe" },
+      { "id": 6, "value": "Javelin" }
+    ]
+  }
+  

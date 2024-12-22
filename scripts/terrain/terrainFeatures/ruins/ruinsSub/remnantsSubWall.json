@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemnantsSubWall",
+    "entries": [
+      { "id": 1, "value": "Stockade" },
+      { "id": 2, "value": "Barricade" },
+      { "id": 3, "value": "Fence" },
+      { "id": 4, "value": "Rampart" },
+      { "id": 5, "value": "Dike" },
+      { "id": 6, "value": "Partition" }
+    ]
+  }
+  

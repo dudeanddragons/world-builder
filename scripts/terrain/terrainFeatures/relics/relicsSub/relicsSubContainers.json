@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRelicsSubContainers",
+    "entries": [
+      { "id": 1, "value": "Barrels" },
+      { "id": 2, "value": "Urns" },
+      { "id": 3, "value": "Trunks" },
+      { "id": 4, "value": "Jars" },
+      { "id": 5, "value": "Bottles" },
+      { "id": 6, "value": "Boxes" }
+    ]
+  }
+  

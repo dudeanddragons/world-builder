@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRelicsSubArmor",
+    "entries": [
+      { "id": 1, "value": "Breastplate" },
+      { "id": 2, "value": "Greaves" },
+      { "id": 3, "value": "Gauntlets" },
+      { "id": 4, "value": "Helm" },
+      { "id": 5, "value": "Chainmail" },
+      { "id": 6, "value": "Shield" }
+    ]
+  }
+  

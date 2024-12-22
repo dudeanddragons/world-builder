@@ -1,0 +1,12 @@
+{
+    "tableName": "tblAntiquesSubFurniture",
+    "entries": [
+      { "id": 1, "value": "Throne" },
+      { "id": 2, "value": "Chest" },
+      { "id": 3, "value": "Giant-Sized Chair" },
+      { "id": 4, "value": "Miniature Chair" },
+      { "id": 5, "value": "Stone Seat" },
+      { "id": 6, "value": "Stone Table" }
+    ]
+  }
+  

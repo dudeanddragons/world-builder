@@ -1,0 +1,26 @@
+{
+    "tableName": "tblRelicsSubArmorWeaponQuality",
+    "entries": [
+      { "id": 1, "value": "Broken" },
+      { "id": 2, "value": "Damaged" },
+      { "id": 3, "value": "Damaged" },
+      { "id": 4, "value": "Damaged" },
+      { "id": 5, "value": "Decent" },
+      { "id": 6, "value": "Decent" },
+      { "id": 7, "value": "Decent" },
+      { "id": 8, "value": "Decent" },
+      { "id": 9, "value": "Decent" },
+      { "id": 10, "value": "Decent" },
+      { "id": 11, "value": "Decent" },
+      { "id": 12, "value": "Decent" },
+      { "id": 13, "value": "Decent" },
+      { "id": 14, "value": "Decent" },
+      { "id": 15, "value": "Decent" },
+      { "id": 16, "value": "Decent" },
+      { "id": 17, "value": "Decent" },
+      { "id": 18, "value": "Decent" },
+      { "id": 19, "value": "Fine" },
+      { "id": 20, "value": "Exceptional" }
+    ]
+  }
+  

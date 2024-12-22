@@ -1,0 +1,12 @@
+{
+    "tableName": "tblSkeletonsSubGiant",
+    "entries": [
+      { "id": 1, "value": "Ogre" },
+      { "id": 2, "value": "Troll" },
+      { "id": 3, "value": "True Giant" },
+      { "id": 4, "value": "Dinosaur" },
+      { "id": 5, "value": "Sea Monster" },
+      { "id": 6, "value": "Whale" }
+    ]
+  }
+  

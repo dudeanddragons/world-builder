@@ -1,0 +1,12 @@
+{
+    "tableName": "tblSkeletonsSubColossal",
+    "entries": [
+      { "id": 1, "value": "Humanoid" },
+      { "id": 2, "value": "Avian" },
+      { "id": 3, "value": "Reptilian" },
+      { "id": 4, "value": "Ursinoid" },
+      { "id": 5, "value": "Amphibian" },
+      { "id": 6, "value": "Crustacean" }
+    ]
+  }
+  

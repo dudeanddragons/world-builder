@@ -1,0 +1,12 @@
+{
+    "tableName": "tblSkeletonsSubFeatures",
+    "entries": [
+      { "id": 1, "value": "Skeleton fused into single piece" },
+      { "id": 2, "value": "Skeleton has treasure with it" },
+      { "id": 3, "value": "Skeleton has magic item with it" },
+      { "id": 4, "value": "Multiple skeletons of this type are here" },
+      { "id": 5, "value": "Bones are engraved with mystic runes" },
+      { "id": 6, "value": "Spirit is bound to bones & can talk" }
+    ]
+  }
+  

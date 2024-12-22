@@ -1,0 +1,12 @@
+{
+    "tableName": "tblAntiquesSubStatues",
+    "entries": [
+      { "id": 1, "value": "Miniature" },
+      { "id": 2, "value": "Half-sized" },
+      { "id": 3, "value": "Life-sized" },
+      { "id": 4, "value": "Giant-sized" },
+      { "id": 5, "value": "Abstract" },
+      { "id": 6, "value": "Magic Statue" }
+    ]
+  }
+  

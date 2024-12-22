@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemains",
+    "entries": [
+      { "id": 1, "value": "Utensils" },
+      { "id": 2, "value": "Apparel" },
+      { "id": 3, "value": "Harness" },
+      { "id": 4, "value": "Toys" },
+      { "id": 5, "value": "Optics" },
+      { "id": 6, "value": "Tomes" }
+    ]
+  }
+  

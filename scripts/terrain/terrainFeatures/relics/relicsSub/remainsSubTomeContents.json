@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemainsSubTomeContents",
+    "entries": [
+      { "id": 1, "value": "Treasure Map" },
+      { "id": 2, "value": "Ancient Legends" },
+      { "id": 3, "value": "Natural Guide & Recipes" },
+      { "id": 4, "value": "Romantic Poetry" },
+      { "id": 5, "value": "Cleric Prayers (1d4)" },
+      { "id": 6, "value": "Arcane Spells (1d4)" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblAntiquesSubHandicrafts",
+    "entries": [
+      { "id": 1, "value": "Basket" },
+      { "id": 2, "value": "Vase" },
+      { "id": 3, "value": "Miniature Painting" },
+      { "id": 4, "value": "Abacus" },
+      { "id": 5, "value": "Ship's Figurehead" },
+      { "id": 6, "value": "Bust" }
+    ]
+  }
+  

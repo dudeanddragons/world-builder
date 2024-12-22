@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemainsSubApparel",
+    "entries": [
+      { "id": 1, "value": "Hauberk" },
+      { "id": 2, "value": "Boots" },
+      { "id": 3, "value": "Cloak" },
+      { "id": 4, "value": "Tunic" },
+      { "id": 5, "value": "Mask" },
+      { "id": 6, "value": "Breeches" }
+    ]
+  }
+  

@@ -1,0 +1,10 @@
+{
+    "tableName": "tblSkeletonsSubSkulls",
+    "entries": [
+      { "id": 1, "value": "Small" },
+      { "id": 2, "value": "Man-Sized" },
+      { "id": 3, "value": "Giant" },
+      { "id": 4, "value": "Colossal" }
+    ]
+  }
+  

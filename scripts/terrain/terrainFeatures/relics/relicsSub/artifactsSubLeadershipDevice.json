@@ -1,0 +1,12 @@
+{
+    "tableName": "tblArtifactsSubLeadershipDevice",
+    "entries": [
+      { "id": 1, "value": "Ring" },
+      { "id": 2, "value": "Gem" },
+      { "id": 3, "value": "Throne" },
+      { "id": 4, "value": "Rod" },
+      { "id": 5, "value": "Sword" },
+      { "id": 6, "value": "Scepter" }
+    ]
+  }
+  

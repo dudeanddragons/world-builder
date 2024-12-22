@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVestigesSubMound",
+    "entries": [
+      { "id": 1, "value": "Sacrificial" },
+      { "id": 2, "value": "Burial" },
+      { "id": 3, "value": "Treasure" },
+      { "id": 4, "value": "Lair" },
+      { "id": 5, "value": "Sacred" },
+      { "id": 6, "value": "Polymorphed" }
+    ]
+  }
+  

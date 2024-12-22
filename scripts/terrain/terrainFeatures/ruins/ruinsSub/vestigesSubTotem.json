@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVestigesSubTotem",
+    "entries": [
+      { "id": 1, "value": "Mammal" },
+      { "id": 2, "value": "Human" },
+      { "id": 3, "value": "God" },
+      { "id": 4, "value": "Monster" },
+      { "id": 5, "value": "Bird" },
+      { "id": 6, "value": "Snake" }
+    ]
+  }
+  

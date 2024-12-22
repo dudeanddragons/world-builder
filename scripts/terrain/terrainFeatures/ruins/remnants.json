@@ -1,0 +1,16 @@
+{
+    "tableName": "tblRemnants",
+    "entries": [
+      { "id": 1, "value": "Road" },
+      { "id": 2, "value": "Tombstone" },
+      { "id": 3, "value": "Signpost" },
+      { "id": 4, "value": "Channel" },
+      { "id": 5, "value": "Masonry" },
+      { "id": 6, "value": "Bridge" },
+      { "id": 7, "value": "Wall" },
+      { "id": 8, "value": "Edifice" },
+      { "id": 9, "value": "Works" },
+      { "id": 10, "value": "Structure" }
+    ]
+  }
+  

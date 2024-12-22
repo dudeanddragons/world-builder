@@ -1,0 +1,12 @@
+{
+    "tableName": "tblSkeletonsSubUnusual",
+    "entries": [
+      { "id": 1, "value": "Cubie" },
+      { "id": 2, "value": "Crystalline" },
+      { "id": 3, "value": "Multi-Limbed" },
+      { "id": 4, "value": "Multi-Headed" },
+      { "id": 5, "value": "Winged" },
+      { "id": 6, "value": "Armor-Plated" }
+    ]
+  }
+  

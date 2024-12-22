@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRefuseSubSewage",
+    "entries": [
+      { "id": 1, "value": "Soap" },
+      { "id": 2, "value": "Body Waste" },
+      { "id": 3, "value": "Oils" },
+      { "id": 4, "value": "Slop" },
+      { "id": 5, "value": "Chemicals" },
+      { "id": 6, "value": "Lint" }
+    ]
+  }
+  

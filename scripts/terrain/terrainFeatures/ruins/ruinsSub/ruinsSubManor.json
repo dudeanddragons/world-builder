@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRuinsSubManor",
+    "entries": [
+      { "id": 1, "value": "Hut" },
+      { "id": 2, "value": "Hovel" },
+      { "id": 3, "value": "Hall" },
+      { "id": 4, "value": "Villa" },
+      { "id": 5, "value": "Cottage" },
+      { "id": 6, "value": "Palace" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRemainsSubOptics",
+    "entries": [
+      { "id": 1, "value": "Monocle" },
+      { "id": 2, "value": "Spectacles" },
+      { "id": 3, "value": "Spyglass" },
+      { "id": 4, "value": "Mirror" },
+      { "id": 5, "value": "Colored Pane" },
+      { "id": 6, "value": "Periscope" }
+    ]
+  }
+  

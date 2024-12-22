@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVestigesSubMonolith",
+    "entries": [
+      { "id": 1, "value": "Column" },
+      { "id": 2, "value": "Hewn Statue" },
+      { "id": 3, "value": "Minaret" },
+      { "id": 4, "value": "Obelisk" },
+      { "id": 5, "value": "Effigy" },
+      { "id": 6, "value": "Monument" }
+    ]
+  }
+  

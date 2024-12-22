@@ -1,0 +1,12 @@
+{
+    "tableName": "tblRuinsSubTemple",
+    "entries": [
+      { "id": 1, "value": "Altar" },
+      { "id": 2, "value": "Shrine" },
+      { "id": 3, "value": "Sanctuary" },
+      { "id": 4, "value": "Oracle" },
+      { "id": 5, "value": "Pantheon" },
+      { "id": 6, "value": "Monastery" }
+    ]
+  }
+  
