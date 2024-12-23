@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsHabitations",
+    "entries": [
+      { "id": 1, "result": "Cave" },
+      { "id": 2, "result": "Cavern" },
+      { "id": 3, "result": "Lean-to" },
+      { "id": 4, "result": "Covered Pit" },
+      { "id": 5, "result": "Hollowed Tree" },
+      { "id": 6, "result": "Small Tent" },
+      { "id": 7, "result": "Giant Shell" },
+      { "id": 8, "result": "Pole House" },
+      { "id": 9, "result": "Castle" },
+      { "id": 10, "result": "Temple" },
+      { "id": 11, "result": "Ruins" },
+      { "id": 12, "result": "Tower" },
+      { "id": 13, "result": "Manor" },
+      { "id": 14, "result": "Stone House" },
+      { "id": 15, "result": "Log Cabin" },
+      { "id": 16, "result": "Grass Hut" },
+      { "id": 17, "result": "Stockade" },
+      { "id": 18, "result": "Tree House" },
+      { "id": 19, "result": "Hovel" },
+      { "id": 20, "result": "Village" }
+    ]
+  }
+  

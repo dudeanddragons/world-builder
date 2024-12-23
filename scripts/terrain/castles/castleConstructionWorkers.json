@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleConstructionWorkers",
+    "entries": [
+      { "id": 1, "dice": "1d6x100", "result": "Human" },
+      { "id": 2, "dice": "1d6x100", "result": "Human" },
+      { "id": 3, "dice": "1d6x100", "result": "Dwarven" },
+      { "id": 4, "dice": "1d6x100", "result": "Dwarven" },
+      { "id": 5, "dice": "1d6x100", "result": "Elves" },
+      { "id": 6, "dice": "1d6x100", "result": "Gnolls" },
+      { "id": 7, "dice": "1d6x100", "result": "Orcs" },
+      { "id": 8, "dice": "1d6x100", "result": "Hobgoblins" },
+      { "id": 9, "dice": "1d6x100", "result": "Goblins" },
+      { "id": 10, "dice": "1d6x100", "result": "Giants" }
+    ]
+  }
+  

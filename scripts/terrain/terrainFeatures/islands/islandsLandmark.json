@@ -1,0 +1,24 @@
+{
+    "tableName": "tblIslandsLandmark",
+    "entries": [
+      { "id": 1, "value": "Beach" },
+      { "id": 2, "value": "Rocky Slope" },
+      { "id": 3, "value": "Dell" },
+      { "id": 4, "value": "Dense Thicket" },
+      { "id": 5, "value": "Boulders" },
+      { "id": 6, "value": "Swampy Morass" },
+      { "id": 7, "value": "Cliff" },
+      { "id": 8, "value": "Track" },
+      { "id": 9, "value": "Trail" },
+      { "id": 10, "value": "Hillock" },
+      { "id": 11, "value": "Cul-de-sac" },
+      { "id": 12, "value": "Hill" },
+      { "id": 13, "value": "Crevice" },
+      { "id": 14, "value": "Ridge" },
+      { "id": 15, "value": "Vale" },
+      { "id": 16, "value": "Fountain Peak" },
+      { "id": 17, "value": "Gully" },
+      { "id": 18, "value": "Cave Entrance" }
+    ]
+  }
+  

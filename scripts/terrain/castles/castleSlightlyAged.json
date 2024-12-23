@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleSlightlyAged",
+    "entries": [
+      { "id": 1, "result": "Garrison" },
+      { "id": 2, "result": "Garrison" },
+      { "id": 3, "result": "Garrison" },
+      { "id": 4, "result": "Garrison" },
+      { "id": 5, "result": "Garrison" },
+      { "id": 6, "result": "Garrison" },
+      { "id": 7, "result": "Invaders" },
+      { "id": 8, "result": "Invaders" },
+      { "id": 9, "result": "Abandoned" },
+      { "id": 10, "result": "Abandoned" }
+    ]
+  }
+  

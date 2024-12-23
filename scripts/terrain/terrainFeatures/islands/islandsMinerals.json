@@ -1,0 +1,18 @@
+{
+    "tableName": "tblIslandsMinerals",
+    "entries": [
+      { "id": 1, "value": "Fool's Gold" },
+      { "id": 2, "value": "Sulphur" },
+      { "id": 3, "value": "Tin" },
+      { "id": 4, "value": "Copper" },
+      { "id": 5, "value": "Iron" },
+      { "id": 6, "value": "Quartz" },
+      { "id": 7, "value": "Amber" },
+      { "id": 8, "value": "Jade" },
+      { "id": 9, "value": "Malachite" },
+      { "id": 10, "value": "Marble" },
+      { "id": 11, "value": "Agate" },
+      { "id": 12, "value": "Precious Minerals" }
+    ]
+  }
+  

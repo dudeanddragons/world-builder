@@ -1,0 +1,24 @@
+{
+    "tableName": "tblIslandsCastaways",
+    "entries": [
+      { "id": 1, "result": "Pirate" },
+      { "id": 2, "result": "Buccaneer" },
+      { "id": 3, "result": "Engineer" },
+      { "id": 4, "result": "Alchemist" },
+      { "id": 5, "result": "Trainer" },
+      { "id": 6, "result": "Ranger" },
+      { "id": 7, "result": "Fighter" },
+      { "id": 8, "result": "Thief" },
+      { "id": 9, "result": "Captain" },
+      { "id": 10, "result": "Merchant" },
+      { "id": 11, "result": "Noble" },
+      { "id": 12, "result": "Amazon" },
+      { "id": 13, "result": "Assassin" },
+      { "id": 14, "result": "Druid" },
+      { "id": 15, "result": "Illusionist" },
+      { "id": 16, "result": "Mad Scientist" },
+      { "id": 17, "result": "Bard" },
+      { "id": 18, "result": "Craftsman" }
+    ]
+  }
+  

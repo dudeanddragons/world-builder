@@ -1,0 +1,19 @@
+{
+    "tableName": "tblIslandsInhabitants",
+    "entries": [
+      { "id": 1, "dice": "1d6x10", "result": "Vikings" },
+      { "id": 2, "dice": "5d6x10", "result": "Merchants" },
+      { "id": 3, "dice": "5d6x10", "result": "Pirates" },
+      { "id": 4, "dice": "1d4x10", "result": "Lizard Men" },
+      { "id": 5, "dice": "2d10x10", "result": "Elves" },
+      { "id": 6, "dice": "1d6x10", "result": "Were Sharks" },
+      { "id": 7, "dice": "1d6x10", "result": "Were Dolphins" },
+      { "id": 8, "dice": "5d6x10", "result": "Buccaneers" },
+      { "id": 9, "dice": "5d6x10", "result": "Halflings" },
+      { "id": 10, "dice": "1d4x10", "result": "Cavemen" },
+      { "id": 11, "dice": "5d6x10", "result": "Goblins" },
+      { "id": 12, "dice": "4d10", "result": "Underwater Inhabitants" },
+      { "id": 13, "dice": "3d6", "result": "Recluse" }
+    ]
+  }
+  

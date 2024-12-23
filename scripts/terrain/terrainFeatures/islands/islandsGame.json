@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsGame",
+    "entries": [
+      { "id": 1, "value": "Duck" },
+      { "id": 2, "value": "Mallard" },
+      { "id": 3, "value": "Teal" },
+      { "id": 4, "value": "Pigeon" },
+      { "id": 5, "value": "Parrot" },
+      { "id": 6, "value": "Flamingo" },
+      { "id": 7, "value": "Toucan" },
+      { "id": 8, "value": "Pelican" },
+      { "id": 9, "value": "Hyena" },
+      { "id": 10, "value": "Python" },
+      { "id": 11, "value": "Raccoon" },
+      { "id": 12, "value": "Rodent" },
+      { "id": 13, "value": "Goat" },
+      { "id": 14, "value": "Hare" },
+      { "id": 15, "value": "Dog" },
+      { "id": 16, "value": "Lizard" },
+      { "id": 17, "value": "Tortoise" },
+      { "id": 18, "value": "Toad" },
+      { "id": 19, "value": "Wart Hog" },
+      { "id": 20, "value": "Big Cat" }
+    ]
+  }
+  

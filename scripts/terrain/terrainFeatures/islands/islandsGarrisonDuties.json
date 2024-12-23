@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsGarrisonDuties",
+    "entries": [
+      { "id": 1, "result": "Naval Station" },
+      { "id": 2, "result": "Merchant’s Trading Post" },
+      { "id": 3, "result": "Pirate Stronghold" },
+      { "id": 4, "result": "Fortified Site" },
+      { "id": 5, "result": "Monastery" },
+      { "id": 6, "result": "Sacred Artifact" },
+      { "id": 7, "result": "Assassins’ Headquarters" },
+      { "id": 8, "result": "Ritual Initiation" },
+      { "id": 9, "result": "Warning Outpost" },
+      { "id": 10, "result": "Messenger Way Station" },
+      { "id": 11, "result": "Invasion Gathering Point" },
+      { "id": 12, "result": "Prison" },
+      { "id": 13, "result": "Secret Laboratory Complex" },
+      { "id": 14, "result": "Punishment Duty" },
+      { "id": 15, "result": "Insane Royal Relative" },
+      { "id": 16, "result": "Exiled Warlord" },
+      { "id": 17, "result": "Forgotten in Transit" },
+      { "id": 18, "result": "Deserters" },
+      { "id": 19, "result": "Brigands’ Haven" },
+      { "id": 20, "result": "Sacred Burial Grounds" }
+    ]
+  }
+  

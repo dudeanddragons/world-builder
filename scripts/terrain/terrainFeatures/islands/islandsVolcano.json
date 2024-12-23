@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsVolcano",
+    "entries": [
+      { "id": 1, "value": "Shield, Extinct" },
+      { "id": 2, "value": "Cinder Cone, Extinct" },
+      { "id": 3, "value": "Composite Cone, Extinct" },
+      { "id": 4, "value": "Dome, Extinct" },
+      { "id": 5, "value": "Fissure, Extinct" },
+      { "id": 6, "value": "Maar Crater, Extinct" },
+      { "id": 7, "value": "Shield, Dormant" },
+      { "id": 8, "value": "Cinder Cone, Dormant" },
+      { "id": 9, "value": "Composite Cone, Dormant" },
+      { "id": 10, "value": "Dome, Dormant" },
+      { "id": 11, "value": "Fissure, Dormant" },
+      { "id": 12, "value": "Shield, Active" },
+      { "id": 13, "value": "Cinder Cone, Active" },
+      { "id": 14, "value": "Composite Cone, Active" },
+      { "id": 15, "value": "Dome, Active" },
+      { "id": 16, "value": "Shield, Erupting" },
+      { "id": 17, "value": "Cinder Cone, Erupting" },
+      { "id": 18, "value": "Composite Cone, Erupting" },
+      { "id": 19, "value": "Fissure, Erupting" },
+      { "id": 20, "value": "Dome, Erupting" }
+    ]
+  }
+  

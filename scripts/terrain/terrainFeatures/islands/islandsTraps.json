@@ -1,0 +1,25 @@
+{
+    "tableName": "tblIslandsTraps",
+    "entries": [
+      { "id": 1, "value": "Quicksand" },
+      { "id": 2, "value": "Hidden Pit" },
+      { "id": 3, "value": "Falling Tree" },
+      { "id": 4, "value": "Landslide" },
+      { "id": 5, "value": "Rock Slide" },
+      { "id": 6, "value": "Clashing Rocks" },
+      { "id": 7, "value": "Lightning Attraction" },
+      { "id": 8, "value": "Giant Lodestone" },
+      { "id": 9, "value": "Mirage" },
+      { "id": 10, "value": "Distortion Cave" },
+      { "id": 11, "value": "Deadfall Trap" },
+      { "id": 12, "value": "Snare Trap" },
+      { "id": 13, "value": "Spider Web" },
+      { "id": 14, "value": "Giant Clam" },
+      { "id": 15, "value": "Tangle Vines" },
+      { "id": 16, "value": "Ambush" },
+      { "id": 17, "value": "Gas Fissure" },
+      { "id": 18, "value": "Explosive Runes" },
+      { "id": 19, "value": "Dazzling Mirror" }
+    ]
+  }
+  

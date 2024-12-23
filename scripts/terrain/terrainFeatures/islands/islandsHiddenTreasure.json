@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsHiddenTreasure",
+    "entries": [
+      { "id": 1, "result": "1d10 Bottles of Rum" },
+      { "id": 2, "result": "2d6 Bars of Silver" },
+      { "id": 3, "result": "Barrel with 5d10x10 GP" },
+      { "id": 4, "result": "Jade Statue Worth 5d20 GP" },
+      { "id": 5, "result": "Chest with 1d20x10 GP" },
+      { "id": 6, "result": "Magic Dagger +1" },
+      { "id": 7, "result": "Bag of Holding with 3d20 GP" },
+      { "id": 8, "result": "Spell Book" },
+      { "id": 9, "result": "Giant Emerald Worth 1d100x50 GP" },
+      { "id": 10, "result": "Sarcophagus" },
+      { "id": 11, "result": "Elven Armor Worth 8d10x10 GP" },
+      { "id": 12, "result": "Sack of Pearls Worth 1d12x100" },
+      { "id": 13, "result": "Magic Staff" },
+      { "id": 14, "result": "3d8 Gold Bars" },
+      { "id": 15, "result": "Crystal Ball" },
+      { "id": 16, "result": "Magic Shield +1" },
+      { "id": 17, "result": "Clockwork Robot" },
+      { "id": 18, "result": "Holy Relic" },
+      { "id": 19, "result": "Magic Carpet" },
+      { "id": 20, "result": "Magic Sword +2" }
+    ]
+  }
+  

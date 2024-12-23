@@ -1,0 +1,23 @@
+{
+    "tableName": "tblIslandsCoastalEncountersAquatic",
+    "entries": [
+      { "id": 1, "dice": "1d8+4", "result": "Sea Lion" },
+      { "id": 2, "dice": "1d20", "result": "Giant Sea Horse" },
+      { "id": 3, "dice": "3d4", "result": "Sharks" },
+      { "id": 4, "dice": "1d3", "result": "Giant Sharks" },
+      { "id": 5, "dice": "1d3", "result": "Giant Sea Turtle" },
+      { "id": 6, "dice": "1d3", "result": "Giant Sea Snake" },
+      { "id": 7, "dice": "1d4", "result": "Sea Hag" },
+      { "id": 8, "dice": "1d4", "result": "Manta Ray" },
+      { "id": 9, "dice": "1d4", "result": "Fungi Ray" },
+      { "id": 10, "dice": "1d4", "result": "Sting Ray" },
+      { "id": 11, "dice": "1d3", "result": "Morlock Worm" },
+      { "id": 12, "dice": "1d10", "result": "Giant Man-O-War" },
+      { "id": 13, "dice": "1d10", "result": "Giant Octopus" },
+      { "id": 14, "dice": "1d3", "result": "Nymph" },
+      { "id": 15, "dice": "1d4", "result": "Water Naga" },
+      { "id": 16, "dice": "1d10", "result": "Hippocampus" },
+      { "id": 17, "dice": "1d12", "result": "Floating Eye" }
+    ]
+  }
+  

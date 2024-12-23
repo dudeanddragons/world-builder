@@ -1,0 +1,18 @@
+{
+    "tableName": "tblIslandElements",
+    "entries": [
+      { "id": 1, "value": "Trap" },
+      { "id": 2, "value": "Dominant Creature" },
+      { "id": 3, "value": "Island Provisions" },
+      { "id": 4, "value": "Mineral" },
+      { "id": 5, "value": "Hill" },
+      { "id": 6, "value": "Stream" },
+      { "id": 7, "value": "Feature" },
+      { "id": 8, "value": "Landmark" },
+      { "id": 9, "value": "Mountain" },
+      { "id": 10, "value": "Volcano" },
+      { "id": 11, "value": "Cave" },
+      { "id": 12, "value": "Habitation" }
+    ]
+  }
+  

@@ -1,0 +1,23 @@
+{
+    "tableName": "tblIslandsDominantCreatures",
+    "entries": [
+      { "id": 1, "value": "Giant Waterbug" },
+      { "id": 2, "value": "Giant Octopus" },
+      { "id": 3, "value": "Giant Leeches" },
+      { "id": 4, "value": "Giant Slugs" },
+      { "id": 5, "value": "Water Spider" },
+      { "id": 6, "value": "Water Rat" },
+      { "id": 7, "value": "Giant Pigs" },
+      { "id": 8, "value": "Giant Crabs" },
+      { "id": 9, "value": "Water Naga" },
+      { "id": 10, "value": "Catoblepas" },
+      { "id": 11, "value": "Giant Frog" },
+      { "id": 12, "value": "Nymph" },
+      { "id": 13, "value": "Sea Hag" },
+      { "id": 14, "value": "Giant Sea Snake" },
+      { "id": 15, "value": "Giant Toad" },
+      { "id": 16, "value": "Giant Sea Turtle" },
+      { "id": 17, "value": "Will-O-Wisp" }
+    ]
+  }
+  

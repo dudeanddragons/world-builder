@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleUnderConstruction",
+    "entries": [
+      { "id": 1, "result": "Construction Workers" },
+      { "id": 2, "result": "Construction Workers" },
+      { "id": 3, "result": "Construction Workers" },
+      { "id": 4, "result": "Construction Workers" },
+      { "id": 5, "result": "Garrison" },
+      { "id": 6, "result": "Construction Workers & Garrison" },
+      { "id": 7, "result": "Construction Workers & Garrison" },
+      { "id": 8, "result": "Garrison" },
+      { "id": 9, "result": "Garrison" },
+      { "id": 10, "result": "Abandoned" }
+    ]
+  }
+  

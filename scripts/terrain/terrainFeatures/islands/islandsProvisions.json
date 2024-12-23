@@ -1,0 +1,33 @@
+{
+    "tableName": "tblIslandsProvisions",
+    "entries": [
+      { "id": 1, "value": "Barren" },
+      { "id": 2, "value": "Salt Spray" },
+      { "id": 3, "value": "Salt Potholes" },
+      { "id": 4, "value": "Poisonous Rivulet" },
+      { "id": 5, "value": "Hot Spring (50% Prob)" },
+      { "id": 6, "value": "Warm Spring (60% Prob)" },
+      { "id": 7, "value": "Porous Lava Spring (70% Prob)" },
+      { "id": 8, "value": "Hillside Spring (80% Prob)" },
+      { "id": 9, "value": "Artesian Spring (90% Prob)" },
+      { "id": 10, "value": "Limestone Spring (100% Prob)" },
+      { "id": 11, "value": "Geysers (50% Prob)" },
+      { "id": 12, "value": "Caldera Lake (80% Prob)" },
+      { "id": 13, "value": "Roots" },
+      { "id": 14, "value": "Fruit" },
+      { "id": 15, "value": "Vegetables" },
+      { "id": 16, "value": "Nuts" },
+      { "id": 17, "value": "Game" },
+      { 
+        "id": 18,
+        "value": "Wreck (Ruins)",
+        "reference": {
+          "path": "scripts\\terrain\\terrainFeatures\\ruins\\wrecks.json",
+          "tableName": "tblWrecks"
+        }
+      },
+      { "id": 19, "value": "Abandoned Habitation" },
+      { "id": 20, "value": "Inhabited" }
+    ]
+  }
+  

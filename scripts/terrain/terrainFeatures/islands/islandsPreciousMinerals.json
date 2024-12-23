@@ -1,0 +1,13 @@
+{
+    "tableName": "tblIslandsPreciousMinerals",
+    "entries": [
+      { "id": 1, "value": "Silver" },
+      { "id": 2, "value": "Gold" },
+      { "id": 3, "value": "Platinum" },
+      { "id": 4, "value": "Orichalcum" },
+      { "id": 5, "value": "Adamantite" },
+      { "id": 6, "value": "Mithril" },
+      { "id": 7, "value": "Gems" }
+    ]
+  }
+  

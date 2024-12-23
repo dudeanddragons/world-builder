@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsMysteriousFinds",
+    "entries": [
+      { "id": 1, "result": "Skeletons" },
+      { "id": 2, "result": "Broken Sword" },
+      { "id": 3, "result": "Split Shield" },
+      { "id": 4, "result": "Arrowhead" },
+      { "id": 5, "result": "Map Fragment" },
+      { "id": 6, "result": "Broken Keg" },
+      { "id": 7, "result": "Oar" },
+      { "id": 8, "result": "Empty Chest" },
+      { "id": 9, "result": "Empty Wine Skin" },
+      { "id": 10, "result": "Empty Tent" },
+      { "id": 11, "result": "Burnt Clearing" },
+      { "id": 12, "result": "Pit" },
+      { "id": 13, "result": "Crumbled Wall" },
+      { "id": 14, "result": "Rusty Knife" },
+      { "id": 15, "result": "Leather Thongs" },
+      { "id": 16, "result": "Sail Scraps" },
+      { "id": 17, "result": "Starving Castaway" },
+      { "id": 18, "result": "Axe" },
+      { "id": 19, "result": "Buried Provisions" },
+      { "id": 20, "result": "Passing Ship" }
+    ]
+  }
+  

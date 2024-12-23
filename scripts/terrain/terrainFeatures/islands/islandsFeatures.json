@@ -1,0 +1,25 @@
+{
+    "tableName": "tblIslandsFeatures",
+    "entries": [
+      { "id": 1, "value": "Waterfall" },
+      { "id": 2, "value": "Pond" },
+      { "id": 3, "value": "Pool" },
+      { "id": 4, "value": "Tarn" },
+      { "id": 5, "value": "Lakelet" },
+      { "id": 6, "value": "Mare" },
+      { "id": 7, "value": "Delta" },
+      { "id": 8, "value": "Swamp" },
+      { "id": 9, "value": "Lake" },
+      { "id": 10, "value": "Cove" },
+      { "id": 11, "value": "Loch" },
+      { "id": 12, "value": "Cascade" },
+      { "id": 13, "value": "Bank" },
+      { "id": 14, "value": "Marsh" },
+      { "id": 15, "value": "Vale" },
+      { "id": 16, "value": "Strand" },
+      { "id": 17, "value": "Peninsula" },
+      { "id": 18, "value": "Bay" },
+      { "id": 19, "value": "Promontory" }
+    ]
+  }
+  

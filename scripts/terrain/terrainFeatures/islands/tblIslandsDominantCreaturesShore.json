@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsDominantCreaturesShore",
+    "entries": [
+      { "id": 1, "result": "Giant Waterbug" },
+      { "id": 2, "result": "Giant Octopus" },
+      { "id": 3, "result": "Giant Leeches" },
+      { "id": 4, "result": "Giant Slugs" },
+      { "id": 5, "result": "Water Spider" },
+      { "id": 6, "result": "Water Rat" },
+      { "id": 7, "result": "Giant Pigs" },
+      { "id": 8, "result": "Giant Crabs" },
+      { "id": 9, "result": "Water Naga" },
+      { "id": 10, "result": "Catoblepas" },
+      { "id": 11, "result": "Giant Crocodile" },
+      { "id": 12, "result": "Paleoclineus" },
+      { "id": 13, "result": "Black Dragon" },
+      { "id": 14, "result": "Giant Frog" },
+      { "id": 15, "result": "Nymph" },
+      { "id": 16, "result": "Sea Hag" },
+      { "id": 17, "result": "Giant Sea Snake" },
+      { "id": 18, "result": "Giant Toad" },
+      { "id": 19, "result": "Giant Sea Turtle" },
+      { "id": 20, "result": "Will-O-Wisp" }
+    ]
+  }
+  

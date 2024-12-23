@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsVolcanoEruptions",
+    "entries": [
+      { "id": 1, "value": "Gentle Out Pour" },
+      { "id": 2, "value": "Pumice Cloud" },
+      { "id": 3, "value": "Lava Flood" },
+      { "id": 4, "value": "Ash Flow" },
+      { "id": 5, "value": "Thin Flows" },
+      { "id": 6, "value": "Hot Ash Cloud" },
+      { "id": 7, "value": "Mud Flow" },
+      { "id": 8, "value": "Cinder Fall" },
+      { "id": 9, "value": "Fire-Broken Rock" },
+      { "id": 10, "value": "Splatter" },
+      { "id": 11, "value": "Block & Ash Fount" },
+      { "id": 12, "value": "Obsidian Fall" },
+      { "id": 13, "value": "Steam Fumaroles" },
+      { "id": 14, "value": "Sulphur Fumaroles" },
+      { "id": 15, "value": "Carbon Dioxide Fumaroles" },
+      { "id": 16, "value": "Methane Fumaroles" },
+      { "id": 17, "value": "Boiling Rain" },
+      { "id": 18, "value": "Lava Fountain" },
+      { "id": 19, "value": "Pancake Bombs" },
+      { "id": 20, "value": "Glowing Avalanche" }
+    ]
+  }
+  

@@ -1,0 +1,23 @@
+{
+    "tableName": "tblIslandsUnderwaterInhabitants",
+    "entries": [
+      { "id": 1, "dice": "2d4x10", "result": "Nixies" },
+      { "id": 2, "dice": "1d4x10", "result": "Lizard Men" },
+      { "id": 3, "dice": "2d10x10", "result": "Mermen" },
+      { "id": 4, "dice": "1d6x10", "result": "Tritons" },
+      { "id": 5, "dice": "1d4x10", "result": "Sahuagin" },
+      { "id": 6, "dice": "2d8", "result": "Koopaian Gargoyles" },
+      { "id": 7, "dice": "1d3x10", "result": "Laedon Ghouls" },
+      { "id": 8, "dice": "1d4x10", "result": "Locathan" },
+      { "id": 9, "dice": "1d10x10", "result": "Ixixixixchitl" },
+      { "id": 10, "dice": "1d4x10", "result": "Aquatic Elves" },
+      { "id": 11, "dice": "1d6", "result": "Were Turtles" },
+      { "id": 12, "dice": "3d6", "result": "Were Sharks" },
+      { "id": 13, "dice": "1d8", "result": "Were Dolphins" },
+      { "id": 14, "dice": "1d4", "result": "Were Frogs" },
+      { "id": 15, "dice": "1d6", "result": "Were Crabs" },
+      { "id": 16, "dice": "1d6", "result": "Were Lamprey" },
+      { "id": 17, "dice": "1d6", "result": "Were Sea Horse" }
+    ]
+  }
+  

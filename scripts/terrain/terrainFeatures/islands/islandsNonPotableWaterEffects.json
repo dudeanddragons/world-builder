@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsNonPotableWaterEffects",
+    "entries": [
+      { "id": 1, "value": "Yellow Fever, Prob 20%" },
+      { "id": 2, "value": "Bitter (Nausea 1d6 Turns)" },
+      { "id": 3, "value": "Orange Coloration (2d6 Days)" },
+      { "id": 4, "value": "Protruding Eyes (1d6 Days)" },
+      { "id": 5, "value": "Purple Blotches (1d6 Days)" },
+      { "id": 6, "value": "Stunned (1d6 Turns)" },
+      { "id": 7, "value": "Saps 1–6 Strength (1d6 Turns)" },
+      { "id": 8, "value": "Vomiting" },
+      { "id": 9, "value": "Dysentery, Prob 0%" },
+      { "id": 10, "value": "Grippe, Prob 20%" },
+      { "id": 11, "value": "Lose All Hair (1d6 Months)" },
+      { "id": 12, "value": "Lose All Teeth" },
+      { "id": 13, "value": "Blind (1d6 Turns)" },
+      { "id": 14, "value": "Lose Hearing (1d6 Turns)" },
+      { "id": 15, "value": "Sleep (1d6x10 Turns)" },
+      { "id": 16, "value": "Dehydrate (1d6 Turns)" },
+      { "id": 17, "value": "Poison Class 1" },
+      { "id": 18, "value": "Poison Class 2" },
+      { "id": 19, "value": "Poison Class 3" },
+      { "id": 20, "value": "Poison Class 4" }
+    ]
+  }
+  

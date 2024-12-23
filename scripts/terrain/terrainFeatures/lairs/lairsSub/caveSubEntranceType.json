@@ -1,0 +1,51 @@
+{
+    "tableName": "tblCaveSubEntranceType",
+    "entries": [
+      {
+        "id": 1,
+        "caveType": "Limestone Cave",
+        "entrances": ["Sinkhole", "Arch", "Pit"]
+      },
+      {
+        "id": 2,
+        "caveType": "Talus Cave",
+        "entrances": ["Sinkhole", "Arch", "Pit"]
+      },
+      {
+        "id": 3,
+        "caveType": "Sea Cave",
+        "entrances": ["Sinkhole", "Arch", "Pit"]
+      },
+      {
+        "id": 4,
+        "caveType": "Lava Tube",
+        "entrances": ["Sinkhole", "Arch", "Pit"]
+      },
+      {
+        "id": 5,
+        "caveType": "Geothermal",
+        "entrances": ["Sinkhole", "Arch", "Pit"]
+      },
+      {
+        "id": 6,
+        "caveType": "Stream Cut",
+        "entrances": ["Sinkhole", "Arch", "Pit"]
+      },
+      {
+        "id": 7,
+        "caveType": "Pold Cave",
+        "entrances": ["Sinkhole", "Arch", "Pit"]
+      },
+      {
+        "id": 8,
+        "caveType": "Ice Cave",
+        "entrances": ["Sinkhole", "Arch", "Pit"]
+      },
+      {
+        "id": 9,
+        "caveType": "Abandoned Mine",
+        "entrances": ["Shaft", "Entrance Room", "Broken Shaft"]
+      }
+    ]
+  }
+  

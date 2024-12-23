@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsRecluses",
+    "entries": [
+      { "id": 1, "result": "Happy Hermit" },
+      { "id": 2, "result": "Mourning Loss of Fortune" },
+      { "id": 3, "result": "Rejected Lover" },
+      { "id": 4, "result": "Exiled Noble" },
+      { "id": 5, "result": "Studious Sage" },
+      { "id": 6, "result": "Hideous Outcast" },
+      { "id": 7, "result": "Researching Alchemist" },
+      { "id": 8, "result": "Hiding From Enemy" },
+      { "id": 9, "result": "Paranoid Collector" },
+      { "id": 10, "result": "Monkey Virus Victim" },
+      { "id": 11, "result": "Cursed Extrovert" },
+      { "id": 12, "result": "Exiled Gladiator" },
+      { "id": 13, "result": "Prospector" },
+      { "id": 14, "result": "Artifact Hunter" },
+      { "id": 15, "result": "Loathes Speech" },
+      { "id": 16, "result": "Escaped Slave" },
+      { "id": 17, "result": "Insane Wizard" },
+      { "id": 18, "result": "Mad Scientist" },
+      { "id": 19, "result": "Rotting Disease Victim" },
+      { "id": 20, "result": "Black Plague Victim" }
+    ]
+  }
+  

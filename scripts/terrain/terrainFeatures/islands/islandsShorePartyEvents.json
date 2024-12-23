@@ -1,0 +1,26 @@
+{
+    "tableName": "tblIslandsShorePartyEvents",
+    "entries": [
+      { "id": 1, "result": "Boat Sinks" },
+      { "id": 2, "result": "Boat Overturns" },
+      { "id": 3, "result": "Boat Swept Away" },
+      { "id": 4, "result": "Mysterious Find" },
+      { "id": 5, "result": "Passing Ship" },
+      { "id": 6, "result": "Lost" },
+      { "id": 7, "result": "Lured into Trap" },
+      { "id": 8, "result": "Attacked by Flyers" },
+      { "id": 9, "result": "Attacked by Animals" },
+      { "id": 10, "result": "Separated" },
+      { "id": 11, "result": "Find Castaway" },
+      { "id": 12, "result": "Find Shore Party" },
+      { "id": 13, "result": "Own Ship is Gone" },
+      { "id": 14, "result": "Find Recluse" },
+      { "id": 15, "result": "Find Inhabitants" },
+      { "id": 16, "result": "Find Garrison" },
+      { "id": 17, "result": "Attacked by Creatures" },
+      { "id": 18, "result": "Find Habitations" },
+      { "id": 19, "result": "Find Hidden Treasure" },
+      { "id": 20, "result": "Find Provisions" }
+    ]
+  }
+  
