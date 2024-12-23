@@ -1,0 +1,16 @@
+{
+    "tableName": "tblTempleWealth",
+    "entries": [
+      { "id": 1, "result": "Treasury of 1d4 x 100 GP, each Priest carries 2d6 GP" },
+      { "id": 2, "result": "Treasury of 2d6 x 100 GP, each Priest carries 10 + 2d6 GP" },
+      { "id": 3, "result": "Treasury of (1d10 + 10) x 100 GP, each Priest carries 20 + 3d6 GP" },
+      { "id": 4, "result": "Treasury of 1d4 x 1000 GP, each Priest carries 2d4 x 10 GP" },
+      { "id": 5, "result": "Treasury of 2d4 x 1000 GP, each Priest carries 2d4 x 10 GP" },
+      { "id": 6, "result": "Treasury of 2d10 x 1000 GP, each Priest carries 2d6 x 10 GP" },
+      { "id": 7, "result": "Treasury of (2d6 + 10) x 1000 GP, each Priest carries 3d6 x 10 + 50 GP" },
+      { "id": 8, "result": "Treasury of (2d6 + 15) x 1000 GP, each Priest carries 3d6 x 10 + 100 GP" },
+      { "id": 9, "result": "Treasury of (3d6 + 20) x 1000 GP, each Priest carries (1d4 + 1) x 100 GP" },
+      { "id": 10, "result": "Treasury of (1d4 + 1) x 10,000 GP, each Priest carries 1d6 x 100 GP" }
+    ]
+  }
+  

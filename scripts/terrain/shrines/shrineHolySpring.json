@@ -1,0 +1,12 @@
+{
+    "tableName": "tblShrineHolySpring",
+    "entries": [
+      { "id": 1, "result": "Water of Curing" },
+      { "id": 2, "result": "Transmutes Copper to Gold" },
+      { "id": 3, "result": "Dissolves all Metals" },
+      { "id": 4, "result": "Allows Commune with God" },
+      { "id": 5, "result": "Dissolves Flesh" },
+      { "id": 6, "result": "Transmutes Gold to Copper" }
+    ]
+  }
+  

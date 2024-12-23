@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleTraps",
+    "entries": [
+      { "id": 1, "result": "Covered Pits in Courtyard" },
+      { "id": 2, "result": "Crossbow traps set to cover courtyard" },
+      { "id": 3, "result": "Blocks of Stone fall from top of walls" },
+      { "id": 4, "result": "Trap Door, 20’ pit just inside entrance" },
+      { "id": 5, "result": "Snares in courtyard" },
+      { "id": 6, "result": "Small Poisoned Spikes on top of walls" }
+    ]
+  }
+  

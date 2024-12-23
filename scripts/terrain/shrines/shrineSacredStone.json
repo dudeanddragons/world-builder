@@ -1,0 +1,12 @@
+{
+    "tableName": "tblShrineSacredStone",
+    "entries": [
+      { "id": 1, "result": "Charms non-believers" },
+      { "id": 2, "result": "Magnetic" },
+      { "id": 3, "result": "Animated" },
+      { "id": 4, "result": "Absorbs Magic" },
+      { "id": 5, "result": "Sacrificial Stone" },
+      { "id": 6, "result": "Hurls Random Clerical Spells" }
+    ]
+  }
+  

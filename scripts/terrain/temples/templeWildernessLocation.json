@@ -1,0 +1,26 @@
+{
+    "tableName": "tblTempleWildernessLocation",
+    "entries": [
+      { "id": 1, "result": "Dense Forest" },
+      { "id": 2, "result": "Meadow" },
+      { "id": 3, "result": "Cavern" },
+      { "id": 4, "result": "Cliff Top" },
+      { "id": 5, "result": "Sea Coast" },
+      { "id": 6, "result": "Hidden Valley" },
+      { "id": 7, "result": "Underground" },
+      { "id": 8, "result": "Marsh" },
+      { "id": 9, "result": "Mountaintop" },
+      { "id": 10, "result": "Riverbank" },
+      { "id": 11, "result": "Ruins" },
+      { "id": 12, "result": "Island" },
+      { "id": 13, "result": "Volcano" },
+      { "id": 14, "result": "Desert Oasis" },
+      { "id": 15, "result": "Sacred Grove" },
+      { "id": 16, "result": "Gorge" },
+      { "id": 17, "result": "Underwater" },
+      { "id": 18, "result": "Plains" },
+      { "id": 19, "result": "Crater" },
+      { "id": 20, "result": "Floating in Sky" }
+    ]
+  }
+  

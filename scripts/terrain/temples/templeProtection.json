@@ -1,0 +1,26 @@
+{
+    "tableName": "tblTempleProtection",
+    "entries": [
+      { "id": 1, "result": "Priests on Guard" },
+      { "id": 2, "result": "Hired Mercenaries" },
+      { "id": 3, "result": "Magical Detection" },
+      { "id": 4, "result": "Dogs" },
+      { "id": 5, "result": "Lions" },
+      { "id": 6, "result": "Serpents" },
+      { "id": 7, "result": "High Walls" },
+      { "id": 8, "result": "Moat" },
+      { "id": 9, "result": "Temple in Fortress" },
+      { "id": 10, "result": "Temple is a Fortress" },
+      { "id": 11, "result": "Undead" },
+      { "id": 12, "result": "Animated Furniture" },
+      { "id": 13, "result": "Traps" },
+      { "id": 14, "result": "Walls of Fire" },
+      { "id": 15, "result": "Town Militia" },
+      { "id": 16, "result": "Nearby Castle" },
+      { "id": 17, "result": "Sentient Temple" },
+      { "id": 18, "result": "Illusions" },
+      { "id": 19, "result": "Monsters" },
+      { "id": 20, "result": "Demons" }
+    ]
+  }
+  

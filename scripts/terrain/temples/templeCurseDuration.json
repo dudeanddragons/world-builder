@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleCurseDuration",
+    "entries": [
+      { "id": 1, "result": "1d20 Hours" },
+      { "id": 2, "result": "1d10 Days" },
+      { "id": 3, "result": "1d8 Weeks" },
+      { "id": 4, "result": "1d6 Months" },
+      { "id": 5, "result": "1d4 Years" },
+      { "id": 6, "result": "Permanent" }
+    ]
+  }
+  

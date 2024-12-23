@@ -1,0 +1,12 @@
+{
+    "tableName": "tblShrineAncientWritings",
+    "entries": [
+      { "id": 1, "result": "Of Creation" },
+      { "id": 2, "result": "Of Deity's Battles" },
+      { "id": 3, "result": "By Deity" },
+      { "id": 4, "result": "Of Deity's Birth/Creation" },
+      { "id": 5, "result": "Deity's Adventure" },
+      { "id": 6, "result": "By Deity's First High Priest" }
+    ]
+  }
+  

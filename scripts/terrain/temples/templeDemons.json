@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleDemons",
+    "entries": [
+      { "id": 1, "result": "Succubus" },
+      { "id": 2, "result": "Rank I" },
+      { "id": 3, "result": "Rank II" },
+      { "id": 4, "result": "Rank III" },
+      { "id": 5, "result": "Rank IV" },
+      { "id": 6, "result": "75% Rank V, 25% Rank VI" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleMagicalDetection",
+    "entries": [
+      { "id": 1, "result": "Gets detects Evil/Good" },
+      { "id": 2, "result": "ESP of all entering temple" },
+      { "id": 3, "result": "Detect Magic in effect, no Magic Weapons or devices allowed in Temple" },
+      { "id": 4, "result": "Know Alignment in effect, none of opposite Alignment allowed in" },
+      { "id": 5, "result": "Detect Invisible in effect" },
+      { "id": 6, "result": "Gong starts if unauthorized person passed by" }
+    ]
+  }
+  

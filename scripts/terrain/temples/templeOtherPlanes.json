@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleOtherPlanes",
+    "entries": [
+      { "id": 1, "result": "Elemental Plane of Fire" },
+      { "id": 2, "result": "Elemental Plane of Water" },
+      { "id": 3, "result": "Elemental Plane of Air" },
+      { "id": 4, "result": "Elemental Plane of Earth" },
+      { "id": 5, "result": "Ethereal" },
+      { "id": 6, "result": "Astral" }
+    ]
+  }
+  

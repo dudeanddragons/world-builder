@@ -1,0 +1,26 @@
+{
+    "tableName": "tblTempleBuiltOf",
+    "entries": [
+      { "id": 1, "result": "Adobe" },
+      { "id": 2, "result": "Silver" },
+      { "id": 3, "result": "Tin" },
+      { "id": 4, "result": "Granite" },
+      { "id": 5, "result": "Onyx" },
+      { "id": 6, "result": "Sod" },
+      { "id": 7, "result": "Wood" },
+      { "id": 8, "result": "Copper" },
+      { "id": 9, "result": "Gold" },
+      { "id": 10, "result": "Earth" },
+      { "id": 11, "result": "Quartz" },
+      { "id": 12, "result": "Sandstone" },
+      { "id": 13, "result": "Clay" },
+      { "id": 14, "result": "Iron" },
+      { "id": 15, "result": "Platinum" },
+      { "id": 16, "result": "Marble" },
+      { "id": 17, "result": "Bronze" },
+      { "id": 18, "result": "Crystal" },
+      { "id": 19, "result": "Brass" },
+      { "id": 20, "result": "Unknown Metal" }
+    ]
+  }
+  

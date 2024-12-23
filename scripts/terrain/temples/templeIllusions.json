@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleIllusions",
+    "entries": [
+      { "id": 1, "result": "Monsters" },
+      { "id": 2, "result": "Demons" },
+      { "id": 3, "result": "Guards" },
+      { "id": 4, "result": "Walls" },
+      { "id": 5, "result": "Doors" },
+      { "id": 6, "result": "Temple" }
+    ]
+  }
+  

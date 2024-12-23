@@ -1,0 +1,12 @@
+{
+    "tableName": "tblShrineArtifactOfAncientHighPriest",
+    "entries": [
+      { "id": 1, "result": "Mace" },
+      { "id": 2, "result": "Writings" },
+      { "id": 3, "result": "Skull (animated)" },
+      { "id": 4, "result": "Staff" },
+      { "id": 5, "result": "Heart" },
+      { "id": 6, "result": "Body" }
+    ]
+  }
+  

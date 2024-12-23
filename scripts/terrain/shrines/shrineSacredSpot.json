@@ -1,0 +1,12 @@
+{
+    "tableName": "tblShrineSacredSpot",
+    "entries": [
+      { "id": 1, "result": "Deity's Triumph" },
+      { "id": 2, "result": "Deity's Birth/Creation" },
+      { "id": 3, "result": "Deity's Ascension" },
+      { "id": 4, "result": "Deity's Return" },
+      { "id": 5, "result": "Meeting of Deity & Servants" },
+      { "id": 6, "result": "Deity's Defeat" }
+    ]
+  }
+  

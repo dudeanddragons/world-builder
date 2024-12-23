@@ -1,0 +1,26 @@
+{
+    "tableName": "tblTempleCurseUponDefiler",
+    "entries": [
+      { "id": 1, "result": "Primary Characteristic reduced by 2" },
+      { "id": 2, "result": "Any Animals/Elements Influenced by Deity always at odds with Defiler" },
+      { "id": 3, "result": "Pursuit by other members of Church" },
+      { "id": 4, "result": "One Magic Item of Defiler loses Abilities" },
+      { "id": 5, "result": "Earthquake destroys Temple while characters still inside" },
+      { "id": 6, "result": "Defiler under geas by Deity to attack some other Temple, perhaps character's own" },
+      { "id": 7, "result": "Defiler wracked with pain, -4 to Hit, no Spells" },
+      { "id": 8, "result": "Defiler's sex changed" },
+      { "id": 9, "result": "Defiler becomes Dumb" },
+      { "id": 10, "result": "Defiler becomes Blind" },
+      { "id": 11, "result": "Defiler becomes Deaf" },
+      { "id": 12, "result": "Defiler loses 5 points of Charisma" },
+      { "id": 13, "result": "Defiler's skin slowly changes color" },
+      { "id": 14, "result": "Defiler's home struck by Plague" },
+      { "id": 15, "result": "Defiler has -2 on all saving throws" },
+      { "id": 16, "result": "12th level Assassin hired by Church" },
+      { "id": 17, "result": "Defiler has 10% chance per melee of becoming catatonic for 1d12 rounds" },
+      { "id": 18, "result": "Defiler's vision becomes slightly blurred, -1 to Hit, cannot find any secret doors, etc." },
+      { "id": 19, "result": "A pair of Devil's Horns grow out of Defiler's head" },
+      { "id": 20, "result": "Defiler attacked once per day by random creature" }
+    ]
+  }
+  

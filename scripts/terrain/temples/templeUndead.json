@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleUndead",
+    "entries": [
+      { "id": 1, "result": "Skeleton" },
+      { "id": 2, "result": "Zombie" },
+      { "id": 3, "result": "Vampire" },
+      { "id": 4, "result": "Ghoul" },
+      { "id": 5, "result": "Ghost" },
+      { "id": 6, "result": "Mummy" }
+    ]
+  }
+  

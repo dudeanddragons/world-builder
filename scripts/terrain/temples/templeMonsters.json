@@ -1,0 +1,11 @@
+{
+    "tableName": "tblTempleMonsters",
+    "entries": [
+      { "id": 1, "result": "Orcs" },
+      { "id": 2, "result": "Bugbears" },
+      { "id": 3, "result": "Giants" },
+      { "id": 4, "result": "Ogres" },
+      { "id": 5, "result": "Trolls" }
+    ]
+  }
+  

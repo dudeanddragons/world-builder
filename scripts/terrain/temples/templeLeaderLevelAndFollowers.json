@@ -1,0 +1,26 @@
+{
+    "tableName": "tblTempleLeaderLevelAndFollowers",
+    "entries": [
+      { "id": 1, "leaderLevel": "4th", "otherPriests": "1d4", "level": "1d3" },
+      { "id": 2, "leaderLevel": "5th", "otherPriests": "2d4", "level": "1d4" },
+      { "id": 3, "leaderLevel": "5th", "otherPriests": "2d6 + 4", "level": "1d4 + 1" },
+      { "id": 4, "leaderLevel": "6th", "otherPriests": "2d6", "level": "1d6 - 1" },
+      { "id": 5, "leaderLevel": "6th", "otherPriests": "2d10 + 6", "level": "1d6 - 1" },
+      { "id": 6, "leaderLevel": "6th", "otherPriests": "3d6", "level": "1d4 + 1" },
+      { "id": 7, "leaderLevel": "7th", "otherPriests": "2d6", "level": "1d6 - 1" },
+      { "id": 8, "leaderLevel": "7th", "otherPriests": "20 + 2d10", "level": "1d6 + 1" },
+      { "id": 9, "leaderLevel": "8th", "otherPriests": "25 + 3d6", "level": "1d8 + 1" },
+      { "id": 10, "leaderLevel": "8th", "otherPriests": "20 + 5d8", "level": "1d8 + 1" },
+      { "id": 11, "leaderLevel": "9th", "otherPriests": "20 + 2d10", "level": "1d10 + 1" },
+      { "id": 12, "leaderLevel": "9th", "otherPriests": "40 + 2d10", "level": "1d8 + 3" },
+      { "id": 13, "leaderLevel": "10th", "otherPriests": "75 + 3d10", "level": "1d6 - 1" },
+      { "id": 14, "leaderLevel": "10th", "otherPriests": "100 + 3d10", "level": "1d4 + 2" },
+      { "id": 15, "leaderLevel": "11th", "otherPriests": "60 + 4d10", "level": "1d8 - 2" },
+      { "id": 16, "leaderLevel": "11th", "otherPriests": "75 + 3d10", "level": "1d6 + 1" },
+      { "id": 17, "leaderLevel": "11th", "otherPriests": "100 + 1d6 x 10", "level": "1d6 - 2" },
+      { "id": 18, "leaderLevel": "11th", "otherPriests": "150 + 1d10", "level": "1d10 - 1" },
+      { "id": 19, "leaderLevel": "11th + 1d8", "otherPriests": "200 + 1d6 x 10", "level": "1d8 - 2" },
+      { "id": 20, "leaderLevel": "11th + 1d8", "otherPriests": "200 + 2d10", "level": "1d4 + 6" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleMoatCreatures",
+    "entries": [
+      { "id": 1, "result": "Crocodiles" },
+      { "id": 2, "result": "Giant Eels" },
+      { "id": 3, "result": "Giant Leeches" },
+      { "id": 4, "result": "Giant Water Snakes" },
+      { "id": 5, "result": "Giant Crocodiles" },
+      { "id": 6, "result": "6 Giant Crayfish" }
+    ]
+  }
+  

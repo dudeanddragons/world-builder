@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleSentientTemple",
+    "entries": [
+      { "id": 1, "result": "Screams while being invaded" },
+      { "id": 2, "result": "Warns Clerics only" },
+      { "id": 3, "result": "Locks 1 door per turn" },
+      { "id": 4, "result": "Collapses part of ceiling (20% chance per turn), 6d6 damage" },
+      { "id": 5, "result": "Electrical discharge from walls per turn" },
+      { "id": 6, "result": "Spells as 15th Level Cleric" }
+    ]
+  }
+  

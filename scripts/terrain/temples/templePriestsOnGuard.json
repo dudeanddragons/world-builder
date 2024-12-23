@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTemplePriestsOnGuard",
+    "entries": [
+      { "id": 1, "result": "1d4 Level 1" },
+      { "id": 2, "result": "1d6 Level 1" },
+      { "id": 3, "result": "1d4 Level 1, 1 Level 3" },
+      { "id": 4, "result": "1d6 Level 1, 1 Level 4" },
+      { "id": 5, "result": "2d4 Level 1, 2 Level 3, 1 Level 5" },
+      { "id": 6, "result": "2d6 Level 1, 1d4 Level 3, 2 Level 5, 1 Level 7" }
+    ]
+  }
+  

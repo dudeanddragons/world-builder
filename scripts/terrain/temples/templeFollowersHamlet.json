@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleFollowersHamlet",
+    "entries": [
+      { "id": 1, "result": "1d4 + 1" },
+      { "id": 2, "result": "1d6 + 2" },
+      { "id": 3, "result": "2d4 + 2" },
+      { "id": 4, "result": "2d6 + 3" },
+      { "id": 5, "result": "3d4 + 2" },
+      { "id": 6, "result": "2d6 + 10" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleHiredMercenaries",
+    "entries": [
+      { "id": 1, "result": "1d6+2 Level:1 [AC:4], 1 Level:2 [AC:2]" },
+      { "id": 2, "result": "2d6 Level:1 [AC:4], 1 Level:3 [AC:1]" },
+      { "id": 3, "result": "2d10+4 Level:1 [AC:4], 2 Level:2 [AC:2], 1 Level:4 [AC:0]" },
+      { "id": 4, "result": "3d6+10 Level:1 [AC:4], 3 Level:2 [AC:2], 2 Level:3 [AC:0]" },
+      { "id": 5, "result": "20 + (1d3 x 10) Level:1 [AC:4], 6 Level:2 [AC:2], 4 Level:3 [AC:1], 2 Level:4 [AC:0]" },
+      { "id": 6, "result": "40 + (1d3 x 10) Level:1 [AC:4], 10 Level:2 [AC:2], 6 Level:3 [AC:1], 4 Level:4 [AC:0], 1 Level:5 [AC:0], 1 Level:7 [AC:-2]" }
+    ]
+  }
+  

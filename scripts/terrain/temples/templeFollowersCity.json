@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleFollowersCity",
+    "entries": [
+      { "id": 1, "result": "1d100 + 20" },
+      { "id": 2, "result": "(1d4 x 10) + 50" },
+      { "id": 3, "result": "1d100 + 100" },
+      { "id": 4, "result": "2d6 x 10 + 150" },
+      { "id": 5, "result": "3d6 x 10 + 200" },
+      { "id": 6, "result": "(1d4+1) x 100" }
+    ]
+  }
+  

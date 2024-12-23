@@ -1,0 +1,12 @@
+{
+    "tableName": "tblShrineArtifactOfDeity",
+    "entries": [
+      { "id": 1, "result": "Sword" },
+      { "id": 2, "result": "Helm" },
+      { "id": 3, "result": "Shield" },
+      { "id": 4, "result": "Staff" },
+      { "id": 5, "result": "Ring" },
+      { "id": 6, "result": "Mace" }
+    ]
+  }
+  

@@ -1,0 +1,16 @@
+{
+    "tableName": "tblTempleConfiguration",
+    "entries": [
+      { "id": 1, "result": "Domed Squared" },
+      { "id": 2, "result": "Pyramid" },
+      { "id": 3, "result": "Parallelogram" },
+      { "id": 4, "result": "Rectangle" },
+      { "id": 5, "result": "Obelisk" },
+      { "id": 6, "result": "Round" },
+      { "id": 7, "result": "Square" },
+      { "id": 8, "result": "Hemisphere" },
+      { "id": 9, "result": "Geodesic Dome" },
+      { "id": 10, "result": "Rhomboid" }
+    ]
+  }
+  

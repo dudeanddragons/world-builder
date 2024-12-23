@@ -1,0 +1,12 @@
+{
+    "tableName": "tblTempleHighWalls",
+    "entries": [
+      { "id": 1, "result": "12’" },
+      { "id": 2, "result": "15’" },
+      { "id": 3, "result": "20’" },
+      { "id": 4, "result": "25’" },
+      { "id": 5, "result": "30’" },
+      { "id": 6, "result": "40’" }
+    ]
+  }
+  

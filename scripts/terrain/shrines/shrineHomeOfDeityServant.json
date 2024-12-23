@@ -1,0 +1,12 @@
+{
+    "tableName": "tblShrineHomeOfDeityServant",
+    "entries": [
+      { "id": 1, "result": "Underground Lake" },
+      { "id": 2, "result": "River" },
+      { "id": 3, "result": "Cavern" },
+      { "id": 4, "result": "Lava Pit" },
+      { "id": 5, "result": "Mud Pool" },
+      { "id": 6, "result": "Inside Rock" }
+    ]
+  }
+  

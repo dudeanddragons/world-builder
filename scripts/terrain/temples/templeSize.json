@@ -1,0 +1,16 @@
+{
+    "tableName": "tblTempleSize",
+    "entries": [
+      { "id": 1, "result": "One Story" },
+      { "id": 2, "result": "Two Story" },
+      { "id": 3, "result": "Three Story" },
+      { "id": 4, "result": "1d6+3 Story" },
+      { "id": 5, "result": "1 Underground Level" },
+      { "id": 6, "result": "1 Underground Level + Story above ground" },
+      { "id": 7, "result": "2 Underground Levels" },
+      { "id": 8, "result": "2 Underground Levels + Story above ground" },
+      { "id": 9, "result": "3 Underground Levels" },
+      { "id": 10, "result": "3 Underground Levels and One Story above ground" }
+    ]
+  }
+  
