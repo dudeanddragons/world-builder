@@ -1,0 +1,27 @@
+{
+    "tableName": "tblCastleFollowersAlchemist",
+    "entries": [
+      { "range": "01-04", "result": "1-4 Fighters" },
+      { "range": "05-08", "result": "1-4 Magic-Users" },
+      { "range": "09-12", "result": "1-4 Thieves" },
+      { "range": "13-16", "result": "1 Sage" },
+      { "range": "17-20", "result": "1-2 Samurai" },
+      { "range": "21-24", "result": "1 Titan" },
+      { "range": "25-28", "result": "2-24 Gargoyles" },
+      { "range": "29-32", "result": "1-20 Bugbears" },
+      { "range": "33-36", "result": "1-2 Ogres" },
+      { "range": "37-40", "result": "1 Titan" },
+      { "range": "41-44", "result": "1-4 Hill Giants" },
+      { "range": "45-48", "result": "1-4 Trolls" },
+      { "range": "49-52", "result": "1-4 Stone Giants" },
+      { "range": "53-56", "result": "1-8 Displacer Beasts" },
+      { "range": "57-60", "result": "1-8 Blink Dogs" },
+      { "range": "61-64", "result": "1 Beholder" },
+      { "range": "65-68", "result": "1-4 Were Types" },
+      { "range": "69-72", "result": "1 Djinn" },
+      { "range": "73-76", "result": "1 Androsphinx" },
+      { "range": "77-80", "result": "1 Flesh Golem" },
+      { "range": "81-84", "result": "1 Stone Golem" }
+    ]
+  }
+  

@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleGarrisonCompositionIrregulars",
+    "entries": [
+      { "id": 1, "result": "50% Light Foot, 10% Composite Bow, 40% Heavy Foot" },
+      { "id": 2, "result": "50% Light Foot, 10% Crossbow, 40% Heavy Foot" },
+      { "id": 3, "result": "50% Light Foot, 20% Composite Bow, 30% Heavy Foot" },
+      { "id": 4, "result": "50% Light Foot, 10% Crossbow, 40% Heavy Foot" },
+      { "id": 5, "result": "40% Light Foot, 30% Heavy Foot, 30% Heavy Foot" },
+      { "id": 6, "result": "40% Light Foot, 10% Armored Foot, 50% Light Horse" },
+      { "id": 7, "result": "30% Light Foot, 20% Heavy Foot, 30% Medium Horse" },
+      { "id": 8, "result": "40% Light Foot, 20% Heavy Foot, 20% Crossbow, 20% Medium Horse" },
+      { "id": 9, "result": "20% Armored Foot, 20% Light Horse" },
+      { "id": 10, "result": "10% Heavy Crossbow, 20% Catapult" }
+    ]
+  }
+  

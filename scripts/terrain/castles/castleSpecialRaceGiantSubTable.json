@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCastleSpecialRaceGiantSubTable",
+    "entries": [
+      { "id": 1, "result": "Hill Giant" },
+      { "id": 2, "result": "Stone Giant" },
+      { "id": 3, "result": "Frost Giant" },
+      { "id": 4, "result": "Fire Giant" },
+      { "id": 5, "result": "Cloud Giant" },
+      { "id": 6, "result": "Storm Giant" }
+    ]
+  }
+  

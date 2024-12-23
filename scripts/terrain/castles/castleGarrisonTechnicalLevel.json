@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCastleGarrisonTechnicalLevel",
+    "entries": [
+      { "id": 1, "result": "Levies" },
+      { "id": 2, "result": "Militia" },
+      { "id": 3, "result": "Irregulars" },
+      { "id": 4, "result": "Barbarian" },
+      { "id": 5, "result": "Regulars" },
+      { "id": 6, "result": "Mercenaries" }
+    ]
+  }
+  

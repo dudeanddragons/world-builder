@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleFoundationsOnly",
+    "entries": [
+      { "id": 1, "result": "Invaders" },
+      { "id": 2, "result": "Invaders" },
+      { "id": 3, "result": "Abandoned" },
+      { "id": 4, "result": "Abandoned" },
+      { "id": 5, "result": "Abandoned" },
+      { "id": 6, "result": "Abandoned" },
+      { "id": 7, "result": "Abandoned" },
+      { "id": 8, "result": "Abandoned" },
+      { "id": 9, "result": "Abandoned" },
+      { "id": 10, "result": "Abandoned" }
+    ]
+  }
+  

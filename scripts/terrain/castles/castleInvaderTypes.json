@@ -1,0 +1,25 @@
+{
+    "tableName": "tblCastleInvaderTypes",
+    "entries": [
+      { "id": 1, "result": "Humans" },
+      { "id": 2, "result": "Dwarves" },
+      { "id": 3, "result": "Elves" },
+      { "id": 4, "result": "Gnolls" },
+      { "id": 5, "result": "Giant Frogs" },
+      { "id": 6, "result": "Ghouls" },
+      { "id": 7, "result": "Giant Rats" },
+      { "id": 8, "result": "Gnomes" },
+      { "id": 9, "result": "Kobolds" },
+      { "id": 10, "result": "Skeletons" },
+      { "id": 11, "result": "Zombies" },
+      { "id": 12, "result": "Lizard Men" },
+      { "id": 13, "result": "Goblins" },
+      { "id": 14, "result": "Halfling" },
+      { "id": 15, "result": "Giant Crocodiles" },
+      { "id": 16, "result": "Troglodytes" },
+      { "id": 17, "result": "Orcs" },
+      { "id": 18, "result": "Giant Ants" },
+      { "id": 19, "result": "Hobgoblins" }
+    ]
+  }
+  

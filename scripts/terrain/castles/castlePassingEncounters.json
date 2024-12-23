@@ -1,0 +1,26 @@
+{
+    "tableName": "tblCastlePassingEncounters",
+    "entries": [
+      { "id": 1, "result": "Ale Maker" },
+      { "id": 2, "result": "Farmers" },
+      { "id": 3, "result": "Bricklayer" },
+      { "id": 4, "result": "Armorer" },
+      { "id": 5, "result": "Beggar" },
+      { "id": 6, "result": "Gem Cutter" },
+      { "id": 7, "result": "Aged Fighter" },
+      { "id": 8, "result": "Fortune Teller" },
+      { "id": 9, "result": "Peddler" },
+      { "id": 10, "result": "Caravan" },
+      { "id": 11, "result": "Spear Maker" },
+      { "id": 12, "result": "Stone Cutter" },
+      { "id": 13, "result": "Bronze Caster" },
+      { "id": 14, "result": "Animal Trainer" },
+      { "id": 15, "result": "Tanner" },
+      { "id": 16, "result": "Lute Maker" },
+      { "id": 17, "result": "Ox Keeper" },
+      { "id": 18, "result": "Fur Trader" },
+      { "id": 19, "result": "Black Smith" },
+      { "id": 20, "result": "Messenger" }
+    ]
+  }
+  

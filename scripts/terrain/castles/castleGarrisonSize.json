@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCastleGarrisonSize",
+    "entries": [
+      { "id": 1, "dice": "1d6x10", "result": "Garrison Size" },
+      { "id": 2, "dice": "1d10x10", "result": "Garrison Size" },
+      { "id": 3, "dice": "2d10x10", "result": "Garrison Size" },
+      { "id": 4, "dice": "3d6x10", "result": "Garrison Size" },
+      { "id": 5, "dice": "4d6x10", "result": "Garrison Size" },
+      { "id": 6, "dice": "5d6x10", "result": "Garrison Size" }
+    ]
+  }
+  

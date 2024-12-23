@@ -1,0 +1,31 @@
+{
+    "tableName": "tblCastleFollowersSpecialLeaderNeutral",
+    "entries": [
+      { "range": "01-04", "result": "1-6 Fighters or Samurai" },
+      { "range": "05-08", "result": "1-4 Magic-Users or Illusionists" },
+      { "range": "09-12", "result": "1-2 Monks" },
+      { "range": "13-16", "result": "1-2 Alchemists or Bards" },
+      { "range": "17-20", "result": "1-2 Druids" },
+      { "range": "21-24", "result": "1-4 Thieves or Assassins" },
+      { "range": "25-28", "result": "1 Dragonne" },
+      { "range": "29-32", "result": "1 Golem" },
+      { "range": "33-36", "result": "2-8 Satyrs" },
+      { "range": "37-40", "result": "1-6 Owlbears" },
+      { "range": "41-44", "result": "1-20 Lizard Men" },
+      { "range": "45-48", "result": "1-2 Invisible Stalkers" },
+      { "range": "49-52", "result": "1 Hydra" },
+      { "range": "53-56", "result": "1-6 Yeti" },
+      { "range": "57-60", "result": "1-6 Hippogriffs" },
+      { "range": "61-64", "result": "1-8 Were Types" },
+      { "range": "65-68", "result": "1-6 Griffons" },
+      { "range": "69-72", "result": "1 Efreet" },
+      { "range": "73-76", "result": "1-6 Giants" },
+      { "range": "77-80", "result": "1-8 Giant Crocodiles" },
+      { "range": "81-84", "result": "1-2 Locathah" },
+      { "range": "85-88", "result": "1 Dragon" },
+      { "range": "89-92", "result": "1 Hydra" },
+      { "range": "93-96", "result": "1-2 Corgons" },
+      { "range": "97-00", "result": "1 Titan" }
+    ]
+  }
+  

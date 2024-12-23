@@ -1,0 +1,30 @@
+{
+    "tableName": "tblCastleFollowersPaladin",
+    "entries": [
+      { "range": "01-04", "result": "1-4 Fighters" },
+      { "range": "05-08", "result": "1-4 Clerics" },
+      { "range": "09-12", "result": "1 Magic-User or Ranger" },
+      { "range": "13-16", "result": "1 Bard" },
+      { "range": "17-20", "result": "1-4 Unicorns" },
+      { "range": "21-24", "result": "1-4 Pegasi" },
+      { "range": "25-28", "result": "1-8 Hippogriffs" },
+      { "range": "29-32", "result": "1-4 Griffons" },
+      { "range": "33-36", "result": "1 Pseudo-Dragon" },
+      { "range": "37-40", "result": "1-4 Rocs" },
+      { "range": "41-44", "result": "1 Androsphinx" },
+      { "range": "45-48", "result": "1-20 War Dogs" },
+      { "range": "49-52", "result": "1 Djinn" },
+      { "range": "53-56", "result": "1 Paladin" },
+      { "range": "57-60", "result": "1 Were Storm Giant" },
+      { "range": "61-64", "result": "1 Golden Dragon" },
+      { "range": "65-68", "result": "1 Ki-rin" },
+      { "range": "69-72", "result": "1 Lammasu" },
+      { "range": "73-76", "result": "1 Shedu" },
+      { "range": "77-80", "result": "1-4 Titans" },
+      { "range": "81-84", "result": "1 Sage" },
+      { "range": "85-88", "result": "1-4 Paladins" },
+      { "range": "89-92", "result": "1 Monk" },
+      { "range": "93-96", "result": "1 Frost Giant" }
+    ]
+  }
+  

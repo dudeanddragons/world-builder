@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleAncient",
+    "entries": [
+      { "id": 1, "result": "Garrison" },
+      { "id": 2, "result": "Garrison" },
+      { "id": 3, "result": "Garrison" },
+      { "id": 4, "result": "Invaders" },
+      { "id": 5, "result": "Invaders" },
+      { "id": 6, "result": "Invaders" },
+      { "id": 7, "result": "Abandoned" },
+      { "id": 8, "result": "Abandoned" },
+      { "id": 9, "result": "Abandoned" },
+      { "id": 10, "result": "Abandoned" }
+    ]
+  }
+  

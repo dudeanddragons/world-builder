@@ -1,0 +1,15 @@
+{
+    "tableName": "tblCastleAbandonedExtraordinaryResults",
+    "entries": [
+      { "id": 1, "result": "Illusionist" },
+      { "id": 2, "result": "Assassin" },
+      { "id": 3, "result": "Medusa" },
+      { "id": 4, "result": "Dying High Priest" },
+      { "id": 5, "result": "Mad Wizard" },
+      { "id": 6, "result": "Vacationing God" },
+      { "id": 7, "result": "Injured Magic User" },
+      { "id": 8, "result": "Criminal Paladin" },
+      { "id": 9, "result": "Polymorphed Ranger Lord" }
+    ]
+  }
+  

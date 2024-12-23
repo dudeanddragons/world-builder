@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleGarrisonCompositionRegulars",
+    "entries": [
+      { "id": 1, "result": "60% Light Foot, 20% Heavy Foot, 10% Light Bow, 10% Light Horse" },
+      { "id": 2, "result": "50% Light Foot, 10% Armored Foot, 10% Long Bow, 30% Heavy Foot" },
+      { "id": 3, "result": "50% Light Foot, 20% Armored Foot, 10% Light Horse, 20% Heavy Foot" },
+      { "id": 4, "result": "40% Light Foot, 10% Armored Foot, 30% Heavy Foot, 20% Medium Horse" },
+      { "id": 5, "result": "40% Armored Foot, 30% Heavy Foot, 30% Medium Horse" },
+      { "id": 6, "result": "30% Light Foot, 20% Armored Foot, 30% Heavy Foot, 20% Heavy Crossbow" },
+      { "id": 7, "result": "30% Armored Foot, 20% Heavy Foot, 20% Medium Horse, 30% Heavy Crossbow" },
+      { "id": 8, "result": "20% Light Foot, 20% Armored Foot, 30% Heavy Foot, 30% Medium Horse" },
+      { "id": 9, "result": "20% Armored Foot, 20% Heavy Foot, 30% Medium Horse, 30% Catapult" },
+      { "id": 10, "result": "10% Light Foot, 10% Armored Foot, 10% Long Bow, 20% Heavy Crossbow, 20% Medium Horse, 30% Catapult" }
+    ]
+  }
+  

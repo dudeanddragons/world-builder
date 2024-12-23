@@ -1,0 +1,29 @@
+{
+    "tableName": "tblCastleFollowersRanger",
+    "entries": [
+      { "range": "01-06", "result": "1-6 Fighters" },
+      { "range": "07-09", "result": "1-4 Magic-Users" },
+      { "range": "10-12", "result": "1-4 Clerics" },
+      { "range": "13-16", "result": "1-4 Thieves" },
+      { "range": "17-20", "result": "1-4 Fighters or Magic-Users or Thieves" },
+      { "range": "21-24", "result": "1 Ranger" },
+      { "range": "25-28", "result": "1 Paladin" },
+      { "range": "29-32", "result": "1-4 Were Bears" },
+      { "range": "33-36", "result": "1-4 Unicorns" },
+      { "range": "37-40", "result": "1-4 Pegasi" },
+      { "range": "41-44", "result": "1-4 Griffons" },
+      { "range": "45-48", "result": "1 Pseudo-Dragon" },
+      { "range": "49-52", "result": "1-4 Stone Giants" },
+      { "range": "53-56", "result": "1-8 Were Types" },
+      { "range": "57-60", "result": "1-4 Ki-rin" },
+      { "range": "61-64", "result": "1 Lammasu" },
+      { "range": "65-68", "result": "1 Shedu" },
+      { "range": "69-72", "result": "1 Silver Dragon" },
+      { "range": "73-76", "result": "1 Couatl" },
+      { "range": "77-80", "result": "1 Titan" },
+      { "range": "81-84", "result": "1 Storm Giant" },
+      { "range": "85-88", "result": "1-4 Rocs" },
+      { "range": "89-92", "result": "1-2 Androsphinx" }
+    ]
+  }
+  

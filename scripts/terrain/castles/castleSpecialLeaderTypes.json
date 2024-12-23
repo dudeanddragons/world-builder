@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCastleSpecialLeaderTypes",
+    "entries": [
+      { "id": 1, "result": "Ogre Magi" },
+      { "id": 2, "result": "Giant (See Giant Sub-Table)" },
+      { "id": 3, "result": "Titan" },
+      { "id": 4, "result": "Dragon (See Dragon Sub-Table)" },
+      { "id": 5, "result": "Demon (See Demon Sub-Table)" },
+      { "id": 6, "result": "Lich" }
+    ]
+  }
+  

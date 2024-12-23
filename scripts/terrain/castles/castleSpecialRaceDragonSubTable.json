@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCastleSpecialRaceDragonSubTable",
+    "entries": [
+      { "id": 1, "result": "White Dragon" },
+      { "id": 2, "result": "Black Dragon" },
+      { "id": 3, "result": "Green Dragon" },
+      { "id": 4, "result": "Blue Dragon" },
+      { "id": 5, "result": "Red Dragon" },
+      { "id": 6, "result": "Golden Dragon" }
+    ]
+  }
+  

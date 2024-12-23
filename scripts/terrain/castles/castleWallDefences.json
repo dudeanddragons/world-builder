@@ -1,0 +1,25 @@
+{
+    "tableName": "tblCastleWallDefences",
+    "entries": [
+      { "id": 1, "result": "Aerial Creatures" },
+      { "id": 2, "result": "Volcano" },
+      { "id": 3, "result": "Arrow Traps" },
+      { "id": 4, "result": "Magically Protected" },
+      { "id": 5, "result": "Hallucinatory Terrain" },
+      { "id": 6, "result": "Catapult" },
+      { "id": 7, "result": "Greek Fire" },
+      { "id": 8, "result": "Nets" },
+      { "id": 9, "result": "Cactus" },
+      { "id": 10, "result": "Pits" },
+      { "id": 11, "result": "Quicksand" },
+      { "id": 12, "result": "Mirrors" },
+      { "id": 13, "result": "Orange" },
+      { "id": 14, "result": "Dirt Thrower" },
+      { "id": 15, "result": "Trebuchet" },
+      { "id": 16, "result": "Open Fissures" },
+      { "id": 17, "result": "Spear Traps" },
+      { "id": 18, "result": "Tar Pits" },
+      { "id": 19, "result": "Thorn Bushes" }
+    ]
+  }
+  

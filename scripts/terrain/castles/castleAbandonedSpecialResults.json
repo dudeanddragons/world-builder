@@ -1,0 +1,15 @@
+{
+    "tableName": "tblCastleAbandonedSpecialResults",
+    "entries": [
+      { "id": 1, "result": "Ogres" },
+      { "id": 2, "result": "Lost Princess" },
+      { "id": 3, "result": "Owlbears" },
+      { "id": 4, "result": "Traveling Merchant" },
+      { "id": 5, "result": "Satyrs" },
+      { "id": 6, "result": "Traveling Prince" },
+      { "id": 7, "result": "Bugbears" },
+      { "id": 8, "result": "Fleeing" },
+      { "id": 9, "result": "Trolls" }
+    ]
+  }
+  

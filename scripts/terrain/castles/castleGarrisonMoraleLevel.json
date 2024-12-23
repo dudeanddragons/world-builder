@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCastleGarrisonMoraleLevel",
+    "entries": [
+      { "id": 1, "result": "Shaky" },
+      { "id": 2, "result": "Green" },
+      { "id": 3, "result": "Experienced" },
+      { "id": 4, "result": "Veteran" },
+      { "id": 5, "result": "Elite" },
+      { "id": 6, "result": "Palace Guard" }
+    ]
+  }
+  

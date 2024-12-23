@@ -1,0 +1,21 @@
+{
+    "tableName": "tblCastleLeaderClass",
+    "entries": [
+      { "range": "01-30", "result": "Fighter" },
+      { "range": "31-40", "result": "Cleric" },
+      { "range": "41-50", "result": "Magic-User" },
+      { "range": "51-55", "result": "Thief" },
+      { "range": "56-60", "result": "Illusionist" },
+      { "range": "61-65", "result": "Bard" },
+      { "range": "66-70", "result": "Druid" },
+      { "range": "71-75", "result": "Monk" },
+      { "range": "76-80", "result": "Paladin" },
+      { "range": "81-83", "result": "Sage" },
+      { "range": "84-86", "result": "Assassin" },
+      { "range": "87-89", "result": "Alchemist" },
+      { "range": "90-92", "result": "Samurai" },
+      { "range": "93-96", "result": "Ranger" },
+      { "range": "97-00", "result": "Special Class" }
+    ]
+  }
+  

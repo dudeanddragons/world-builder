@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCastleSpecialLeaderClass",
+    "entries": [
+      { "id": 1, "result": "Fighter / Magic-User" },
+      { "id": 2, "result": "Fighter / Cleric" },
+      { "id": 3, "result": "Fighter / Magic-User / Cleric" },
+      { "id": 4, "result": "Cleric / Magic-User" },
+      { "id": 5, "result": "Thief / Fighter / Magic-User / Cleric" },
+      { "id": 6, "result": "Man / God" }
+    ]
+  }
+  

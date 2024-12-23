@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleGarrisonCompositionBarbarian",
+    "entries": [
+      { "id": 1, "result": "50% Light Foot, 40% Heavy Foot, 10% Light Horse" },
+      { "id": 2, "result": "50% Light Foot, 25% Heavy Foot, 25% Light Horse" },
+      { "id": 3, "result": "50% Light Foot, 40% Heavy Foot, 10% Composite Bow" },
+      { "id": 4, "result": "50% Light Foot, 25% Heavy Foot, 25% Composite Bow" },
+      { "id": 5, "result": "40% Light Foot, 40% Heavy Foot, 20% Composite Bow" },
+      { "id": 6, "result": "40% Light Foot, 20% Heavy Foot, 20% Composite Bow, 20% Medium Horse" },
+      { "id": 7, "result": "30% Light Foot, 30% Heavy Foot, 30% Composite Bow, 10% Medium Horse" },
+      { "id": 8, "result": "30% Light Foot, 20% Heavy Foot, 20% Heavy Crossbow, 30% Light Horse" },
+      { "id": 9, "result": "20% Light Foot, 20% Heavy Foot, 20% Composite Bow, 20% Light Horse, 20% Medium Horse" },
+      { "id": 10, "result": "10% Light Foot, 10% Heavy Foot, 10% Composite Bow, 10% Heavy Crossbow, 10% Light Horse, 50% Medium Horse" }
+    ]
+  }
+  

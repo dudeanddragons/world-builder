@@ -1,0 +1,30 @@
+{
+    "tableName": "tblCastleFollowersSpecialLeaderGood",
+    "entries": [
+      { "range": "01-04", "result": "1-6 Fighters or Samurai" },
+      { "range": "05-08", "result": "1-4 Magic-Users or Illusionists" },
+      { "range": "09-12", "result": "1-2 Monks" },
+      { "range": "13-16", "result": "1-2 Alchemists or Bards" },
+      { "range": "17-20", "result": "1-2 Good Clerics" },
+      { "range": "21-24", "result": "1-2 Rangers" },
+      { "range": "25-28", "result": "1-2 Paladins" },
+      { "range": "29-32", "result": "1-8 Were Types" },
+      { "range": "33-36", "result": "1-6 Treants" },
+      { "range": "37-40", "result": "1-10 Centaurs" },
+      { "range": "41-44", "result": "2-16 Blink Dogs" },
+      { "range": "45-48", "result": "1 Golem" },
+      { "range": "49-52", "result": "1-6 Unicorns" },
+      { "range": "53-56", "result": "1-6 Pegasi" },
+      { "range": "57-60", "result": "1 Djinn" },
+      { "range": "61-64", "result": "1 Hydra" },
+      { "range": "65-68", "result": "1-6 Yeti" },
+      { "range": "69-72", "result": "2 Titans" },
+      { "range": "73-80", "result": "1-6 Giants" },
+      { "range": "81-84", "result": "1 Ki-rin" },
+      { "range": "85-88", "result": "1 Couatl" },
+      { "range": "89-92", "result": "1 Lammasu" },
+      { "range": "93-96", "result": "1-2 Androsphinxes" },
+      { "range": "97-00", "result": "1-4 Dragons" }
+    ]
+  }
+  

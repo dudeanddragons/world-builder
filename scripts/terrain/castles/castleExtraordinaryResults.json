@@ -1,0 +1,25 @@
+{
+    "tableName": "tblCastleExtraordinaryResults",
+    "entries": [
+      { "id": 1, "result": "Rakshassa" },
+      { "id": 2, "result": "Golem" },
+      { "id": 3, "result": "Demon" },
+      { "id": 4, "result": "Titan" },
+      { "id": 5, "result": "Vampire" },
+      { "id": 6, "result": "Dragon" },
+      { "id": 7, "result": "Wizard" },
+      { "id": 8, "result": "Lich" },
+      { "id": 9, "result": "Medusa" },
+      { "id": 10, "result": "Dinosaur" },
+      { "id": 11, "result": "Efreet" },
+      { "id": 12, "result": "Will-O’-Wisp" },
+      { "id": 13, "result": "Elemental" },
+      { "id": 14, "result": "Basilisk" },
+      { "id": 15, "result": "Leprechaun" },
+      { "id": 16, "result": "Evil High Priest" },
+      { "id": 17, "result": "K1-Rin" },
+      { "id": 18, "result": "Chimera" },
+      { "id": 19, "result": "Djinn" }
+    ]
+  }
+  

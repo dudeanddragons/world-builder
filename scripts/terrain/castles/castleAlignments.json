@@ -1,0 +1,11 @@
+{
+    "tableName": "tblCastleAlignments",
+    "entries": [
+      { "range": "01-10", "result": "Lawful Good" },
+      { "range": "11-25", "result": "Chaotic Good" },
+      { "range": "26-75", "result": "Neutral" },
+      { "range": "76-90", "result": "Lawful Evil" },
+      { "range": "91-00", "result": "Chaotic Evil" }
+    ]
+  }
+  

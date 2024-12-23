@@ -1,0 +1,30 @@
+{
+    "tableName": "tblCastleFollowersEvilCleric",
+    "entries": [
+      { "range": "01-04", "result": "1-4 Fighters" },
+      { "range": "05-08", "result": "1-4 Clerics" },
+      { "range": "09-12", "result": "1-4 Thieves or Assassins" },
+      { "range": "13-16", "result": "1-10 Trolls" },
+      { "range": "17-20", "result": "1-10 Ogres" },
+      { "range": "21-24", "result": "1-6 Vampires" },
+      { "range": "25-28", "result": "1-20 White Apes" },
+      { "range": "29-32", "result": "1-10 Spectres" },
+      { "range": "33-36", "result": "1 Balor" },
+      { "range": "37-40", "result": "1-2 Beholders" },
+      { "range": "41-44", "result": "1 Black Dragon" },
+      { "range": "45-48", "result": "1 Red Dragon" },
+      { "range": "49-52", "result": "1-6 Bugbears" },
+      { "range": "53-56", "result": "1-20 Gargoyles" },
+      { "range": "57-60", "result": "1-24 Ghouls" },
+      { "range": "61-64", "result": "1-24 Hell Hounds" },
+      { "range": "65-68", "result": "1-4 Chimeras" },
+      { "range": "69-72", "result": "1-4 Manticores" },
+      { "range": "73-76", "result": "1 Rakshasas" },
+      { "range": "77-80", "result": "1-6 Wights" },
+      { "range": "81-84", "result": "1-8 Succubi" },
+      { "range": "85-88", "result": "1-36 Zombies" },
+      { "range": "89-92", "result": "1-48 Skeletons" },
+      { "range": "93-96", "result": "1-6 Wyverns" }
+    ]
+  }
+  

@@ -1,0 +1,30 @@
+{
+    "tableName": "tblCastleFollowersBard",
+    "entries": [
+      { "range": "01-04", "result": "1-4 Fighters" },
+      { "range": "05-08", "result": "1-4 Clerics" },
+      { "range": "09-12", "result": "1-4 Bards" },
+      { "range": "13-16", "result": "1-4 Thieves" },
+      { "range": "17-20", "result": "1-4 Magic-Users" },
+      { "range": "21-24", "result": "1 Lammasu" },
+      { "range": "25-28", "result": "1-6 Pegasi" },
+      { "range": "29-32", "result": "1 Unicorn" },
+      { "range": "33-36", "result": "1 Ki-rin" },
+      { "range": "37-40", "result": "1 Efreet" },
+      { "range": "41-44", "result": "1-12 Dire Wolves" },
+      { "range": "45-48", "result": "1-20 Blink Dogs" },
+      { "range": "49-52", "result": "1 Djinn" },
+      { "range": "53-56", "result": "1-10 Hell Hounds" },
+      { "range": "57-60", "result": "1-8 Trolls" },
+      { "range": "61-64", "result": "1-8 Ogres" },
+      { "range": "65-68", "result": "1-8 Ogre Magi" },
+      { "range": "69-72", "result": "1-6 Hill Giants" },
+      { "range": "73-76", "result": "1-3 Monks" },
+      { "range": "77-80", "result": "1-6 Satyrs" },
+      { "range": "81-84", "result": "1-8 Were Types" },
+      { "range": "85-88", "result": "1-4 Chimeras" },
+      { "range": "89-92", "result": "1 Succubus" },
+      { "range": "93-96", "result": "1-2 Mind Flayers" }
+    ]
+  }
+  

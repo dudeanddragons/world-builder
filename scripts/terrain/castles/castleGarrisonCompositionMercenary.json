@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleGarrisonCompositionMercenary",
+    "entries": [
+      { "id": 1, "result": "50% Light Foot, 20% Heavy Foot, 10% Armored Foot, 10% Heavy Crossbow, 10% Medium Horse" },
+      { "id": 2, "result": "20% Light Foot, 20% Armored Foot, 10% Heavy Crossbow, 20% Medium Horse, 30% Long Bow" },
+      { "id": 3, "result": "20% Light Foot, 10% Armored Foot, 30% Long Bow, 20% Heavy Crossbow, 20% Heavy Horse" },
+      { "id": 4, "result": "10% Light Foot, 20% Armored Foot, 10% Heavy Crossbow, 20% Long Bow, 20% Heavy Horse, 20% Medium Horse" },
+      { "id": 5, "result": "10% Light Foot, 10% Armored Foot, 10% Heavy Crossbow, 20% Heavy Horse, 20% Medium Horse, 30% Catapult" },
+      { "id": 6, "result": "10% Armored Foot, 10% Heavy Crossbow, 20% Heavy Horse, 30% Medium Horse, 30% Catapult" },
+      { "id": 7, "result": "20% Light Foot, 20% Armored Foot, 20% Long Bow, 20% Heavy Crossbow, 20% Heavy Horse" },
+      { "id": 8, "result": "10% Light Foot, 20% Armored Foot, 20% Long Bow, 20% Medium Horse, 30% Heavy Crossbow" },
+      { "id": 9, "result": "20% Armored Foot, 20% Heavy Foot, 10% Long Bow, 20% Heavy Crossbow, 30% Catapult" },
+      { "id": 10, "result": "10% Light Foot, 10% Armored Foot, 10% Long Bow, 10% Heavy Crossbow, 10% Heavy Horse, 50% Catapult" }
+    ]
+  }
+  

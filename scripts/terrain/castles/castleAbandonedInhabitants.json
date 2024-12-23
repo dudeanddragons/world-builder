@@ -1,0 +1,15 @@
+{
+    "tableName": "tblCastleAbandonedInhabitants",
+    "entries": [
+      { "id": 1, "result": "Human Mercenaries" },
+      { "id": 2, "result": "Dwarf Fighters" },
+      { "id": 3, "result": "Orc War Band" },
+      { "id": 4, "result": "Kobold Tribe" },
+      { "id": 5, "result": "Gnoll War Band" },
+      { "id": 6, "result": "Human Caravan" },
+      { "id": 7, "result": "Hobgoblin War Band" },
+      { "id": 8, "result": "Pilgrims" },
+      { "id": 9, "result": "Goblins" }
+    ]
+  }
+  

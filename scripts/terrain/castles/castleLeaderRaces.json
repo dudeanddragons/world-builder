@@ -1,0 +1,21 @@
+{
+    "tableName": "tblCastleLeaderRaces",
+    "entries": [
+      { "range": "01-40", "result": "Man" },
+      { "range": "41-45", "result": "Half-Elf" },
+      { "range": "46-50", "result": "Elf" },
+      { "range": "51-55", "result": "Dwarf" },
+      { "range": "56-58", "result": "Halfling" },
+      { "range": "59-60", "result": "Half-Orc" },
+      { "range": "61-65", "result": "Orc" },
+      { "range": "66-68", "result": "Goblin" },
+      { "range": "69-73", "result": "Gnome" },
+      { "range": "74-77", "result": "Kobold" },
+      { "range": "78-80", "result": "Gnoll" },
+      { "range": "81-83", "result": "Hobgoblin" },
+      { "range": "84-89", "result": "Ogre" },
+      { "range": "90-96", "result": "Troll" },
+      { "range": "97-00", "result": "Special Type" }
+    ]
+  }
+  

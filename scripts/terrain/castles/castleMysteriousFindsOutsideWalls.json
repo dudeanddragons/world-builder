@@ -1,0 +1,26 @@
+{
+    "tableName": "tblCastleMysteriousFindsOutsideWalls",
+    "entries": [
+      { "id": 1, "result": "Gauntlet (20% Magical Qualities)" },
+      { "id": 2, "result": "Broken Lance" },
+      { "id": 3, "result": "Torn Banner" },
+      { "id": 4, "result": "Hidden Trail" },
+      { "id": 5, "result": "Necklace" },
+      { "id": 6, "result": "Leather Tunic" },
+      { "id": 7, "result": "Clay Pot" },
+      { "id": 8, "result": "Broken Statue" },
+      { "id": 9, "result": "Stone Bench" },
+      { "id": 10, "result": "Rusted Dagger" },
+      { "id": 11, "result": "Dented Goblet" },
+      { "id": 12, "result": "Smoldering Campfire" },
+      { "id": 13, "result": "Length of Rope (20% Magical Qualities)" },
+      { "id": 14, "result": "Earring" },
+      { "id": 15, "result": "Split Helm" },
+      { "id": 16, "result": "Sword Hilt" },
+      { "id": 17, "result": "Lit Lantern (20% Magical Qualities)" },
+      { "id": 18, "result": "Fragmented Staff" },
+      { "id": 19, "result": "Partially Dug Grave" },
+      { "id": 20, "result": "Rusty Coin" }
+    ]
+  }
+  

@@ -1,0 +1,28 @@
+{
+    "tableName": "tblCastleFollowersFighterSamurai",
+    "entries": [
+      { "range": "01-04", "result": "1-4 Magic-Users or Illusionists" },
+      { "range": "05-08", "result": "1-4 Clerics" },
+      { "range": "09-12", "result": "1-4 Thieves" },
+      { "range": "13-16", "result": "1 Assassin" },
+      { "range": "17-20", "result": "1-2 Bards" },
+      { "range": "21-24", "result": "1 Sage" },
+      { "range": "25-28", "result": "20 War Dogs" },
+      { "range": "29-32", "result": "10 Dire Wolves" },
+      { "range": "33-36", "result": "1-4 Hill Giants" },
+      { "range": "37-40", "result": "1-4 Stone Giants" },
+      { "range": "41-44", "result": "1-4 Frost Giants" },
+      { "range": "45-48", "result": "1-10 Ogres" },
+      { "range": "49-52", "result": "1-8 Trolls" },
+      { "range": "53-56", "result": "1-6 Rocs" },
+      { "range": "57-60", "result": "1-6 Griffons" },
+      { "range": "61-64", "result": "1 Lammasu" },
+      { "range": "65-68", "result": "1 Djinn" },
+      { "range": "69-72", "result": "1 Dragon" },
+      { "range": "73-80", "result": "2-24 Hell Hounds" },
+      { "range": "81-84", "result": "1-2 Lizard Men" },
+      { "range": "85-96", "result": "1-8 Were Types" },
+      { "range": "97-00", "result": "1 Ogre Magi" }
+    ]
+  }
+  

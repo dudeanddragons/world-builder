@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCastleSpecialRaceDemonSubTable",
+    "entries": [
+      { "id": 1, "result": "Type I Demon" },
+      { "id": 2, "result": "Type II Demon" },
+      { "id": 3, "result": "Type III Demon" },
+      { "id": 4, "result": "Type IV Demon" },
+      { "id": 5, "result": "Type V Demon" },
+      { "id": 6, "result": "Type VI Demon" }
+    ]
+  }
+  

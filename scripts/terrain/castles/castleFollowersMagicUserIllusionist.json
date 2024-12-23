@@ -1,0 +1,28 @@
+{
+    "tableName": "tblCastleFollowersMagicUserIllusionist",
+    "entries": [
+      { "range": "01-04", "result": "1-4 Fighters" },
+      { "range": "05-08", "result": "1-4 Magic-Users or Illusionists" },
+      { "range": "09-12", "result": "1-4 Thieves" },
+      { "range": "13-16", "result": "1 Alchemist" },
+      { "range": "17-20", "result": "1-2 Homunculi" },
+      { "range": "21-24", "result": "1-2 Clay Golems" },
+      { "range": "25-28", "result": "1-2 Flesh Golems" },
+      { "range": "29-32", "result": "1-2 Iron Golems" },
+      { "range": "33-36", "result": "1-2 Stone Golems" },
+      { "range": "37-40", "result": "2 Dragons" },
+      { "range": "41-44", "result": "1-2 Balors" },
+      { "range": "45-48", "result": "1-4 Wyverns" },
+      { "range": "49-52", "result": "1-4 Basilisks" },
+      { "range": "53-56", "result": "1-4 Chimeras" },
+      { "range": "57-60", "result": "1-6 Manticores" },
+      { "range": "61-64", "result": "1-6 Were Types" },
+      { "range": "65-68", "result": "2-24 Gargoyles" },
+      { "range": "69-72", "result": "1-4 Gorgons" },
+      { "range": "73-80", "result": "1 Naga" },
+      { "range": "81-84", "result": "1-4 Mummies" },
+      { "range": "85-96", "result": "1-8 Phase Spiders" },
+      { "range": "97-00", "result": "1-2 Mind Flayers" }
+    ]
+  }
+  

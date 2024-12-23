@@ -1,0 +1,30 @@
+{
+    "tableName": "tblCastleFollowersDruid",
+    "entries": [
+      { "range": "01-04", "result": "1-4 Druids" },
+      { "range": "05-08", "result": "1-4 Fighters" },
+      { "range": "09-12", "result": "1-10 Treants" },
+      { "range": "13-16", "result": "1-8 Hippogriffs" },
+      { "range": "17-20", "result": "1-20 White Apes" },
+      { "range": "21-24", "result": "10-40 Baboons" },
+      { "range": "25-28", "result": "1-20 Bears" },
+      { "range": "29-32", "result": "1-20 Giant Beavers" },
+      { "range": "33-36", "result": "1-12 Dryads" },
+      { "range": "37-40", "result": "1-12 Griffons" },
+      { "range": "41-44", "result": "1-10 Giant Hyenas" },
+      { "range": "45-48", "result": "1-10 Fire Lizards" },
+      { "range": "49-52", "result": "1-12 Lions" },
+      { "range": "53-56", "result": "1-8 Giant Lynxes" },
+      { "range": "57-60", "result": "1 Neo-otyugh" },
+      { "range": "61-64", "result": "1-6 Nymphs" },
+      { "range": "65-68", "result": "1-8 Owlbears" },
+      { "range": "69-72", "result": "1-8 Giant Stags" },
+      { "range": "73-80", "result": "1-8 Sabre-toothed Tigers" },
+      { "range": "81-84", "result": "1-8 Giant Wasps" },
+      { "range": "85-88", "result": "1-8 Giant Weasels" },
+      { "range": "89-92", "result": "1-6 Yetis" },
+      { "range": "93-96", "result": "1 Sage" },
+      { "range": "97-00", "result": "1-4 Hill Giants" }
+    ]
+  }
+  

@@ -1,0 +1,25 @@
+{
+    "tableName": "tblCastleSpecialResults",
+    "entries": [
+      { "id": 1, "result": "Ogres" },
+      { "id": 2, "result": "Trolls" },
+      { "id": 3, "result": "Bugbears" },
+      { "id": 4, "result": "Apes" },
+      { "id": 5, "result": "Ghosts" },
+      { "id": 6, "result": "Trolls" },
+      { "id": 7, "result": "Centaurs" },
+      { "id": 8, "result": "Giant Badger" },
+      { "id": 9, "result": "Minotaur" },
+      { "id": 10, "result": "Mummies" },
+      { "id": 11, "result": "Hellhounds" },
+      { "id": 12, "result": "Wererats" },
+      { "id": 13, "result": "Satyrs" },
+      { "id": 14, "result": "Giant Snakes" },
+      { "id": 15, "result": "Manticore" },
+      { "id": 16, "result": "Werewolves" },
+      { "id": 17, "result": "Wyvern" },
+      { "id": 18, "result": "Gorgon" },
+      { "id": 19, "result": "Baboons" }
+    ]
+  }
+  

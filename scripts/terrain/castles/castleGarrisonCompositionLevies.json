@@ -1,0 +1,16 @@
+{
+    "tableName": "tblCastleGarrisonCompositionLevies",
+    "entries": [
+      { "id": 1, "result": "90% Light Foot, 10% Short Bow" },
+      { "id": 2, "result": "90% Light Foot, 10% Composite Bow" },
+      { "id": 3, "result": "80% Light Foot, 20% Crossbow" },
+      { "id": 4, "result": "80% Light Foot, 20% Heavy Foot" },
+      { "id": 5, "result": "90% Light Foot, 10% Short Bow" },
+      { "id": 6, "result": "70% Light Foot, 30% Heavy Foot" },
+      { "id": 7, "result": "90% Light Foot, 10% Crossbow" },
+      { "id": 8, "result": "60% Light Foot, 20% Heavy Foot, 20% Short Bow" },
+      { "id": 9, "result": "60% Light Foot, 20% Heavy Foot, 20% Crossbow" },
+      { "id": 10, "result": "60% Light Foot, 20% Heavy Foot, 20% Short Bow" }
+    ]
+  }
+  
