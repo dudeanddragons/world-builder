@@ -1,0 +1,14 @@
+{
+    "tableName": "tblLuridLairs",
+    "entries": [
+      { "id": 1, "value": "Dungeon" },
+      { "id": 2, "value": "Cave" },
+      { "id": 3, "value": "Burrows" },
+      { "id": 4, "value": "Camp" },
+      { "id": 5, "value": "Dwelling" },
+      { "id": 6, "value": "Shipwreck" },
+      { "id": 7, "value": "Ledge" },
+      { "id": 8, "value": "Crevice" }
+    ]
+  }
+  

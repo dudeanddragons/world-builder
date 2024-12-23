@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCampSubCurrentStatus",
+    "entries": [
+      { "id": 1, "value": "Lax guards" },
+      { "id": 2, "value": "Alert sentries" },
+      { "id": 3, "value": "Roaming lookouts" },
+      { "id": 4, "value": "Guard dogs" },
+      { "id": 5, "value": "Regular patrols" },
+      { "id": 6, "value": "Frequent mounted patrols" }
+    ]
+  }
+  

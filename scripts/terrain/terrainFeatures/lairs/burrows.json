@@ -1,0 +1,46 @@
+{
+    "tableName": "tblBurrows",
+    "entries": [
+      {
+        "id": 1,
+        "name": "Giant Anthill",
+        "dimensions": "20' Diameter, rough passages. 20% chance of rooms every 20' (50' sq.)"
+      },
+      {
+        "id": 2,
+        "name": "Giant Hive",
+        "dimensions": "Numerous cells, 20' Diameter."
+      },
+      {
+        "id": 3,
+        "name": "Tunnel Hive",
+        "dimensions": ""
+      },
+      {
+        "id": 4,
+        "name": "Worm Tunnels",
+        "dimensions": "Rough passages, large caverns every 120'."
+      },
+      {
+        "id": 5,
+        "name": "Glow Worm Cave",
+        "dimensions": "50' Wide, 20' High, contains luminous worms."
+      },
+      {
+        "id": 6,
+        "name": "Large Burrow",
+        "dimensions": ""
+      },
+      {
+        "id": 7,
+        "name": "Very Large Burrow",
+        "dimensions": ""
+      },
+      {
+        "id": 8,
+        "name": "Civilized Burrow",
+        "dimensions": "Well-appointed hobbit hole, multiple passages, 10'x10' rooms, 5' high."
+      }
+    ]
+  }
+  

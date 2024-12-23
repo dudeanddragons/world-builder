@@ -1,0 +1,12 @@
+{
+    "tableName": "tblLairSubOccupationStatus",
+    "entries": [
+      { "id": 1, "value": "Lair is abandoned" },
+      { "id": 2, "value": "Currently empty" },
+      { "id": 3, "value": "Occupied by 1/2 normal population" },
+      { "id": 4, "value": "Occupied by 1/2 normal population" },
+      { "id": 5, "value": "Fully occupied" },
+      { "id": 6, "value": "Fully occupied" }
+    ]
+  }
+  

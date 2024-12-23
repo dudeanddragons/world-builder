@@ -1,0 +1,12 @@
+{
+    "tableName": "tblDungeonSubType",
+    "entries": [
+      { "id": 1, "value": "Giant Size" },
+      { "id": 2, "value": "Dwarven" },
+      { "id": 3, "value": "Orcish" },
+      { "id": 4, "value": "Gnomish" },
+      { "id": 5, "value": "Catacombs" },
+      { "id": 6, "value": "Mine" }
+    ]
+  }
+  

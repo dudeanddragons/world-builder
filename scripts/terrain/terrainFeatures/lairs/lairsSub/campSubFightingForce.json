@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCampSubFightingForce",
+    "entries": [
+      { "id": 1, "value": "20% Warriors" },
+      { "id": 2, "value": "40% Warriors" },
+      { "id": 3, "value": "60% Warriors" },
+      { "id": 4, "value": "70% Warriors" },
+      { "id": 5, "value": "80% Warriors" },
+      { "id": 6, "value": "90% Warriors" }
+    ]
+  }
+  

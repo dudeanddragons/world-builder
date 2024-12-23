@@ -1,0 +1,60 @@
+{
+    "tableName": "tblDungeonSubPassageSize",
+    "entries": [
+      {
+        "id": 1,
+        "type": "Giant Size",
+        "passageDimensions": {
+          "height": "1d10+20",
+          "width": "1d10+10",
+          "length": "1d20+50"
+        }
+      },
+      {
+        "id": 2,
+        "type": "Dwarven",
+        "passageDimensions": {
+          "height": "5d4",
+          "width": "5d4",
+          "length": 60
+        }
+      },
+      {
+        "id": 3,
+        "type": "Orcish",
+        "passageDimensions": {
+          "height": "1d6+6",
+          "width": "1d6+6",
+          "length": 30
+        }
+      },
+      {
+        "id": 4,
+        "type": "Gnomish",
+        "passageDimensions": {
+          "height": "1d6+7",
+          "width": "1d6+7",
+          "length": 20
+        }
+      },
+      {
+        "id": 5,
+        "type": "Catacombs",
+        "passageDimensions": {
+          "height": "1d6+6",
+          "width": "1d6+6",
+          "length": 30
+        }
+      },
+      {
+        "id": 6,
+        "type": "Mine",
+        "passageDimensions": {
+          "height": "1d4",
+          "width": "1d4",
+          "length": "Variable"
+        }
+      }
+    ]
+  }
+  

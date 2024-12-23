@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCampSubDefences",
+    "entries": [
+      { "id": 1, "value": "Log palisade" },
+      { "id": 2, "value": "Earthworks" },
+      { "id": 3, "value": "Abandoned citadel" },
+      { "id": 4, "value": "Watch tower" },
+      { "id": 5, "value": "No defences" },
+      { "id": 6, "value": "No defences" }
+    ]
+  }
+  

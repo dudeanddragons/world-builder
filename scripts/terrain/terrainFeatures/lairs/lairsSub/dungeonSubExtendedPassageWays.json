@@ -1,0 +1,68 @@
+{
+    "tableName": "tblDungeonSubExtendedPassageWays",
+    "entries": [
+      {
+        "id": 1,
+        "description": "Room",
+        "dimensionsMultiplier": 3
+      },
+      {
+        "id": 2,
+        "description": "Stairs Down",
+        "dimensionsMultiplier": null
+      },
+      {
+        "id": 3,
+        "description": "Continuing Passage",
+        "dimensionsMultiplier": 1
+      },
+      {
+        "id": 4,
+        "description": "Four-way Intersection with another passage",
+        "dimensionsMultiplier": null
+      },
+      {
+        "id": 5,
+        "description": "Passage ends (Check for secret passage)",
+        "dimensionsMultiplier": null
+      },
+      {
+        "id": 6,
+        "description": "Room",
+        "dimensionsMultiplier": 4
+      },
+      {
+        "id": 7,
+        "description": "Branch Passage",
+        "roll": "1d6",
+        "outcome": ["left", "right"]
+      },
+      {
+        "id": 8,
+        "description": "Passage turns corner",
+        "roll": "1d6",
+        "outcome": ["left", "right"]
+      },
+      {
+        "id": 9,
+        "description": "Chamber",
+        "dimensionsMultiplier": 5
+      },
+      {
+        "id": 10,
+        "description": "Continuing Passage with traps",
+        "dimensionsMultiplier": null
+      },
+      {
+        "id": 11,
+        "description": "Continuing Passage leading to a chasm",
+        "dimensionsMultiplier": null
+      },
+      {
+        "id": 12,
+        "description": "Secret Passage to another level",
+        "dimensionsMultiplier": null
+      }
+    ]
+  }
+  

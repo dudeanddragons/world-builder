@@ -1,0 +1,12 @@
+{
+    "tableName": "tblBurrowSubTypeHive",
+    "entries": [
+      { "id": 1, "dice": "2d20", "result": "Giant Bees" },
+      { "id": 2, "dice": "4d20", "result": "Giant Bees" },
+      { "id": 3, "dice": "2d10", "result": "Giant Wasps" },
+      { "id": 4, "dice": "6d6", "result": "Giant Wasps" },
+      { "id": 5, "dice": "3d6", "result": "Stirges" },
+      { "id": 6, "dice": "2d10", "result": "Large Spiders" }
+    ]
+  }
+  

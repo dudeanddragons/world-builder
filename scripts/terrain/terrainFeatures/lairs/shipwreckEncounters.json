@@ -1,0 +1,12 @@
+{
+    "tableName": "tblShipwreckEncounters",
+    "entries": [
+      { "id": 1, "name": "Buccaneers", "quantity": "3d10" },
+      { "id": 2, "name": "Giant Crabs", "quantity": "2d4" },
+      { "id": 3, "name": "Trolls", "quantity": "1d12" },
+      { "id": 4, "name": "Giant Beavers", "quantity": "1d8" },
+      { "id": 5, "name": "Apes", "quantity": "2d6" },
+      { "id": 6, "name": "Skeletons", "quantity": "3d10" }
+    ]
+  }
+  

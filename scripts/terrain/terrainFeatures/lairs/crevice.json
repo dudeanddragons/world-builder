@@ -1,0 +1,14 @@
+{
+    "tableName": "tblCreviceEncounters",
+    "entries": [
+      { "id": 1, "name": "Giant Ants", "quantity": "1d100" },
+      { "id": 2, "name": "Fire Beetles", "quantity": "3d6" },
+      { "id": 3, "name": "Giant Centipedes", "quantity": "2d12" },
+      { "id": 4, "name": "Giant Leeches", "quantity": "2d8" },
+      { "id": 5, "name": "Giant Beetles", "quantity": "3d4" },
+      { "id": 6, "name": "Giant Scorpions", "quantity": "1d6" },
+      { "id": 7, "name": "Poisonous Snakes", "quantity": "1d6" },
+      { "id": 8, "name": "Giant Slugs", "quantity": "1d6" }
+    ]
+  }
+  

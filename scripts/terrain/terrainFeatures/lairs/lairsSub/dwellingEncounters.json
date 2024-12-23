@@ -1,0 +1,26 @@
+{
+    "tableName": "tblDwellingEncounters",
+    "entries": [
+      { "id": 1, "name": "Bandits", "quantity": "1d20 * 10" },
+      { "id": 2, "name": "Baboons", "quantity": "1d4 * 10" },
+      { "id": 3, "name": "Ogre Magi", "quantity": "1d6" },
+      { "id": 4, "name": "Gargoyles", "quantity": "2d8" },
+      { "id": 5, "name": "Kobolds", "quantity": "4d10" },
+      { "id": 6, "name": "Goblins", "quantity": "4d10" },
+      { "id": 7, "name": "Bugbears", "quantity": "6d6" },
+      { "id": 8, "name": "Gnolls", "quantity": "2d10" },
+      { "id": 9, "name": "Hobgoblins", "quantity": "4d10" },
+      { "id": 10, "name": "Orcs", "quantity": "3d10" },
+      { "id": 11, "name": "Skeletons", "quantity": "3d10" },
+      { "id": 12, "name": "Mummy", "quantity": "2d8" },
+      { "id": 13, "name": "Zombies", "quantity": "3d8" },
+      { "id": 14, "name": "Vampires", "quantity": "1d4" },
+      { "id": 15, "name": "Ghouls", "quantity": "2d12" },
+      { "id": 16, "name": "Medusa", "quantity": "1d3" },
+      { "id": 17, "name": "Guardian Naga", "quantity": "1d2" },
+      { "id": 18, "name": "Gyno-Sphinx", "quantity": "1" },
+      { "id": 19, "name": "Rakshasa", "quantity": "1d4" },
+      { "id": 20, "name": "Lamia", "quantity": "1" }
+    ]
+  }
+  

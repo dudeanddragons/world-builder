@@ -1,0 +1,16 @@
+{
+    "tableName": "tblShipwreckCargo",
+    "entries": [
+      { "id": 1, "name": "Ore", "baseValue": "1d10 * 100 GP" },
+      { "id": 2, "name": "Cloth", "baseValue": "1d8 * 1000 GP" },
+      { "id": 3, "name": "Ceramics", "baseValue": "1d6 * 1000 GP" },
+      { "id": 4, "name": "Grain", "baseValue": "1d20 * 100 GP" },
+      { "id": 5, "name": "Decorative Stone / Brick", "baseValue": "1d4 * 1000 GP" },
+      { "id": 6, "name": "Wine", "baseValue": "2d6 * 100 GP" },
+      { "id": 7, "name": "Spices", "baseValue": "2d8 * 500 GP" },
+      { "id": 8, "name": "Furniture", "baseValue": "1d12 * 1000 GP" },
+      { "id": 9, "name": "Artwork", "baseValue": "2d10 * 1000 GP" },
+      { "id": 10, "name": "Treasure", "baseValue": "1d20 * 1000 GP" }
+    ]
+  }
+  

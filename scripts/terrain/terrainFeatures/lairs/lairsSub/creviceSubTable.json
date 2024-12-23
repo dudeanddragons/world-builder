@@ -1,0 +1,77 @@
+{
+    "tableName": "tblCreviceContents",
+    "entries": [
+      {
+        "id": 1,
+        "description": "Roll on Refuse Table",
+        "rolls": [
+          {
+            "path": "scripts\\terrain\\terrainFeatures\\relics\\refuse.json",
+            "tableName": "tblRefuse",
+            "dice": "1d4"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "description": "Roll on Refuse and Skeletons Tables",
+        "rolls": [
+          {
+            "path": "scripts\\terrain\\terrainFeatures\\relics\\refuse.json",
+            "tableName": "tblRefuse",
+            "dice": "1d4"
+          },
+          {
+            "path": "scripts\\terrain\\terrainFeatures\\ruins\\skeletons.json",
+            "tableName": "tblSkeletons"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "description": "Roll on Refuse and Relics Tables",
+        "rolls": [
+          {
+            "path": "scripts\\terrain\\terrainFeatures\\relics\\refuse.json",
+            "tableName": "tblRefuse",
+            "dice": "1d4"
+          },
+          {
+            "path": "scripts\\terrain\\terrainFeatures\\relics\\relics.json",
+            "tableName": "tblRelics"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "description": "Roll on Refuse and Remnants Tables",
+        "rolls": [
+          {
+            "path": "scripts\\terrain\\terrainFeatures\\relics\\refuse.json",
+            "tableName": "tblRefuse",
+            "dice": "1d6"
+          },
+          {
+            "path": "scripts\\terrain\\terrainFeatures\\ruins\\remnants.json",
+            "tableName": "tblRemnants"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "description": "Roll on Refuse and Artifacts Tables",
+        "rolls": [
+          {
+            "path": "scripts\\terrain\\terrainFeatures\\relics\\refuse.json",
+            "tableName": "tblRefuse",
+            "dice": "1d6"
+          },
+          {
+            "path": "scripts\\terrain\\terrainFeatures\\relics\\artifacts.json",
+            "tableName": "tblArtifacts"
+          }
+        ]
+      }
+    ]
+  }
+  

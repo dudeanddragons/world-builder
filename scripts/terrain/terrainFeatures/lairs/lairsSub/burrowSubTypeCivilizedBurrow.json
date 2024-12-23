@@ -1,0 +1,12 @@
+{
+    "tableName": "tblBurrowSubTypeCivilizedBurrow",
+    "entries": [
+      { "id": 1, "dice": "2d8", "result": "Halflings" },
+      { "id": 2, "dice": "2d10", "result": "Gnomes" },
+      { "id": 3, "dice": "2d20", "result": "Kobolds" },
+      { "id": 4, "dice": "2d20", "result": "Goblins" },
+      { "id": 5, "dice": "1d20", "result": "Leprechauns" },
+      { "id": 6, "dice": "4d4", "result": "Brownies" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblCampSubLeaderTypes",
+    "entries": [
+      { "id": 1, "value": "Warrior" },
+      { "id": 2, "value": "Priest" },
+      { "id": 3, "value": "Magic User" },
+      { "id": 4, "value": "Elder" },
+      { "id": 5, "value": "Mystic" },
+      { "id": 6, "value": "Noble" }
+    ]
+  }
+  

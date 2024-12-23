@@ -1,0 +1,12 @@
+{
+    "tableName": "tblBurrowSubTypeAnthill",
+    "entries": [
+      { "id": 1, "dice": "3d20", "result": "Giant Ants" },
+      { "id": 2, "dice": "1d100", "result": "Giant Ants" },
+      { "id": 3, "dice": "3d6", "result": "Giant Beetles" },
+      { "id": 4, "dice": "3d4", "result": "Fire Beetles" },
+      { "id": 5, "dice": "2d12", "result": "Giant Centipedes" },
+      { "id": 6, "dice": "1d4", "result": "Giant Scorpions" }
+    ]
+  }
+  

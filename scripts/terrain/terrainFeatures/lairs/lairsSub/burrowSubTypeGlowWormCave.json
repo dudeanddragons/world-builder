@@ -1,0 +1,12 @@
+{
+    "tableName": "tblBurrowSubTypeGlowWormCave",
+    "entries": [
+      { "id": 1, "dice": "2d8", "result": "Giant Frogs" },
+      { "id": 2, "dice": "1d6", "result": "Cockatrice" },
+      { "id": 3, "dice": "1d4+1", "result": "Owl Bears" },
+      { "id": 4, "dice": "2d4", "result": "Giant Boar" },
+      { "id": 5, "dice": "2d12", "result": "Giant Toads" },
+      { "id": 6, "dice": "2d12", "result": "Giant Rats" }
+    ]
+  }
+  

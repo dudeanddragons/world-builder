@@ -1,0 +1,21 @@
+{
+    "tableName": "tblDwelling",
+    "entries": [
+      {
+        "id": 1,
+        "name": "Manor house",
+        "description": "2d10 rooms, 1d10x500 sq. ft. 40% probability of second floor covering 1d10x10% of area. Also 1d4-1 towers."
+      },
+      {
+        "id": 2,
+        "name": "Hamlet",
+        "description": "1d10 houses"
+      },
+      {
+        "id": 3,
+        "name": "Abandoned Citadel",
+        "description": "Estate with 5d4 buildings"
+      }
+    ]
+  }
+  

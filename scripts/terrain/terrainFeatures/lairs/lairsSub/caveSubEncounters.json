@@ -1,0 +1,18 @@
+{
+    "tableName": "tblCaveSubEncounters",
+    "entries": [
+      { "id": 1, "dice": "1d2", "result": "Cave Bears" },
+      { "id": 2, "dice": "1d2", "result": "Giant Spiders" },
+      { "id": 3, "dice": "3d6", "result": "Black Puddings" },
+      { "id": 4, "dice": "3d6", "result": "Piercers" },
+      { "id": 5, "dice": "1d4", "result": "Owl Bears" },
+      { "id": 6, "dice": "1d3", "result": "Ropers" },
+      { "id": 7, "dice": "1d8", "result": "Minotaur" },
+      { "id": 8, "dice": "1d4", "result": "Huge Hulks" },
+      { "id": 9, "dice": "1d4", "result": "Gorgon" },
+      { "id": 10, "dice": "1d10", "result": "Hill Giants" },
+      { "id": 11, "dice": null, "result": "1 Ettin" },
+      { "id": 12, "dice": "1d4", "result": "Red Dragons" }
+    ]
+  }
+  

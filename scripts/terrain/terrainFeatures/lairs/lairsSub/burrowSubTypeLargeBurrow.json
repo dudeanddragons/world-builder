@@ -1,0 +1,12 @@
+{
+    "tableName": "tblBurrowSubTypeLargeBurrow",
+    "entries": [
+      { "id": 1, "dice": "1d8", "result": "Giant Weasels" },
+      { "id": 2, "dice": "1d12", "result": "Huge Spiders" },
+      { "id": 3, "dice": "1d4+1", "result": "Giant Otters" },
+      { "id": 4, "dice": "1d2", "result": "Giant Snakes" },
+      { "id": 5, "dice": "2d12", "result": "Giant Rats" },
+      { "id": 6, "dice": "1-2", "result": "Rust Monsters" }
+    ]
+  }
+  

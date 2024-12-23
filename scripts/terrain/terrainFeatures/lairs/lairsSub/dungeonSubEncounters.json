@@ -1,0 +1,17 @@
+{
+    "tableName": "tblDungeonSubEncounters",
+    "entries": [
+      { "id": 1, "dice": "3d10", "result": "Kobolds" },
+      { "id": 2, "dice": "2d12", "result": "Ghouls" },
+      { "id": 3, "dice": "5d8", "result": "Goblins" },
+      { "id": 4, "dice": "1d6+1", "result": "Carrion Crawlers" },
+      { "id": 5, "dice": "1d4+1", "result": "Displacer Beasts" },
+      { "id": 6, "dice": "1d3", "result": "Ochre Jellies" },
+      { "id": 7, "dice": null, "result": "1 Xorn" },
+      { "id": 8, "dice": "2d8", "result": "Troglodytes" },
+      { "id": 9, "dice": "1d10+4", "result": "Orcs" },
+      { "id": 10, "dice": null, "result": "1 Otyugh" },
+      { "id": 11, "dice": "1d4+1", "result": "Displacer Beasts" },
+      { "id": 12, "dice": "1d4", "result": "Beholders" }
+    ]
+  }
