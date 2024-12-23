@@ -1,0 +1,18 @@
+{
+    "tableName": "tblVillageTechnologicalLevel",
+    "entries": [
+      { "id": 1, "result": "Anarchy", "governmentBuildings": 0 },
+      { "id": 2, "result": "Democratic", "governmentBuildings": 1 },
+      { "id": 3, "result": "Tribal", "governmentBuildings": 1 },
+      { "id": 4, "result": "Agrarian", "governmentBuildings": 2 },
+      { "id": 5, "result": "Religious", "governmentBuildings": 2 },
+      { "id": 6, "result": "Tributary", "governmentBuildings": 2 },
+      { "id": 7, "result": "Oligarchy", "governmentBuildings": 3 },
+      { "id": 8, "result": "Republic", "governmentBuildings": 3 },
+      { "id": 9, "result": "Aristocracy", "governmentBuildings": 3 },
+      { "id": 10, "result": "Feudal", "governmentBuildings": 4 },
+      { "id": 11, "result": "Dictatorship", "governmentBuildings": 4 },
+      { "id": 12, "result": "Re-roll" }
+    ]
+  }
+  

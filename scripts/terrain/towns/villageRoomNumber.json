@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageRoomNumber",
+    "entries": [
+      { "id": 1, "result": "Building Tower Type" },
+      { "id": 2, "result": "Building Tower Type + 1 Lower Level" },
+      { "id": 3, "result": "Building Tower Type + 2 Lower Levels" },
+      { "id": 4, "result": "Building Tower Type + 3 Lower Levels" },
+      { "id": 5, "result": "Building Tower Type + 4 Lower Levels" },
+      { "id": 6, "result": "Building Tower Type + 1 Upper Level" },
+      { "id": 7, "result": "Building Tower Type + 2 Upper Levels" },
+      { "id": 8, "result": "Building Tower Type + 3 Upper Levels" },
+      { "id": 9, "result": "Building Tower Type + 4 Upper Levels" },
+      { "id": 10, "result": "Building Tower Type + 1 Lower Level + 1 Upper Level" },
+      { "id": 11, "result": "Building Tower Type + 2 Lower Levels + 2 Upper Levels" },
+      { "id": 12, "result": "Building Tower Type + 3 Lower Levels + 3 Upper Levels" },
+      { "id": 13, "result": "Building Tower Type + 4 Lower Levels + 4 Upper Levels" },
+      { "id": 14, "result": "Building Tower Type + 1 Lower Level + 1 Upper Level + Walled Garden" },
+      { "id": 15, "result": "Building Tower Type + 2 Lower Levels + 2 Upper Levels + Walled Garden" },
+      { "id": 16, "result": "Building Tower Type + 3 Lower Levels + 3 Upper Levels + Walled Garden" },
+      { "id": 17, "result": "Building Tower Type + 4 Lower Levels + 4 Upper Levels + Walled Garden" },
+      { "id": 18, "result": "Building Tower Type + 5 Lower Levels + 5 Upper Levels" },
+      { "id": 19, "result": "Building Tower Type + 5 Lower Levels + 5 Upper Levels + Walled Garden" },
+      { "id": 20, "result": "Building Tower Type + 6 Lower Levels + 6 Upper Levels + Walled Garden" }
+    ]
+  }
+  

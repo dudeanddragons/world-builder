@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageGovTributary",
+    "entries": [
+      { "id": 1, "result": "Pantheon (several temples)" },
+      { "id": 2, "result": "Circus (similar to arena)" },
+      { "id": 3, "result": "Marketplace" },
+      { "id": 4, "result": "Temple" },
+      { "id": 5, "result": "Bath house" },
+      { "id": 6, "result": "Burial grounds" },
+      { "id": 7, "result": "Prison" },
+      { "id": 8, "result": "Citadel" },
+      { "id": 9, "result": "Military Headquarters" },
+      { "id": 10, "result": "Garrison headquarters" },
+      { "id": 11, "result": "Tax office" },
+      { "id": 12, "result": "Village meeting hall" },
+      { "id": 13, "result": "Emporium (Royal warehouse)" },
+      { "id": 14, "result": "Leadership dwelling" },
+      { "id": 15, "result": "Lookout tower" },
+      { "id": 16, "result": "Keep" },
+      { "id": 17, "result": "Town postal system" },
+      { "id": 18, "result": "Military induction center" },
+      { "id": 19, "result": "Village court" },
+      { "id": 20, "result": "Village court" }
+    ]
+  }
+  

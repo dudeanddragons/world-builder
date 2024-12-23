@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageBuildingMaterial",
+    "entries": [
+      { "id": 1, "result": "Straw" },
+      { "id": 2, "result": "Mud or wattle" },
+      { "id": 3, "result": "Wood" },
+      { "id": 4, "result": "Field stone" },
+      { "id": 5, "result": "Fired brick" },
+      { "id": 6, "result": "Cut stone" }
+    ]
+  }
+  

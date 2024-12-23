@@ -1,0 +1,17 @@
+{
+    "tableName": "tblVillageAttitude",
+    "entries": [
+      { "id": 2, "result": "Blissful happiness" },
+      { "id": 3, "result": "Unabashed curiosity" },
+      { "id": 4, "result": "Friendly leader" },
+      { "id": 5, "result": "Cheerful hospitality" },
+      { "id": 6, "result": "Eager to trade" },
+      { "id": 7, "result": "Polite indifference" },
+      { "id": 8, "result": "Vague uneasiness" },
+      { "id": 9, "result": "Strange behavior" },
+      { "id": 10, "result": "Air of mystery" },
+      { "id": 11, "result": "Predatory" },
+      { "id": 12, "result": "Outright hostility" }
+    ]
+  }
+  

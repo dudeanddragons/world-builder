@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageGovDemocracy",
+    "entries": [
+      { "id": 1, "result": "Tax office" },
+      { "id": 2, "result": "Tax office" },
+      { "id": 3, "result": "Tax office" },
+      { "id": 4, "result": "Tax office" },
+      { "id": 5, "result": "Tax office" },
+      { "id": 6, "result": "Village meeting hall" },
+      { "id": 7, "result": "Village meeting hall" },
+      { "id": 8, "result": "Village meeting hall" },
+      { "id": 9, "result": "Village meeting hall" },
+      { "id": 10, "result": "Village meeting hall" },
+      { "id": 11, "result": "Village meeting hall" },
+      { "id": 12, "result": "Village meeting hall" },
+      { "id": 13, "result": "Village meeting hall" },
+      { "id": 14, "result": "Village meeting hall" },
+      { "id": 15, "result": "Village meeting hall" },
+      { "id": 16, "result": "Community warehouse" },
+      { "id": 17, "result": "Community warehouse" },
+      { "id": 18, "result": "Community warehouse" },
+      { "id": 19, "result": "Community warehouse" },
+      { "id": 20, "result": "Community warehouse" }
+    ]
+  }
+  

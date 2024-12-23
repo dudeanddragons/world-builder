@@ -1,0 +1,25 @@
+{
+    "tableName": "tblVillageWallDefenses",
+    "entries": [
+      { "id": 1, "result": "None" },
+      { "id": 2, "result": "Taboo symbols" },
+      { "id": 3, "result": "Multiple crossbow" },
+      { "id": 4, "result": "Iron pellets" },
+      { "id": 5, "result": "Spear trap" },
+      { "id": 6, "result": "Arrow trap" },
+      { "id": 7, "result": "Nets" },
+      { "id": 8, "result": "Gas spheres" },
+      { "id": 9, "result": "Tar pits" },
+      { "id": 10, "result": "Mirrors" },
+      { "id": 11, "result": "Watch creatures" },
+      { "id": 12, "result": "Pits" },
+      { "id": 13, "result": "Magically protected" },
+      { "id": 14, "result": "Stones" },
+      { "id": 15, "result": "Catapult" },
+      { "id": 16, "result": "Trebuchet" },
+      { "id": 17, "result": "Dart Thrower" },
+      { "id": 18, "result": "Greek fire" },
+      { "id": 19, "result": "Cauldrons (1/30')" }
+    ]
+  }
+  

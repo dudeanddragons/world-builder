@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsAgrarian",
+    "entries": [
+      { "id": 1, "result": "Sundial maker" },
+      { "id": 2, "result": "Linen shop" },
+      { "id": 3, "result": "Robe maker" },
+      { "id": 4, "result": "Book maker" },
+      { "id": 5, "result": "Candle maker" },
+      { "id": 6, "result": "Oil lamp maker" },
+      { "id": 7, "result": "Coppersmith" },
+      { "id": 8, "result": "Scribe" },
+      { "id": 9, "result": "Tavern" },
+      { "id": 10, "result": "Inn" },
+      { "id": 11, "result": "Carpenter" },
+      { "id": 12, "result": "Wagon builder" },
+      { "id": 13, "result": "Slate cutter shop" },
+      { "id": 14, "result": "Pole arm shop" },
+      { "id": 15, "result": "Mace maker" },
+      { "id": 16, "result": "Tailor" },
+      { "id": 17, "result": "Pottery shop" },
+      { "id": 18, "result": "Sail maker" },
+      { "id": 19, "result": "Brick layer" },
+      { "id": 20, "result": "Horse trader" }
+    ]
+  }
+  

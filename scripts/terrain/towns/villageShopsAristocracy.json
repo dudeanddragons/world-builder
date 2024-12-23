@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsAristocracy",
+    "entries": [
+      { "id": 1, "result": "Plate armor (armorer)" },
+      { "id": 2, "result": "Geologist (sage)" },
+      { "id": 3, "result": "Rugs & Tapestries" },
+      { "id": 4, "result": "Siege tower builder" },
+      { "id": 5, "result": "Deed recorder" },
+      { "id": 6, "result": "Village clerk" },
+      { "id": 7, "result": "Leech (doctor)" },
+      { "id": 8, "result": "Assassin’s den" },
+      { "id": 9, "result": "Mining engineer" },
+      { "id": 10, "result": "Ship captain’s guild" },
+      { "id": 11, "result": "Pottery shop" },
+      { "id": 12, "result": "Animal trainer" },
+      { "id": 13, "result": "Thieves’ den" },
+      { "id": 14, "result": "Music shop" },
+      { "id": 15, "result": "Sailors’ hall" },
+      { "id": 16, "result": "Puppeteer shop" },
+      { "id": 17, "result": "Theater" },
+      { "id": 18, "result": "Bricklayer" },
+      { "id": 19, "result": "Beggars’ guild" },
+      { "id": 20, "result": "Court of law" }
+    ]
+  }
+  

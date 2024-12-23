@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageWallThicknessWood",
+    "entries": [
+      { "id": 1, "result": "1'" },
+      { "id": 2, "result": "2'" },
+      { "id": 3, "result": "3'" },
+      { "id": 4, "result": "4'" },
+      { "id": 5, "result": "5'" },
+      { "id": 6, "result": "BRICK" }
+    ]
+  }
+  

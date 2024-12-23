@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageRoomGroundLevel",
+    "entries": [
+      { "id": 1, "result": "5'x10'" },
+      { "id": 2, "result": "10'x10'" },
+      { "id": 3, "result": "10'x15'" },
+      { "id": 4, "result": "15'x15'" },
+      { "id": 5, "result": "15'x20'" },
+      { "id": 6, "result": "20'x20'" },
+      { "id": 7, "result": "5'x15' Hall" },
+      { "id": 8, "result": "10'x20' Hall" },
+      { "id": 9, "result": "15'x30' Hall" },
+      { "id": 10, "result": "5'x20' Chapel" },
+      { "id": 11, "result": "10'x20' Chapel" },
+      { "id": 12, "result": "15'x30' Chapel" },
+      { "id": 13, "result": "5'x10' Stable" },
+      { "id": 14, "result": "10'x20' Stable" },
+      { "id": 15, "result": "15'x30' Stable" },
+      { "id": 16, "result": "5'x10' Secret Room" },
+      { "id": 17, "result": "10'x20' Secret Room" },
+      { "id": 18, "result": "15'x30' Secret Room" },
+      { "id": 19, "result": "20'x40' Hall" },
+      { "id": 20, "result": "30'x50' Hall" }
+    ]
+  }
+  

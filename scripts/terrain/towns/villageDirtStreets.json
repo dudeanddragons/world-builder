@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageDirtStreets",
+    "entries": [
+      { "id": 1, "result": "6 feet" },
+      { "id": 2, "result": "9 feet" },
+      { "id": 3, "result": "10 feet" },
+      { "id": 4, "result": "15 feet" },
+      { "id": 5, "result": "Gravel Street" },
+      { "id": 6, "result": "Gravel Street" }
+    ]
+  }
+  

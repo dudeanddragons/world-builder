@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageGravelStreets",
+    "entries": [
+      { "id": 1, "result": "12 feet" },
+      { "id": 2, "result": "15 feet" },
+      { "id": 3, "result": "20 feet" },
+      { "id": 4, "result": "30 feet" },
+      { "id": 5, "result": "Wooden Street" },
+      { "id": 6, "result": "Wooden Street" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageOtherType",
+    "entries": [
+      { "id": 1, "result": "Sage (Level 4 Magic-User)" },
+      { "id": 2, "result": "Orc War Chief" },
+      { "id": 3, "result": "Ogre Boss" },
+      { "id": 4, "result": "Lizardman" },
+      { "id": 5, "result": "Vampire" },
+      { "id": 6, "result": "Young Dragon" }
+    ]
+  }
+  

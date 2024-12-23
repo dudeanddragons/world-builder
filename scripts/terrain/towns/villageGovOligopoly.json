@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageGovOligopoly",
+    "entries": [
+      { "id": 1, "result": "Stadium" },
+      { "id": 2, "result": "Theater" },
+      { "id": 3, "result": "Noble’s house" },
+      { "id": 4, "result": "Sentry station" },
+      { "id": 5, "result": "Pantheon" },
+      { "id": 6, "result": "Circus" },
+      { "id": 7, "result": "Marketplace" },
+      { "id": 8, "result": "Village court" },
+      { "id": 9, "result": "Temple" },
+      { "id": 10, "result": "Bathhouse" },
+      { "id": 11, "result": "Prison (law enforcement)" },
+      { "id": 12, "result": "Citadel" },
+      { "id": 13, "result": "Tax office" },
+      { "id": 14, "result": "Village meeting hall" },
+      { "id": 15, "result": "Lookout tower" },
+      { "id": 16, "result": "Postal system" },
+      { "id": 17, "result": "Burial ground" },
+      { "id": 18, "result": "Sentry house" },
+      { "id": 19, "result": "Military school" },
+      { "id": 20, "result": "Windmill" }
+    ]
+  }
+  

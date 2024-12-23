@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageRoomHeight",
+    "entries": [
+      { "id": 1, "result": "4'" },
+      { "id": 2, "result": "8'" },
+      { "id": 3, "result": "12'" },
+      { "id": 4, "result": "16'" },
+      { "id": 5, "result": "20'" },
+      { "id": 6, "result": "24'" }
+    ]
+  }
+  

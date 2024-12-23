@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageLeaderDisposition",
+    "entries": [
+      { "id": 1, "result": "Friendly (+1 to reaction Roll)" },
+      { "id": 2, "result": "Friendly (+1 to reaction Roll)" },
+      { "id": 3, "result": "Ambivalent (+0)" },
+      { "id": 4, "result": "Ambivalent (+0)" },
+      { "id": 5, "result": "Suspicious (-1 to reaction Roll)" },
+      { "id": 6, "result": "Suspicious (-1 to reaction Roll)" }
+    ]
+  }
+  

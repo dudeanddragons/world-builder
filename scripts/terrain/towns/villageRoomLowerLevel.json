@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageRoomLowerLevel",
+    "entries": [
+      { "id": 1, "result": "10'x10' Tower" },
+      { "id": 2, "result": "20'x20' Circular" },
+      { "id": 3, "result": "30'x30' Circular" },
+      { "id": 4, "result": "40'x40' Circular" },
+      { "id": 5, "result": "10'x10' Octagon" },
+      { "id": 6, "result": "20'x20' Octagon" },
+      { "id": 7, "result": "30'x30' Octagon" },
+      { "id": 8, "result": "40'x40' Octagon" },
+      { "id": 9, "result": "Irregular shaped" },
+      { "id": 10, "result": "Monster lair" },
+      { "id": 11, "result": "Wine cellar" },
+      { "id": 12, "result": "Cave entrance" },
+      { "id": 13, "result": "Well" },
+      { "id": 14, "result": "Escape tunnel" },
+      { "id": 15, "result": "Tomb" },
+      { "id": 16, "result": "Dungeon entrance" },
+      { "id": 17, "result": "30'x50' Chamber" },
+      { "id": 18, "result": "40'x60' Chamber" },
+      { "id": 19, "result": "Hidden alcove" },
+      { "id": 20, "result": "Secret crypt" }
+    ]
+  }
+  

@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageStoneStreets",
+    "entries": [
+      { "id": 1, "result": "10 feet" },
+      { "id": 2, "result": "20 feet" },
+      { "id": 3, "result": "30 feet" },
+      { "id": 4, "result": "40 feet" },
+      { "id": 5, "result": "50 feet" },
+      { "id": 6, "result": "60 feet" }
+    ]
+  }
+  

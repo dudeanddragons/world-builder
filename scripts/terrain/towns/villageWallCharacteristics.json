@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageWallCharacteristics",
+    "entries": [
+      { "id": 1, "result": "Secret gate" },
+      { "id": 2, "result": "Stained" },
+      { "id": 3, "result": "Carved" },
+      { "id": 4, "result": "Batter 3'-18'" },
+      { "id": 5, "result": "Spiked top" },
+      { "id": 6, "result": "Pointed top" },
+      { "id": 7, "result": "Castellated" },
+      { "id": 8, "result": "Arrow slits (1/10')" },
+      { "id": 9, "result": "Crushing" },
+      { "id": 10, "result": "Cantilevered platform" },
+      { "id": 11, "result": "Parapets (1/30')" },
+      { "id": 12, "result": "Glass embedded" },
+      { "id": 13, "result": "Overgrown" },
+      { "id": 14, "result": "Dry ditch" },
+      { "id": 15, "result": "Moat" },
+      { "id": 16, "result": "Iron reinforced" },
+      { "id": 17, "result": "Magically reinforced" },
+      { "id": 18, "result": "Small (postern) gate" },
+      { "id": 19, "result": "Gate tower" },
+      { "id": 20, "result": "Tower both ends" }
+    ]
+  }
+  

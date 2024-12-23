@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsRepublic",
+    "entries": [
+      { "id": 1, "result": "Shipbuilder" },
+      { "id": 2, "result": "Hotel" },
+      { "id": 3, "result": "Slave market" },
+      { "id": 4, "result": "Bathhouse" },
+      { "id": 5, "result": "Swine market" },
+      { "id": 6, "result": "Cattle market" },
+      { "id": 7, "result": "Clerical aid shop" },
+      { "id": 8, "result": "Sculptor" },
+      { "id": 9, "result": "Lumber mill" },
+      { "id": 10, "result": "Shipyard" },
+      { "id": 11, "result": "Bake shop" },
+      { "id": 12, "result": "Interpreter" },
+      { "id": 13, "result": "Building supplies" },
+      { "id": 14, "result": "Stage hire" },
+      { "id": 15, "result": "Foundry" },
+      { "id": 16, "result": "Hourglass shop" },
+      { "id": 17, "result": "General store" },
+      { "id": 18, "result": "Sage’s house" },
+      { "id": 19, "result": "Jade shop" },
+      { "id": 20, "result": "Gladiator school" }
+    ]
+  }
+  

@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsTributary",
+    "entries": [
+      { "id": 1, "result": "Screw maker" },
+      { "id": 2, "result": "Windmill builder" },
+      { "id": 3, "result": "Silk goods" },
+      { "id": 4, "result": "Money lender (bank)" },
+      { "id": 5, "result": "Carpet maker" },
+      { "id": 6, "result": "Goldsmith" },
+      { "id": 7, "result": "Barding maker (armorer)" },
+      { "id": 8, "result": "Halberd, morning star, flail maker" },
+      { "id": 9, "result": "Glass blower" },
+      { "id": 10, "result": "Debtor’s Prison" },
+      { "id": 11, "result": "Tax Collector" },
+      { "id": 12, "result": "Sheep market" },
+      { "id": 13, "result": "House of Joy" },
+      { "id": 14, "result": "Informant shop" },
+      { "id": 15, "result": "Town crier" },
+      { "id": 16, "result": "Saddle designer" },
+      { "id": 17, "result": "Transport shop" },
+      { "id": 18, "result": "Butcher" },
+      { "id": 19, "result": "Bureaucrat’s office" },
+      { "id": 20, "result": "Court clerk" }
+    ]
+  }
+  

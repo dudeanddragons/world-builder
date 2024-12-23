@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageGovAgrarian",
+    "entries": [
+      { "id": 1, "result": "Citadel" },
+      { "id": 2, "result": "Citadel" },
+      { "id": 3, "result": "Militia headquarters" },
+      { "id": 4, "result": "Militia headquarters" },
+      { "id": 5, "result": "Town square" },
+      { "id": 6, "result": "Town square" },
+      { "id": 7, "result": "Tax office" },
+      { "id": 8, "result": "Tax office" },
+      { "id": 9, "result": "Town meeting hall" },
+      { "id": 10, "result": "Town meeting hall" },
+      { "id": 11, "result": "Community warehouse" },
+      { "id": 12, "result": "Community warehouse" },
+      { "id": 13, "result": "Lookout tower" },
+      { "id": 14, "result": "Lookout tower" },
+      { "id": 15, "result": "Leadership home" },
+      { "id": 16, "result": "Leadership home" },
+      { "id": 17, "result": "Jail" },
+      { "id": 18, "result": "Jail" },
+      { "id": 19, "result": "Temple" },
+      { "id": 20, "result": "Temple" }
+    ]
+  }
+  

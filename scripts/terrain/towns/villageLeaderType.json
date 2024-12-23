@@ -1,0 +1,14 @@
+{
+    "tableName": "tblVillageLeaderType",
+    "entries": [
+      { "id": 1, "result": "Clanhead (Level 0 Commoner)" },
+      { "id": 2, "result": "Mayor (Level 0 Commoner)" },
+      { "id": 3, "result": "Reeve (Level 0 Commoner)" },
+      { "id": 4, "result": "Bailiff (Level 1 Fighter)" },
+      { "id": 5, "result": "Knight (Level 2 Fighter)" },
+      { "id": 6, "result": "Priest (Level 3 Cleric)" },
+      { "id": 7, "result": "Bandit Chief (Level 3 Thief)" },
+      { "id": 8, "result": "Other" }
+    ]
+  }
+  

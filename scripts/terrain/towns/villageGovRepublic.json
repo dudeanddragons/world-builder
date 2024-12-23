@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageGovRepublic",
+    "entries": [
+      { "id": 1, "result": "Temple" },
+      { "id": 2, "result": "Bathhouse" },
+      { "id": 3, "result": "Prison" },
+      { "id": 4, "result": "Citadel" },
+      { "id": 5, "result": "Military Headquarters" },
+      { "id": 6, "result": "Town square" },
+      { "id": 7, "result": "Tax office" },
+      { "id": 8, "result": "Village meeting hall" },
+      { "id": 9, "result": "Burial grounds" },
+      { "id": 10, "result": "Village court" },
+      { "id": 11, "result": "Village defense walls" },
+      { "id": 12, "result": "Pantheon" },
+      { "id": 13, "result": "Stadium" },
+      { "id": 14, "result": "Theater" },
+      { "id": 15, "result": "Noble’s house" },
+      { "id": 16, "result": "Circus" },
+      { "id": 17, "result": "Marketplace" },
+      { "id": 18, "result": "College" },
+      { "id": 19, "result": "Military school" },
+      { "id": 20, "result": "Marketplace" }
+    ]
+  }
+  

@@ -1,0 +1,14 @@
+{
+    "tableName": "tblVillageBuildingType",
+    "entries": [
+      { "id": 1, "result": "Hut" },
+      { "id": 2, "result": "Hovel" },
+      { "id": 3, "result": "Cottage" },
+      { "id": 4, "result": "Shop" },
+      { "id": 5, "result": "Manor" },
+      { "id": 6, "result": "Villa" },
+      { "id": 7, "result": "Hall" },
+      { "id": 8, "result": "Palace" }
+    ]
+  }
+  

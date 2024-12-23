@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsAnarchy",
+    "entries": [
+      { "id": 1, "result": "Flint cutter" },
+      { "id": 2, "result": "Tanner" },
+      { "id": 3, "result": "Stone cutter" },
+      { "id": 4, "result": "Tavern" },
+      { "id": 5, "result": "Wheel & cart shop" },
+      { "id": 6, "result": "Stone Tool Maker" },
+      { "id": 7, "result": "Plow maker shop (wood)" },
+      { "id": 8, "result": "Ox keeper" },
+      { "id": 9, "result": "Wise man's den" },
+      { "id": 10, "result": "Weaver's shop" },
+      { "id": 11, "result": "Basket market" },
+      { "id": 12, "result": "Open air market" },
+      { "id": 13, "result": "Yoke maker" },
+      { "id": 14, "result": "Stone weapon maker (axe, knife)" },
+      { "id": 15, "result": "Spear maker" },
+      { "id": 16, "result": "Smokehouse" },
+      { "id": 17, "result": "Shield maker (skins)" },
+      { "id": 18, "result": "Jeweler (uncut stones, bones)" },
+      { "id": 19, "result": "Armorer (Breastplate bone)" },
+      { "id": 20, "result": "Rain maker" }
+    ]
+  }
+  

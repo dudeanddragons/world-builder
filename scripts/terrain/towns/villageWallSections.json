@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageWallSections",
+    "entries": [
+      { "id": 1, "dice": "2d6", "result": "Wall Sections" },
+      { "id": 2, "dice": "4d6", "result": "Wall Sections" },
+      { "id": 3, "dice": "6d6", "result": "Wall Sections" },
+      { "id": 4, "dice": "8d6", "result": "Wall Sections" },
+      { "id": 5, "dice": "10d6", "result": "Wall Sections" },
+      { "id": 6, "dice": "12d6", "result": "Wall Sections" }
+    ]
+  }
+  

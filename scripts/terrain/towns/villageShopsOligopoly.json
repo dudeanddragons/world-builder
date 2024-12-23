@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsOligopoly",
+    "entries": [
+      { "id": 1, "result": "Crossbow maker" },
+      { "id": 2, "result": "Chain mail (armorer)" },
+      { "id": 3, "result": "Trap designer" },
+      { "id": 4, "result": "Artist" },
+      { "id": 5, "result": "Poison shop (alchemist)" },
+      { "id": 6, "result": "Accountant" },
+      { "id": 7, "result": "Astrologer's shop" },
+      { "id": 8, "result": "Mineral sage" },
+      { "id": 9, "result": "Botanist (sage)" },
+      { "id": 10, "result": "Body snatcher's shop" },
+      { "id": 11, "result": "Map maker" },
+      { "id": 12, "result": "Feed, seed & dry goods" },
+      { "id": 13, "result": "Minstrel guild" },
+      { "id": 14, "result": "Mason" },
+      { "id": 15, "result": "Library" },
+      { "id": 16, "result": "Wigs" },
+      { "id": 17, "result": "Courthouse" },
+      { "id": 18, "result": "Money changer" },
+      { "id": 19, "result": "Mercenary Service" },
+      { "id": 20, "result": "Hypnotist" }
+    ]
+  }
+  

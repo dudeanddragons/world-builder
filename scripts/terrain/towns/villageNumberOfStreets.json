@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageTrailStreets",
+    "entries": [
+      { "id": 1, "result": "1 foot" },
+      { "id": 2, "result": "2 feet" },
+      { "id": 3, "result": "3 feet" },
+      { "id": 4, "result": "4 feet" },
+      { "id": 5, "result": "Dirt Street" },
+      { "id": 6, "result": "Dirt Street" }
+    ]
+  }
+  

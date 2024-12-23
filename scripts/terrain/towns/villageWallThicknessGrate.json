@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageWallThicknessGrate",
+    "entries": [
+      { "id": 1, "result": "1\" diameter, Bronze, Latticed" },
+      { "id": 2, "result": "2\" diameter, Bronze" },
+      { "id": 3, "result": "3\" diameter, Bronze" },
+      { "id": 4, "result": "1\" diameter, Iron" },
+      { "id": 5, "result": "2\" diameter, Iron" },
+      { "id": 6, "result": "3\" diameter, Iron" }
+    ]
+  }
+  

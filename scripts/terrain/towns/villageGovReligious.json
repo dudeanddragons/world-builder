@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageGovReligious",
+    "entries": [
+      { "id": 1, "result": "Temple" },
+      { "id": 2, "result": "Temple" },
+      { "id": 3, "result": "Burial grounds" },
+      { "id": 4, "result": "Prison" },
+      { "id": 5, "result": "Citadel" },
+      { "id": 6, "result": "Militia headquarters" },
+      { "id": 7, "result": "Public bathhouse" },
+      { "id": 8, "result": "Town square" },
+      { "id": 9, "result": "Tax office" },
+      { "id": 10, "result": "Town meeting hall" },
+      { "id": 11, "result": "Community warehouse" },
+      { "id": 12, "result": "Lookout tower" },
+      { "id": 13, "result": "Leadership dwelling" },
+      { "id": 14, "result": "Town Armory" },
+      { "id": 15, "result": "Waterworks" },
+      { "id": 16, "result": "Granary" },
+      { "id": 17, "result": "Town stable" },
+      { "id": 18, "result": "Large tomb" },
+      { "id": 19, "result": "Temple" },
+      { "id": 20, "result": "Temple" }
+    ]
+  }
+  

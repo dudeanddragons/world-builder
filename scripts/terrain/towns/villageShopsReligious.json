@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsReligious",
+    "entries": [
+      { "id": 1, "result": "Lantern maker" },
+      { "id": 2, "result": "Chariot maker" },
+      { "id": 3, "result": "Hat maker" },
+      { "id": 4, "result": "Silversmith" },
+      { "id": 5, "result": "Leather armor" },
+      { "id": 6, "result": "Master builder" },
+      { "id": 7, "result": "Ghost chaser" },
+      { "id": 8, "result": "Undertaker" },
+      { "id": 9, "result": "Composite bow maker" },
+      { "id": 10, "result": "Locksmith" },
+      { "id": 11, "result": "Slaver" },
+      { "id": 12, "result": "Navigational shop" },
+      { "id": 13, "result": "Pipe Weed shop" },
+      { "id": 14, "result": "Brewery" },
+      { "id": 15, "result": "Religious symbol shop" },
+      { "id": 16, "result": "Lance & Javelin shop" },
+      { "id": 17, "result": "Jail (law enforcement)" },
+      { "id": 18, "result": "Trap maker" },
+      { "id": 19, "result": "Temple" },
+      { "id": 20, "result": "Herb & Spice shop" }
+    ]
+  }
+  

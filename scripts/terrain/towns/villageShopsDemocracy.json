@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsDemocracy",
+    "entries": [
+      { "id": 1, "result": "Horse breaker" },
+      { "id": 2, "result": "Bow maker" },
+      { "id": 3, "result": "Fortune teller" },
+      { "id": 4, "result": "Stable keeper" },
+      { "id": 5, "result": "Mold & pattern maker" },
+      { "id": 6, "result": "Raft builders" },
+      { "id": 7, "result": "Glove maker" },
+      { "id": 8, "result": "Tavern" },
+      { "id": 9, "result": "Remedy house" },
+      { "id": 10, "result": "Axe maker" },
+      { "id": 11, "result": "Net maker" },
+      { "id": 12, "result": "Sandal maker" },
+      { "id": 13, "result": "Drum maker" },
+      { "id": 14, "result": "Water witch" },
+      { "id": 15, "result": "Leader's house" },
+      { "id": 16, "result": "Stirrup maker" },
+      { "id": 17, "result": "Water wheel maker" },
+      { "id": 18, "result": "Bronze caster" },
+      { "id": 19, "result": "Water skin maker" },
+      { "id": 20, "result": "Carver's shop" }
+    ]
+  }
+  

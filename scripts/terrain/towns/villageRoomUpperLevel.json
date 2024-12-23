@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageRoomUpperLevel",
+    "entries": [
+      { "id": 1, "result": "10'x10' Tower" },
+      { "id": 2, "result": "20'x20' Tower" },
+      { "id": 3, "result": "30'x30' Tower" },
+      { "id": 4, "result": "10'x20' Tower" },
+      { "id": 5, "result": "10'x30' Tower" },
+      { "id": 6, "result": "20'x40' Tower" },
+      { "id": 7, "result": "Aviary" },
+      { "id": 8, "result": "Garden roof" },
+      { "id": 9, "result": "Lighthouse" },
+      { "id": 10, "result": "Balcony" },
+      { "id": 11, "result": "Observatory" },
+      { "id": 12, "result": "Organ tower" },
+      { "id": 13, "result": "Bell tower" },
+      { "id": 14, "result": "Crow's nest" },
+      { "id": 15, "result": "Landing platform" },
+      { "id": 16, "result": "30'x50' Observatory" },
+      { "id": 17, "result": "40'x60' Tower" },
+      { "id": 18, "result": "Hidden garden" },
+      { "id": 19, "result": "Secret terrace" },
+      { "id": 20, "result": "Private balcony" }
+    ]
+  }
+  

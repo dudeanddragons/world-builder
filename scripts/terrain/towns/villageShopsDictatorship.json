@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsDictatorship",
+    "entries": [
+      { "id": 1, "result": "Telescope Shop" },
+      { "id": 2, "result": "School of Math & Science" },
+      { "id": 3, "result": "Gladiator arena" },
+      { "id": 4, "result": "Siege engineer" },
+      { "id": 5, "result": "Sages’ guild" },
+      { "id": 6, "result": "Monastery" },
+      { "id": 7, "result": "Taxidermist" },
+      { "id": 8, "result": "Glass shop" },
+      { "id": 9, "result": "Sign painter" },
+      { "id": 10, "result": "Circus" },
+      { "id": 11, "result": "Survey shop" },
+      { "id": 12, "result": "Sanitation Station" },
+      { "id": 13, "result": "Woman’s foundation shop" },
+      { "id": 14, "result": "Orcarmitory" },
+      { "id": 15, "result": "Laundry service" },
+      { "id": 16, "result": "Landscape service" },
+      { "id": 17, "result": "Investigator" },
+      { "id": 18, "result": "Falcon trainer" },
+      { "id": 19, "result": "Glass cutter" },
+      { "id": 20, "result": "Rat chaser" }
+    ]
+  }
+  

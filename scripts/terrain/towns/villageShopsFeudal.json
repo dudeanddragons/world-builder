@@ -1,0 +1,26 @@
+{
+    "tableName": "tblVillageShopsFeudal",
+    "entries": [
+      { "id": 1, "result": "Rocket builder" },
+      { "id": 2, "result": "Road engineer" },
+      { "id": 3, "result": "Castle engineer" },
+      { "id": 4, "result": "Fighter’s school" },
+      { "id": 5, "result": "Magic school" },
+      { "id": 6, "result": "Messenger’s Service" },
+      { "id": 7, "result": "Astronomer (sage)" },
+      { "id": 8, "result": "Catapult Builder" },
+      { "id": 9, "result": "Execution yard" },
+      { "id": 10, "result": "Building inspector" },
+      { "id": 11, "result": "Actor’s guild" },
+      { "id": 12, "result": "Spectacle shop" },
+      { "id": 13, "result": "Steel factory" },
+      { "id": 14, "result": "Ship captain’s school" },
+      { "id": 15, "result": "Siege tower builder" },
+      { "id": 16, "result": "Assassin’s guild" },
+      { "id": 17, "result": "House of the Insane" },
+      { "id": 18, "result": "Village bookkeeper" },
+      { "id": 19, "result": "Military induction center" },
+      { "id": 20, "result": "Hall of the Great Druid" }
+    ]
+  }
+  

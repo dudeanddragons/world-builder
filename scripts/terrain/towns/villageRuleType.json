@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageRuleType",
+    "entries": [
+      { "id": 1, "result": "None" },
+      { "id": 2, "result": "Village Council" },
+      { "id": 3, "result": "Village Leader" },
+      { "id": 4, "result": "Village Leader" },
+      { "id": 5, "result": "Village Leader" },
+      { "id": 6, "result": "Village Leader" }
+    ]
+  }
+  

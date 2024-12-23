@@ -1,0 +1,12 @@
+{
+    "tableName": "tblVillageWallThicknessMarble",
+    "entries": [
+      { "id": 1, "result": "2'" },
+      { "id": 2, "result": "4'" },
+      { "id": 3, "result": "6'" },
+      { "id": 4, "result": "8'" },
+      { "id": 5, "result": "10'" },
+      { "id": 6, "result": "GRATE" }
+    ]
+  }
+  
