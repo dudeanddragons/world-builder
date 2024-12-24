@@ -1,0 +1,11 @@
+{
+    "tableName": "tblTerrainFeaturesBorderlands",
+    "entries": [
+      { "id": 1, "value": "Ruins and Relics" },
+      { "id": 2, "value": "Lurid Lairs" },
+      { "id": 3, "value": "Rivers and Roads/Islands" },
+      { "id": 4, "value": "Castles and Citadels" },
+      { "id": 5, "value": "Temples and Shrines" }
+    ]
+  }
+  

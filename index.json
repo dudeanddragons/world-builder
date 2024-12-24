@@ -1,0 +1,151 @@
+{
+  "climates": {
+    "tblTerrainClimate": {
+      "file": "assets/terrain/terrainClimate.json",
+      "entries": [
+        {
+          "id": 1,
+          "value": "cold",
+          "terrainFile": "assets/terrain/terrainTypeCold.json",
+          "encounters": {
+            "DesertCommon": "assets/encounters/desert/encounterDesertColdCommon.json",
+            "DesertUncommon": "assets/encounters/desert/encounterDesertColdUncommon.json",
+            "DesertRare": "assets/encounters/desert/encounterDesertColdRare.json",
+            "DesertVeryRare": "assets/encounters/desert/encounterDesertColdVeryRare.json",
+            "ForestCommon": "assets/encounters/forest/encounterForestColdCommon.json",
+            "ForestUncommon": "assets/encounters/forest/encounterForestColdUncommon.json",
+            "ForestRare": "assets/encounters/forest/encounterForestColdRare.json",
+            "ForestVeryRare": "assets/encounters/forest/encounterForestColdVeryRare.json",
+            "HillsCommon": "assets/encounters/hills/encounterHillsColdCommon.json",
+            "HillsUncommon": "assets/encounters/hills/encounterHillsColdUncommon.json",
+            "HillsRare": "assets/encounters/hills/encounterHillsColdRare.json",
+            "HillsVeryRare": "assets/encounters/hills/encounterHillsColdVeryRare.json",
+            "MountainsCommon": "assets/encounters/mountains/encounterMountainsColdCommon.json",
+            "MountainsUncommon": "assets/encounters/mountains/encounterMountainsColdUncommon.json",
+            "MountainsRare": "assets/encounters/mountains/encounterMountainsColdRare.json",
+            "MountainsVeryRare": "assets/encounters/mountains/encounterMountainsColdVeryRare.json",
+            "PlainsCommon": "assets/encounters/plains/encounterPlainsColdCommon.json",
+            "PlainsUncommon": "assets/encounters/plains/encounterPlainsColdUncommon.json",
+            "PlainsRare": "assets/encounters/plains/encounterPlainsColdRare.json",
+            "PlainsVeryRare": "assets/encounters/plains/encounterPlainsColdVeryRare.json",
+            "SubterraneanCommon": "assets/encounters/subterranean/encounterSubterraneanColdCommon.json",
+            "SubterraneanUncommon": "assets/encounters/subterranean/encounterSubterraneanColdUncommon.json",
+            "SubterraneanRare": "assets/encounters/subterranean/encounterSubterraneanColdRare.json",
+            "SubterraneanVeryRare": "assets/encounters/subterranean/encounterSubterraneanColdVeryRare.json",
+            "SwampCommon": "assets/encounters/swamp/encounterSwampColdCommon.json",
+            "SwampUncommon": "assets/encounters/swamp/encounterSwampColdUncommon.json",
+            "SwampRare": "assets/encounters/swamp/encounterSwampColdRare.json",
+            "SwampVeryRare": "assets/encounters/swamp/encounterSwampColdVeryRare.json",
+            "FreshWaterCommon": "assets/encounters/waterFresh/encounterFreshWaterColdCommon.json",
+            "FreshWaterUncommon": "assets/encounters/waterFresh/encounterFreshWaterColdUncommon.json",
+            "FreshWaterRare": "assets/encounters/waterFresh/encounterFreshWaterColdRare.json",
+            "FreshWaterVeryRare": "assets/encounters/waterFresh/encounterFreshWaterColdVeryRare.json",
+            "SaltWaterCommon": "assets/encounters/waterSalt/encounterFreshWaterColdCommon.json",
+            "SaltWaterUncommon": "assets/encounters/waterSalt/encounterFreshWaterColdUncommon.json",
+            "SaltWaterRare": "assets/encounters/waterSalt/encounterFreshWaterColdRare.json",
+            "SaltWaterVeryRare": "assets/encounters/waterSalt/encounterFreshWaterColdVeryRare.json"
+          }
+        },
+        {
+            "id": 2,
+            "value": "temperate",
+            "terrainFile": "assets/terrain/terrainTypeTemp.json",
+            "encounters": {
+              "DesertCommon": "assets/encounters/desert/encounterDesertTemperateCommon.json",
+              "DesertUncommon": "assets/encounters/desert/encounterDesertTemperateUncommon.json",
+              "DesertRare": "assets/encounters/desert/encounterDesertTemperateRare.json",
+              "DesertVeryRare": "assets/encounters/desert/encounterDesertTemperateVeryRare.json",
+              "ForestCommon": "assets/encounters/forest/encounterForestTempCommon.json",
+              "ForestUncommon": "assets/encounters/forest/encounterForestTempUncommon.json",
+              "ForestRare": "assets/encounters/forest/encounterForestTempRare.json",
+              "ForestVeryRare": "assets/encounters/forest/encounterForestTempVeryRare.json",
+              "HillsCommon": "assets/encounters/hills/encounterHillsTemperateCommon.json",
+              "HillsUncommon": "assets/encounters/hills/encounterHillsTemperateUncommon.json",
+              "HillsRare": "assets/encounters/hills/encounterHillsTemperateRare.json",
+              "HillsVeryRare": "assets/encounters/hills/encounterHillsTemperateVeryRare.json",
+              "MountainsCommon": "assets/encounters/mountains/encounterMountainsTemperateCommon.json",
+              "MountainsUncommon": "assets/encounters/mountains/encounterMountainsTemperateUncommon.json",
+              "MountainsRare": "assets/encounters/mountains/encounterMountainsTemperateRare.json",
+              "MountainsVeryRare": "assets/encounters/mountains/encounterMountainsTemperateVeryRare.json",
+              "PlainsCommon": "assets/encounters/plains/encounterPlainsTemperateCommon.json",
+              "PlainsUncommon": "assets/encounters/plains/encounterPlainsTemperateUncommon.json",
+              "PlainsRare": "assets/encounters/plains/encounterPlainsTemperateRare.json",
+              "PlainsVeryRare": "assets/encounters/plains/encounterPlainsTemperateVeryRare.json",
+              "SubterraneanCommon": "assets/encounters/subterranean/encounterSubterraneanTemperateCommon.json",
+              "SubterraneanUncommon": "assets/encounters/subterranean/encounterSubterraneanTemperateUncommon.json",
+              "SubterraneanRare": "assets/encounters/subterranean/encounterSubterraneanTemperateRare.json",
+              "SubterraneanVeryRare": "assets/encounters/subterranean/encounterSubterraneanTemperateVeryRare.json",
+              "SwampCommon": "assets/encounters/swamp/encounterSwampTemperateCommon.json",
+              "SwampUncommon": "assets/encounters/swamp/encounterSwampTemperateUncommon.json",
+              "SwampRare": "assets/encounters/swamp/encounterSwampTemperateRare.json",
+              "SwampVeryRare": "assets/encounters/swamp/encounterSwampTemperateVeryRare.json",
+              "FreshWaterCommon": "assets/encounters/waterFresh/encounterFreshWaterTemperateCommon.json",
+              "FreshWaterUncommon": "assets/encounters/waterFresh/encounterFreshWaterTemperateUncommon.json",
+              "FreshWaterRare": "assets/encounters/waterFresh/encounterFreshWaterTemperateRare.json",
+              "FreshWaterVeryRare": "assets/encounters/waterFresh/encounterFreshWaterTemperateVeryRare.json",
+              "SaltWaterCommon": "assets/encounters/waterSalt/encounterSaltWaterTemperateCommon.json",
+              "SaltWaterUncommon": "assets/encounters/waterSalt/encounterSaltWaterTemperateUncommon.json",
+              "SaltWaterRare": "assets/encounters/waterSalt/encounterSaltWaterTemperateRare.json",
+              "SaltWaterVeryRare": "assets/encounters/waterSalt/encounterSaltWaterTemperateVeryRare.json"
+            }
+          },
+          {
+            "id": 3,
+            "value": "warm",
+            "terrainFile": "assets/terrain/terrainTypeWarm.json",
+            "encounters": {
+              "DesertCommon": "assets/encounters/desert/encounterDesertWarmCommon.json",
+              "DesertUncommon": "assets/encounters/desert/encounterDesertWarmUncommon.json",
+              "DesertRare": "assets/encounters/desert/encounterDesertWarmRare.json",
+              "DesertVeryRare": "assets/encounters/desert/encounterDesertWarmVeryRare.json",
+              "ForestCommon": "assets/encounters/forest/encounterForestWarmCommon.json",
+              "ForestUncommon": "assets/encounters/forest/encounterForestWarmUncommon.json",
+              "ForestRare": "assets/encounters/forest/encounterForestWarmRare.json",
+              "ForestVeryRare": "assets/encounters/forest/encounterForestWarmVeryRare.json",
+              "HillsCommon": "assets/encounters/hills/encounterHillsWarmCommon.json",
+              "HillsUncommon": "assets/encounters/hills/encounterHillsWarmUncommon.json",
+              "HillsRare": "assets/encounters/hills/encounterHillsWarmRare.json",
+              "HillsVeryRare": "assets/encounters/hills/encounterHillsWarmVeryRare.json",
+              "MountainsCommon": "assets/encounters/mountains/encounterMountainsWarmCommon.json",
+              "MountainsUncommon": "assets/encounters/mountains/encounterMountainsWarmUncommon.json",
+              "MountainsRare": "assets/encounters/mountains/encounterMountainsWarmRare.json",
+              "MountainsVeryRare": "assets/encounters/mountains/encounterMountainsWarmVeryRare.json",
+              "PlainsCommon": "assets/encounters/plains/encounterPlainsWarmCommon.json",
+              "PlainsUncommon": "assets/encounters/plains/encounterPlainsWarmUncommon.json",
+              "PlainsRare": "assets/encounters/plains/encounterPlainsWarmRare.json",
+              "PlainsVeryRare": "assets/encounters/plains/encounterPlainsWarmVeryRare.json",
+              "SubterraneanCommon": "assets/encounters/subterranean/encounterSubterraneanWarmCommon.json",
+              "SubterraneanUncommon": "assets/encounters/subterranean/encounterSubterraneanWarmUncommon.json",
+              "SubterraneanRare": "assets/encounters/subterranean/encounterSubterraneanWarmRare.json",
+              "SubterraneanVeryRare": "assets/encounters/subterranean/encounterSubterraneanWarmVeryRare.json",
+              "SwampCommon": "assets/encounters/swamp/encounterSwampWarmCommon.json",
+              "SwampUncommon": "assets/encounters/swamp/encounterSwampWarmUncommon.json",
+              "SwampRare": "assets/encounters/swamp/encounterSwampWarmRare.json",
+              "SwampVeryRare": "assets/encounters/swamp/encounterSwampWarmVeryRare.json",
+              "FreshWaterCommon": "assets/encounters/waterFresh/encounterFreshWaterWarmCommon.json",
+              "FreshWaterUncommon": "assets/encounters/waterFresh/encounterFreshWaterWarmUncommon.json",
+              "FreshWaterRare": "assets/encounters/waterFresh/encounterFreshWaterWarmRare.json",
+              "FreshWaterVeryRare": "assets/encounters/waterFresh/encounterFreshWaterWarmVeryRare.json",
+              "SaltWaterCommon": "assets/encounters/waterSalt/encounterSaltWaterWarmCommon.json",
+              "SaltWaterUncommon": "assets/encounters/waterSalt/encounterSaltWaterWarmUncommon.json",
+              "SaltWaterRare": "assets/encounters/waterSalt/encounterSaltWaterWarmRare.json",
+              "SaltWaterVeryRare": "assets/encounters/waterSalt/encounterSaltWaterWarmVeryRare.json"
+            }
+          }
+      ]
+    }
+  },
+    "terrainDensity": {
+      "Borderlands": {
+        "file": "assets/terrain/terrainFeaturesBorderlands.json"
+      },
+      "Settled": {
+        "file": "assets/terrain/terrainFeaturesSettled.json"
+      },
+      "Wilderness": {
+        "file": "assets/terrain/terrainFeaturesWilderness.json"
+      }
+    }
+  }
+  
+

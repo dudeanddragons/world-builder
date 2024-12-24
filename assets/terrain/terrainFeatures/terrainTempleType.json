@@ -1,0 +1,18 @@
+{
+    "tableName": "tblShrineType",
+    "entries": [
+      { "id": 1, "result": "Holy Spring" },
+      { "id": 2, "result": "Artifact of Deity" },
+      { "id": 3, "result": "Sacred Stone" },
+      { "id": 4, "result": "Artifact of Ancient High Priest" },
+      { "id": 5, "result": "Home of Deity’s Servant" },
+      { "id": 6, "result": "Relic of Deity" },
+      { "id": 7, "result": "Sacred Spot" },
+      { "id": 8, "result": "Ancient Writings" },
+      { "id": 9, "result": "Holy Statue" },
+      { "id": 10, "result": "Temple" },
+      { "id": 11, "result": "Temple" },
+      { "id": 12, "result": "Home of Deity" }
+    ]
+  }
+  

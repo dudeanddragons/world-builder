@@ -26,29 +26,13 @@
     }
   ],
   "scripts": [
-    "scripts/worldbuilder.js",
-    "scripts/ruins.js",
-    "scripts/relics.js",
-    "scripts/remains.js",
-    "scripts/vestiges.js",
-    "scripts/remnants.js",
-    "scripts/refuse.js",
-    "scripts/wrecks.js",
-    "scripts/skeletons.js",
-    "scripts/antiques.js",
-    "scripts/artifacts.js",
-    "scripts/dungeon.js",
-    "scripts/cave.js",
-    "scripts/burrows.js",
-    "scripts/camp.js",
-    "scripts/dwelling.js",
-    "scripts/shipwreck.js",
-    "scripts/ledge.js",
-    "scripts/crevice.js",
-    "scripts/encounter-desert-warm.js"
+    "scripts/terrainClimateLogger.js",
+    "scripts/terrainDensityLogger.js"
   ],
-  "styles": ["styles/worldbuilder.css"],
-  "template": ["template/worldbuilder.hbs"],
-  "manifest": "modules/world-builder/module.json",
+  "styles": [],
+  "template": [],
+  "assets": [
+  ],
+  "manifest": "",
   "download": ""
 }

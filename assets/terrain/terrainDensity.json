@@ -1,0 +1,9 @@
+{
+    "tableName": "tblTerrainDensity",
+    "entries": [
+      { "id": 1, "value": "Wilderness" },
+      { "id": 2, "value": "Borderlands" },
+      { "id": 3, "value": "Settled" }
+    ]
+  }
+  

@@ -1,0 +1,25 @@
+{
+  "tableName": "tblTerrainFeaturesIsland",
+  "entries": [
+    { "id": 1, "type": "Barren Rocks", "elementsRoll": "0", "tableRoll": "0" },
+    { "id": 2, "type": "Basalt Cay", "elementsRoll": "1d2", "tableRoll": "1" },
+    { "id": 3, "type": "Sparse Key", "elementsRoll": "1d3", "tableRoll": "2" },
+    { "id": 4, "type": "Sparse Atoll", "elementsRoll": "1d4", "tableRoll": "1" },
+    { "id": 5, "type": "Sparse Isle", "elementsRoll": "1d4", "tableRoll": "1d2" },
+    { "id": 6, "type": "Meager Isle", "elementsRoll": "1d4", "tableRoll": "1d3" },
+    { "id": 7, "type": "Rugged Isle", "elementsRoll": "1d4+1", "tableRoll": "1d4" },
+    { "id": 8, "type": "Sandy Island", "elementsRoll": "1d4+1", "tableRoll": "1d6" },
+    { "id": 9, "type": "Terrible Island", "elementsRoll": "1d6+1", "tableRoll": "2d6" },
+    { "id": 10, "type": "Monstrous Island", "elementsRoll": "1d6+1", "tableRoll": "2d6" },
+    { "id": 11, "type": "Sleepy Island", "elementsRoll": "1d6+2", "tableRoll": "3" },
+    { "id": 12, "type": "Peaceful Island", "elementsRoll": "1d6+2", "tableRoll": "4" },
+    { "id": 13, "type": "Atoll Ring Reef", "elementsRoll": "1d6+2", "tableRoll": "5" },
+    { "id": 14, "type": "Plentiful Island", "elementsRoll": "1d8+1", "tableRoll": "5" },
+    { "id": 15, "type": "Ample Island", "elementsRoll": "1d8+2", "tableRoll": "1d2" },
+    { "id": 16, "type": "Rich Island", "elementsRoll": "1d8+1", "tableRoll": "1d3" },
+    { "id": 17, "type": "Teeming Island", "elementsRoll": "1d8+2", "tableRoll": "1d4" },
+    { "id": 18, "type": "Lush Island", "elementsRoll": "1d8+2", "tableRoll": "1d6" },
+    { "id": 19, "type": "Luxuriant", "elementsRoll": "1d8+3", "tableRoll": "1d10" },
+    { "id": 20, "type": "Paradise", "elementsRoll": "1d8+4", "tableRoll": "2d6" }
+  ]
+}

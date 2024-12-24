@@ -1,0 +1,26 @@
+{
+    "tableName": "tblTerrainRoadRiverClass",
+    "entries": [
+      { "id": 1, "value": "Village" },
+      { "id": 2, "value": "Road T" },
+      { "id": 3, "value": "Left Branch" },
+      { "id": 4, "value": "Right Branch" },
+      { "id": 5, "value": "Straight" },
+      { "id": 6, "value": "Straight" },
+      { "id": 7, "value": "Straight" },
+      { "id": 8, "value": "Straight" },
+      { "id": 9, "value": "Straight" },
+      { "id": 10, "value": "Straight" },
+      { "id": 11, "value": "Straight" },
+      { "id": 12, "value": "Straight" },
+      { "id": 13, "value": "Straight" },
+      { "id": 14, "value": "Straight" },
+      { "id": 15, "value": "Straight" },
+      { "id": 16, "value": "Turn Left " },
+      { "id": 17, "value": "Turn Right" },
+      { "id": 18, "value": "Ends/Lake" },
+      { "id": 19, "value": "Crossroad" },
+      { "id": 20, "value": "Lair" }
+    ]
+  }
+  

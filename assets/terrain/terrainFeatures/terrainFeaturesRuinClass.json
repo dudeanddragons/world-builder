@@ -1,0 +1,16 @@
+{
+    "tableName": "tblTerrainFeaturesRuinsClass",
+    "entries": [
+      { "id": 1, "value": "Ruins" },
+      { "id": 2, "value": "Relics" },
+      { "id": 3, "value": "Remains" },
+      { "id": 4, "value": "Vestiges" },
+      { "id": 5, "value": "Remnants" },
+      { "id": 6, "value": "Refuse" },
+      { "id": 7, "value": "Wrecks" },
+      { "id": 8, "value": "Skeletons" },
+      { "id": 9, "value": "Antiques" },
+      { "id": 10, "value": "Artifacts" }
+    ]
+  }
+  

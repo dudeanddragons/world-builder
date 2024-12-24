@@ -1,0 +1,17 @@
+{
+    "tableName": "tblTerrainFeatureVillage",
+    "entries": [
+      { "id": 1, "technologicalLevel": "Anarchy", "governmentBuildings": 0 },
+      { "id": 2, "technologicalLevel": "Democratic", "governmentBuildings": 1 },
+      { "id": 3, "technologicalLevel": "Tribal", "governmentBuildings": 1 },
+      { "id": 4, "technologicalLevel": "Agrarian", "governmentBuildings": 2 },
+      { "id": 5, "technologicalLevel": "Religious", "governmentBuildings": 2 },
+      { "id": 6, "technologicalLevel": "Tributary", "governmentBuildings": 2 },
+      { "id": 7, "technologicalLevel": "Oligarchy", "governmentBuildings": 3 },
+      { "id": 8, "technologicalLevel": "Republic", "governmentBuildings": 3 },
+      { "id": 9, "technologicalLevel": "Aristocracy", "governmentBuildings": 3 },
+      { "id": 10, "technologicalLevel": "Feudal", "governmentBuildings": 4 },
+      { "id": 11, "technologicalLevel": "Dictatorship", "governmentBuildings": 4 }
+    ]
+  }
+  
