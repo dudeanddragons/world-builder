@@ -1,4 +1,19 @@
+
 <form class="worldbuilder-form">
+
+  <!-- Tab Navigation -->
+<nav class="tabs" data-group="worldbuilder-tabs">
+  <a class="item active" data-tab="main">Main</a>
+  <a class="item" data-tab="lairs">Lairs</a>
+  <a class="item" data-tab="towns">Towns</a>
+  <a class="item" data-tab="treasure">Treasure</a>
+  <a class="item" data-tab="magic-items">Magic Items</a>
+  <a class="item" data-tab="traps">Traps</a>
+  <a class="item" data-tab="actors">Actors</a>
+</nav>
+
+<!-- Tab Content -->
+<section class="tab-content" data-tab="main">
   <!-- Population Density Dropdown -->
   <div>
     <label for="population-density-select">Population Density:</label>
@@ -166,29 +181,153 @@
     </table>
   </div>
 
-  <!-- Dungeon Features -->
-  {{#if isDungeon}}
-  <div class="form-group dungeon-section">
-    <button type="button" class="append-dungeon-feature" title="Add Dungeon Feature">
-      <i class="fas fa-plus-circle"></i>
-    </button>
-    <table class="dungeon-features-table">
-      <tbody>
-        {{#each dungeonFeatures}}
-        <tr>
-          <td>{{this}}</td>
-        </tr>
+
+<!-- Lairs, Dungeons and Caves Section -->
+<section class="tab-content" data-tab="lairs" style="display: none;">
+  <h3>Lairs</h3>
+  <button class="add-room">Add Room/Corridor</button>
+  <div class="room-list">
+    {{#each lairRooms}}
+    <div class="room-entry">
+      <h4>Room {{@index}}</h4>
+      <textarea class="description-text" placeholder="Description Text">{{this.description}}</textarea>
+      <textarea class="notes-text" placeholder="Notes Text">{{this.notes}}</textarea>
+      <label for="features-select">Features</label>
+      <select class="features-select">
+        {{#each featureOptions}}
+        <option value="{{this}}">{{this}}</option>
         {{/each}}
-      </tbody>
-    </table>
+      </select>
+      <button class="randomize-feature">Randomize</button>
+      <label for="encounters-select">Encounters</label>
+      <select class="encounters-select">
+        {{#each encounterOptions}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <button class="randomize-encounter">Randomize</button>
+      <button class="encounter-builder">Open Encounter Builder</button>
+      <label for="traps-select">Traps/Hazards</label>
+      <select class="traps-select">
+        {{#each trapOptions}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <button class="randomize-trap">Randomize</button>
+      <button class="trap-builder">Open Trap Builder</button>
+      <label for="treasure-select">Treasure</label>
+      <select class="treasure-select">
+        {{#each treasureOptions}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <button class="randomize-treasure">Randomize</button>
+      <button class="treasure-builder">Open Treasure Builder</button>
+      <label for="secrets-select">Secrets</label>
+      <select class="secrets-select">
+        {{#each secretOptions}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <button class="randomize-secret">Randomize</button>
+    </div>
+    {{/each}}
   </div>
-  {{/if}}
+</section>
+
+
+  <!-- Settlement Tab -->
+<section class="tab-content" data-tab="towns" style="display: none;">
+  <h3>Towns</h3>
+  <button class="add-town">Add Town</button>
+  <div class="town-list">
+    {{#each towns}}
+    <div class="town-entry">
+      <h4>Town {{@index}}</h4>
+      <textarea class="town-description" placeholder="Description">{{this.description}}</textarea>
+      <textarea class="town-notes" placeholder="Notes">{{this.notes}}</textarea>
+      <label for="town-features-select">Features</label>
+      <select class="town-features-select">
+        {{#each townFeaturesOptions}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      <button class="randomize-town-feature">Randomize</button>
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+  <!-- Treasure Tab -->
+<section class="tab-content" data-tab="treasure" style="display: none;">
+  <h3>Treasure</h3>
+  <button class="add-treasure">Add Treasure</button>
+  <div class="treasure-list">
+    {{#each treasures}}
+    <div class="treasure-entry">
+      <h4>Treasure {{@index}}</h4>
+      <textarea class="treasure-description" placeholder="Description">{{this.description}}</textarea>
+      <button class="randomize-treasure">Randomize</button>
+      <button class="treasure-builder">Open Treasure Builder</button>
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+  <!-- Magic Items Tab -->
+<section class="tab-content" data-tab="magic-items" style="display: none;">
+  <h3>Magic Items</h3>
+  <button class="add-magic-item">Add Magic Item</button>
+  <div class="magic-item-list">
+    {{#each magicItems}}
+    <div class="magic-item-entry">
+      <h4>Magic Item {{@index}}</h4>
+      <textarea class="magic-item-description" placeholder="Description">{{this.description}}</textarea>
+      <button class="randomize-magic-item">Randomize</button>
+      <button class="magic-item-builder">Open Magic Item Builder</button>
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+  <!-- Traps/Hazards Tab -->
+<section class="tab-content" data-tab="traps" style="display: none;">
+  <h3>Traps</h3>
+  <button class="add-trap">Add Trap</button>
+  <div class="trap-list">
+    {{#each traps}}
+    <div class="trap-entry">
+      <h4>Trap {{@index}}</h4>
+      <textarea class="trap-description" placeholder="Description">{{this.description}}</textarea>
+      <button class="randomize-trap">Randomize</button>
+      <button class="trap-builder">Open Trap Builder</button>
+    </div>
+    {{/each}}
+  </div>
+</section>
+
+  <!-- Actors Tab -->
+<section class="tab-content" data-tab="actors" style="display: none;">
+  <h3>Actors</h3>
+  <button class="add-actor">Add Actor</button>
+  <div class="actor-list">
+    {{#each actors}}
+    <div class="actor-entry">
+      <h4>Actor {{@index}}</h4>
+      <textarea class="actor-description" placeholder="Description">{{this.description}}</textarea>
+      <button class="randomize-actor">Randomize</button>
+      <button class="actor-builder">Open Actor Builder</button>
+    </div>
+    {{/each}}
+  </div>
+</section>
 
   <!-- Save and Journal Buttons -->
   <div class="form-actions">
     <button type="button" class="save-entry">Save</button>
     <button type="button" class="create-journal">Create Journal Entry</button>
   </div>
+</section>
 </form>
 
 

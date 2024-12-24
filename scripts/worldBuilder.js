@@ -1,4 +1,13 @@
+import { handleActorsTab } from './tabActors.js';
+import { handleLairsTab } from './tabLairs.js';
+import { handleMagicItemsTab } from './tabMagicItems.js';
+import { handleTownTab } from './tabTown.js';
+import { handleTrapsTab } from './tabTraps.js';
+import { handleTreasureTab } from './tabTreasure.js';
+
 export class WorldBuilderWindow extends Application {
+
+  // Map these specifically to handle Cave/Terrain Type Logic
   static terrainCaveMap = {
     "Desert": "assets/terrain/terrainFeatures/lairs/lairsSub/lairsCaveTypes/caveSubTypeDesert.json",
     "Forest": "assets/terrain/terrainFeatures/lairs/lairsSub/lairsCaveTypes/caveSubTypeForest.json",
@@ -8,13 +17,14 @@ export class WorldBuilderWindow extends Application {
     "Plains": "assets/terrain/terrainFeatures/lairs/lairsSub/lairsCaveTypes/caveSubTypePlains.json",
     "Water": "assets/terrain/terrainFeatures/lairs/lairsSub/lairsCaveTypes/caveSubTypeWater.json",
   };
+
   constructor(options = {}) {
     super(options);
   
     this.data = {
-      populationDensity: "",
+      populationDensity: "Wilderness",
       populationDensityOptions: [],
-      climateType: "",
+      climateType: "Temperate",
       climateTypeOptions: [],
       terrainType: "",
       terrainTypeOptions: [],
@@ -22,20 +32,23 @@ export class WorldBuilderWindow extends Application {
       travelTime: "",
       encounterFrequency: "",
       featureType: "",
-      featureTypeOptions: [],
       selectedFeatureType: "",
-      subFeatureType: "",
-      subFeatureTypeOptions: [],
-      featureDetails: {
-        title: "",
-        description: "",
-        results: []
-      },
+      selectedSubFeature: "",
+      featureDetails: "",
+      encounterResult: "",
       isDungeon: false,
       isCave: false,
       dungeonFeatures: [],
       caveFeatures: [],
+      lairRooms: [],
+      towns: [],
+      treasures: [],
+      magicItems: [],
+      traps: [],
+      actors: [],
+      
     };
+    
   }
 
   static get defaultOptions() {
@@ -49,6 +62,13 @@ export class WorldBuilderWindow extends Application {
     });
   }
 
+
+  /**
+   * 
+   * Set default state for Form 
+   * Renders when the world builder button is clicked
+   * 
+   */
   resetFormState() {
     this.data = {
       populationDensity: "",
@@ -72,14 +92,23 @@ export class WorldBuilderWindow extends Application {
       isDungeon: false,
       isCave: false,
       dungeonFeatures: [],
-      caveFeatures: []
+      caveFeatures: [],
+      lairRooms: [],
+      towns: [],
+      treasures: [],
+      magicItems: [],
+      traps: [],
+      actors: [],
     };
     console.log("Form state reset to defaults.");
   }
   
   
-
-  // Fetch Population Density Options
+  /**
+   * 
+   * Load data for Form Drop Downs
+   *
+   */
   async loadPopulationDensity() {
     try {
       const response = await fetch("modules/world-builder/assets/terrain/terrainDensity.json");
@@ -88,16 +117,15 @@ export class WorldBuilderWindow extends Application {
       console.log("Population Density Data Loaded:", data.entries);
   
       this.data.populationDensityOptions = [
-        { value: "", label: "Select a population density" }, // Default placeholder
+        { value: "", label: "Select a population density" },
         ...data.entries.map(entry => ({ value: entry.value, label: entry.value }))
       ];
     } catch (error) {
       console.error("Error loading terrainDensity.json:", error);
-      this.data.populationDensityOptions = [{ value: "", label: "Select a population density" }]; // Default only
+      this.data.populationDensityOptions = [{ value: "", label: "Select a population density" }];
     }
   }
 
-  // Fetch Climate Type Options
   async loadClimateType() {
     try {
       const response = await fetch("modules/world-builder/assets/terrain/terrainClimate.json");
@@ -106,24 +134,22 @@ export class WorldBuilderWindow extends Application {
       console.log("Climate Type Data Loaded:", data.entries);
   
       this.data.climateTypeOptions = [
-        { value: "", label: "Select a climate type" }, // Default placeholder
+        { value: "", label: "Select a climate type" },
         ...data.entries.map(entry => ({ value: entry.value, label: entry.value }))
       ];
     } catch (error) {
       console.error("Error loading terrainClimate.json:", error);
-      this.data.climateTypeOptions = [{ value: "", label: "Select a climate type" }]; // Default only
+      this.data.climateTypeOptions = [{ value: "", label: "Select a climate type" }];
     }
   }
 
-  // Fetch Terrain Type Options Based on Selected Climate
   async loadTerrainType() {
     try {
-      const indexPath = "modules/world-builder/index.json"; // Path to index file
+      const indexPath = "modules/world-builder/index.json";
       const response = await fetch(indexPath);
       if (!response.ok) throw new Error(`Failed to load index.json: ${response.statusText}`);
       const indexData = await response.json();
   
-      // Find the terrain file based on the selected climate
       const selectedClimate = this.data.climateType;
       const climateEntry = indexData.climates.tblTerrainClimate.entries.find(
         entry => entry.value === selectedClimate
@@ -131,18 +157,16 @@ export class WorldBuilderWindow extends Application {
   
       if (!climateEntry || !climateEntry.terrainFile) {
         console.warn("No terrain file found for selected climate:", selectedClimate);
-        this.data.terrainTypeOptions = [{ value: "", label: "Select a terrain type" }]; // Default only
+        this.data.terrainTypeOptions = [{ value: "", label: "Select a terrain type" }];
         return;
       }
   
-      // Fetch terrain data for the selected climate
       const terrainResponse = await fetch(`modules/world-builder/${climateEntry.terrainFile}`);
       if (!terrainResponse.ok) throw new Error(`Failed to load terrain file: ${terrainResponse.statusText}`);
       const terrainData = await terrainResponse.json();
   
-      // Extract terrain options for the dropdown
       this.data.terrainTypeOptions = [
-        { value: "", label: "Select a terrain type" }, // Default placeholder
+        { value: "", label: "Select a terrain type" },
         ...terrainData.entries.map(entry => ({
           value: entry.type,
           label: `${entry.type} (Ruggedness: ${entry.ruggedness}, Travel Time: ${entry.time})`,
@@ -155,10 +179,9 @@ export class WorldBuilderWindow extends Application {
       console.log("Filtered Terrain Options by Climate:", this.data.terrainTypeOptions);
     } catch (error) {
       console.error("Error loading terrain types:", error);
-      this.data.terrainTypeOptions = [{ value: "", label: "Select a terrain type" }]; // Ensure a default placeholder
+      this.data.terrainTypeOptions = [{ value: "", label: "Select a terrain type" }];
     }
   }
-  
 
   async loadFeatureType() {
     try {
@@ -173,31 +196,27 @@ export class WorldBuilderWindow extends Application {
   
       if (!featureFile) {
         console.warn("No feature file found for selected density:", selectedDensity);
-        this.data.featureTypeOptions = [{ value: "", label: "Select a feature type" }]; // Default only
+        this.data.featureTypeOptions = [{ value: "", label: "Select a feature type" }];
         return;
       }
   
-      // Fetch feature data for the selected density
       const response = await fetch(`modules/world-builder/${featureFile}`);
       if (!response.ok) throw new Error(`Failed to load feature file: ${response.statusText}`);
       const featureData = await response.json();
   
-      // Populate feature options with a default placeholder
       this.data.featureTypeOptions = [
-        { value: "", label: "Select a feature type" }, // Default placeholder
+        { value: "", label: "Select a feature type" },
         ...featureData.entries.map(entry => ({ value: entry.value, label: entry.value }))
       ];
       console.log("Feature Type Options Loaded:", this.data.featureTypeOptions);
     } catch (error) {
       console.error("Error loading feature types:", error);
-      this.data.featureTypeOptions = [{ value: "", label: "Select a feature type" }]; // Ensure a default placeholder
+      this.data.featureTypeOptions = [{ value: "", label: "Select a feature type" }];
     }
   }
-  
 
   async loadSubFeatureType() {
     try {
-      // Map specific feature types to sub-feature files
       const subFeatureMap = {
         "Ruins and Relics": "assets/terrain/terrainFeatures/terrainFeaturesRuinClass.json",
         "Lurid Lairs": "assets/terrain/terrainFeatures/terrainFeaturesLuridLairs.json",
@@ -209,36 +228,32 @@ export class WorldBuilderWindow extends Application {
   
       if (!subFeatureFile) {
         console.warn("No sub-feature file found for selected feature:", selectedFeature);
-        this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }]; // Default only
+        this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }];
         return;
       }
-  
-      // Fetch sub-feature data for the selected feature
+
       const response = await fetch(`modules/world-builder/${subFeatureFile}`);
       if (!response.ok) throw new Error(`Failed to load sub-feature file: ${response.statusText}`);
       const subFeatureData = await response.json();
   
-      // Populate sub-feature options with a default placeholder
       this.data.subFeatureTypeOptions = [
-        { value: "", label: "Select a sub-feature" }, // Default placeholder
+        { value: "", label: "Select a sub-feature" },
         ...subFeatureData.entries.map(entry => ({ value: entry.value, label: entry.value }))
       ];
       console.log("Sub-Feature Type Options Loaded:", this.data.subFeatureTypeOptions);
     } catch (error) {
       console.error("Error loading sub-feature types:", error);
-      this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }]; // Ensure a default placeholder
+      this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }];
     }
   }
   
-  
-  // Populate Feature Details
   async loadFeatureDetails() {
     try {
       const selectedSubFeature = this.data.subFeatureType;
   
       if (!selectedSubFeature) {
         console.warn("No sub-feature selected.");
-        this.data.featureDetails = { title: "", results: [] }; // Clear details
+        this.data.featureDetails = { title: "", results: [] };
         return;
       }
   
@@ -276,37 +291,38 @@ export class WorldBuilderWindow extends Application {
       return;
     }
 
-    // Fetch the sub-feature details from the JSON file
     const response = await fetch(`modules/world-builder/${filePath}`);
     if (!response.ok) throw new Error(`Failed to load sub-feature file: ${response.statusText}`);
     const data = await response.json();
 
-    // Select a random entry from the entries array
     const randomEntry = data.entries[Math.floor(Math.random() * data.entries.length)];
 
-    // Handle different structures (name, dimensions, quantity, description)
     const detailFields = [];
     if (randomEntry.name) detailFields.push(`Name: ${randomEntry.name}`);
     if (randomEntry.dimensions) detailFields.push(`Dimensions: ${randomEntry.dimensions}`);
     if (randomEntry.quantity) detailFields.push(`Quantity: ${randomEntry.quantity}`);
     if (randomEntry.description) detailFields.push(`Description: ${randomEntry.description}`);
-    if (randomEntry.value) detailFields.push(randomEntry.value); // For simpler entries
+    if (randomEntry.value) detailFields.push(randomEntry.value);
 
-    // Update the feature details
     this.data.featureDetails = {
       title: selectedSubFeature,
-      results: detailFields // Display all relevant fields for the selected entry
+      results: detailFields
     };
 
     console.log("Feature Details Loaded:", this.data.featureDetails);
   } catch (error) {
     console.error("Error loading feature details:", error);
-    this.data.featureDetails = { title: "", results: [] }; // Clear on error
+    this.data.featureDetails = { title: "", results: [] };
   }
 }
     
 
-  // Provide data to the template
+/**
+ * 
+ * Get Data
+ * 
+ * 
+ */
   async getData() {
     if (!this.data.populationDensityOptions.length) await this.loadPopulationDensity();
     if (!this.data.climateTypeOptions.length) await this.loadClimateType();
@@ -317,10 +333,31 @@ export class WorldBuilderWindow extends Application {
     return { ...this.data };
   }
   
-  
+/**
+ * 
+ * Listeners
+ *
+ */
     activateListeners(html) {
       super.activateListeners(html);
-  
+
+        //Tabs
+        html.find(".tabs .item").click((event) => {
+          const tab = event.currentTarget.dataset.tab;
+          html.find(".tabs .item").removeClass("active");
+          html.find(`.tab-content`).hide();
+          html.find(`[data-tab="${tab}"]`).show(); 
+          $(event.currentTarget).addClass("active");
+        });
+
+        // Attach handlers for individual tabs
+        handleActorsTab(this, html);
+        handleLairsTab(this, html);
+        handleMagicItemsTab(this, html);
+        handleTownTab(this, html);
+        handleTrapsTab(this, html);
+        handleTreasureTab(this, html);
+
         //Drop Down Listeners
       html.find(".population-density-select").change(this._onPopulationDensityChange.bind(this));
       html.find(".climate-select").change(this._onClimateTypeChange.bind(this));
@@ -334,8 +371,22 @@ export class WorldBuilderWindow extends Application {
       html.find(".encounter-roll").click(() => this._rollEncounter());
       html.find(".save-entry").click(this._onSave.bind(this));
       html.find(".create-journal").click(() => this.createJournalEntry());
+
+        // Add Features Buttons
+      html.find(".add-room").click(() => this.addRoom());
+      html.find(".add-town").click(() => console.log("Add Town placeholder."));
+      html.find(".add-treasure").click(() => console.log("Add Treasure placeholder."));
+      html.find(".add-magic-item").click(() => console.log("Add Magic Item placeholder."));
+      html.find(".add-trap").click(() => console.log("Add Trap placeholder."));
+      html.find(".add-actor").click(() => console.log("Add Actor placeholder."));
     }
   
+
+/**
+ * 
+ * Events
+ *
+ */
     async _onPopulationDensityChange(event) {
       const selectedValue = event.target.value;
       if (!selectedValue) return;
@@ -348,8 +399,6 @@ export class WorldBuilderWindow extends Application {
       this.render(false);
     }
     
-    
-  
     async _onClimateTypeChange(event) {
       const selectedValue = event.target.value;
       if (!selectedValue) return;
@@ -364,7 +413,6 @@ export class WorldBuilderWindow extends Application {
     async _onTerrainTypeChange(event) {
       const selectedTerrain = event.target.value;
     
-      // Ignore if the default placeholder is selected
       if (!selectedTerrain) {
         console.warn("No valid terrain selected.");
         this.data.terrainType = "";
@@ -372,11 +420,10 @@ export class WorldBuilderWindow extends Application {
         this.data.travelTime = "";
         this.data.encounterFrequency = "";
         this.data.subFeatureTypeOptions = [];
-        this.render(false); // Clear UI and re-render
+        this.render(false);
         return;
       }
-    
-      // Find the selected terrain's data
+
       const terrainData = this.data.terrainTypeOptions.find(option => option.value === selectedTerrain);
     
       if (!terrainData) {
@@ -384,14 +431,12 @@ export class WorldBuilderWindow extends Application {
         return;
       }
     
-      // Update the main fields
       this.data.terrainType = terrainData.value;
       this.data.ruggedness = terrainData.ruggedness;
       this.data.travelTime = terrainData.time;
       this.data.encounterFrequency = terrainData.encounters.join(", ");
       console.log("Selected Terrain Data:", terrainData);
-    
-      // Handle cave sub-feature loading
+
       const caveFilePath = WorldBuilderWindow.terrainCaveMap[this.data.terrainType];
       if (caveFilePath) {
         try {
@@ -399,85 +444,83 @@ export class WorldBuilderWindow extends Application {
           if (!response.ok) throw new Error(`Failed to load cave file: ${response.statusText}`);
           const data = await response.json();
           this.data.subFeatureTypeOptions = [
-            { value: "", label: "Select a sub-feature" }, // Default placeholder
+            { value: "", label: "Select a sub-feature" },
             ...data.entries.map(entry => ({ value: entry.value, label: entry.value }))
           ];
           console.log("Cave Sub-Feature Options Loaded:", this.data.subFeatureTypeOptions);
         } catch (error) {
           console.error("Error loading cave sub-features:", error);
-          this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }]; // Default only
+          this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }];
         }
       } else {
         console.warn("No cave sub-features available for the selected terrain.");
-        this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }]; // Default only
+        this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }];
       }
     
-      this.render(false); // Re-render to update the UI
+      this.render(false);
     }
     
-    
-    
-    
-    
-  
     async _onFeatureTypeChange(event) {
       const selectedFeatureType = event.target.value;
     
-      // Ignore if the default placeholder is selected
       if (!selectedFeatureType) {
         console.warn("No valid feature type selected.");
         this.data.featureType = "";
-        this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }]; // Reset to default
-        this.render(false); // Clear UI and re-render
+        this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }];
+        this.render(false);
         return;
       }
     
-      // Update the selected feature type
       this.data.featureType = selectedFeatureType;
       console.log("Feature Type changed to:", this.data.featureType);
     
-      // Reload sub-feature options based on the new feature type
       await this.loadSubFeatureType();
-      this.render(false); // Re-render to update the UI
+      this.render(false);
     }
     
-    
+async _onSubFeatureTypeChange(event) {
+  const selectedSubFeatureType = event.target.value;
 
-    async _onSubFeatureTypeChange(event) {
-      const selectedSubFeatureType = event.target.value;
-    
-      // Ignore if the default placeholder is selected
-      if (!selectedSubFeatureType) {
-        console.warn("No valid sub-feature type selected.");
-        this.data.subFeatureType = "";
-        this.data.featureDetails = { title: "", results: [] }; // Reset feature details
-        this.render(false); // Clear UI and re-render
-        return;
-      }
-    
-      // Update the selected sub-feature type
-      this.data.subFeatureType = selectedSubFeatureType;
-      console.log("Sub-Feature Type changed to:", this.data.subFeatureType);
-    
-      // Load feature details based on the selected sub-feature
-      await this.loadFeatureDetails();
-      this.render(false); // Re-render to update the UI
-    }
-    
-    
+  if (!selectedSubFeatureType) {
+    console.warn("No valid sub-feature type selected.");
+    this.data.subFeatureType = "";
+    this.data.featureDetails = { title: "", results: [] };
+    this.data.isCave = false;
+    this.data.isDungeon = false;
+    this.render(false);
+    return;
+  }
+
+  this.data.subFeatureType = selectedSubFeatureType;
+
+  // Toggle isCave and isDungeon based on selection
+  if (selectedSubFeatureType === "Cave") {
+    this.data.isCave = true;
+    this.data.isDungeon = false;
+  } else if (selectedSubFeatureType === "Dungeon") {
+    this.data.isDungeon = true;
+    this.data.isCave = false;
+  } else {
+    this.data.isCave = false;
+    this.data.isDungeon = false;
+  }
+
+  console.log("Sub-Feature Type changed to:", this.data.subFeatureType);
+  console.log("isCave:", this.data.isCave, "isDungeon:", this.data.isDungeon);
+
+  await this.loadFeatureDetails();
+  this.render(false);
+}
 
     async _rollTerrainType() {
-      // Add rolling logic for terrain type
       console.log("Rolling for Terrain Type...");
     }
   
     async _rollFeatureType() {
-      // Add rolling logic for feature type
       console.log("Rolling for Feature Type...");
     }
   
     async _rollEncounter() {
-      // Add rolling logic for encounters
       console.log("Rolling for Encounter...");
     }
   
@@ -488,7 +531,6 @@ export class WorldBuilderWindow extends Application {
   
     async createJournalEntry() {
       console.log("Creating Journal Entry...");
-      // Add journal creation logic
     }
   }
   
