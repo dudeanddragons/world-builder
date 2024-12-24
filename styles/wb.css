@@ -1,0 +1,234 @@
+/* Default styles for World Builder (WB), inspired by ARS */
+
+.fa-times,
+.fa-minus,
+.fa-asterisk,
+.fa-exclamation-triangle {
+  color: red;
+}
+
+.fa-plus,
+.fa-check-circle,
+.fa-scroll,
+.fa-thumbs-up {
+  color: #21e121;
+}
+
+/* Global styles for WB */
+:root {
+  --wb-navy: #2a2e75;
+  --wb-action-title: #39526c;
+  --wb-cyan: #22c0fc;
+  --wb-purple-dark: #25163f;
+  --wb-purple-darker: #1f1c22;
+  --wb-purple-dark-header: #342f3a;
+  --wb-purple-light: #2e2631;
+  --wb-purple-light2: #7c6378;
+  --wb-red: #e22522;
+  --wb-red-dark: #6e1513;
+  --wb-yellow: #e8dbae;
+  --wb-highlight: #e3dadc;
+  --wb-goldenrod: #daa520;
+  --wb-grey: grey;
+  --wb-dice-background: rgb(196, 196, 196);
+  --wb-success-header-green: #7e9f86;
+  --wb-success-green: #e1e9de;
+  --wb-failure-red: #d3b4b4;
+  --wb-failure-header-red: #864c4c;
+}
+
+.fa-plus,
+.fa-minus {
+  transition: transform 0.3s ease;
+}
+
+.fa-plus:hover,
+.fa-minus:hover {
+  transform: scale(1.5);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: darkgrey;
+  border-radius: 6px;
+}
+
+/* Hidden Elements */
+.hidden {
+  display: none;
+}
+
+/* General WB Grouping and Borders */
+.grouping-border {
+  border: 2px groove;
+  border-radius: 10px;
+  padding: 1px;
+  margin: 6px;
+}
+
+fieldset.border-top {
+  border: none;
+  border-top: 1px solid #000;
+}
+
+fieldset.no-border,
+fieldset.border-none {
+  border: none;
+}
+
+fieldset.border-bottom {
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+fieldset {
+  border: 1px solid var(--wb-grey);
+  padding-top: 3px;
+  margin: 1px;
+  margin-top: 2px;
+}
+
+legend {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Container Styling */
+.container-border {
+  border: 2px groove var(--wb-highlight);
+  border-radius: 8px;
+  box-shadow: 6px 8px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px !important;
+}
+
+/* Headers */
+.general-header {
+  text-align: left;
+  font-weight: normal;
+  background: var(--wb-purple-dark);
+  padding: 3px 0px;
+  font-size: 13px;
+  color: #fff;
+  margin: 3px 0 3px 0;
+  padding-left: 6px;
+  border-radius: 5px;
+}
+
+.general-subheader {
+  text-align: center;
+  font-weight: bold;
+  background: rgba(161, 155, 140, 0.54);
+  padding: 3px;
+  border-radius: 5px;
+  color: var(--wb-grey);
+}
+
+/* Footer */
+.general-footer {
+  min-height: 3px;
+  width: 100%;
+}
+
+/* Switches */
+.wb-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.wb-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.wb-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #676767;
+  transition: background-color 0.4s;
+  border-radius: 24px;
+}
+
+.wb-switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.wb-switch input:checked + .slider {
+  background-color: #f1a90f;
+}
+
+.wb-switch input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* Buttons */
+.button-box {
+  background-color: rgba(206, 162, 67, 0.514);
+  border: 3px outset grey;
+}
+
+/* New Styling for Tables */
+.wb-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.wb-table th,
+.wb-table td {
+  border: 1px solid var(--wb-grey);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.wb-table th {
+  background: var(--wb-purple-dark);
+  color: white;
+}
+
+.wb-table tbody tr:nth-child(even) {
+  background: var(--wb-purple-light);
+}
+
+.wb-table tbody tr:hover {
+  background: var(--wb-purple-light2);
+}
+
+/* Collapsible Groups */
+.wb-collapsible {
+  cursor: pointer;
+  background: var(--wb-purple-dark);
+  color: white;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.wb-collapsible.active {
+  background: var(--wb-purple-light2);
+}
+
+.wb-content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: var(--wb-purple-light);
+}

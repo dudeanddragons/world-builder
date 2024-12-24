@@ -29,7 +29,8 @@
     "scripts/terrainClimateLogger.js",
     "scripts/terrainDensityLogger.js"
   ],
-  "styles": [],
+  "esmodules": ["scripts/config.js", "scripts/worldBuilder.js"],
+  "styles": ["styles/wb.css"],
   "template": [],
   "assets": [
   ],
