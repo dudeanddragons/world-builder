@@ -23,9 +23,17 @@ Hooks.on("renderJournalDirectory", (app, html) => {
   // Button click event to open the World Builder window
   button.on("click", () => {
     console.log("World Builder button clicked.");
+
+    // Check if an instance exists
     if (!window.worldBuilder) {
       window.worldBuilder = new CONFIG.WorldBuilder(); // Use the registered class
     }
+
+    // Reset the form to its default state before rendering
+    window.worldBuilder.resetFormState();
+    
+    // Render the window
     window.worldBuilder.render(true);
   });
 });
+

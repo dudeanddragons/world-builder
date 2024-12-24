@@ -1,190 +1,195 @@
-<!-- wb.hbs -->
-
 <form class="worldbuilder-form">
-    <!-- Population Density Dropdown -->
-        <div>
-        <label for="population-density-select">Population Density:</label>
-        <select class="population-density-select" name="population-density">
-        {{#each populationDensityOptions}}
-        <option value="{{this}}" {{#if (eq ../populationDensity this)}}selected{{/if}}>{{this}}</option>
-        {{/each}}
-        </select>
-        </div>
+  <!-- Population Density Dropdown -->
+  <div>
+    <label for="population-density-select">Population Density:</label>
+    <select class="population-density-select" name="population-density">
+      {{#each populationDensityOptions}}
+      <option value="{{this.value}}" {{#if (eq ../populationDensity this.value)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
 
+  <!-- Climate Type Dropdown -->
+  <div>
+    <label for="climate-select">Climate Type:</label>
+    <select class="climate-select" name="climate-type">
+      {{#each climateTypeOptions}}
+      <option value="{{this.value}}" {{#if (eq ../climateType this.value)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
 
-    <!-- Climate Type Dropdown -->
-        <div>
-        <label for="climate-select">Climate Type:</label>
-        <select class="climate-select" name="climate-type">
-            {{#each climateTypeOptions}}
-            <option value="{{this}}" {{#if (eq ../climateType this)}}selected{{/if}}>{{this}}</option>
-            {{/each}}
-        </select>
-        </div>
-
-
-    <!-- Icon Button Table -->
-    <table class="icon-button-table">
-        <tr>
-            <td>
-                <button type="button" class="icon-button terrain-roll" title="Roll for Terrain">
-                    <i class="fas fa-dice"></i>
-                </button>
-            </td>
-            <td>
-                <button type="button" class="icon-button feature-type-roll" title="Roll for Feature Type">
-                    <i class="fas fa-map-marker-alt"></i>
-                </button>
-            </td>
-            <td>
-                <button type="button" class="icon-button encounter-roll" title="Roll for Encounter">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>Terrain</td>
-            <td>Feature Type</td>
-            <td>Encounter</td>
-        </tr>
-    </table>
-
-    <!-- Terrain Type Dropdown -->
-<div class="form-group">
-  <label for="terrain-select">Terrain Type</label>
-  <select class="terrain-select" name="terrain-select">
-    {{#each terrainTypeOptions}}
-      <option value="{{this.type}}" {{isSelected ../terrainType this.type}}>
-        {{this.type}}
-      </option>
-    {{/each}}
-  </select>
-</div>
-
-
-
-
-    <!-- Feature Type Dropdown -->
-<div class="form-group">
-  <label for="feature-type-select">Feature Type</label>
-  <select class="feature-type-select" name="feature-type-select">
-    {{#each featureTypeOptions}}
-      <option value="{{this}}" {{isSelected ../featureType this}}>{{this}}</option>
-    {{/each}}
-  </select>
-</div>
-
-    <!-- Sub Feature Type Dropdwon -->
-<div class="form-group">
-  <label for="sub-feature-type-select">Sub-Feature Type</label>
-  <select class="sub-feature-type-select" name="sub-feature-type-select" 
-          {{#if subFeatureTypeOptions.length}} {{else}} disabled{{/if}}>
-    {{#each subFeatureTypeOptions}}
-      <option value="{{this}}" {{isSelected ../subFeatureType this}}>{{this}}</option>
-    {{/each}}
-  </select>
-</div>
-
-
-
-
-    <!-- Selected Terrain Information Table -->
-    <div class="form-group">
-        <table class="terrain-info-table">
-            <thead>
-                <tr><th>Selected Terrain</th><th>Ruggedness</th><th>Travel Time</th><th>Encounter Frequency</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{terrainType}}</td>
-                    <td>{{ruggedness}}</td>
-                    <td>{{travelTime}}</td>
-                    <td>{{encounterFrequency}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Encounter Information -->
-    {{#if encounterResult}}
-    <div class="form-group">
-        <table class="encounter-info-table">
-            <thead>
-                <tr><th>Encounter Result</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>{{{encounterResult}}}</td></tr>
-            </tbody>
-        </table>
-    </div>
-    {{/if}}
-
-    <!-- Feature Information -->
-<div class="form-group feature-type-section">
-  <table class="feature-info-table">
-    <thead>
-      <tr>
-        <th>Feature Type</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{#if featureType}}{{featureType}}{{else}}No Feature Selected. Please select a feature type.{{/if}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-    <!-- Feature Details -->
-<div class="form-group feature-details-section">
-  <table class="feature-info-table">
-    <thead>
-      <tr>
-        <th>Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#if featureDetails.title}}
-      <tr>
-        <td>
-          <h4>{{featureDetails.title}}</h4>
-          {{featureDetails.description}}
-          <ul>
-            {{#each featureDetails.results}}
-            <li>{{this}}</li>
-            {{/each}}
-          </ul>
-        </td>
-      </tr>
-      {{else}}
-      <tr>
-        <td>No details available. Select a sub-feature to view details.</td>
-      </tr>
-      {{/if}}
-    </tbody>
-  </table>
-</div>
-
-
-    <!-- Dungeon Features -->
-    {{#if isDungeon}}
-    <div class="form-group dungeon-section">
-        <button type="button" class="append-dungeon-feature" title="Add Dungeon Feature">
-            <i class="fas fa-plus-circle"></i>
+  <!-- Icon Button Table -->
+  <table class="icon-button-table">
+    <tr>
+      <td>
+        <button type="button" class="icon-button terrain-roll" title="Roll for Terrain">
+          <i class="fas fa-dice"></i>
         </button>
-        <table class="dungeon-features-table">
-            <tbody>
-                {{#each dungeonFeatures}}
-                <tr><td>{{this}}</td></tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
-    {{/if}}
+      </td>
+      <td>
+        <button type="button" class="icon-button feature-type-roll" title="Roll for Feature Type">
+          <i class="fa-solid fa-dice-d20"></i>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="icon-button encounter-roll" title="Roll for Encounter">
+          <i class="fas fa-dice-d10"></i><i class="fas fa-dice-d10"></i>
+        </button>
+      </td>
+    </tr>
+<tr>
+  <td style="text-align: center;">Terrain</td>
+  <td style="text-align: center;">Feature Type</td>
+  <td style="text-align: center;">Encounter</td>
+</tr>
 
-    <!-- Save and Journal Buttons -->
-    <div class="form-actions">
-        <button type="button" class="save-entry">Save</button>
-        <button type="button" class="create-journal">Create Journal Entry</button>
-    </div>
+  </table>
+
+  <!-- Terrain Type Dropdown -->
+  <div class="form-group">
+    <label for="terrain-select">Terrain Type</label>
+    <select class="terrain-select" name="terrain-select">
+      {{#each terrainTypeOptions}}
+      <option value="{{this.value}}" {{#if (eq ../terrainType this.value)}}selected{{/if}}>
+        {{this.label}}
+      </option>
+      {{/each}}
+    </select>
+  </div>
+
+  <!-- Feature Type Dropdown -->
+  <div class="form-group">
+    <label for="feature-type-select">Feature Type</label>
+    <select class="feature-type-select" name="feature-type-select">
+      {{#each featureTypeOptions}}
+      <option value="{{this.value}}" {{#if (eq ../featureType this.value)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <!-- Sub Feature Type Dropdown -->
+  <div class="form-group">
+    <label for="sub-feature-type-select">Sub-Feature Type</label>
+    <select class="sub-feature-type-select" name="sub-feature-type-select" {{#if subFeatureTypeOptions.length}} {{else}} disabled{{/if}}>
+      {{#each subFeatureTypeOptions}}
+      <option value="{{this.value}}" {{#if (eq ../subFeatureType this.value)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <!-- Selected Terrain Information Table -->
+  <div class="form-group">
+    <table class="terrain-info-table">
+      <thead>
+        <tr>
+          <td style="text-align: center;">Selected Terrain</td>
+          <td style="text-align: center;">Ruggedness</td>
+          <td style="text-align: center;">Travel Time</td>
+          <td style="text-align: center;">Encounter Frequency</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center;">{{terrainType}}</td>
+          <td style="text-align: center;">{{ruggedness}}</td>
+          <td style="text-align: center;">{{travelTime}}</td>
+          <td style="text-align: center;">{{encounterFrequency}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Encounter Information -->
+  {{#if encounterResult}}
+  <div class="form-group">
+    <table class="encounter-info-table">
+      <thead>
+        <tr>
+          <th>Encounter Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{{encounterResult}}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+
+  <!-- Feature Information -->
+  <div class="form-group feature-type-section">
+    <table class="feature-info-table">
+      <thead>
+        <tr>
+          <th>Feature Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            {{#if featureType}}{{featureType}}{{else}}No Feature Selected. Please select a feature type.{{/if}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Feature Details -->
+  <div class="form-group feature-details-section">
+    <table class="feature-info-table">
+      <thead>
+        <tr>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#if featureDetails.title}}
+        <tr>
+          <td>
+            <h4>{{featureDetails.title}}</h4>
+            {{featureDetails.description}}
+            <ul>
+              {{#each featureDetails.results}}
+              <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          </td>
+        </tr>
+        {{else}}
+        <tr>
+          <td>No details available. Select a sub-feature to view details.</td>
+        </tr>
+        {{/if}}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Dungeon Features -->
+  {{#if isDungeon}}
+  <div class="form-group dungeon-section">
+    <button type="button" class="append-dungeon-feature" title="Add Dungeon Feature">
+      <i class="fas fa-plus-circle"></i>
+    </button>
+    <table class="dungeon-features-table">
+      <tbody>
+        {{#each dungeonFeatures}}
+        <tr>
+          <td>{{this}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+
+  <!-- Save and Journal Buttons -->
+  <div class="form-actions">
+    <button type="button" class="save-entry">Save</button>
+    <button type="button" class="create-journal">Create Journal Entry</button>
+  </div>
 </form>
+
+
+

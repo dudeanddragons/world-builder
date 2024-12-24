@@ -37,6 +37,10 @@
   --wb-failure-header-red: #864c4c;
 }
 
+.center-text {
+  text-align: center;
+}
+
 .fa-plus,
 .fa-minus {
   transition: transform 0.3s ease;
