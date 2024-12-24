@@ -4,7 +4,15 @@ import { WorldBuilderWindow } from './worldBuilder.js'; // Ensure this path is c
 Hooks.once("init", () => {
   console.log("World Builder | Initializing...");
   CONFIG.WorldBuilder = WorldBuilderWindow; // Makes the class globally available.
+
+  // Register Handlebars helper for dropdown selection
+  Handlebars.registerHelper("isSelected", (value, option) => {
+    return value === option ? "selected" : "";
+  });
+
+  console.log("World Builder | Handlebars helpers registered.");
 });
+
 
 // Add the button to the Journal sidebar
 Hooks.on("renderJournalDirectory", (app, html) => {

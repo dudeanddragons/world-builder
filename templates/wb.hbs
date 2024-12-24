@@ -1,23 +1,27 @@
+<!-- wb.hbs -->
+
 <form class="worldbuilder-form">
     <!-- Population Density Dropdown -->
-    <div class="form-group">
+        <div>
         <label for="population-density-select">Population Density:</label>
-        <select id="population-density-select" class="population-density-select">
-            {{#each populationDensityOptions}}
-            <option value="{{this}}" {{#if (eq ../selectedPopulationDensity this)}}selected{{/if}}>{{this}}</option>
-            {{/each}}
+        <select class="population-density-select" name="population-density">
+        {{#each populationDensityOptions}}
+        <option value="{{this}}" {{#if (eq ../populationDensity this)}}selected{{/if}}>{{this}}</option>
+        {{/each}}
         </select>
-    </div>
+        </div>
+
 
     <!-- Climate Type Dropdown -->
-    <div class="form-group">
+        <div>
         <label for="climate-select">Climate Type:</label>
-        <select id="climate-select" class="climate-select">
-            {{#each climateOptions}}
-            <option value="{{this}}" {{#if (eq ../selectedClimate this)}}selected{{/if}}>{{this}}</option>
+        <select class="climate-select" name="climate-type">
+            {{#each climateTypeOptions}}
+            <option value="{{this}}" {{#if (eq ../climateType this)}}selected{{/if}}>{{this}}</option>
             {{/each}}
         </select>
-    </div>
+        </div>
+
 
     <!-- Icon Button Table -->
     <table class="icon-button-table">
@@ -46,14 +50,19 @@
     </table>
 
     <!-- Terrain Type Dropdown -->
-    <div class="form-group">
-        <label for="terrain-select">Hex Terrain Type:</label>
-        <select id="terrain-select" class="terrain-select">
-            {{#each terrainOptions}}
-            <option value="{{this}}" {{#if (eq ../selectedTerrain this)}}selected{{/if}}>{{this}}</option>
-            {{/each}}
-        </select>
-    </div>
+<div class="form-group">
+  <label for="terrain-select">Terrain Type</label>
+  <select class="terrain-select" name="terrain-select">
+    {{#each terrainTypeOptions}}
+      <option value="{{this.type}}" {{isSelected ../terrainType this.type}}>
+        {{this.type}}
+      </option>
+    {{/each}}
+  </select>
+</div>
+
+
+
 
     <!-- Feature Type Dropdown -->
     <div class="form-group">
