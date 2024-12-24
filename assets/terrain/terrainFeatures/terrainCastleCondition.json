@@ -1,16 +1,16 @@
 {
     "tableName": "tblCastleCondition",
     "entries": [
-      { "id": 1, "result": "Under Construction" },
-      { "id": 2, "result": "Brand New" },
-      { "id": 3, "result": "Slightly Aged" },
-      { "id": 4, "result": "Worn" },
-      { "id": 5, "result": "Aged" },
-      { "id": 6, "result": "Ancient" },
-      { "id": 7, "result": "Crumbling" },
-      { "id": 8, "result": "Tumble Down" },
-      { "id": 9, "result": "Ruins" },
-      { "id": 10, "result": "Foundations Only" }
+      { "id": 1, "value": "Under Construction" },
+      { "id": 2, "value": "Brand New" },
+      { "id": 3, "value": "Slightly Aged" },
+      { "id": 4, "value": "Worn" },
+      { "id": 5, "value": "Aged" },
+      { "id": 6, "value": "Ancient" },
+      { "id": 7, "value": "Crumbling" },
+      { "id": 8, "value": "Tumble Down" },
+      { "id": 9, "value": "Ruins" },
+      { "id": 10, "value": "Foundations Only" }
     ]
   }
   

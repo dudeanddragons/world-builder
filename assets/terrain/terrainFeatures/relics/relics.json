@@ -1,11 +1,11 @@
 {
   "tableName": "tblRelics",
   "entries": [
-    { "id": 1, "name": "Tools" },
-    { "id": 2, "name": "Machines" },
-    { "id": 3, "name": "Tombs" },
-    { "id": 4, "name": "Armor" },
-    { "id": 5, "name": "Weapons" },
-    { "id": 6, "name": "Containers" }
+    { "id": 1, "value": "Tools" },
+    { "id": 2, "value": "Machines" },
+    { "id": 3, "value": "Tombs" },
+    { "id": 4, "value": "Armor" },
+    { "id": 5, "value": "Weapons" },
+    { "id": 6, "value": "Containers" }
   ]
 }

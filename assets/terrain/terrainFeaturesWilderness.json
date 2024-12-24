@@ -2,7 +2,8 @@
     "tableName": "tblTerrainFeaturesWilderness",
     "entries": [
       { "id": 1, "value": "Ruins and Relics" },
-      { "id": 2, "value": "Lurid Lairs" }
+      { "id": 2, "value": "Lurid Lairs" },
+      { "id": 3, "value": "Rivers and Roads/Islands" }
     ]
   }
   

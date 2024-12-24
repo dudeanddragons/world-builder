@@ -2,22 +2,26 @@ export class WorldBuilderWindow extends Application {
   constructor(options = {}) {
     super(options);
   
-    // Default data for the World Builder
     this.data = {
       populationDensity: "Wilderness",
-      populationDensityOptions: [], // Options for Population Density
+      populationDensityOptions: [],
       climateType: "Temperate",
-      climateTypeOptions: [], // Options for Climate Type
+      climateTypeOptions: [],
       terrainType: "",
-      terrainTypeOptions: [], // Options for Terrain Type
+      terrainTypeOptions: [],
       ruggedness: "",
       travelTime: "",
       encounterFrequency: "",
       featureType: "",
+      featureTypeOptions: [],
       selectedFeatureType: "",
-      selectedSubFeature: "",
-      featureDetails: "",
-      encounterResult: "",
+      subFeatureType: "",
+      subFeatureTypeOptions: [],
+      featureDetails: {
+        title: "",
+        description: "",
+        results: []
+      },
       isDungeon: false,
       isCave: false,
       dungeonFeatures: [],
@@ -102,15 +106,151 @@ export class WorldBuilderWindow extends Application {
       this.data.terrainTypeOptions = []; // Ensure options are cleared
     }
   }
+
+  async loadFeatureType() {
+    try {
+      const densityMap = {
+        "Borderlands": "assets/terrain/terrainFeaturesBorderlands.json",
+        "Settled": "assets/terrain/terrainFeaturesSettled.json",
+        "Wilderness": "assets/terrain/terrainFeaturesWilderness.json"
+      };
   
+      const selectedDensity = this.data.populationDensity;
+      const featureFile = densityMap[selectedDensity];
+  
+      if (!featureFile) {
+        console.warn("No feature file found for selected density:", selectedDensity);
+        this.data.featureTypeOptions = []; // Clear options if no data
+        return;
+      }
+  
+      // Fetch feature data for the selected density
+      const response = await fetch(`modules/world-builder/${featureFile}`);
+      if (!response.ok) throw new Error(`Failed to load feature file: ${response.statusText}`);
+      const featureData = await response.json();
+  
+      // Populate feature options
+      this.data.featureTypeOptions = featureData.entries.map(entry => entry.value);
+      console.log("Feature Type Options Loaded:", this.data.featureTypeOptions);
+    } catch (error) {
+      console.error("Error loading feature types:", error);
+      this.data.featureTypeOptions = []; // Ensure options are cleared
+    }
+  }
+
+  async loadSubFeatureType() {
+    try {
+      // Map specific feature types to sub-feature files
+      const subFeatureMap = {
+        "Ruins and Relics": "assets/terrain/terrainFeatures/terrainFeaturesRuinClass.json",
+        "Lurid Lairs": "assets/terrain/terrainFeatures/terrainFeaturesLuridLairs.json",
+        "Rivers and Roads/Islands": "assets/terrain/terrainFeatures/terrainFeaturesRoadRiver.json"
+      };
+  
+      const selectedFeature = this.data.featureType;
+      const subFeatureFile = subFeatureMap[selectedFeature];
+  
+      if (!subFeatureFile) {
+        console.warn("No sub-feature file found for selected feature:", selectedFeature);
+        this.data.subFeatureTypeOptions = []; // Clear options if no data
+        return;
+      }
+  
+      // Fetch sub-feature data for the selected feature
+      const response = await fetch(`modules/world-builder/${subFeatureFile}`);
+      if (!response.ok) throw new Error(`Failed to load sub-feature file: ${response.statusText}`);
+      const subFeatureData = await response.json();
+  
+      // Populate sub-feature options
+      this.data.subFeatureTypeOptions = subFeatureData.entries.map(entry => entry.value);
+      console.log("Sub-Feature Type Options Loaded:", this.data.subFeatureTypeOptions);
+    } catch (error) {
+      console.error("Error loading sub-feature types:", error);
+      this.data.subFeatureTypeOptions = []; // Ensure options are cleared
+    }
+  }
   
 
+  // Populate Feature Details
+  async loadFeatureDetails() {
+    try {
+      const selectedSubFeature = this.data.subFeatureType;
+  
+      if (!selectedSubFeature) {
+        console.warn("No sub-feature selected.");
+        this.data.featureDetails = { title: "", results: [] }; // Clear details
+        return;
+      }
+  
+      // Map sub-features to their respective JSON files
+      const fileMap = {
+        "Remnants": "assets/terrain/terrainFeatures/ruins/remnants.json",
+        "Ruins": "assets/terrain/terrainFeatures/ruins/ruins.json",
+        "Skeletons": "assets/terrain/terrainFeatures/ruins/skeletons.json",
+        "Vestiges": "assets/terrain/terrainFeatures/ruins/vestiges.json",
+        "Wrecks": "assets/terrain/terrainFeatures/ruins/wrecks.json",
+        "Antiques": "assets/terrain/terrainFeatures/relics/antiques.json",
+        "Artifacts": "assets/terrain/terrainFeatures/relics/artifacts.json",
+        "Refuse": "assets/terrain/terrainFeatures/relics/refuse.json",
+        "Relics": "assets/terrain/terrainFeatures/relics/relics.json",
+        "Remains": "assets/terrain/terrainFeatures/relics/remains.json",
+        "Burrows": "assets/terrain/terrainFeatures/lairs/burrows.json",
+        "Camp": "assets/terrain/terrainFeatures/lairs/camps.json",
+        "Crevice": "assets/terrain/terrainFeatures/lairs/crevice.json",
+        "Dungeon": "assets/terrain/terrainFeatures/lairs/dungeons.json",
+        "Dwelling": "assets/terrain/terrainFeatures/lairs/dwelling.json",
+        "Ledge": "assets/terrain/terrainFeatures/lairs/ledge.json",
+        "Shipwreck": "assets/terrain/terrainFeatures/lairs/shipwreckEncounters.json",
+        "Lair Occupation Status": "assets/terrain/terrainFeatures/lairs/lairSubOccupationStatus.json"
+      };
+  
+      const filePath = fileMap[selectedSubFeature];
+
+      if (!filePath) {
+        console.warn("No file found for selected sub-feature:", selectedSubFeature);
+        this.data.featureDetails = { title: selectedSubFeature, results: [] };
+        return;
+      }
+  
+      // Fetch the sub-feature details from the JSON file
+      const response = await fetch(`modules/world-builder/${filePath}`);
+      if (!response.ok) throw new Error(`Failed to load sub-feature file: ${response.statusText}`);
+      const data = await response.json();
+  
+      // Select a random entry from the entries array
+      const randomEntry = data.entries[Math.floor(Math.random() * data.entries.length)];
+  
+      // Handle different structures (name, dimensions, quantity, description)
+      const detailFields = [];
+      if (randomEntry.name) detailFields.push(`Name: ${randomEntry.name}`);
+      if (randomEntry.dimensions) detailFields.push(`Dimensions: ${randomEntry.dimensions}`);
+      if (randomEntry.quantity) detailFields.push(`Quantity: ${randomEntry.quantity}`);
+      if (randomEntry.description) detailFields.push(`Description: ${randomEntry.description}`);
+      if (randomEntry.value) detailFields.push(randomEntry.value); // For simpler entries
+  
+      // Update the feature details
+      this.data.featureDetails = {
+        title: selectedSubFeature,
+        results: detailFields // Display all relevant fields for the selected entry
+      };
+  
+      console.log("Feature Details Loaded:", this.data.featureDetails);
+    } catch (error) {
+      console.error("Error loading feature details:", error);
+      this.data.featureDetails = { title: "", results: [] }; // Clear on error
+    }
+  }
+  
+  
+  
 
   // Provide data to the template
   async getData() {
     if (!this.data.populationDensityOptions.length) await this.loadPopulationDensity();
     if (!this.data.climateTypeOptions.length) await this.loadClimateType();
     if (!this.data.terrainTypeOptions.length) await this.loadTerrainType();
+    if (!this.data.featureTypeOptions.length) await this.loadFeatureType();
+    if (!this.data.subFeatureTypeOptions.length) await this.loadSubFeatureType();
   
     return { ...this.data };
   }
@@ -123,7 +263,7 @@ export class WorldBuilderWindow extends Application {
       html.find(".climate-select").change(this._onClimateTypeChange.bind(this));
       html.find(".terrain-select").change(this._onTerrainTypeChange.bind(this));
       html.find(".feature-type-select").change(this._onFeatureTypeChange.bind(this));
-      html.find(".sub-feature-select").change(this._onSubFeatureChange.bind(this));
+      html.find(".sub-feature-type-select").change(this._onSubFeatureTypeChange.bind(this));
   
       html.find(".terrain-roll").click(() => this._rollTerrainType());
       html.find(".feature-type-roll").click(() => this._rollFeatureType());
@@ -132,10 +272,20 @@ export class WorldBuilderWindow extends Application {
       html.find(".create-journal").click(() => this.createJournalEntry());
     }
   
-    _onPopulationDensityChange(event) {
+    async _onPopulationDensityChange(event) {
       this.data.populationDensity = event.target.value;
-      this.render(false);
+      console.log("Population Density changed to:", this.data.populationDensity);
+    
+      // Reload feature options based on the new population density
+      await this.loadFeatureType();
+    
+      // Reset sub-feature options for now
+      await this.loadSubFeatureType();
+    
+      this.render(false); // Re-render to update the UI
     }
+    
+    
   
     async _onClimateTypeChange(event) {
       this.data.climateType = event.target.value;
@@ -163,15 +313,27 @@ export class WorldBuilderWindow extends Application {
     }
     
   
-    _onFeatureTypeChange(event) {
-      this.data.selectedFeatureType = event.target.value;
-      this.render(false);
+    async _onFeatureTypeChange(event) {
+      this.data.featureType = event.target.value;
+      console.log("Feature Type changed to:", this.data.featureType);
+    
+      // Reload sub-feature options based on the new feature type
+      await this.loadSubFeatureType();
+      this.render(false); // Re-render to update the UI
     }
-  
-    _onSubFeatureChange(event) {
-      this.data.selectedSubFeature = event.target.value;
-      this.render(false);
+    
+
+    async _onSubFeatureTypeChange(event) {
+      this.data.subFeatureType = event.target.value;
+      console.log("Sub-Feature Type changed to:", this.data.subFeatureType);
+    
+      // Load feature details based on the selected sub-feature
+      await this.loadFeatureDetails();
+      this.render(false); // Re-render to update the UI
     }
+    
+    
+    
   
     async _rollTerrainType() {
       // Add rolling logic for terrain type

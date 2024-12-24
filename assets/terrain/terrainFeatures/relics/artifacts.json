@@ -1,11 +1,11 @@
 {
   "tableName": "tblArtifacts",
   "entries": [
-    { "id": 1, "name": "Weapon" },
-    { "id": 2, "name": "Entertainment Device" },
-    { "id": 3, "name": "Protective Device" },
-    { "id": 4, "name": "Offensive Device" },
-    { "id": 5, "name": "Informative Device" },
-    { "id": 6, "name": "Leadership Device" }
+    { "id": 1, "value": "Weapon" },
+    { "id": 2, "value": "Entertainment Device" },
+    { "id": 3, "value": "Protective Device" },
+    { "id": 4, "value": "Offensive Device" },
+    { "id": 5, "value": "Informative Device" },
+    { "id": 6, "value": "Leadership Device" }
   ]
 }

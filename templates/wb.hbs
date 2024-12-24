@@ -65,24 +65,28 @@
 
 
     <!-- Feature Type Dropdown -->
-    <div class="form-group">
-        <label for="feature-type-select">Select Feature Type:</label>
-        <select id="feature-type-select" class="feature-type-select">
-            {{#each featureTypeOptions}}
-            <option value="{{this}}" {{#if (eq ../selectedFeatureType this)}}selected{{/if}}>{{this}}</option>
-            {{/each}}
-        </select>
-    </div>
+<div class="form-group">
+  <label for="feature-type-select">Feature Type</label>
+  <select class="feature-type-select" name="feature-type-select">
+    {{#each featureTypeOptions}}
+      <option value="{{this}}" {{isSelected ../featureType this}}>{{this}}</option>
+    {{/each}}
+  </select>
+</div>
 
-    <!-- Sub-Feature Selection -->
-    <div class="form-group">
-        <label for="sub-feature-select">Select Sub-Feature:</label>
-        <select id="sub-feature-select" class="sub-feature-select" {{#if subFeatureOptions.length}}enabled{{else}}disabled{{/if}}>
-            {{#each subFeatureOptions}}
-            <option value="{{this}}" {{#if (eq ../selectedSubFeature this)}}selected{{/if}}>{{this}}</option>
-            {{/each}}
-        </select>
-    </div>
+    <!-- Sub Feature Type Dropdwon -->
+<div class="form-group">
+  <label for="sub-feature-type-select">Sub-Feature Type</label>
+  <select class="sub-feature-type-select" name="sub-feature-type-select" 
+          {{#if subFeatureTypeOptions.length}} {{else}} disabled{{/if}}>
+    {{#each subFeatureTypeOptions}}
+      <option value="{{this}}" {{isSelected ../subFeatureType this}}>{{this}}</option>
+    {{/each}}
+  </select>
+</div>
+
+
+
 
     <!-- Selected Terrain Information Table -->
     <div class="form-group">
@@ -116,40 +120,55 @@
     {{/if}}
 
     <!-- Feature Information -->
-    {{#if featureType}}
-    <div class="form-group">
-        <table class="feature-info-table">
-            <thead>
-                <tr><th>Feature Type</th><th>Details</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{featureType}}</td>
-                    <td>{{{featureDetails}}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    {{else}}
-    <div class="form-group">
-        <table class="feature-info-table">
-            <thead>
-                <tr><th>Feature Type</th><th>Details</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>No Feature Selected</td>
-                    <td>Please select a feature type.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    {{/if}}
+<div class="form-group feature-type-section">
+  <table class="feature-info-table">
+    <thead>
+      <tr>
+        <th>Feature Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{#if featureType}}{{featureType}}{{else}}No Feature Selected. Please select a feature type.{{/if}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    <!-- Feature Details -->
+<div class="form-group feature-details-section">
+  <table class="feature-info-table">
+    <thead>
+      <tr>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#if featureDetails.title}}
+      <tr>
+        <td>
+          <h4>{{featureDetails.title}}</h4>
+          {{featureDetails.description}}
+          <ul>
+            {{#each featureDetails.results}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td>No details available. Select a sub-feature to view details.</td>
+      </tr>
+      {{/if}}
+    </tbody>
+  </table>
+</div>
+
 
     <!-- Dungeon Features -->
     {{#if isDungeon}}
     <div class="form-group dungeon-section">
-        <h2 class="general-header">Dungeon Features</h2>
         <button type="button" class="append-dungeon-feature" title="Add Dungeon Feature">
             <i class="fas fa-plus-circle"></i>
         </button>
