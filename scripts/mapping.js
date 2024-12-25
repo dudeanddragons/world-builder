@@ -24,8 +24,7 @@ export const terrainCaveMap = {
         "Lurid Lairs": "assets/terrain/terrainFeatures/terrainFeaturesLuridLairs.json",
         "Rivers and Roads/Islands": "assets/terrain/terrainFeatures/terrainFeaturesRoadRiver.json"
     };
-  
-    
+
 
   // Mapping for sub-feature files
   export const subFeatureMap = {
@@ -62,4 +61,92 @@ export const terrainCaveMap = {
     "Wall": "assets/terrain/terrainFeatures/ruins/ruinsSub/remnantsSubWall.json",
     "Works": "assets/terrain/terrainFeatures/ruins/ruinsSub/remnantsSubWorks.json"
   };
-  
+
+  // Mapping for ruins-specific sub-types
+export const ruinsSubMap = {
+  "Castle": "assets/terrain/terrainFeatures/ruins/ruinsSub/ruinsSubCastle.json",
+  "Citadel": "assets/terrain/terrainFeatures/ruins/ruinsSub/ruinsSubCitadel.json",
+  "City": "assets/terrain/terrainFeatures/ruins/ruinsSub/ruinsSubCity.json",
+  "Manor": "assets/terrain/terrainFeatures/ruins/ruinsSub/ruinsSubManor.json",
+  "Temple": "assets/terrain/terrainFeatures/ruins/ruinsSub/ruinsSubTemple.json",
+  "Village": "assets/terrain/terrainFeatures/ruins/ruinsSub/ruinsSubVillage.json",
+};
+
+  // Mapping for skeletons-specific sub-types
+export const skeletonsSubMap = {
+  "Colossal": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubColossal.json",
+  "Features": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubFeatures.json",
+  "Giant": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubGiant.json",
+  "Man-Sized": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubManSized.json",
+  "Skulls": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubSkulls.json",
+  "Small": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubSmall.json",
+  "Unusual": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubUnusual.json",
+};
+
+// Mapping for vestiges-specific sub-types
+export const vestigesSubMap = {
+  "Fountain": "assets/terrain/terrainFeatures/ruins/ruinsSub/vestigesSubFountain.json",
+  "Monolith": "assets/terrain/terrainFeatures/ruins/ruinsSub/vestigesSubMonolith.json",
+  "Mound": "assets/terrain/terrainFeatures/ruins/ruinsSub/vestigesSubMound.json",
+  "Pyramid": "assets/terrain/terrainFeatures/ruins/ruinsSub/vestigesSubPyramid.json",
+  "Sewers": "assets/terrain/terrainFeatures/ruins/ruinsSub/vestigesSubSewers.json",
+  "Totem": "assets/terrain/terrainFeatures/ruins/ruinsSub/vestigesSubTotem.json",
+};
+
+export const wrecksSubMap = {
+  "Air Vehicle": "assets/terrain/terrainFeatures/ruins/ruinsSub/wrecksSubAirVehicle.json",
+  "Land Vehicle": "assets/terrain/terrainFeatures/ruins/ruinsSub/wrecksSubLandVehicle.json",
+  "Sea Vehicle": "assets/terrain/terrainFeatures/ruins/ruinsSub/wrecksSubSeaVehicle.json",
+  "Submarine": "assets/terrain/terrainFeatures/ruins/ruinsSub/wrecksSubSubmarine.json",
+  "Subterranean Vehicle": "assets/terrain/terrainFeatures/ruins/ruinsSub/wrecksSubSubterraneanVehicle.json",
+  "War Engine": "assets/terrain/terrainFeatures/ruins/ruinsSub/wrecksSubWarEngine.json",
+};
+
+// Mapping for antiques-specific sub-types
+export const antiquesSubMap = {
+  "Engravings": "assets/terrain/terrainFeatures/relics/relicsSub/antiquesSubEngravings.json",
+  "Fittings": "assets/terrain/terrainFeatures/relics/relicsSub/antiquesSubFittings.json",
+  "Furniture": "assets/terrain/terrainFeatures/relics/relicsSub/antiquesSubFurniture.json",
+  "Handicrafts": "assets/terrain/terrainFeatures/relics/relicsSub/antiquesSubHandicrafts.json",
+  "Idols": "assets/terrain/terrainFeatures/relics/relicsSub/antiquesSubIdols.json",
+  "Statues": "assets/terrain/terrainFeatures/relics/relicsSub/antiquesSubStatues.json",
+};
+
+// Mapping for artifacts-specific sub-types
+export const artifactsSubMap = {
+  "Entertainment Device": "assets/terrain/terrainFeatures/relics/relicsSub/artifactsSubEntertainmentDevice.json",
+  "Informative Device": "assets/terrain/terrainFeatures/relics/relicsSub/artifactsSubInformativeDevice.json",
+  "Leadership Device": "assets/terrain/terrainFeatures/relics/relicsSub/artifactsSubLeadershipDevice.json",
+  "Offensive Device": "assets/terrain/terrainFeatures/relics/relicsSub/artifactsSubOffensiveDevice.json",
+  "Protective Device": "assets/terrain/terrainFeatures/relics/relicsSub/artifactsSubProtectiveDevice.json",
+  "Weapon": "assets/terrain/terrainFeatures/relics/relicsSub/artifactsSubWeapon.json",
+};
+
+// Mapping for refuse-specific sub-types
+export const refuseSubMap = {
+  "Condition of Discards": "assets/terrain/terrainFeatures/relics/relicsSub/refuseConditionOfDiscards.json",
+  "Discards": "assets/terrain/terrainFeatures/relics/relicsSub/refuseSubDiscards.json",
+  "Food": "assets/terrain/terrainFeatures/relics/relicsSub/refuseSubFood.json",
+  "Fuel": "assets/terrain/terrainFeatures/relics/relicsSub/refuseSubFuel.json",
+  "Offal": "assets/terrain/terrainFeatures/relics/relicsSub/refuseSubOffal.json",
+  "Parts": "assets/terrain/terrainFeatures/relics/relicsSub/refuseSubParts.json",
+  "Sewage": "assets/terrain/terrainFeatures/relics/relicsSub/refuseSubSewage.json",
+};
+
+export const relicsSubMap = {
+  "Armor": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubArmor.json",
+  "Containers": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubContainers.json",
+  "Machines": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubMachines.json",
+  "Tools": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubTools.json",
+  "Weapons": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubWeapons.json",
+};
+
+export const remainsSubMap = {
+  "Apparel": "assets/terrain/terrainFeatures/relics/relicsSub/remainsSubApparel.json",
+  "Harness": "assets/terrain/terrainFeatures/relics/relicsSub/remainsSubHarness.json",
+  "Optics": "assets/terrain/terrainFeatures/relics/relicsSub/remainsSubOptics.json",
+  "Tome Contents": "assets/terrain/terrainFeatures/relics/relicsSub/remainsSubTomeContents.json",
+  "Tomes": "assets/terrain/terrainFeatures/relics/relicsSub/remainsSubTomes.json",
+  "Toys": "assets/terrain/terrainFeatures/relics/relicsSub/remainsSubToys.json",
+  "Utensils": "assets/terrain/terrainFeatures/relics/relicsSub/remainsSubUtensils.json",
+};

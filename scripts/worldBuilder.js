@@ -9,7 +9,16 @@ import
   terrainCaveMap, 
   subFeatureMap,
   subFeatureWildernessMap, 
-  remnantSubMap 
+  remnantSubMap ,
+  ruinsSubMap,
+  skeletonsSubMap,
+  vestigesSubMap,
+  wrecksSubMap ,
+  antiquesSubMap,
+  artifactsSubMap,
+  refuseSubMap,
+  relicsSubMap,
+  remainsSubMap
 } from './mapping.js';
 
 export class WorldBuilderWindow extends Application {
@@ -57,12 +66,11 @@ export class WorldBuilderWindow extends Application {
   }
 
 
-  /**
-   * 
-   * Set default state for Form 
-   * Renders when the world builder button is clicked
-   * 
-   */
+/**
+ * !!!!----------------------------------------------!!!!
+ * !!!!-----------------LOAD DEFAULT-----------------!!!!
+ * !!!!----------------------------------------------!!!!
+ */
   resetFormState() {
     this.data = {
       populationDensity: "",
@@ -93,11 +101,11 @@ export class WorldBuilderWindow extends Application {
     console.log("Form state reset to defaults.");
   }    
   
-  /**
-   * 
-   * Load data for Form Drop Downs
-   *
-   */
+/**
+ * !!!!----------------------------------------------!!!!
+ * !!!!--------------LOAD DROP DOWNS-----------------!!!!
+ * !!!!----------------------------------------------!!!!
+ */
   async loadPopulationDensity() {
     try {
       const response = await fetch("modules/world-builder/assets/terrain/terrainDensity.json");
@@ -131,6 +139,7 @@ export class WorldBuilderWindow extends Application {
       this.data.climateTypeOptions = [{ value: "", label: "Select a climate type" }];
     }
   }
+
 
   async loadTerrainType() {
     try {
@@ -172,6 +181,7 @@ export class WorldBuilderWindow extends Application {
     }
   }
 
+
   async loadFeatureType() {
     try {
       const selectedDensity = this.data.populationDensity;
@@ -183,12 +193,10 @@ export class WorldBuilderWindow extends Application {
         return;
       }
   
-      // Fetch the feature file
       const response = await fetch(`modules/world-builder/${featureFile}`);
       if (!response.ok) throw new Error(`Failed to load feature file: ${response.statusText}`);
       const featureData = await response.json();
   
-      // Populate feature type options
       this.data.featureTypeOptions = [
         { value: "", label: "Select a feature type" },
         ...featureData.entries.map(entry => ({ value: entry.value, label: entry.value }))
@@ -202,6 +210,7 @@ export class WorldBuilderWindow extends Application {
   }
   
 
+
   async loadSubFeatureType() {
     try {
       const selectedFeature = this.data.featureType;
@@ -213,12 +222,10 @@ export class WorldBuilderWindow extends Application {
         return;
       }
   
-      // Fetch the sub-feature file
       const response = await fetch(`modules/world-builder/${subFeatureFile}`);
       if (!response.ok) throw new Error(`Failed to load sub-feature file: ${response.statusText}`);
       const subFeatureData = await response.json();
-  
-      // Populate sub-feature type options
+
       this.data.subFeatureTypeOptions = [
         { value: "", label: "Select a sub-feature" },
         ...subFeatureData.entries.map(entry => ({ value: entry.value, label: entry.value }))
@@ -229,10 +236,8 @@ export class WorldBuilderWindow extends Application {
       console.error("Error loading sub-feature types:", error);
       this.data.subFeatureTypeOptions = [{ value: "", label: "Select a sub-feature" }];
     }
-  }
-  
-  
-  
+  } 
+
 
   async loadFeatureDetails() {
     try {
@@ -240,11 +245,10 @@ export class WorldBuilderWindow extends Application {
   
       if (!selectedSubFeature) {
         console.warn("No sub-feature selected.");
-        this.data.featureDetails = { title: "", results: [] };
-        return;
+        return null; // Return null if no sub-feature is selected
       }
   
-      // Determine the file path for cave types or standard sub-features
+      // Determine the file path for the selected sub-feature
       const caveFilePath = terrainCaveMap[this.data.terrainType];
       const filePath = selectedSubFeature === "Cave" && caveFilePath
         ? caveFilePath
@@ -252,8 +256,7 @@ export class WorldBuilderWindow extends Application {
   
       if (!filePath) {
         console.warn("No file found for selected sub-feature:", selectedSubFeature);
-        this.data.featureDetails = { title: selectedSubFeature, results: [] };
-        return;
+        return null; // Return null if no file is found
       }
   
       // Fetch the sub-feature data
@@ -261,55 +264,17 @@ export class WorldBuilderWindow extends Application {
       if (!response.ok) throw new Error(`Failed to load sub-feature file: ${response.statusText}`);
       const data = await response.json();
   
-      // Select a random entry from the loaded data
-      const randomEntry = data.entries[Math.floor(Math.random() * data.entries.length)];
-  
-      const detailFields = [];
-      if (randomEntry.name) detailFields.push(`Name: ${randomEntry.name}`);
-      if (randomEntry.dimensions) detailFields.push(`Dimensions: ${randomEntry.dimensions}`);
-      if (randomEntry.quantity) detailFields.push(`Quantity: ${randomEntry.quantity}`);
-      if (randomEntry.description) detailFields.push(`Description: ${randomEntry.description}`);
-      if (randomEntry.value) detailFields.push(randomEntry.value);
-  
-      // Handle remnant-specific sub-features
-      if (selectedSubFeature === "Remnants") {
-        const selectedRemnantType = randomEntry.value; // Assuming 'value' specifies the remnant type
-        const remnantFile = remnantSubMap[selectedRemnantType];
-  
-        if (remnantFile) {
-          try {
-            const remnantResponse = await fetch(`modules/world-builder/${remnantFile}`);
-            if (!remnantResponse.ok) throw new Error(`Failed to load remnant file: ${remnantResponse.statusText}`);
-            const remnantData = await remnantResponse.json();
-  
-            const randomRemnantEntry = remnantData.entries[Math.floor(Math.random() * remnantData.entries.length)];
-            if (randomRemnantEntry.value) {
-              detailFields.unshift(randomRemnantEntry.value); // Append above other details
-            } else {
-              detailFields.unshift("No data available");
-            }
-          } catch (error) {
-            console.error("Error loading remnant-specific data:", error);
-            detailFields.unshift("No data available");
-          }
-        } else {
-          console.warn("No remnant file found for type:", selectedRemnantType);
-          detailFields.unshift("No data available");
-        }
-      }
-  
-      // Update the feature details with the fetched and randomized data
-      this.data.featureDetails = {
-        title: selectedSubFeature,
-        results: detailFields
-      };
-  
-      console.log("Feature Details Loaded:", this.data.featureDetails);
+      console.log("Sub-Feature Data Loaded:", data);
+      return data.entries; // Return the entries from the file
     } catch (error) {
       console.error("Error loading feature details:", error);
-      this.data.featureDetails = { title: "", results: [] };
+      return null; // Return null in case of an error
     }
   }
+  
+  
+  
+  
   
 
 async loadConditionData() {
@@ -326,6 +291,7 @@ async loadConditionData() {
   }
 }
 
+
 randomizeConditionData(entries) {
   const randomize = (array) => array[Math.floor(Math.random() * array.length)].value;
 
@@ -337,44 +303,217 @@ randomizeConditionData(entries) {
   };
 }
 
+
+/**
+ * !!!!----------------------------------------------!!!!
+ * !!!!------------Update Feature Details------------!!!!
+ * !!!!----------------------------------------------!!!!
+ */
 async updateFeatureDetails() {
   const conditionEntries = await this.loadConditionData();
-  if (!conditionEntries) return;
+  if (!conditionEntries) {
+    console.error("Condition data could not be loaded.");
+    return;
+  }
 
-  // Extract parent feature (title) and sub-feature (result)
-  const featureDetails = this.data.featureDetails || {};
-  const parentFeature = featureDetails.title || "Feature";
-  const subFeature = featureDetails.results?.[0] || "Feature";
+  const subFeatureData = await this.loadFeatureDetails();
+  if (!subFeatureData) {
+    console.warn("No sub-feature data loaded.");
+    this.data.featureDetails = { title: "", results: [] };
+    this.render(false);
+    return;
+  }
 
-  // Randomly select condition data
-  const randomConditions = this.randomizeConditionData(conditionEntries);
+  const randomSubFeatureEntry = subFeatureData[Math.floor(Math.random() * subFeatureData.length)];
+  const subFeature = randomSubFeatureEntry?.value || "Feature";
 
-  // Prepare the results list
-  const results = [`Sub-Feature: ${subFeature}`];
+  const results = [];
+  console.log(`Sub-Feature Selected: ${subFeature}`);
 
-  // Handle remnant-specific sub-features
-  if (parentFeature === "Remnants") {
+        // Update Features from Mapping.js
+  if (this.data.subFeatureType === "Remnants" && remnantSubMap[subFeature]) {
     const remnantFile = remnantSubMap[subFeature];
-    if (remnantFile) {
-      try {
-        const response = await fetch(`modules/world-builder/${remnantFile}`);
-        if (!response.ok) throw new Error(`Failed to load remnant file: ${response.statusText}`);
-        const remnantData = await response.json();
+    try {
+      const response = await fetch(`modules/world-builder/${remnantFile}`);
+      if (!response.ok) throw new Error(`Failed to load remnant file: ${response.statusText}`);
+      const remnantData = await response.json();
 
-        // Select a random entry from the remnant-specific file
-        const randomRemnantEntry = remnantData.entries[Math.floor(Math.random() * remnantData.entries.length)];
-        results.push(randomRemnantEntry.value || "No data available");
-      } catch (error) {
-        console.error("Error loading remnant-specific data:", error);
-        results.push("No data available");
-      }
-    } else {
-      console.warn("No remnant file found for sub-feature:", subFeature);
-      results.push("No data available");
+      const randomRemnantEntry = remnantData.entries[Math.floor(Math.random() * remnantData.entries.length)];
+      const remnantDescription = randomRemnantEntry?.value || "No data available";
+
+      results.push(`Sub-Feature: ${subFeature} - ${remnantDescription}`);
+      console.log("Appended Remnants Data:", remnantDescription);
+    } catch (error) {
+      console.error("Error loading remnant-specific data:", error);
+      results.push(`Sub-Feature: ${subFeature} - No data available`);
     }
   }
 
-  // Append condition-based data (always include this)
+  else if (this.data.subFeatureType === "Ruins" && ruinsSubMap[subFeature]) {
+    const ruinsFile = ruinsSubMap[subFeature];
+    try {
+      const response = await fetch(`modules/world-builder/${ruinsFile}`);
+      if (!response.ok) throw new Error(`Failed to load ruins file: ${response.statusText}`);
+      const ruinsData = await response.json();
+
+      const randomRuinsEntry = ruinsData.entries[Math.floor(Math.random() * ruinsData.entries.length)];
+      const ruinsDescription = randomRuinsEntry?.value || "No data available";
+
+      results.push(`Sub-Feature: ${subFeature} - ${ruinsDescription}`);
+      console.log("Appended Ruins Data:", ruinsDescription);
+    } catch (error) {
+      console.error("Error loading ruins-specific data:", error);
+      results.push(`Sub-Feature: ${subFeature} - No data available`);
+    }
+  }
+
+  else if (this.data.subFeatureType === "Skeletons" && skeletonsSubMap[subFeature]) {
+    const skeletonsFile = skeletonsSubMap[subFeature];
+    try {
+      const response = await fetch(`modules/world-builder/${skeletonsFile}`);
+      if (!response.ok) throw new Error(`Failed to load skeletons file: ${response.statusText}`);
+      const skeletonsData = await response.json();
+
+      const randomSkeletonsEntry = skeletonsData.entries[Math.floor(Math.random() * skeletonsData.entries.length)];
+      const skeletonsDescription = randomSkeletonsEntry?.value || "No data available";
+
+      results.push(`Sub-Feature: ${subFeature} - ${skeletonsDescription}`);
+      console.log("Appended Skeletons Data:", skeletonsDescription);
+    } catch (error) {
+      console.error("Error loading skeletons-specific data:", error);
+      results.push(`Sub-Feature: ${subFeature} - No data available`);
+    }
+  }
+
+  else if (this.data.subFeatureType === "Vestiges" && vestigesSubMap[subFeature]) {
+    const vestigesFile = vestigesSubMap[subFeature];
+    try {
+      const response = await fetch(`modules/world-builder/${vestigesFile}`);
+      if (!response.ok) throw new Error(`Failed to load vestiges file: ${response.statusText}`);
+      const vestigesData = await response.json();
+  
+      const randomVestigesEntry = vestigesData.entries[Math.floor(Math.random() * vestigesData.entries.length)];
+      const vestigesDescription = randomVestigesEntry?.value || "No data available";
+  
+      results.push(`Sub-Feature: ${subFeature} - ${vestigesDescription}`);
+      console.log("Appended Vestiges Data:", vestigesDescription);
+    } catch (error) {
+      console.error("Error loading vestiges-specific data:", error);
+      results.push(`Sub-Feature: ${subFeature} - No data available`);
+    }
+  }
+
+  else if (this.data.subFeatureType === "Wrecks" && wrecksSubMap[subFeature]) {
+  const wrecksFile = wrecksSubMap[subFeature];
+  try {
+    const response = await fetch(`modules/world-builder/${wrecksFile}`);
+    if (!response.ok) throw new Error(`Failed to load wrecks file: ${response.statusText}`);
+    const wrecksData = await response.json();
+
+    const randomWrecksEntry = wrecksData.entries[Math.floor(Math.random() * wrecksData.entries.length)];
+    const wrecksDescription = randomWrecksEntry?.value || "No data available";
+
+    results.push(`Sub-Feature: ${subFeature} - ${wrecksDescription}`);
+    console.log("Appended Wrecks Data:", wrecksDescription);
+  } catch (error) {
+    console.error("Error loading wrecks-specific data:", error);
+    results.push(`Sub-Feature: ${subFeature} - No data available`);
+  }
+}
+
+else if (this.data.subFeatureType === "Antiques" && antiquesSubMap[subFeature]) {
+  const antiquesFile = antiquesSubMap[subFeature];
+  try {
+    const response = await fetch(`modules/world-builder/${antiquesFile}`);
+    if (!response.ok) throw new Error(`Failed to load antiques file: ${response.statusText}`);
+    const antiquesData = await response.json();
+
+    const randomAntiquesEntry = antiquesData.entries[Math.floor(Math.random() * antiquesData.entries.length)];
+    const antiquesDescription = randomAntiquesEntry?.value || "No data available";
+
+    results.push(`Sub-Feature: ${subFeature} - ${antiquesDescription}`);
+    console.log("Appended Antiques Data:", antiquesDescription);
+  } catch (error) {
+    console.error("Error loading antiques-specific data:", error);
+    results.push(`Sub-Feature: ${subFeature} - No data available`);
+  }
+}
+
+else if (this.data.subFeatureType === "Artifacts" && artifactsSubMap[subFeature]) {
+  const artifactsFile = artifactsSubMap[subFeature];
+  try {
+    const response = await fetch(`modules/world-builder/${artifactsFile}`);
+    if (!response.ok) throw new Error(`Failed to load artifacts file: ${response.statusText}`);
+    const artifactsData = await response.json();
+
+    const randomArtifactsEntry = artifactsData.entries[Math.floor(Math.random() * artifactsData.entries.length)];
+    const artifactsDescription = randomArtifactsEntry?.value || "No data available";
+
+    results.push(`Sub-Feature: ${subFeature} - ${artifactsDescription}`);
+    console.log("Appended Artifacts Data:", artifactsDescription);
+  } catch (error) {
+    console.error("Error loading artifacts-specific data:", error);
+    results.push(`Sub-Feature: ${subFeature} - No data available`);
+  }
+}
+
+else if (this.data.subFeatureType === "Refuse" && refuseSubMap[subFeature]) {
+  const refuseFile = refuseSubMap[subFeature];
+  try {
+    const response = await fetch(`modules/world-builder/${refuseFile}`);
+    if (!response.ok) throw new Error(`Failed to load refuse file: ${response.statusText}`);
+    const refuseData = await response.json();
+
+    const randomRefuseEntry = refuseData.entries[Math.floor(Math.random() * refuseData.entries.length)];
+    const refuseDescription = randomRefuseEntry?.value || "No data available";
+
+    results.push(`Sub-Feature: ${subFeature} - ${refuseDescription}`);
+    console.log("Appended Refuse Data:", refuseDescription);
+  } catch (error) {
+    console.error("Error loading refuse-specific data:", error);
+    results.push(`Sub-Feature: ${subFeature} - No data available`);
+  }
+}
+
+else if (this.data.subFeatureType === "Relics" && relicsSubMap[subFeature]) {
+  const relicsFile = relicsSubMap[subFeature];
+  try {
+    const response = await fetch(`modules/world-builder/${relicsFile}`);
+    if (!response.ok) throw new Error(`Failed to load relics file: ${response.statusText}`);
+    const relicsData = await response.json();
+
+    const randomRelicsEntry = relicsData.entries[Math.floor(Math.random() * relicsData.entries.length)];
+    const relicsDescription = randomRelicsEntry?.value || "No data available";
+
+    results.push(`Sub-Feature: ${subFeature} - ${relicsDescription}`);
+    console.log("Appended Relics Data:", relicsDescription);
+  } catch (error) {
+    console.error("Error loading relics-specific data:", error);
+    results.push(`Sub-Feature: ${subFeature} - No data available`);
+  }
+}
+
+else if (this.data.subFeatureType === "Remains" && remainsSubMap[subFeature]) {
+  const remainsFile = remainsSubMap[subFeature];
+  try {
+    const response = await fetch(`modules/world-builder/${remainsFile}`);
+    if (!response.ok) throw new Error(`Failed to load remains file: ${response.statusText}`);
+    const remainsData = await response.json();
+
+    const randomRemainsEntry = remainsData.entries[Math.floor(Math.random() * remainsData.entries.length)];
+    const remainsDescription = randomRemainsEntry?.value || "No data available";
+
+    results.push(`Sub-Feature: ${subFeature} - ${remainsDescription}`);
+    console.log("Appended Remains Data:", remainsDescription);
+  } catch (error) {
+    console.error("Error loading remains-specific data:", error);
+    results.push(`Sub-Feature: ${subFeature} - No data available`);
+  }
+}
+
+      //end Mapping.js Data
+
+  const randomConditions = this.randomizeConditionData(conditionEntries);
   results.push(
     `Condition: ${randomConditions.condition}`,
     `Covered By: ${randomConditions.coveredBy}`,
@@ -382,23 +521,32 @@ async updateFeatureDetails() {
     `Keeper: ${randomConditions.keeper}`
   );
 
-  // Construct the updated featureDetails object
   this.data.featureDetails = {
-    title: `${parentFeature}:`,
+    title: `${this.data.subFeatureType}:`,
     results: results,
   };
 
-  console.log("Updated Feature Details:", this.data.featureDetails);
-  this.render(false); // Re-render to reflect changes
+  console.log("Final Updated Feature Details:", this.data.featureDetails);
+
+  this.render(false);
 }
+
+
+
+
+
+
+
+
+
+
 
     
 
 /**
- * 
- * Get Data
- * 
- * 
+ * !!!!----------------------------------------------!!!!
+ * !!!!------------------GET DATA--------------------!!!!
+ * !!!!----------------------------------------------!!!!
  */
   async getData() {
     if (!this.data.populationDensityOptions.length) await this.loadPopulationDensity();
@@ -411,9 +559,9 @@ async updateFeatureDetails() {
   }
   
 /**
- * 
- * Listeners
- *
+ * !!!!----------------------------------------------!!!!
+ * !!!!-----------------LISTENERS--------------------!!!!
+ * !!!!----------------------------------------------!!!!
  */
     activateListeners(html) {
       super.activateListeners(html);
@@ -468,9 +616,9 @@ async updateFeatureDetails() {
   
 
 /**
- * 
- * Events
- *
+ * !!!!----------------------------------------------!!!!
+ * !!!!------------------EVENTS----------------------!!!!
+ * !!!!----------------------------------------------!!!!
  */
     async _onPopulationDensityChange(event) {
       const selectedValue = event.target.value;
@@ -509,7 +657,6 @@ async updateFeatureDetails() {
         return;
       }
     
-      // Find terrain data based on selection
       const terrainData = this.data.terrainTypeOptions.find(option => option.value === selectedTerrain);
     
       if (!terrainData) {
@@ -517,15 +664,14 @@ async updateFeatureDetails() {
         return;
       }
     
-      // Update terrain details
       this.data.terrainType = terrainData.value;
       this.data.ruggedness = terrainData.ruggedness;
       this.data.travelTime = terrainData.time;
       this.data.encounterFrequency = terrainData.encounters.join(", ");
       console.log("Selected Terrain Data:", terrainData);
     
-      // Attempt to fetch cave sub-feature options if applicable
-      const caveFilePath = terrainCaveMap[selectedTerrain]; // Ensure selectedTerrain is a valid key
+
+      const caveFilePath = terrainCaveMap[selectedTerrain];
       if (caveFilePath) {
         try {
           const response = await fetch(`modules/world-builder/${caveFilePath}`);
