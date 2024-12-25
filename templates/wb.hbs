@@ -181,28 +181,25 @@
       <table class="feature-info-table">
         <thead>
           <tr>
-            <th>Details</th>
+            <th colspan="2">{{#if featureDetails.title}}{{featureDetails.title}}{{else}}Feature Details{{/if}}</th>
           </tr>
         </thead>
         <tbody>
-          {{#if featureDetails.title}}
-          <tr>
-            <td>
-              <h4>{{featureDetails.title}}</h4>
-              {{featureDetails.description}}
-                {{#each featureDetails.results}}
-                <li>{{this}}</li>
-                {{/each}}
-            </td>
-          </tr>
+          {{#if featureDetails.results}}
+            {{#each featureDetails.results}}
+            <tr>
+              <td>{{this}}</td>
+            </tr>
+            {{/each}}
           {{else}}
-          <tr>
-            <td>No details available. Select a sub-feature to view details.</td>
-          </tr>
+            <tr>
+              <td colspan="2">No details available. Select a sub-feature to view details.</td>
+            </tr>
           {{/if}}
         </tbody>
       </table>
     </div>
+
 
 <!-- Lairs, Dungeons and Caves Section -->
 <section class="tab-content" data-tab="lairs" style="display: none;">
