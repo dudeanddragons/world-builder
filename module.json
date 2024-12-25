@@ -33,7 +33,8 @@
     "scripts/tabMagicItems.js",
     "scripts/tabTown.js",
     "scripts/tabTraps.js",
-    "scripts/tabTreasure.js"
+    "scripts/tabTreasure.js",
+    "scripts/mapping.js"
   ],
   "esmodules": ["scripts/config.js", "scripts/worldBuilder.js"],
   "styles": ["styles/wb.css"],

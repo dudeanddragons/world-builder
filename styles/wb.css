@@ -74,6 +74,13 @@
   margin: 6px;
 }
 
+.tab-separator {
+  height: 2px;
+  background-color: var(--divider-color);
+  margin: 5 10px;
+  border-radius: 1px;
+}
+
 fieldset.border-top {
   border: none;
   border-top: 1px solid #000;

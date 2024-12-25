@@ -2,19 +2,44 @@
 <form class="worldbuilder-form">
 
   <!-- Tab Navigation -->
-<nav class="tabs" data-group="worldbuilder-tabs">
-  <a class="item active" data-tab="main">Main</a>
-  <a class="item" data-tab="lairs">Lairs</a>
-  <a class="item" data-tab="towns">Towns</a>
-  <a class="item" data-tab="treasure">Treasure</a>
-  <a class="item" data-tab="magic-items">Magic Items</a>
-  <a class="item" data-tab="traps">Traps</a>
-  <a class="item" data-tab="actors">Actors</a>
-</nav>
+<header class="window-header">
+  <nav class="tabs" data-group="worldbuilder-tabs">
+    <a class="item active" data-tab="main">
+      <i class="fas fa-globe"></i>
+      Main
+    </a>
+    <a class="item" data-tab="lairs">
+      <i class="fas fa-dungeon"></i>
+      Lairs
+    </a>
+    <a class="item" data-tab="towns">
+      <i class="fas fa-castle"></i>
+      Towns
+    </a>
+    <a class="item" data-tab="treasure">
+      <i class="fas fa-gem"></i>
+      Treasure
+    </a>
+    <a class="item" data-tab="magic-items">
+      <i class="fas fa-hat-wizard"></i>
+      Magic Items
+    </a>
+    <a class="item" data-tab="traps">
+      <i class="fas fa-skull-crossbones"></i>
+      Traps
+    </a>
+    <a class="item" data-tab="actors">
+      <i class="fas fa-users"></i>
+      Actors
+    </a>
+  </nav>
+  <div class="tab-separator"></div>
+
 
 <!-- Tab Content -->
 <section class="tab-content" data-tab="main">
   <!-- Population Density Dropdown -->
+  <p></p>
   <div>
     <label for="population-density-select">Population Density:</label>
     <select class="population-density-select" name="population-density">
@@ -151,36 +176,33 @@
     </table>
   </div>
 
-  <!-- Feature Details -->
-  <div class="form-group feature-details-section">
-    <table class="feature-info-table">
-      <thead>
-        <tr>
-          <th>Details</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#if featureDetails.title}}
-        <tr>
-          <td>
-            <h4>{{featureDetails.title}}</h4>
-            {{featureDetails.description}}
-            <ul>
-              {{#each featureDetails.results}}
-              <li>{{this}}</li>
-              {{/each}}
-            </ul>
-          </td>
-        </tr>
-        {{else}}
-        <tr>
-          <td>No details available. Select a sub-feature to view details.</td>
-        </tr>
-        {{/if}}
-      </tbody>
-    </table>
-  </div>
-
+    <!-- Feature Details -->
+    <div class="form-group feature-details-section">
+      <table class="feature-info-table">
+        <thead>
+          <tr>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if featureDetails.title}}
+          <tr>
+            <td>
+              <h4>{{featureDetails.title}}</h4>
+              {{featureDetails.description}}
+                {{#each featureDetails.results}}
+                <li>{{this}}</li>
+                {{/each}}
+            </td>
+          </tr>
+          {{else}}
+          <tr>
+            <td>No details available. Select a sub-feature to view details.</td>
+          </tr>
+          {{/if}}
+        </tbody>
+      </table>
+    </div>
 
 <!-- Lairs, Dungeons and Caves Section -->
 <section class="tab-content" data-tab="lairs" style="display: none;">
