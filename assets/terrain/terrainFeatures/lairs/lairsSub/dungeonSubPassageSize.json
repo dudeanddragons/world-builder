@@ -16,7 +16,7 @@
         "passageDimensions": {
           "height": "5d4",
           "width": "5d4",
-          "length": 60
+          "length": "1d10+60"
         }
       },
       {
@@ -25,7 +25,7 @@
         "passageDimensions": {
           "height": "1d6+6",
           "width": "1d6+6",
-          "length": 30
+          "length": "1d10+20"
         }
       },
       {
@@ -34,7 +34,7 @@
         "passageDimensions": {
           "height": "1d6+7",
           "width": "1d6+7",
-          "length": 20
+          "length": "1d10+10"
         }
       },
       {
@@ -43,7 +43,7 @@
         "passageDimensions": {
           "height": "1d6+6",
           "width": "1d6+6",
-          "length": 30
+          "length": "1d20+10"
         }
       },
       {
@@ -52,7 +52,7 @@
         "passageDimensions": {
           "height": "1d4",
           "width": "1d4",
-          "length": "Variable"
+          "length": "1d100+20"
         }
       }
     ]

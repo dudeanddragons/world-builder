@@ -5,7 +5,6 @@ import { handleTownTab } from './tabTown.js';
 import { handleTrapsTab } from './tabTraps.js';
 import { handleTreasureTab } from './tabTreasure.js';
 import { parseDiceExpression } from './helperDice.js';
-
 import { 
   densityFeatureMap, 
   terrainCaveMap,
@@ -529,38 +528,44 @@ else if (this.data.subFeatureType === "Remains" && remainsSubMap[subFeature]) {
   }
 }
 
-  // Handle Dungeon-specific data
-  else if (this.data.subFeatureType === "Dungeon" && dungeonsSubMap["Passage Size"]) {
-    const dungeonFile = dungeonsSubMap["Passage Size"];
-    try {
-      const response = await fetch(`modules/world-builder/${dungeonFile}`);
-      if (!response.ok) throw new Error(`Failed to load dungeon file: ${response.statusText}`);
-      const dungeonData = await response.json();
-  
-      const randomDungeonEntry = dungeonData.entries[Math.floor(Math.random() * dungeonData.entries.length)];
-      const passageType = randomDungeonEntry?.type || "No Type Available";
-      const passageDimensions = randomDungeonEntry?.passageDimensions || {};
-  
-      results.push(`Sub-Feature: ${passageType}`);
-      if (passageDimensions.height) {
-        const height = parseDiceExpression(passageDimensions.height);
-        results.push(`Height: ${height}`);
-      }
-      if (passageDimensions.width) {
-        const width = parseDiceExpression(passageDimensions.width);
-        results.push(`Width: ${width}`);
-      }
-      if (passageDimensions.length) {
-        const length = parseDiceExpression(passageDimensions.length);
-        results.push(`Length: ${length}`);
-      }
-  
-      console.log("Appended Dungeon Data:", passageType, passageDimensions);
-    } catch (error) {
-      console.error("Error loading dungeon-specific data:", error);
-      results.push(`Sub-Feature: ${subFeature} - No data available`);
+// Handle Dungeon-specific data
+else if (this.data.subFeatureType === "Dungeon" && dungeonsSubMap["Passage Size"]) {
+  const dungeonFile = dungeonsSubMap["Passage Size"];
+  try {
+    // Fetch the dungeon data file
+    const response = await fetch(`modules/world-builder/${dungeonFile}`);
+    if (!response.ok) throw new Error(`Failed to load dungeon file: ${response.statusText}`);
+    const dungeonData = await response.json();
+
+    // Select a single random entry
+    const randomDungeonEntry = dungeonData.entries[Math.floor(Math.random() * dungeonData.entries.length)];
+    const passageType = randomDungeonEntry?.type || "No Type Available";
+    const passageDimensions = randomDungeonEntry?.passageDimensions || {};
+
+    // Add the sub-feature type
+    results.push(`Sub-Feature: ${passageType}`);
+
+    // Process dimensions using parseDiceExpression
+    if (passageDimensions.height) {
+      const height = typeof passageDimensions.height === "string" ? parseDiceExpression(passageDimensions.height) : "Unknown";
+      results.push(`Height: ${height}`);
     }
+    if (passageDimensions.width) {
+      const width = typeof passageDimensions.width === "string" ? parseDiceExpression(passageDimensions.width) : "Unknown";
+      results.push(`Width: ${width}`);
+    }
+    if (passageDimensions.length) {
+      const length = typeof passageDimensions.length === "string" ? parseDiceExpression(passageDimensions.length) : "Unknown";
+      results.push(`Length: ${length}`);
+    }
+
+    console.log("Appended Dungeon Data:", passageType, passageDimensions);
+  } catch (error) {
+    console.error("Error loading dungeon-specific data:", error);
+    results.push(`Sub-Feature: ${subFeature} - No data available`);
   }
+}
+
 
   else if (this.data.subFeatureType === "Cave") {
     const caveFile = caveSubEntranceMap;
@@ -922,24 +927,6 @@ else if (this.data.subFeatureType === "Crevice") {
       results.push("No data available for Crevice.");
   }
 }
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-
       //end Mapping.js Data
 
   // Add condition-based data
@@ -1178,13 +1165,123 @@ async _onSubFeatureTypeChange(event) {
   this.render(false);
 }
 
-    async _rollTerrainType() {
-      console.log("Rolling for Terrain Type...");
-    }
+async _rollTerrainType() {
+  console.log("Rolling for Terrain Type...");
+
+  // Ensure a climate type is selected
+  const selectedClimate = this.data.climateType;
+  if (!selectedClimate) {
+    ui.notifications.warn("Please select a climate type before rolling for terrain.");
+    return;
+  }
+
+  // Ensure terrain type options are available
+  if (!this.data.terrainTypeOptions.length) {
+    ui.notifications.warn("No terrain types available for the selected climate.");
+    return;
+  }
+
+  // Filter valid terrain options (exclude empty selection placeholders)
+  const validTerrains = this.data.terrainTypeOptions.filter(option => option.value);
+
+  if (!validTerrains.length) {
+    ui.notifications.warn("No valid terrain options available to roll.");
+    return;
+  }
+
+  // Select a random terrain
+  const randomTerrain = validTerrains[Math.floor(Math.random() * validTerrains.length)];
+  console.log("Randomly Selected Terrain:", randomTerrain);
+
+  // Update form data with selected terrain
+  this.data.terrainType = randomTerrain.value;
+  this.data.ruggedness = randomTerrain.ruggedness;
+  this.data.travelTime = randomTerrain.time;
+  this.data.encounterFrequency = randomTerrain.encounters?.join(", ") || "";
+
+  // Log the updated terrain data for debugging
+  console.log("Updated Terrain Data:", {
+    terrainType: this.data.terrainType,
+    ruggedness: this.data.ruggedness,
+    travelTime: this.data.travelTime,
+    encounterFrequency: this.data.encounterFrequency,
+  });
+
+  // Re-render the form to update the UI
+  this.render(false);
+}
+
   
-    async _rollFeatureType() {
-      console.log("Rolling for Feature Type...");
+async _rollFeatureType() {
+  console.log("Rolling for Feature Type...");
+
+  const { populationDensity } = this.data;
+
+  // Ensure Population Density is selected
+  if (!populationDensity) {
+    ui.notifications.warn("Please select Population Density before rolling for features.");
+    return;
+  }
+
+  // Load Feature Types for the selected Population Density
+  const featureFile = densityFeatureMap[populationDensity];
+  if (!featureFile) {
+    ui.notifications.warn("No feature types available for the selected population density.");
+    return;
+  }
+
+  try {
+    // Fetch and filter feature data
+    const response = await fetch(`modules/world-builder/${featureFile}`);
+    if (!response.ok) throw new Error(`Failed to load feature file: ${response.statusText}`);
+    const featureData = await response.json();
+
+    // Ensure there are valid feature entries
+    const validFeatures = featureData.entries;
+    if (!validFeatures.length) {
+      ui.notifications.warn("No valid feature types available.");
+      return;
     }
+
+    // Randomly select a feature type
+    const randomFeature = validFeatures[Math.floor(Math.random() * validFeatures.length)];
+    console.log("Randomly Selected Feature Type:", randomFeature);
+
+    // Update the Feature Type
+    this.data.featureType = randomFeature.value;
+
+    // Load Sub-Feature Types for the selected Feature Type
+    await this.loadSubFeatureType();
+
+    // Randomly select a Sub-Feature Type if options are available
+    if (this.data.subFeatureTypeOptions.length > 1) {
+      const validSubFeatures = this.data.subFeatureTypeOptions.filter(option => option.value);
+      const randomSubFeature = validSubFeatures[Math.floor(Math.random() * validSubFeatures.length)];
+      this.data.subFeatureType = randomSubFeature.value;
+
+      console.log("Randomly Selected Sub-Feature Type:", randomSubFeature);
+    } else {
+      this.data.subFeatureType = "";
+      console.warn("No valid sub-feature types available.");
+    }
+
+    // Call updateFeatureDetails to activate all associated logic
+    await this.updateFeatureDetails();
+
+    // Log the updated feature data
+    console.log("Updated Feature Data:", {
+      featureType: this.data.featureType,
+      subFeatureType: this.data.subFeatureType,
+      featureDetails: this.data.featureDetails,
+    });
+
+    // Re-render the form to update the UI
+    this.render(false);
+  } catch (error) {
+    console.error("Error rolling feature or sub-feature types:", error);
+  }
+}
+
   
     async _rollEncounter() {
       console.log("Rolling for Encounter...");
