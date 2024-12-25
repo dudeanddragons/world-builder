@@ -1,18 +1,18 @@
 {
     "tableName": "tblLedgeEncounters",
     "entries": [
-      { "id": 1, "name": "Giant Eagles", "quantity": "1d20" },
-      { "id": 2, "name": "Giant Rams", "quantity": "2d4" },
-      { "id": 3, "name": "Giant Owls", "quantity": "1d12" },
-      { "id": 4, "name": "Giant Ravens", "quantity": "3d8" },
-      { "id": 5, "name": "Pteranodon", "quantity": "3d6" },
-      { "id": 6, "name": "Couatl", "quantity": "1d4" },
-      { "id": 7, "name": "Pegasi", "quantity": "1d10" },
-      { "id": 8, "name": "Harpy", "quantity": "2d6" },
-      { "id": 9, "name": "Griffons", "quantity": "2d6" },
-      { "id": 10, "name": "Manticore", "quantity": "1d4" },
-      { "id": 11, "name": "Peryton", "quantity": "2d4" },
-      { "id": 12, "name": "Roc", "quantity": "1d2" }
+      { "id": 1, "value": "Giant Eagles", "dice": "1d20" },
+      { "id": 2, "value": "Giant Rams", "dice": "2d4" },
+      { "id": 3, "value": "Giant Owls", "dice": "1d12" },
+      { "id": 4, "value": "Giant Ravens", "dice": "3d8" },
+      { "id": 5, "value": "Pteranodon", "dice": "3d6" },
+      { "id": 6, "value": "Couatl", "dice": "1d4" },
+      { "id": 7, "value": "Pegasi", "dice": "1d10" },
+      { "id": 8, "value": "Harpy", "dice": "2d6" },
+      { "id": 9, "value": "Griffons", "dice": "2d6" },
+      { "id": 10, "value": "Manticore", "dice": "1d4" },
+      { "id": 11, "value": "Peryton", "dice": "2d4" },
+      { "id": 12, "value": "Roc", "dice": "1d2" }
     ]
   }
   

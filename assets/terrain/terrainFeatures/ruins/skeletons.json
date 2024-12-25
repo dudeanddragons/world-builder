@@ -1,11 +1,11 @@
 {
   "tableName": "tblSkeletons",
   "entries": [
-    { "id": 1, "value": "Small" },
-    { "id": 2, "value": "Man-Sized" },
-    { "id": 3, "value": "Giant" },
-    { "id": 4, "value": "Unusual" },
-    { "id": 5, "value": "Skulls" },
-    { "id": 6, "value": "Colossal" }
+    { "id": 1, "value": "Small Skeleton" },
+    { "id": 2, "value": "Man-Sized Skeleton" },
+    { "id": 3, "value": "Giant Skeleton" },
+    { "id": 4, "value": "Unusual Skeleton" },
+    { "id": 5, "value": "Skulls Skeleton" },
+    { "id": 6, "value": "Colossal Skeleton" }
   ]
 }

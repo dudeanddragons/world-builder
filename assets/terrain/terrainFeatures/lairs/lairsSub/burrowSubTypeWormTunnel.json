@@ -1,12 +1,13 @@
 {
     "tableName": "tblBurrowSubTypeWormTunnel",
+    "key":[4],
     "entries": [
-      { "id": 1, "dice": "1d6", "result": "Giant Snakes" },
-      { "id": 2, "dice": "1d6", "result": "Giant Slugs" },
-      { "id": 3, "dice": "2d4", "result": "Giant Leeches" },
-      { "id": 4, "dice": "1d6", "result": "Buletes" },
-      { "id": 5, "dice": "1", "result": "Purple Worm" },
-      { "id": 6, "dice": "1d6", "result": "Ankhegs" }
+      { "id": 1, "dice": "1d6", "value": "Giant Snakes" },
+      { "id": 2, "dice": "1d6", "value": "Giant Slugs" },
+      { "id": 3, "dice": "2d4", "value": "Giant Leeches" },
+      { "id": 4, "dice": "1d6", "value": "Buletes" },
+      { "id": 5, "dice": 1, "value": "Purple Worm" },
+      { "id": 6, "dice": "1d6", "value": "Ankhegs" }
     ]
   }
   

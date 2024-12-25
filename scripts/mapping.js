@@ -74,13 +74,12 @@ export const ruinsSubMap = {
 
   // Mapping for skeletons-specific sub-types
 export const skeletonsSubMap = {
-  "Colossal": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubColossal.json",
-  "Features": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubFeatures.json",
-  "Giant": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubGiant.json",
-  "Man-Sized": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubManSized.json",
-  "Skulls": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubSkulls.json",
-  "Small": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubSmall.json",
-  "Unusual": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubUnusual.json",
+  "Colossal Skeleton": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubColossal.json",
+  "Giant Skeleton": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubGiant.json",
+  "Man-Sized Skeleton": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubManSized.json",
+  "Skull": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubSkulls.json",
+  "Small Skeleton": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubSmall.json",
+  "Unusual Skeleton": "assets/terrain/terrainFeatures/ruins/ruinsSub/skeletonsSubUnusual.json",
 };
 
 // Mapping for vestiges-specific sub-types
@@ -135,6 +134,7 @@ export const refuseSubMap = {
 
 export const relicsSubMap = {
   "Armor": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubArmor.json",
+  "Tomes": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubTomes.json",
   "Containers": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubContainers.json",
   "Machines": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubMachines.json",
   "Tools": "assets/terrain/terrainFeatures/relics/relicsSub/relicsSubTools.json",
@@ -150,3 +150,53 @@ export const remainsSubMap = {
   "Toys": "assets/terrain/terrainFeatures/relics/relicsSub/remainsSubToys.json",
   "Utensils": "assets/terrain/terrainFeatures/relics/relicsSub/remainsSubUtensils.json",
 };
+
+export const dungeonsSubMap = {
+  "Passage Size": "assets/terrain/terrainFeatures/lairs/lairsSub/dungeonSubPassageSize.json",
+};
+
+export const caveSubEntranceMap = "assets/terrain/terrainFeatures/lairs/lairsSub/caveSubEntranceType.json";
+
+export const burrowSubMap = {
+  "Anthill": "assets/terrain/terrainFeatures/lairs/lairsSub/burrowSubTypeAnthill.json",
+  "Civilized Burrow": "assets/terrain/terrainFeatures/lairs/lairsSub/burrowSubTypeCivilizedBurrow.json",
+  "Glow Worm Cave": "assets/terrain/terrainFeatures/lairs/lairsSub/burrowSubTypeGlowWormCave.json",
+  "Hive": "assets/terrain/terrainFeatures/lairs/lairsSub/burrowSubTypeHive.json",
+  "Large Burrow": "assets/terrain/terrainFeatures/lairs/lairsSub/burrowSubTypeLargeBurrow.json",
+  "Tunnel Hive": "assets/terrain/terrainFeatures/lairs/lairsSub/burrowSubTypeTunnelHive.json",
+  "Very Large Burrow": "assets/terrain/terrainFeatures/lairs/lairsSub/burrowSubTypeVeryLargeBurrow.json",
+  "Worm Tunnel": "assets/terrain/terrainFeatures/lairs/lairsSub/burrowSubTypeWormTunnel.json",
+};
+
+export const campSubCurrentStatusMap = {
+  "Current Status": "assets/terrain/terrainFeatures/lairs/lairsSub/campSubCurrentStatus.json"
+};
+
+export const campSubDefencesMap = {
+  "Defences": "assets/terrain/terrainFeatures/lairs/lairsSub/campSubDefences.json"
+};
+
+export const campSubFightingForceMap = {
+  "Fighting Force": "assets/terrain/terrainFeatures/lairs/lairsSub/campSubFightingForce.json"
+};
+
+export const campSubLeaderTypesMap = {
+  "Leader Types": "assets/terrain/terrainFeatures/lairs/lairsSub/campSubLeaderTypes.json"
+};
+
+export const dwellingEncountersMap = {
+  "Dwelling Encounters": "assets/terrain/terrainFeatures/lairs/lairsSub/dwellingEncounters.json"
+};
+
+export const shipwreckSubCargoMap = {
+  "Shipwreck Cargo": "assets/terrain/terrainFeatures/lairs/lairsSub/shipwreckSubCargo.json"
+};
+
+export const shipwreckSubContentsMap = {
+  "Shipwreck Contents": "assets/terrain/terrainFeatures/lairs/lairsSub/shipwreckSubContents.json"
+};
+
+export const creviceSubMap = {
+  "Crevice": "assets/terrain/terrainFeatures/lairs/lairsSub/creviceSubTable.json"
+};
+

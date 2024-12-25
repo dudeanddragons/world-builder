@@ -3,7 +3,7 @@
   "entries": [
     { "id": 1, "value": "Tools" },
     { "id": 2, "value": "Machines" },
-    { "id": 3, "value": "Tombs" },
+    { "id": 3, "value": "Tomes" },
     { "id": 4, "value": "Armor" },
     { "id": 5, "value": "Weapons" },
     { "id": 6, "value": "Containers" }

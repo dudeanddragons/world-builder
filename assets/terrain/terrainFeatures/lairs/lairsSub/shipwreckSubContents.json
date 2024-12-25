@@ -1,48 +1,45 @@
 {
     "tableName": "tblShipwreckContents",
     "entries": [
-      { "id": 1, "result": "Nothing", "relicRolls": 0 },
+      { "id": 1, "result": "Nothing", "rolls": 0 },
       {
         "id": 2,
         "result": "Roll once for a relic",
-        "relicRolls": 1,
+        "rolls": 1,
         "reference": {
-          "path": "\\terrain\\terrainFeatures\\relics\\relics.json",
-          "tableName": "tblRelics"
+          "tblMap": "tblRelics"
         }
       },
       {
         "id": 3,
         "result": "Roll twice for relics",
-        "relicRolls": 2,
+        "Rolls": 2,
         "reference": {
-          "path": "\\terrain\\terrainFeatures\\relics\\relics.json",
-          "tableName": "tblRelics"
+          "tblMap": "tblRelics"
         }
       },
       {
         "id": 4,
         "result": "Roll three times for relics",
-        "relicRolls": 3,
+        "rolls": 3,
         "reference": {
-          "path": "\\terrain\\terrainFeatures\\relics\\relics.json",
-          "tableName": "tblRelics"
+          "tblMap": "tblRelics"
         }
       },
       {
         "id": 5,
         "result": "Roll for Cargo",
+        "rolls": 1,
         "reference": {
-          "path": "\\cargo\\shipwreckCargo.json",
-          "tableName": "tblShipwreckCargo"
+          "tblMap": "shipwreckSubCargoMap"
         }
       },
       {
         "id": 6,
+        "rolls": 1,
         "result": "Roll for Cargo",
         "reference": {
-          "path": "\\cargo\\shipwreckCargo.json",
-          "tableName": "tblShipwreckCargo"
+          "tblMap": "shipwreckSubCargoMap"
         }
       }
     ]

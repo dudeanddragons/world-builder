@@ -1,12 +1,13 @@
 {
     "tableName": "tblBurrowSubTypeTunnelHive",
+    "key":[3],
     "entries": [
-      { "id": 1, "dice": "1d8", "result": "Giant Spiders" },
-      { "id": 2, "dice": "2d6", "result": "Giant Spiders" },
-      { "id": 3, "dice": "2d4", "result": "Giant Centipedes" },
-      { "id": 4, "dice": "3d4", "result": "Giant Leeches" },
-      { "id": 5, "dice": "3d4", "result": "Giant Beetles" },
-      { "id": 6, "dice": "1d4", "result": "Giant Scorpions" }
+      { "id": 1, "dice": "1d8", "value": "Giant Spiders" },
+      { "id": 2, "dice": "2d6", "value": "Giant Spiders" },
+      { "id": 3, "dice": "2d4", "value": "Giant Centipedes" },
+      { "id": 4, "dice": "3d4", "value": "Giant Leeches" },
+      { "id": 5, "dice": "3d4", "value": "Giant Beetles" },
+      { "id": 6, "dice": "1d4", "value": "Giant Scorpions" }
     ]
   }
   

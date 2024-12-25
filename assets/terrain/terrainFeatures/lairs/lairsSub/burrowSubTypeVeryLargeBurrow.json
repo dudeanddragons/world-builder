@@ -1,12 +1,13 @@
 {
     "tableName": "tblBurrowSubTypeVeryLargeBurrow",
+    "key":[7],
     "entries": [
-      { "id": 1, "dice": "1d6", "result": "Giant Badgers" },
-      { "id": 2, "dice": "1d8", "result": "Giant Porcupines" },
-      { "id": 3, "dice": "1d6", "result": "Giant Skunks" },
-      { "id": 4, "dice": "3d4", "result": "Giant Ticks" },
-      { "id": 5, "dice": "1d4", "result": "Giant Wolverines" },
-      { "id": 6, "dice": "1d4", "result": "Green Dragons" }
+      { "id": 1, "dice": "1d6", "value": "Giant Badgers" },
+      { "id": 2, "dice": "1d8", "value": "Giant Porcupines" },
+      { "id": 3, "dice": "1d6", "value": "Giant Skunks" },
+      { "id": 4, "dice": "3d4", "value": "Giant Ticks" },
+      { "id": 5, "dice": "1d4", "value": "Giant Wolverines" },
+      { "id": 6, "dice": "1d4", "value": "Green Dragons" }
     ]
   }
   
