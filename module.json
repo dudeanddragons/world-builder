@@ -26,6 +26,10 @@
     }
   ],
   "scripts": [
+  ],
+  "esmodules": [
+    "scripts/config.js", 
+    "scripts/worldBuilder.js",
     "scripts/terrainClimateLogger.js",
     "scripts/terrainDensityLogger.js",
     "scripts/tabActors.js",
@@ -36,7 +40,6 @@
     "scripts/tabTreasure.js",
     "scripts/mapping.js"
   ],
-  "esmodules": ["scripts/config.js", "scripts/worldBuilder.js"],
   "styles": ["styles/wb.css"],
   "template": [],
   "assets": [
