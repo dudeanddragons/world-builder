@@ -4,14 +4,14 @@ export function handleLairsTab(builder, html) {
   html.find(".add-room").click(() => {
     // Add a new room with default values
     builder.data.lairRooms.push({
-      description: "",
-      notes: "",
-      features: ["Room"], // Default to "Room"
+      lairRoomDescription: "", // Updated name
+      lairRoomNotes: "",       // Updated name
+      features: ["Room"],      // Default to "Room"
       encounters: [],
       traps: [],
       treasure: [],
-      secrets: [],
-      collapsed: true, // Default collapsed state
+      lairRoomSecrets: "",     // Updated name
+      collapsed: true,         // Default collapsed state
     });
 
     console.log("Room added:", builder.data.lairRooms);
@@ -39,8 +39,6 @@ export function handleLairsTab(builder, html) {
     }
   });
 }
-
-
 
 
 

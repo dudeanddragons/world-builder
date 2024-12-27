@@ -213,8 +213,21 @@
         Room {{@index}}
       </h4>
       <div class="room-details" style="display: {{#if this.collapsed}}none{{else}}block{{/if}};">
-        <textarea class="description-text" placeholder="Description Text">{{this.description}}</textarea>
-        <textarea class="notes-text" placeholder="Notes Text">{{this.notes}}</textarea>
+            <label for="lair-room-description-{{@index}}">Description</label>
+            <textarea id="lair-room-description-{{@index}}" class="lair-room-description" data-index="{{@index}}">
+              {{this.lairRoomDescription}}
+            </textarea>
+
+            <label for="lair-room-notes-{{@index}}">Notes</label>
+            <textarea id="lair-room-notes-{{@index}}" class="lair-room-notes" data-index="{{@index}}">
+              {{this.lairRoomNotes}}
+            </textarea>
+
+            <label for="lair-room-secrets-{{@index}}">Secrets</label>
+            <textarea id="lair-room-secrets-{{@index}}" class="lair-room-secrets" data-index="{{@index}}">
+              {{this.lairRoomSecrets}}
+            </textarea>
+
         <label for="features-select">Features</label>
         <select class="features-select" data-index="{{@index}}">
           {{#each ../../featureOptions}}
@@ -250,13 +263,6 @@
       </select>
       <button class="randomize-treasure">Randomize</button>
       <button class="treasure-builder">Open Treasure Builder</button>
-      <label for="secrets-select">Secrets</label>
-      <select class="secrets-select">
-        {{#each secretOptions}}
-          <option value="{{this}}">{{this}}</option>
-        {{/each}}
-      </select>
-      <button class="randomize-secret">Randomize</button>
     </div>
     {{/each}}
   </div>

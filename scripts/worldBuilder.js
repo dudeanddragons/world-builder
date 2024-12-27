@@ -57,6 +57,18 @@ export class WorldBuilderWindow extends Application {
       isCave: false,
       dungeonFeatures: [],
       lairFeatures: [],
+        lairRooms: [
+          {
+            lairRoomDescription: "",
+            lairRoomNotes: "",
+            lairRoomSecrets: "",
+            features: ["Room"],
+            encounters: [],
+            traps: [],
+            treasure: [],
+            collapsed: true,
+          },
+        ],      
       caveFeatures: [],
       lairRooms: [],
       towns: [],
@@ -107,6 +119,18 @@ export class WorldBuilderWindow extends Application {
       isCave: false,
       dungeonFeatures: [],
       lairFeatures: [],
+      lairRooms: [
+        {
+          lairRoomDescription: "",
+          lairRoomNotes: "",
+          lairRoomSecrets: "",
+          features: ["Room"],
+          encounters: [],
+          traps: [],
+          treasure: [],
+          collapsed: true,
+        },
+      ],  
       caveFeatures: [],
       lairRooms: [],
       towns: [],
@@ -1017,6 +1041,7 @@ async getData() {
 activateListeners(html) {
   super.activateListeners(html);
 
+
   // Restore the active tab from ViewState
   const activeTab = viewState.getActiveTab();
 
@@ -1050,7 +1075,7 @@ activateListeners(html) {
 
   // Attach handlers for individual tabs
   handleActorsTab(this, html);
-  handleLairsTab(this, html); // Use preloaded `this.data.lairFeatures`
+  handleLairsTab(this, html);
   handleMagicItemsTab(this, html);
   handleTownTab(this, html);
   handleTrapsTab(this, html);
@@ -1083,6 +1108,36 @@ activateListeners(html) {
   
     console.log(`Dropdown ${index} updated with selected feature:`, selectedFeature);
   });
+
+// Synchronize text fields for each room
+html.find(".room-entry").each((index, room) => {
+  const roomData = this.data.lairRooms[index];
+
+  // Description Field
+  const descriptionField = $(room).find(".lair-room-description");
+  descriptionField.val(roomData.lairRoomDescription); // Set the value
+  descriptionField.off("input").on("input", (event) => {
+    roomData.lairRoomDescription = event.target.value;
+    console.log(`Updated Room ${index} Description:`, roomData.lairRoomDescription);
+  });
+
+  // Notes Field
+  const notesField = $(room).find(".lair-room-notes");
+  notesField.val(roomData.lairRoomNotes); // Set the value
+  notesField.off("input").on("input", (event) => {
+    roomData.lairRoomNotes = event.target.value;
+    console.log(`Updated Room ${index} Notes:`, roomData.lairRoomNotes);
+  });
+
+  // Secrets Field
+  const secretsField = $(room).find(".lair-room-secrets");
+  secretsField.val(roomData.lairRoomSecrets); // Set the value
+  secretsField.off("input").on("input", (event) => {
+    roomData.lairRoomSecrets = event.target.value;
+    console.log(`Updated Room ${index} Secrets:`, roomData.lairRoomSecrets);
+  });
+});
+
   
 
   // Random Generator Listeners
