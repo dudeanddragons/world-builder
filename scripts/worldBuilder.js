@@ -57,6 +57,7 @@ export class WorldBuilderWindow extends Application {
       isCave: false,
       dungeonFeatures: [],
       lairFeatures: [],
+      encounterOptions: [],
         lairRooms: [
           {
             lairRoomDescription: "",
@@ -119,6 +120,7 @@ export class WorldBuilderWindow extends Application {
       isCave: false,
       dungeonFeatures: [],
       lairFeatures: [],
+      encounterOptions: [],
       lairRooms: [
         {
           lairRoomDescription: "",
@@ -330,12 +332,6 @@ async preloadFeatures() {
   }
 }
 
-
-
-
-
-  
-
 async loadConditionData() {
   try {
     const response = await fetch("modules/world-builder/assets/terrain/terrainFeatures/ruins/ruinsSub/condition.json");
@@ -360,6 +356,37 @@ randomizeConditionData(entries) {
     keeper: randomize(entries.keeper),
   };
 }
+
+/**
+ * !!!!----------------------------------------------!!!!
+ * !!!!--------------Load Lair Options---------------!!!!
+ * !!!!----------------------------------------------!!!!
+ */
+
+async loadEncounterOptions() {
+  try {
+    let encounterFile = "assets/terrain/terrainFeatures/lairs/lairsSub/dungeonSubEncounters.json"; // Default to Dungeon
+    if (this.data.isCave) {
+      encounterFile = "assets/terrain/terrainFeatures/lairs/lairsSub/caveSubEncounters.json";
+    }
+
+    const response = await fetch(`modules/world-builder/${encounterFile}`);
+    if (!response.ok) throw new Error(`Failed to load encounters: ${response.statusText}`);
+    const data = await response.json();
+
+    // Map only the result names for the dropdown
+    this.data.encounterOptions = data.entries.map(entry => entry.result);
+    this.data.encounterData = data.entries; // Keep the full data for later use
+    console.log("Encounter Options Loaded:", this.data.encounterOptions);
+  } catch (error) {
+    console.error("Error loading encounter options:", error);
+    this.data.encounterOptions = [];
+  }
+}
+
+
+
+
 
 
 /**
@@ -1159,6 +1186,65 @@ html.find(".room-entry").each((index, room) => {
   html.find(".add-trap").click(() => console.log("Add Trap placeholder."));
   html.find(".add-actor").click(() => console.log("Add Actor placeholder."));
 
+  html.find(".room-entry").each((roomIndex, room) => {
+    const roomData = this.data.lairRooms[roomIndex];
+  
+    // Add Encounter
+    $(room).find(".add-encounter").off("click").on("click", () => {
+      roomData.encounters.push({ result: "", appearing: "" });
+      this.render(false);
+    });
+  
+    // Update Encounter
+    $(room).find(".encounters-select").each((encounterIndex, dropdown) => {
+      const encounterData = roomData.encounters[encounterIndex];
+      const selectedValue = encounterData.result || "";
+  
+      $(dropdown).empty(); // Clear existing options
+      this.data.encounterOptions.forEach((option) => {
+        const optionElement = new Option(option, option, option === selectedValue, option === selectedValue);
+        $(dropdown).append(optionElement);
+      });
+  
+      $(dropdown).off("change").on("change", (event) => {
+        const selectedResult = $(event.target).val(); // Get the selected result name
+        const encounter = this.data.encounterData.find(entry => entry.result === selectedResult); // Find the full entry
+  
+        if (encounter) {
+          encounterData.result = encounter.result;
+          encounterData.appearing = parseDiceExpression(encounter.dice); // Roll the dice
+          console.log(`Room ${roomIndex} Encounter ${encounterIndex} Updated:`, encounterData);
+          this.render(false);
+        } else {
+          console.error(`Encounter result not found for: ${selectedResult}`);
+        }
+      });
+    });
+  
+    // Randomize Encounter
+    $(room).find(".randomize-encounter").off("click").on("click", (event) => {
+      const dropdown = $(event.currentTarget).closest("tr").find(".encounters-select");
+      const randomIndex = Math.floor(Math.random() * this.data.encounterOptions.length); // Random index
+      const randomOption = this.data.encounterOptions[randomIndex];
+  
+      if (randomOption) {
+        dropdown.val(randomOption).trigger("change"); // Select the random option and trigger its change event
+        console.log(`Randomized Encounter: ${randomOption}`);
+      } else {
+        console.error("No encounters available to randomize.");
+      }
+    });
+  
+    // Remove Encounter
+    $(room).find(".remove-encounter").off("click").on("click", (event) => {
+      const encounterIndex = $(event.currentTarget).closest("tr").index();
+      roomData.encounters.splice(encounterIndex, 1);
+      this.render(false);
+    });
+  });
+  
+
+
 }
 
   
@@ -1412,7 +1498,12 @@ async _rollFeatureType() {
   }
 }
 
-    // Lair Events
+/**
+ * !!!!----------------------------------------------!!!!
+ * !!!!---------------LAIR EVENTS--------------------!!!!
+ * !!!!----------------------------------------------!!!!
+ */
+
     async _onFeatureSelectChange(event) {
       const selectedValue = event.target.value;
       if (!selectedValue) return;
@@ -1426,6 +1517,17 @@ async _rollFeatureType() {
         console.log(`Updated features for room ${index}:`, this.data.lairRooms[index].features);
       }
       
+      this.render(false);
+    }
+    
+    async _onSubFeatureTypeChange(event) {
+      const selectedSubFeatureType = event.target.value;
+    
+      this.data.subFeatureType = selectedSubFeatureType;
+      this.data.isCave = selectedSubFeatureType === "Cave";
+      this.data.isDungeon = selectedSubFeatureType === "Dungeon";
+    
+      await this.loadEncounterOptions(); // Load the appropriate encounter options
       this.render(false);
     }
     

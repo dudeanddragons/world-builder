@@ -1,5 +1,9 @@
 /* Default styles for World Builder (WB), inspired by ARS */
 
+.worldbuilder {
+  min-height: 800px;
+}
+
 .fa-times,
 .fa-minus,
 .fa-asterisk,
@@ -76,6 +80,8 @@
 
 .wb-header.collapsible {
   cursor: pointer;
+  background: var(--wb-purple-dark);
+  color: rgb(255, 255, 255);
   user-select: none;
   position: relative;
 }
@@ -134,8 +140,16 @@ legend {
   margin-bottom: 10px !important;
 }
 
+.scrollable-container {
+  overflow-x: auto;
+  max-height: calc(100vh - 50px);
+}
+
 /* Headers */
 .general-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   text-align: left;
   font-weight: normal;
   background: var(--wb-purple-dark);
@@ -156,11 +170,33 @@ legend {
   color: var(--wb-grey);
 }
 
-/* Footer */
-.general-footer {
-  min-height: 3px;
-  width: 100%;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.wb-general-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+  text-align: center;
+  font-weight: normal;
+  background: var(--wb-purple-dark);
+  padding: 3px 0px;
+  font-size: 13px;
+  color: #ffffff !important;
+  margin: 3px 0 3px 0;
+  padding-left: 6px;
+  border-radius: 5px;
+}
+
 
 /* Switches */
 .wb-switch {
@@ -244,7 +280,7 @@ legend {
 .wb-collapsible {
   cursor: pointer;
   background: var(--wb-purple-dark);
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 10px;
   border: none;
   text-align: left;

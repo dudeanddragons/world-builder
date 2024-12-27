@@ -1,8 +1,7 @@
 
-<form class="worldbuilder-form">
-
-  <!-- Tab Navigation -->
-<header class="window-header">
+<form class="worldbuilder-form page-container">
+<!-- Tab Navigation -->
+<header class="window-header general-header">
   <nav class="tabs" data-group="worldbuilder-tabs">
     <a class="item active" data-tab="main">
       <i class="fas fa-globe"></i>
@@ -34,11 +33,15 @@
     </a>
   </nav>
   <div class="tab-separator"></div>
-  </div>
+</header>
+
 
 
 <!-- Tab Content -->
+
 <section class="tab-content" data-tab="main">
+  <div class="scrollable-container content"></div>
+
     <h3>Main</h3>
   <!-- Population Density Dropdown -->
   <div>
@@ -238,21 +241,53 @@
 
 
 
-      <button class="randomize-feature">Randomize</button>
-      <label for="encounters-select">Encounters</label>
-      <select class="encounters-select">
-        {{#each encounterOptions}}
-          <option value="{{this}}">{{this}}</option>
+<!-- Lair Room Encounters -->
+<div class="encounter-section">
+  <label for="encounters-select-{{@index}}">Encounters</label>
+  <div class="encounters-container" data-index="{{@index}}">
+    <table class="encounters-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>No. Appearing</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this.encounters}}
+          <tr>
+            <td>
+              <select class="encounters-select" data-encounter-index="{{@index}}">
+                {{#each ../../encounterOptions}}
+                  <option value="{{this}}" {{#if (eq ../result this)}}selected{{/if}}>{{this}}</option>
+                {{/each}}
+              </select>
+            </td>
+            <td class="encounter-result" style="text-align: center">
+              {{this.appearing}} {{this.result}}
+            </td>
+            <td>
+              <button class="randomize-encounter" title="Randomize">
+                <i class="fa fa-random"></i>
+            </td>
+              </button>
+            <td>
+              <button class="remove-encounter" title="Remove">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
         {{/each}}
-      </select>
-      <button class="randomize-encounter">Randomize</button>
-      <button class="encounter-builder">Open Encounter Builder</button>
-      <label for="traps-select">Traps/Hazards</label>
-      <select class="traps-select">
-        {{#each trapOptions}}
-          <option value="{{this}}">{{this}}</option>
-        {{/each}}
-      </select>
+      </tbody>
+    </table>
+    <button class="add-encounter">Add Encounter</button>
+  </div>
+</div>
+
+
+
+
       <button class="randomize-trap">Randomize</button>
       <button class="trap-builder">Open Trap Builder</button>
       <label for="treasure-select">Treasure</label>
@@ -356,16 +391,23 @@
   </div>
 </section>
 
+
 <!-- templates/partials/footer.hbs -->
-<footer class="app-footer">
-  <!-- Save and Journal Buttons -->
-  <div class="form-actions">
-    <button type="button" class="save-entry">Save</button>
-    <button type="button" class="create-journal">Create Journal Entry</button>
-  </div>
-</footer>
+  <div class="tab-separator"></div>
+  <p></p>
+
 
 </form>
 
-
+<footer class="wb-general-footer">
+  <!-- Save and Journal Buttons -->
+  <div class="form-actions">
+<button type="button" class="save-entry wb-general-footer">
+  <i class="fas fa-save"></i> Save
+</button>
+<button type="button" class="create-journal wb-general-footer">
+  <i class="fas fa-book"></i> Create Journal Entry
+</button>
+  </div>
+</footer>
 

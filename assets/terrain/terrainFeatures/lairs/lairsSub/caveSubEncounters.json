@@ -11,7 +11,7 @@
       { "id": 8, "dice": "1d4", "result": "Huge Hulks" },
       { "id": 9, "dice": "1d4", "result": "Gorgon" },
       { "id": 10, "dice": "1d10", "result": "Hill Giants" },
-      { "id": 11, "dice": null, "result": "1 Ettin" },
+      { "id": 11, "dice": "1d2", "result": "Ettin" },
       { "id": 12, "dice": "1d4", "result": "Red Dragons" }
     ]
   }

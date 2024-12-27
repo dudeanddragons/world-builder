@@ -7,10 +7,10 @@
       { "id": 4, "dice": "1d6+1", "result": "Carrion Crawlers" },
       { "id": 5, "dice": "1d4+1", "result": "Displacer Beasts" },
       { "id": 6, "dice": "1d3", "result": "Ochre Jellies" },
-      { "id": 7, "dice": null, "result": "1 Xorn" },
+      { "id": 7, "dice": "1d2", "result": "Xorn" },
       { "id": 8, "dice": "2d8", "result": "Troglodytes" },
       { "id": 9, "dice": "1d10+4", "result": "Orcs" },
-      { "id": 10, "dice": null, "result": "1 Otyugh" },
+      { "id": 10, "dice": "1d2", "result": "Otyugh" },
       { "id": 11, "dice": "1d4+1", "result": "Displacer Beasts" },
       { "id": 12, "dice": "1d4", "result": "Beholders" }
     ]
