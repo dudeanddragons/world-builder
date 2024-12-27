@@ -34,6 +34,7 @@
     </a>
   </nav>
   <div class="tab-separator"></div>
+  </div>
 
 
 <!-- Tab Content -->
@@ -212,16 +213,22 @@
       <textarea class="description-text" placeholder="Description Text">{{this.description}}</textarea>
       <textarea class="notes-text" placeholder="Notes Text">{{this.notes}}</textarea>
       <label for="features-select">Features</label>
-      <select class="features-select">
-        {{#each featureOptions}}
-        <option value="{{this}}">{{this}}</option>
-        {{/each}}
-      </select>
+
+<select class="features-select">
+  {{#each ../../featureOptions}}
+    <option value="{{this}}" {{#if (eq ../features.[0] this)}}selected{{/if}}>{{this}}</option>
+  {{/each}}
+</select>
+
+
+
+
+
       <button class="randomize-feature">Randomize</button>
       <label for="encounters-select">Encounters</label>
       <select class="encounters-select">
         {{#each encounterOptions}}
-        <option value="{{this}}">{{this}}</option>
+          <option value="{{this}}">{{this}}</option>
         {{/each}}
       </select>
       <button class="randomize-encounter">Randomize</button>
@@ -229,7 +236,7 @@
       <label for="traps-select">Traps/Hazards</label>
       <select class="traps-select">
         {{#each trapOptions}}
-        <option value="{{this}}">{{this}}</option>
+          <option value="{{this}}">{{this}}</option>
         {{/each}}
       </select>
       <button class="randomize-trap">Randomize</button>
@@ -237,7 +244,7 @@
       <label for="treasure-select">Treasure</label>
       <select class="treasure-select">
         {{#each treasureOptions}}
-        <option value="{{this}}">{{this}}</option>
+          <option value="{{this}}">{{this}}</option>
         {{/each}}
       </select>
       <button class="randomize-treasure">Randomize</button>
@@ -245,7 +252,7 @@
       <label for="secrets-select">Secrets</label>
       <select class="secrets-select">
         {{#each secretOptions}}
-        <option value="{{this}}">{{this}}</option>
+          <option value="{{this}}">{{this}}</option>
         {{/each}}
       </select>
       <button class="randomize-secret">Randomize</button>
@@ -253,6 +260,7 @@
     {{/each}}
   </div>
 </section>
+
 
 
   <!-- Settlement Tab -->

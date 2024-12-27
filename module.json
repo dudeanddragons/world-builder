@@ -29,6 +29,7 @@
   ],
   "esmodules": [
     "scripts/config.js", 
+    "scripts/wbViewState.js",
     "scripts/worldBuilder.js",
     "scripts/terrainClimateLogger.js",
     "scripts/terrainDensityLogger.js",

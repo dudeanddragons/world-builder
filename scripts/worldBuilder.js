@@ -1,5 +1,6 @@
+import { viewState } from './wbViewState.js';
 import { handleActorsTab } from './tabActors.js';
-import { handleLairsTab } from './tabLairs.js';
+import { handleLairsTab, loadLairFeatures  } from './tabLairs.js';
 import { handleMagicItemsTab } from './tabMagicItems.js';
 import { handleTownTab } from './tabTown.js';
 import { handleTrapsTab } from './tabTraps.js';
@@ -55,6 +56,7 @@ export class WorldBuilderWindow extends Application {
       isDungeon: false,
       isCave: false,
       dungeonFeatures: [],
+      lairFeatures: [],
       caveFeatures: [],
       lairRooms: [],
       towns: [],
@@ -63,7 +65,9 @@ export class WorldBuilderWindow extends Application {
       traps: [],
       actors: [],  
     };
-    
+
+        // Preload features during initialization
+        this.preloadFeatures();    
   }
 
   static get defaultOptions() {
@@ -102,6 +106,7 @@ export class WorldBuilderWindow extends Application {
       isDungeon: false,
       isCave: false,
       dungeonFeatures: [],
+      lairFeatures: [],
       caveFeatures: [],
       lairRooms: [],
       towns: [],
@@ -111,6 +116,9 @@ export class WorldBuilderWindow extends Application {
       actors: [],
     };
     console.log("Form state reset to defaults.");
+      // Reset view state
+    viewState.resetState();
+    console.log("WorldBuilderWindow | Form and view state reset to defaults.");
   }    
   
 /**
@@ -285,7 +293,23 @@ export class WorldBuilderWindow extends Application {
   }
   
   
-  
+// Preload features for the Lairs tab
+async preloadFeatures() {
+  try {
+    this.data.lairFeatures = await loadLairFeatures(); // Load features from JSON
+    this.data.featureOptions = [...this.data.lairFeatures]; // Copy features into featureOptions
+    console.log("Preloaded Lair Features:", this.data.featureOptions); // Confirm it's set
+  } catch (error) {
+    console.error("Failed to preload lair features:", error);
+    this.data.lairFeatures = [];
+    this.data.featureOptions = [];
+  }
+}
+
+
+
+
+
   
 
 async loadConditionData() {
@@ -966,71 +990,122 @@ this.render(false);
  * !!!!------------------GET DATA--------------------!!!!
  * !!!!----------------------------------------------!!!!
  */
-  async getData() {
-    if (!this.data.populationDensityOptions.length) await this.loadPopulationDensity();
-    if (!this.data.climateTypeOptions.length) await this.loadClimateType();
-    if (!this.data.terrainTypeOptions.length) await this.loadTerrainType();
-    if (!this.data.featureTypeOptions.length) await this.loadFeatureType();
-    if (!this.data.subFeatureTypeOptions.length) await this.loadSubFeatureType();
-  
-    return { ...this.data };
+async getData() {
+  if (!this.data.populationDensityOptions.length) await this.loadPopulationDensity();
+  if (!this.data.climateTypeOptions.length) await this.loadClimateType();
+  if (!this.data.terrainTypeOptions.length) await this.loadTerrainType();
+  if (!this.data.featureTypeOptions.length) await this.loadFeatureType();
+  if (!this.data.subFeatureTypeOptions.length) await this.loadSubFeatureType();
+
+  // Ensure Lair Features are preloaded
+  if (!this.data.lairFeatures.length) {
+    this.data.lairFeatures = await loadLairFeatures();
+    this.data.featureOptions = [...this.data.lairFeatures]; // Sync featureOptions
   }
+
+  console.log("Final Data Sent to HBS:", this.data);
+  return { ...this.data }; // Pass ALL data to the HBS template
+}
+
+
   
 /**
  * !!!!----------------------------------------------!!!!
  * !!!!-----------------LISTENERS--------------------!!!!
  * !!!!----------------------------------------------!!!!
  */
-    activateListeners(html) {
-      super.activateListeners(html);
+activateListeners(html) {
+  super.activateListeners(html);
 
-        //Tabs
-        html.find(".tabs .item").click((event) => {
-          const tab = event.currentTarget.dataset.tab;
-          html.find(".tabs .item").removeClass("active");
-          html.find(`.tab-content`).hide();
-          html.find(`[data-tab="${tab}"]`).show(); 
-          $(event.currentTarget).addClass("active");
-        });
+  // Restore the active tab from ViewState
+  const activeTab = viewState.getActiveTab();
 
-        // Attach handlers for individual tabs
-        handleActorsTab(this, html);
-        handleLairsTab(this, html);
-        handleMagicItemsTab(this, html);
-        handleTownTab(this, html);
-        handleTrapsTab(this, html);
-        handleTreasureTab(this, html);
+  // Initialize tab navigation
+  html.find(".tabs .item").removeClass("active"); // Ensure all tabs are inactive
+  html.find(`.tabs .item[data-tab="${activeTab}"]`).addClass("active"); // Activate the saved tab
 
-        //Drop Down Listeners
-      html.find(".population-density-select").change(this._onPopulationDensityChange.bind(this));
-      html.find(".climate-select").change(this._onClimateTypeChange.bind(this));
-      html.find(".terrain-select").change(this._onTerrainTypeChange.bind(this));
-      html.find(".feature-type-select").change(this._onFeatureTypeChange.bind(this));
-      html.find(".sub-feature-type-select").change(this._onSubFeatureTypeChange.bind(this));
-      html.find(".sub-feature-type-select").change(async () => {
-        await this.updateFeatureDetails();
-      });
+  // Initialize tab content visibility
+  html.find(".tab-content").hide(); // Hide all tab contents
+  html.find(`.tab-content[data-tab="${activeTab}"]`).show(); // Show the saved tab's content
 
-        //Random Generator Listeners
-        html.find(".randomize-feature-details").click(async () => {
-          await this.updateFeatureDetails();
-        });
-  
-        // Button Listeners
-      html.find(".terrain-roll").click(() => this._rollTerrainType());
-      html.find(".feature-type-roll").click(() => this._rollFeatureType());
-      html.find(".encounter-roll").click(() => this._rollEncounter());
-      html.find(".save-entry").click(this._onSave.bind(this));
-      html.find(".create-journal").click(() => this.createJournalEntry());
+  // Tabs - Add click listener for switching tabs
+  html.find(".tabs .item").click((event) => {
+    const tab = event.currentTarget.dataset.tab;
 
-        // Add Features Buttons
-      html.find(".add-room").click(() => this.addRoom());
-      html.find(".add-town").click(() => console.log("Add Town placeholder."));
-      html.find(".add-treasure").click(() => console.log("Add Treasure placeholder."));
-      html.find(".add-magic-item").click(() => console.log("Add Magic Item placeholder."));
-      html.find(".add-trap").click(() => console.log("Add Trap placeholder."));
-      html.find(".add-actor").click(() => console.log("Add Actor placeholder."));
+    if (!tab) {
+      console.error("Tab data attribute is missing on clicked element:", event.currentTarget);
+      return; // Stop execution if no valid tab is found
     }
+
+    // Update the ViewState with the selected tab
+    viewState.setActiveTab(tab);
+
+    // Update UI to show only the active tab's content
+    html.find(".tabs .item").removeClass("active"); // Deactivate all tabs
+    $(event.currentTarget).addClass("active"); // Activate the clicked tab
+
+    html.find(".tab-content").hide(); // Hide all tab contents
+    html.find(`[data-tab="${tab}"]`).show(); // Show the content of the active tab
+  });
+
+  // Attach handlers for individual tabs
+  handleActorsTab(this, html);
+  handleLairsTab(this, html); // Use preloaded `this.data.lairFeatures`
+  handleMagicItemsTab(this, html);
+  handleTownTab(this, html);
+  handleTrapsTab(this, html);
+  handleTreasureTab(this, html);
+
+  // Main Drop Down Listeners
+  html.find(".population-density-select").change(this._onPopulationDensityChange.bind(this));
+  html.find(".climate-select").change(this._onClimateTypeChange.bind(this));
+  html.find(".terrain-select").change(this._onTerrainTypeChange.bind(this));
+  html.find(".feature-type-select").change(this._onFeatureTypeChange.bind(this));
+  html.find(".sub-feature-type-select").change(this._onSubFeatureTypeChange.bind(this));
+  html.find(".sub-feature-type-select").change(async () => {
+    await this.updateFeatureDetails();
+  });
+
+  // Lair Drop Down Listeners
+  html.find(".features-select").each((index, dropdown) => {
+    const dropdownElement = $(dropdown);
+    const room = this.data.lairRooms[index]; // Get the corresponding room
+    const selectedFeature = room.features[0]; // Get the saved feature for the room
+  
+    dropdownElement.empty(); // Clear existing options
+    this.data.featureOptions.forEach((feature) => {
+      const option = new Option(feature, feature);
+      if (feature === selectedFeature) {
+        option.selected = true; // Mark the saved feature as selected
+      }
+      dropdownElement.append(option); // Add the option
+    });
+  
+    console.log(`Dropdown ${index} updated with selected feature:`, selectedFeature);
+  });
+  
+
+  // Random Generator Listeners
+  html.find(".randomize-feature-details").click(async () => {
+    await this.updateFeatureDetails();
+  });
+
+  // Button Listeners
+  html.find(".terrain-roll").click(() => this._rollTerrainType());
+  html.find(".feature-type-roll").click(() => this._rollFeatureType());
+  html.find(".encounter-roll").click(() => this._rollEncounter());
+  html.find(".save-entry").click(this._onSave.bind(this));
+  html.find(".create-journal").click(() => this.createJournalEntry());
+
+  // Remove .add-room listener here
+  html.find(".add-town").click(() => console.log("Add Town placeholder."));
+  html.find(".add-treasure").click(() => console.log("Add Treasure placeholder."));
+  html.find(".add-magic-item").click(() => console.log("Add Magic Item placeholder."));
+  html.find(".add-trap").click(() => console.log("Add Trap placeholder."));
+  html.find(".add-actor").click(() => console.log("Add Actor placeholder."));
+
+}
+
   
 
 /**
@@ -1281,6 +1356,24 @@ async _rollFeatureType() {
     console.error("Error rolling feature or sub-feature types:", error);
   }
 }
+
+    // Lair Events
+    async _onFeatureSelectChange(event) {
+      const selectedValue = event.target.value;
+      if (!selectedValue) return;
+    
+      console.log("Feature selected:", selectedValue);
+    
+      // Update the features in the data
+      const index = $(event.currentTarget).closest(".room-entry").index();
+      if (this.data.lairRooms[index]) {
+        this.data.lairRooms[index].features = [selectedValue];
+        console.log(`Updated features for room ${index}:`, this.data.lairRooms[index].features);
+      }
+      
+      this.render(false);
+    }
+    
 
   
     async _rollEncounter() {
