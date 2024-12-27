@@ -2,6 +2,7 @@ export function handleLairsTab(builder, html) {
   builder.data.featureOptions = builder.data.lairFeatures || []; // Ensure featureOptions is always available
 
   html.find(".add-room").click(() => {
+    // Add a new room with default values
     builder.data.lairRooms.push({
       description: "",
       notes: "",
@@ -10,26 +11,36 @@ export function handleLairsTab(builder, html) {
       traps: [],
       treasure: [],
       secrets: [],
+      collapsed: true, // Default collapsed state
     });
 
     console.log("Room added:", builder.data.lairRooms);
 
-    // Re-render and re-bind dropdown options
-    builder.render(false);
+    builder.render(false); // Re-render and rebind
   });
 
-  // Listener for dropdown selection
+  // Attach event listeners dynamically to handle collapsing
+  html.on("click", ".wb-header.collapsible", (event) => {
+    const index = $(event.currentTarget).data("index"); // Use data-index for precise identification
+    if (index !== undefined) {
+      builder.data.lairRooms[index].collapsed = !builder.data.lairRooms[index].collapsed;
+      console.log(`Room ${index} collapse state toggled:`, builder.data.lairRooms[index].collapsed);
+      builder.render(false); // Update the UI after the state change
+    }
+  });
+
+  // Dropdown change listener
   html.on("change", ".features-select", (event) => {
-    const roomIndex = $(event.currentTarget).closest(".room-entry").index(); // Get the room's index
-    const selectedFeature = $(event.currentTarget).val(); // Get the selected feature
-
-    // Update the corresponding room's features
-    builder.data.lairRooms[roomIndex].features = [selectedFeature];
-    console.log(`Feature updated for Room ${roomIndex}:`, builder.data.lairRooms[roomIndex].features);
+    const index = $(event.currentTarget).data("index"); // Use data-index for precise identification
+    const selectedFeature = $(event.currentTarget).val();
+    if (index !== undefined) {
+      builder.data.lairRooms[index].features = [selectedFeature];
+      console.log(`Updated Room ${index} features:`, builder.data.lairRooms[index].features);
+    }
   });
-
-  console.log("Feature Options in Lairs Tab:", builder.data.featureOptions);
 }
+
+
 
 
 

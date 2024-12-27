@@ -74,6 +74,24 @@
   margin: 6px;
 }
 
+.wb-header.collapsible {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.wb-header.collapsible::after {
+  content: "▶";
+  position: absolute;
+  font-size: 0.8rem;
+  transform: rotate(90deg);
+  transition: transform 0.2s ease;
+}
+
+.wb-header.collapsible.collapsed::after {
+  transform: rotate(0deg);
+}
+
 .tab-separator {
   height: 2px;
   background-color: var(--divider-color);

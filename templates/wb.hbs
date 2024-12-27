@@ -209,17 +209,18 @@
   <div class="room-list">
     {{#each lairRooms}}
     <div class="room-entry">
-      <h4>Room {{@index}}</h4>
-      <textarea class="description-text" placeholder="Description Text">{{this.description}}</textarea>
-      <textarea class="notes-text" placeholder="Notes Text">{{this.notes}}</textarea>
-      <label for="features-select">Features</label>
-
-<select class="features-select">
-  {{#each ../../featureOptions}}
-    <option value="{{this}}" {{#if (eq ../features.[0] this)}}selected{{/if}}>{{this}}</option>
-  {{/each}}
-</select>
-
+      <h4 class="wb-header collapsible {{#if this.collapsed}}collapsed{{/if}}" data-index="{{@index}}">
+        Room {{@index}}
+      </h4>
+      <div class="room-details" style="display: {{#if this.collapsed}}none{{else}}block{{/if}};">
+        <textarea class="description-text" placeholder="Description Text">{{this.description}}</textarea>
+        <textarea class="notes-text" placeholder="Notes Text">{{this.notes}}</textarea>
+        <label for="features-select">Features</label>
+        <select class="features-select" data-index="{{@index}}">
+          {{#each ../../featureOptions}}
+          <option value="{{this}}" {{#if (eq ../features.[0] this)}}selected{{/if}}>{{this}}</option>
+          {{/each}}
+        </select>
 
 
 
