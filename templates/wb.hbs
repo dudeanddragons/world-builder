@@ -248,8 +248,8 @@
     <table class="encounters-table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Stat Block</th>
+          <th></th>
+          <th>Encounter Stat Block</th>
           <th></th>
           <th></th>
         </tr>
@@ -264,8 +264,8 @@
                 {{/each}}
               </select>
             </td>
-            <td class="encounter-result">
-              {{this.appearing}} {{this.result}}
+            <td class="encounter-statblock">
+              {{{this.statblock}}} <!-- Render pre-formatted HTML for the stat block -->
             </td>
             <td>
               <button class="randomize-encounter" title="Randomize">

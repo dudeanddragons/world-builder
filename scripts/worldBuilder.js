@@ -1,5 +1,6 @@
 import { viewState } from './wbViewState.js';
 import { getLairActors } from "./wsLairActors.js";
+import { categorizeItems } from './wsDataItems.js';
 import { handleActorsTab } from './tabActors.js';
 import { handleLairsTab, loadLairFeatures  } from './tabLairs.js';
 import { handleMagicItemsTab } from './tabMagicItems.js';
@@ -1209,17 +1210,28 @@ $(room).find(".encounters-select").each((encounterIndex, dropdown) => {
   // Handle dropdown selection
   $(dropdown).off("change").on("change", (event) => {
     const selectedResult = $(event.target).val(); // Get the selected actor name
-    const actorData = this.data.encounterData.find(actor => actor.name === selectedResult); // Find the actor's full data
-
+    const actorData = this.data.encounterData.find(actor => actor.name === selectedResult);
+  
     if (actorData) {
-      encounterData.result = actorData.name; // Update the result field with the actor's name
-      encounterData.appearing = parseDiceExpression(actorData.numberAppearing || "1"); // Calculate "No. Appearing"
-      console.log(`Room ${roomIndex} Encounter ${encounterIndex} Updated:`, encounterData);
+      encounterData.result = actorData.name;
+      encounterData.appearing = parseDiceExpression(actorData.numberAppearing || "1"); // Calculate No. Appearing
+  
+      // Generate the stat block
+      encounterData.statblock = `
+        ${encounterData.appearing} x ${actorData.name};
+        (STR ${actorData.str}, DEX ${actorData.dex}, CON ${actorData.con}, INT ${actorData.int}, WIS ${actorData.wis}, CHA ${actorData.cha});
+        HD ${actorData.hitdice}; THAC0 ${actorData.thac0}; #ATT ${actorData.numAttacks}; DMG ${actorData.damage};
+        SA ${actorData.specialAttacks}; SD ${actorData.specialDefenses}; MR ${actorData.magicResist}; 
+        MV ${actorData.movement}; SZ ${actorData.size}; AL ${actorData.alignment}; 
+        xps ${actorData.xp}; Treasure ${actorData.treasureType}
+      `.replace(/\s+/g, " "); // Remove excess whitespace
+  
+      console.log(`Room ${roomIndex} Encounter ${encounterIndex} Updated Statblock:`, encounterData.statblock);
       this.render(false);
     } else {
       console.error(`Actor not found for: ${selectedResult}`);
     }
-  });
+  });  
 });
 
 // Randomize Encounter
