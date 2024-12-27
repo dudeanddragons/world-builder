@@ -11,7 +11,7 @@ export function handleLairsTab(builder, html) {
       traps: [],
       treasure: [],
       lairRoomSecrets: "",     // Updated name
-      collapsed: true,         // Default collapsed state
+      collapsed: false,         // Default collapsed state
     });
 
     console.log("Room added:", builder.data.lairRooms);

@@ -28,7 +28,8 @@
   "scripts": [
   ],
   "esmodules": [
-    "scripts/config.js", 
+    "scripts/config.js",
+    "scripts/wsLairActors.js",
     "scripts/wbViewState.js",
     "scripts/worldBuilder.js",
     "scripts/terrainClimateLogger.js",
