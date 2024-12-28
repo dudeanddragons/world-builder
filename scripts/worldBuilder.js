@@ -1367,14 +1367,14 @@ $(room).find(".remove-encounter").off("click").on("click", (event) => {
  html.find(".room-entry").each((roomIndex, room) => {
   const roomData = this.data.lairRooms[roomIndex];
 
-  // Ensure treasure array exists
+  // Ensure roomData.treasure is initialized
   if (!Array.isArray(roomData.treasure)) {
     roomData.treasure = [];
   }
 
   // Add Treasure
   $(room).find(".add-treasure").off("click").on("click", () => {
-    roomData.treasure.push({ selectedCategory: "", result: "", details: "" });
+    roomData.treasure.push({ selectedCategory: "", result: "", quantity: 1, cost: 0, currencyType: "gp", xpValue: 0 });
     this.render(false);
   });
 
@@ -1383,54 +1383,134 @@ $(room).find(".remove-encounter").off("click").on("click", (event) => {
     const treasureData = roomData.treasure[treasureIndex];
     const selectedCategory = treasureData.selectedCategory || "";
 
-    // Populate categories dynamically
-    $(categoryDropdown).empty();
-    Object.keys(this.data.lairTreasureOptions).forEach((category) => {
-      const option = new Option(category, category, category === selectedCategory, category === selectedCategory);
-      $(categoryDropdown).append(option);
-    });
+    $(categoryDropdown)
+      .empty()
+      .append(`<option value="" disabled ${!selectedCategory ? "selected" : ""}>Make selection</option>`);
 
-    // Handle selection
+    Object.keys(this.data.lairTreasureOptions)
+      .filter((category) => category !== "spells") // Exclude the "spells" category
+      .forEach((category) => {
+        const isSelected = category === selectedCategory;
+        const optionElement = new Option(category, category, isSelected, isSelected);
+        $(categoryDropdown).append(optionElement);
+      });
+
+    // Handle category selection
     $(categoryDropdown).off("change").on("change", (event) => {
       const selectedCategory = $(event.target).val();
       treasureData.selectedCategory = selectedCategory;
-      treasureData.result = ""; // Reset item selection
-      treasureData.details = ""; // Clear details
+      treasureData.result = "";
+      treasureData.quantity = 1;
+      treasureData.cost = 0;
+      treasureData.currencyType = "gp";
+      treasureData.xpValue = 0;
       this.render(false);
     });
   });
 
   // Update Treasure Item
-  $(room).find(".treasure-select").each((treasureIndex, itemDropdown) => {
+  $(room).find(".treasure-item-select").each((treasureIndex, itemDropdown) => {
     const treasureData = roomData.treasure[treasureIndex];
-    const selectedCategory = treasureData.selectedCategory;
     const selectedItem = treasureData.result || "";
+    const selectedCategory = treasureData.selectedCategory;
 
-    $(itemDropdown).empty();
+    $(itemDropdown)
+      .empty()
+      .append(`<option value="" disabled ${!selectedItem ? "selected" : ""}>Make selection</option>`);
+
     if (selectedCategory && this.data.lairTreasureOptions[selectedCategory]) {
       this.data.lairTreasureOptions[selectedCategory].forEach((item) => {
-        const option = new Option(item.name, item.id, item.id === selectedItem, item.id === selectedItem);
-        $(itemDropdown).append(option);
+        const isSelected = item.id === selectedItem;
+        const optionElement = new Option(item.name, item.id, isSelected, isSelected);
+        $(itemDropdown).append(optionElement);
       });
-    } else {
-      $(itemDropdown).append(new Option("No items available", "", true, true));
     }
 
-    // Handle selection
+    // Handle item selection
     $(itemDropdown).off("change").on("change", (event) => {
       const selectedId = $(event.target).val();
       const itemData = this.data.lairTreasureOptions[selectedCategory]?.find(item => item.id === selectedId);
 
       if (itemData) {
-        treasureData.result = itemData.name;
-        treasureData.details = `
-          Name: ${itemData.name}; Type: ${itemData.type || "Unknown"};
-          Magic: ${itemData.magic ? "Yes" : "No"};
-          Attributes: ${JSON.stringify(itemData.system?.attributes || {}, null, 2)};
-        `.replace(/\s+/g, " ");
-        this.render(false);
+        treasureData.result = itemData.id;
+        treasureData.quantity = itemData.quantity || 1;
+        treasureData.cost = itemData.cost || 0;
+        treasureData.currencyType = itemData.currencyType || "gp";
+        treasureData.xpValue = itemData.xpValue || 0;
+
+        // Update the treasure details in the UI
+        const treasureDetailsContainer = $(room).find(`.treasure-details[data-treasure-index="${treasureIndex}"]`);
+        treasureDetailsContainer.html(`
+          ${treasureData.quantity} x ${itemData.name}; ${treasureData.cost} ${treasureData.currencyType}; ${treasureData.xpValue} xps
+        `);
       }
     });
+
+    // If there's already a selected item, update its details on load
+    if (selectedItem) {
+      const itemData = this.data.lairTreasureOptions[selectedCategory]?.find(item => item.id === selectedItem);
+      if (itemData) {
+        const treasureDetailsContainer = $(room).find(`.treasure-details[data-treasure-index="${treasureIndex}"]`);
+        treasureDetailsContainer.html(`
+          ${treasureData.quantity} x ${itemData.name}; ${treasureData.cost} ${treasureData.currencyType}; ${treasureData.xpValue} xps
+        `);
+      }
+    }
+  });
+
+  // Randomize Treasure
+  $(room).find(".randomize-treasure").off("click").on("click", (event) => {
+    const treasureIndex = $(event.currentTarget).closest("tr").index();
+    const treasureData = roomData.treasure[treasureIndex];
+
+    // Step 1: Randomly select a category (excluding "spells")
+    const categories = Object.keys(this.data.lairTreasureOptions).filter(
+      (category) => category !== "spells" && this.data.lairTreasureOptions[category]?.length > 0
+    );
+    if (categories.length === 0) {
+      console.warn("No valid treasure categories available for randomization.");
+      return;
+    }
+
+    const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+    treasureData.selectedCategory = randomCategory;
+
+    // Step 2: Randomly select an item from the chosen category
+    const items = this.data.lairTreasureOptions[randomCategory];
+    const randomItem = items[Math.floor(Math.random() * items.length)];
+
+    if (!randomItem) {
+      console.warn(`No items available in category: ${randomCategory}`);
+      return;
+    }
+
+    treasureData.result = randomItem.id;
+    treasureData.quantity = randomItem.quantity || 1;
+    treasureData.cost = randomItem.cost || 0;
+    treasureData.currencyType = randomItem.currencyType || "gp";
+    treasureData.xpValue = randomItem.xpValue || 0;
+
+    // Step 3: Update the category dropdown
+    const categoryDropdown = $(room).find(`.treasure-category-select[data-treasure-index="${treasureIndex}"]`);
+    categoryDropdown.val(randomCategory);
+
+    // Step 4: Update the item dropdown
+    const itemDropdown = $(room).find(`.treasure-item-select[data-treasure-index="${treasureIndex}"]`);
+    itemDropdown.empty(); // Clear existing options
+    items.forEach((item) => {
+      const optionElement = new Option(item.name, item.id, item.id === treasureData.result, item.id === treasureData.result);
+      itemDropdown.append(optionElement);
+    });
+    itemDropdown.val(treasureData.result); // Set to the randomly selected item
+
+    // Step 5: Render the treasure details
+    const treasureDetailsContainer = $(room).find(`.treasure-details[data-treasure-index="${treasureIndex}"]`);
+    treasureDetailsContainer.html(`
+      ${treasureData.quantity} x ${randomItem.name}; ${treasureData.cost} ${treasureData.currencyType}; ${treasureData.xpValue} xps
+    `);
+
+    console.log(`Randomized Treasure:`, treasureData);
+    this.render(false); // Rerender to ensure UI consistency
   });
 
   // Remove Treasure
@@ -1440,6 +1520,11 @@ $(room).find(".remove-encounter").off("click").on("click", (event) => {
     this.render(false);
   });
 });
+
+
+
+
+
 
 
 

@@ -293,61 +293,67 @@
 
 
 <!-- Lair Room Treasure -->
+<!-- Treasure Section -->
 <div class="treasure-section">
-  <label for="treasure-select-{{@index}}">Treasure</label>
+  <label for="treasure-category-select-{{@index}}">Treasure Category</label>
   <div class="treasure-container" data-index="{{@index}}">
     <table class="treasure-table">
       <thead>
         <tr>
-          <th></th>
-          <th>Treasure Details</th>
+          <th>Category</th>
+          <th>Item</th>
+          <th>Description</th>
           <th></th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         {{#each this.treasure}}
-          <tr>
-            <td>
-<select class="treasure-category-select" data-treasure-index="{{@index}}">
-  {{#each ../../lairTreasureOptions}}
-    <option value="{{@key}}" {{#if (eq ../selectedCategory @key)}}selected{{/if}}>{{@key}}</option>
-  {{/each}}
-</select>
+<tr>
+  <td>
+    <select class="treasure-category-select" data-treasure-index="{{@index}}">
+      <option value="" disabled {{#if (eq ../selectedCategory "")}}selected{{/if}}>Make selection</option>
+      {{#each ../../lairTreasureOptions as |items category|}}
+        <option value="{{category}}" {{#if (eq ../selectedCategory category)}}selected{{/if}}>{{category}}</option>
+      {{/each}}
+    </select>
+  </td>
+  <td>
+    <select class="treasure-item-select" data-treasure-index="{{@index}}">
+      <option value="" disabled {{#if (eq ../result "")}}selected{{/if}}>Make selection</option>
+      {{#if ../../lairTreasureOptions.[../selectedCategory]}}
+        {{#each ../../lairTreasureOptions.[../selectedCategory] as |item|}}
+          <option value="{{item.id}}" {{#if (eq ../result item.id)}}selected{{/if}}>{{item.name}}</option>
+        {{/each}}
+      {{else}}
+        <option value="" disabled>No items available</option>
+      {{/if}}
+    </select>
+  </td>
+<td class="treasure-details" data-treasure-index="{{@index}}">
+    <span>Quantity: {{../quantity}}</span><br>
+    <span>Cost: {{../cost}} {{../currencyType}}</span><br>
+    <span>XP Value: {{../xpValue}}</span>
+  </td>
+  <td>
+    <button class="randomize-treasure" title="Randomize">
+      <i class="fa fa-random"></i>
+    </button>
+  </td>
+  <td>
+    <button class="remove-treasure" title="Remove">
+      <i class="fa fa-trash"></i>
+    </button>
+  </td>
+</tr>
 
-<select class="treasure-select" data-treasure-index="{{@index}}">
-  {{#if ../../lairTreasureOptions.[../selectedCategory]}}
-    {{#each ../../lairTreasureOptions.[../selectedCategory]}}
-      <option value="{{id}}" {{#if (eq ../result id)}}selected{{/if}}>{{name}}</option>
-    {{/each}}
-  {{else}}
-    <option value="" disabled>No items available</option>
-  {{/if}}
-</select>
 
-
-
-
-            </td>
-            <td class="treasure-details">
-              {{{this.details}}} <!-- Render pre-formatted HTML for the treasure details -->
-            </td>
-            <td>
-              <button class="randomize-treasure" title="Randomize">
-                <i class="fa fa-random"></i>
-              </button>
-            </td>
-            <td>
-              <button class="remove-treasure" title="Remove">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
           </tr>
         {{/each}}
       </tbody>
     </table>
     <button class="add-treasure">Add Treasure</button>
-    </div>
+  </div>
     {{/each}}
   </div>
 </section>
