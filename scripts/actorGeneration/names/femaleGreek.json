@@ -1,0 +1,25 @@
+{
+    "firstNames":[
+        "Agape", "Agatha", "Alexandra", "Anastasia", "Andromache", "Antheia", "Ariadne", "Aspasia", "Athanasia", "Calliope",
+        "Cassia", "Chloe", "Christina", "Cleo", "Cynthia", "Danae", "Daphne", "Demetra", "Despina", "Dione",
+        "Dorothea", "Eirene", "Elena", "Eleni", "Elpis", "Eugenia", "Euphrosyne", "Eurydice", "Gaia", "Helena",
+        "Helene", "Hermione", "Hypatia", "Ianthe", "Ioanna", "Irene", "Ismene", "Kalliope", "Kyriaki", "Lydia",
+        "Magdalene", "Maria", "Marina", "Melina", "Melpomene", "Narcissa", "Nefeli", "Nikoleta", "Nyx", "Olympia",
+        "Penelope", "Phaedra", "Phoebe", "Polyxena", "Rhea", "Selene", "Sophia", "Sophrosyne", "Sophronia", "Stamatia",
+        "Thekla", "Theodora", "Thespina", "Thalia", "Urania", "Valeria", "Vasiliki", "Xanthe", "Xenia", "Yvonne",
+        "Zoe", "Agnes", "Alcestis", "Amara", "Antonia", "Athenais", "Berenice", "Calista", "Cassandra", "Damaris",
+        "Daria", "Delia", "Dido", "Eudora", "Galatea", "Glauce", "Hecate", "Iris", "Jocasta", "Larissa",
+        "Lysandra", "Myrrine", "Nausicaa", "Oenone", "Parthenope", "Philomena", "Roxana", "Selena", "Sophoclea", "Tryphosa"
+    ],
+    "lastNames":[
+        "Aetia", "Anagnostou", "Anastasiou", "Antonopoulos", "Athanas", "Christodoulou", "Dimitriou", "Efstathiou", "Economou", "Georgiou",
+        "Hatzis", "Iordanou", "Kalogeras", "Katsaros", "Kontos", "Kouris", "Kyriakou", "Lambros", "Leandros", "Loukas",
+        "Makris", "Mavros", "Metaxas", "Nikolaidis", "Oikonomou", "Pappas", "Pavlis", "Petrou", "Raptis", "Sarris",
+        "Savas", "Skouras", "Sophocleous", "Stephanidis", "Theodorou", "Tsoukalos", "Vasilakis", "Vlahos", "Xenos", "Zervos",
+        "Alexandrou", "Anastasios", "Andreas", "Antipas", "Bakis", "Baros", "Charalambos", "Chrysanthos", "Damianos", "Demetriou",
+        "Doukas", "Efthimios", "Eleftherios", "Evangelos", "Galanis", "Gavriil", "Georgios", "Giannakos", "Halkias", "Ioannis",
+        "Katsaros", "Kouris", "Kyriakos", "Lambros", "Leonidas", "Loukas", "Makarios", "Manolis", "Marios", "Mavros",
+        "Michail", "Nikitas", "Panagos", "Panayiotis", "Pavlos", "Petros", "Prokopios", "Savvas", "Spiros", "Stavros",
+        "Thanos", "Themistoklis", "Theodosios", "Titos", "Vangelis", "Vasileios", "Xenophon", "Yiannis", "Zacharias", "Zorba"
+    ]
+}

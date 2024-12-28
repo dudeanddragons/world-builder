@@ -1,0 +1,25 @@
+{
+    "firstNames":[
+        "Akihiko", "Akimoto", "Akira", "Atsushi", "Daichi", "Daisuke", "Eiji", "Fumio", "Genji", "Haruki",
+        "Hideaki", "Hideki", "Hideo", "Hikaru", "Hiroki", "Hiroshi", "Ichiro", "Isamu", "Jiro", "Jun",
+        "Kazuhiro", "Kazuki", "Kazuo", "Kenichi", "Kenji", "Kenshin", "Kenta", "Koji", "Kunio", "Makoto",
+        "Mamoru", "Masahiro", "Masaki", "Masao", "Masaru", "Masashi", "Mitsuo", "Nobu", "Nobuo", "Norio",
+        "Osamu", "Reiji", "Riku", "Ryo", "Ryota", "Satoru", "Shigeru", "Shinichi", "Shinji", "Sho",
+        "Shota", "Susumu", "Tadashi", "Takahiro", "Takashi", "Takumi", "Tamotsu", "Taro", "Tatsuya", "Tetsuo",
+        "Tomohiro", "Tomoki", "Toru", "Tsutomu", "Yasuo", "Yoshiaki", "Yoshiro", "Yoshito", "Yuichi", "Yuji",
+        "Yuki", "Yutaka", "Akito", "Asahi", "Daigo", "Hikaru", "Hiroto", "Itsuki", "Kaito", "Kazuma",
+        "Kiyoshi", "Naoki", "Ren", "Ryohei", "Shohei", "Shun", "Taichi", "Takuto", "Yoshinobu", "Zen",
+        "Takahiro", "Yuya", "Haruto", "Keita", "Minato", "Soma", "Yamato", "Yuma", "Kazuto", "Riku"
+    ],
+    "lastNames":[
+        "Abe", "Adachi", "Agawa", "Aihara", "Aizawa", "Akagi", "Akaike", "Akamatsu", "Aki", "Akiyama",
+        "Ando", "Anzai", "Aoki", "Aoyama", "Arakaki", "Araki", "Arata", "Asada", "Asano", "Ashi",
+        "Azuma", "Baba", "Bando", "Chiba", "Chinen", "Date", "Doi", "Eda", "Endo", "Enomoto",
+        "Fujii", "Fujikawa", "Fujimoto", "Fujita", "Fukuda", "Fukui", "Fukumoto", "Fukunaga", "Fukushima", "Fukuyama",
+        "Funai", "Furuya", "Hada", "Hagiwara", "Hamada", "Hamamoto", "Hanaoka", "Hara", "Harada", "Hasegawa",
+        "Hashimoto", "Hayashi", "Higashi", "Hino", "Hiraoka", "Hirano", "Hirata", "Hiratsuka", "Hirose", "Hoshino",
+        "Ichikawa", "Ida", "Igarashi", "Iida", "Ikeda", "Imada", "Inoue", "Irie", "Ishibashi", "Ishida",
+        "Ishihara", "Ishikawa", "Ishimoto", "Ishizaki", "Ito", "Iwai", "Iwasaki", "Iwaya", "Izumi", "Jin",
+        "Kagawa", "Kajiwara", "Kamata", "Kamei", "Kamiya", "Kanda", "Kaneko", "Kanno", "Kanzaki", "Kataoka"
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "firstNames":[
+        "Ana", "Anca", "Andrada", "Anisia", "Antonina", "Aurora", "Beatrice", "Cătălina", "Cecilia", "Clara",
+        "Cristina", "Daria", "Delia", "Diana", "Dorina", "Elena", "Elisabeta", "Emilia", "Eufrosina", "Felicia",
+        "Florentina", "Georgiana", "Ileana", "Irina", "Isabela", "Ivona", "Larisa", "Lavinia", "Letiția", "Lidia",
+        "Liliana", "Magdalena", "Mara", "Maria", "Marina", "Melania", "Mioara", "Nadia", "Natalia", "Nicoleta",
+        "Oana", "Octavia", "Olga", "Patricia", "Petronela", "Rada", "Raluca", "Ramona", "Roxana", "Silvia",
+        "Sofia", "Sorina", "Stana", "Suzana", "Tatiana", "Teodora", "Valeria", "Valentina", "Vera", "Victoria",
+        "Violeta", "Viviana", "Zoe", "Adela", "Agnes", "Anemona", "Antonia", "Arina", "Aurelia", "Bianca",
+        "Camelia", "Carina", "Casandra", "Carmen", "Cosmina", "Doina", "Ecaterina", "Elvira", "Emanuela",
+        "Gabriela", "Georgeta", "Ioana", "Iuliana", "Luiza", "Luminița", "Marcela", "Melina", "Minodora",
+        "Mihaela", "Niculina", "Sabina", "Simona", "Tamara", "Tincuța", "Vasilica", "Veronica"
+    ],
+    "lastNames":[
+        "Albescu", "Alexandrescu", "Aldea", "Andrei", "Bălan", "Bărbulescu", "Bogdan", "Boian", "Bucur", "Cazacu",
+        "Ceaușescu", "Chirac", "Cojocaru", "Costache", "Cristea", "Damian", "Dascălu", "Dimitrescu", "Dobre", "Dragomir",
+        "Duță", "Filipescu", "Georgescu", "Grigorescu", "Ionescu", "Ivănescu", "Lupu", "Manea", "Marin", "Matei",
+        "Mihăescu", "Munteanu", "Nedelcu", "Negru", "Nistor", "Olaru", "Păcurar", "Pavel", "Petrescu", "Popa",
+        "Radu", "Sandu", "Savu", "Sima", "Stan", "Stancu", "Stoica", "Toma", "Ursu", "Vasilescu",
+        "Vasile", "Vintilă", "Voinea", "Zamfir", "Zamfirescu", "Zăvoianu", "Aldea", "Apostol", "Ardelean", "Badea",
+        "Balaban", "Banu", "Barbu", "Bărbulescu", "Bălan", "Bălănescu", "Bănică", "Bogdan", "Botezatu", "Brâncoveanu",
+        "Bujor", "Câmpeanu", "Călinescu", "Caragiale", "Chircu", "Ciobanu", "Codreanu", "Coman", "Constantin", "Craioveanu",
+        "Dima", "Dinu", "Dobre", "Dragomir", "Dumitrache", "Dumitrescu", "Ene", "Florea", "Furtună", "Gavrilă"
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "firstNames":[
+        "Aonghas", "Archibald", "Brodie", "Cameron", "Ciaran", "Donnchadh", "Dougal", "Duncan", "Eoin", "Ewan",
+        "Fergus", "Findlay", "Gavin", "Gregor", "Hamish", "Hugh", "Iain", "Innes", "Keith", "Kenneth",
+        "Lachlan", "Lennox", "Liam", "Malcolm", "Muir", "Murdoch", "Niall", "Padraig", "Peadar", "Roderick",
+        "Ruairidh", "Seamus", "Somerled", "Struan", "Tadhg", "Tamhas", "Tavish", "Torquil", "Uilleam", "Wallace",
+        "Alastair", "Angus", "Boyd", "Bruce", "Callum", "Clyde", "Colin", "Daire", "Donald", "Douglas",
+        "Eoghan", "Fingal", "Fraser", "Gordon", "Grant", "Hector", "Ian", "James", "John", "Kerr",
+        "Lorne", "Magnus", "Matheson", "Murray", "Neil", "Rory", "Ross", "Scott", "Stuart", "Teague",
+        "Thomas", "Watson", "Wilfred", "Wylie", "Alexander", "Allan", "Barclay", "Blair", "Crawford", "Dalziel",
+        "Darry", "Findlay", "Forbes", "Galloway", "Graham", "Gunn", "Hume", "Lindsay", "Maitland", "Menzies"
+    ],
+    "lastNames":[
+        "MacDonald", "Campbell", "Stewart", "MacLeod", "MacKay", "MacGregor", "Cameron", "MacKenzie", "Graham", "MacDougall",
+        "Robertson", "MacIntyre", "Sinclair", "Ferguson", "Murray", "Ross", "Kennedy", "MacLean", "Douglas", "Henderson",
+        "MacNeil", "MacMillan", "MacNab", "Forbes", "Fraser", "Grant", "MacLaren", "Hamilton", "Bruce", "Duncan",
+        "MacRae", "MacFarlane", "Wallace", "MacAulay", "MacColl", "Hunter", "MacDuff", "Menzies", "MacLachlan", "Innes",
+        "MacEwen", "Buchanan", "MacLennan", "MacQuarrie", "MacLeod", "MacPherson", "MacArthur", "MacGillivray", "MacDonald", "MacDonald",
+        "MacDonald", "MacDonald", "MacDonald", "MacDonald", "MacDonald", "MacDonald", "MacDonald", "MacDonald", "MacDonald", "MacDonald",
+        "Abercrombie", "Anderson", "Baird", "Barclay", "Blair", "Bowie", "Boyd", "Brody", "Burns", "Carmichael",
+        "Carruthers", "Christie", "Craig", "Crawford", "Cumming", "Duncan", "Fleming", "Galbraith", "Gordon", "Gunn"
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "nameFiles": {
+      "female": {
+        "African": "scripts/actorGeneration/names/femaleAfrican.json",
+        "Barbarian": "scripts/actorGeneration/names/femaleBarbarian.json",
+        "Chinese": "scripts/actorGeneration/names/femaleChinese.json",
+        "Drow": "scripts/actorGeneration/names/femaleDrow.json",
+        "Dwarven": "scripts/actorGeneration/names/femaleDwarven.json",
+        "Elf": "scripts/actorGeneration/names/femaleElf.json",
+        "English": "scripts/actorGeneration/names/femaleEnglish.json",
+        "French": "scripts/actorGeneration/names/femaleFrench.json",
+        "Gnomish": "scripts/actorGeneration/names/femaleGnomish.json",
+        "Greek": "scripts/actorGeneration/names/femaleGreek.json",
+        "Halfling": "scripts/actorGeneration/names/femaleHalfling.json",
+        "Human": "scripts/actorGeneration/names/femaleHuman.json",
+        "Irish": "scripts/actorGeneration/names/femaleIrish.json",
+        "Japanese": "scripts/actorGeneration/names/femaleJapanese.json",
+        "Norse": "scripts/actorGeneration/names/femaleNorse.json",
+        "Persian": "scripts/actorGeneration/names/femalePersian.json",
+        "Roman": "scripts/actorGeneration/names/femaleRoman.json",
+        "Romanian": "scripts/actorGeneration/names/femaleRomanian.json",
+        "Scottish": "scripts/actorGeneration/names/femaleScottish.json",
+        "Spanish": "scripts/actorGeneration/names/femaleSpanish.json"
+      },
+      "male": {
+        "African": "scripts/actorGeneration/names/maleAfrican.json",
+        "Barbarian": "scripts/actorGeneration/names/maleBarbarian.json",
+        "Chinese": "scripts/actorGeneration/names/maleChinese.json",
+        "Drow": "scripts/actorGeneration/names/maleDrow.json",
+        "Dwarven": "scripts/actorGeneration/names/maleDwarven.json",
+        "Elf": "scripts/actorGeneration/names/maleElf.json",
+        "English": "scripts/actorGeneration/names/maleEnglish.json",
+        "French": "scripts/actorGeneration/names/maleFrench.json",
+        "Gnomish": "scripts/actorGeneration/names/maleGnomish.json",
+        "Greek": "scripts/actorGeneration/names/maleGreek.json",
+        "Halfling": "scripts/actorGeneration/names/maleHalfling.json",
+        "Human": "scripts/actorGeneration/names/maleHuman.json",
+        "Irish": "scripts/actorGeneration/names/maleIrish.json",
+        "Japanese": "scripts/actorGeneration/names/maleJapanese.json",
+        "Norse": "scripts/actorGeneration/names/maleNorse.json",
+        "Roman": "scripts/actorGeneration/names/maleRoman.json",
+        "Romanian": "scripts/actorGeneration/names/maleRomanian.json",
+        "Scottish": "scripts/actorGeneration/names/maleScottish.json",
+        "Spanish": "scripts/actorGeneration/names/maleSpanish.json"
+      }
+    }
+  }
+  

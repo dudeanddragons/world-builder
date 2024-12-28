@@ -1,0 +1,23 @@
+{
+    "firstNames":[
+        "Aiko", "Akemi", "Aki", "Akiko", "Asami", "Atsuko", "Ayako", "Chie", "Chiyo", "Emi",
+        "Etsuko", "Fumiko", "Hana", "Hanako", "Haruko", "Hideko", "Hikari", "Hiroko", "Hisako", "Hitomi",
+        "Honoka", "Hotaru", "Ikue", "Itsumi", "Junko", "Kaede", "Kaho", "Kana", "Kanako", "Keiko",
+        "Kikue", "Kimiko", "Kiyoko", "Kumiko", "Kyoko", "Maho", "Mai", "Maki", "Makiko", "Mariko",
+        "Masako", "Mayumi", "Michiko", "Midori", "Mieko", "Mika", "Miki", "Minako", "Mio", "Misaki",
+        "Mitsuko", "Miyako", "Miyuki", "Momoe", "Nana", "Nanako", "Naoko", "Narumi", "Natsuki", "Nobuko",
+        "Noriko", "Reiko", "Rika", "Riko", "Rina", "Sachiko", "Sakura", "Satomi", "Sayuri", "Shizuko",
+        "Sora", "Sumiko", "Takako", "Tamiko", "Teruko", "Tomiko", "Tomoe", "Toshiko", "Umeko", "Wakako",
+        "Yasuko", "Yoko", "Yoshie", "Yoshiko", "Yukari", "Yuki", "Yuko", "Yumiko", "Yuri", "Yuuko"
+    ],
+    "lastNames":[
+        "Abe", "Adachi", "Agawa", "Aihara", "Aikawa", "Aizawa", "Akagi", "Akamine", "Akiyama", "Amari",
+        "Anzai", "Aoki", "Aoyama", "Arakaki", "Arakawa", "Arata", "Asai", "Asano", "Ashikaga", "Atobe",
+        "Baba", "Bando", "Chiba", "Chinen", "Chino", "Date", "Doi", "Endo", "Enomoto", "Etou",
+        "Fujii", "Fujikawa", "Fujimoto", "Fujita", "Fukuda", "Fukui", "Fukumoto", "Fukushima", "Furuya", "Hamada",
+        "Hara", "Hasegawa", "Hashimoto", "Hata", "Hatake", "Hayashi", "Higa", "Higashi", "Hino", "Hirano",
+        "Hirata", "Hirayama", "Hirose", "Hoshino", "Ichikawa", "Iida", "Iizuka", "Ikeda", "Imai", "Imamura",
+        "Inoue", "Irie", "Ishibashi", "Ishida", "Ishihara", "Ishikawa", "Ishimoto", "Ito", "Iwamoto", "Iwasaki",
+        "Iwashita", "Kajiwara", "Kamei", "Kaneko", "Kawabata", "Kawaguchi", "Kawamoto", "Kawasaki", "Kawakami", "Kawano"
+    ]
+}

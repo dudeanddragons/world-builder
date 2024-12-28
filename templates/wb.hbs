@@ -1,7 +1,5 @@
-
-<form class="worldbuilder-form page-container">
     <!-- Tab Navigation -->
-    <header class="window-header general-header">
+    <header class="window-header wb-general-header">
             <nav class="tabs" data-group="worldbuilder-tabs">
                 <a class="item active" data-tab="main">
                 <i class="fas fa-globe"></i>
@@ -35,13 +33,13 @@
         <div class="tab-separator"></div>
     </header>
 
-
+<form>
   <!-- TAB CONTENT-->
 
   <!-- MAIN TAB -->
   <section class="tab-content" data-tab="main">
 
-          <div class="scrollable-container content">
+          <div class="wb-page-container scrollable-container">
           <h3>Main</h3>
 
             <div>
@@ -201,7 +199,7 @@
 
 
   <!-- LAIRS TAB -->
-  <section class="tab-content" data-tab="lairs" style="display: none;">
+  <section class="tab-content wb-page-container" data-tab="lairs" style="display: none;">
   <h3>Lairs</h3>
   <button class="add-room">Add Room/Corridor</button>
       <div class="room-list">
@@ -467,25 +465,17 @@
       
   </section>
 
-  <div class="tab-separator"></div>
-  <p></p>
-  
   </form>
 
-
   <!-- FOOTER -->
-  <footer class="wb-general-footer">
-
+<footer class="save-entry wb-general-footer">
       <div class="form-actions">
-          <button type="button" class="save-entry wb-general-footer">
+          <button type="button" class="save-entry wb-subfooter">
           <i class="fas fa-save"></i> Save
           </button>
-          <button type="button" class="create-journal wb-general-footer">
+          <button type="button" class="create-journal wb-subfooter">
           <i class="fas fa-book"></i> Create Journal Entry
           </button>
-      </div>
-
-  </footer>
-
-
+      </div>  
+</footer>
 

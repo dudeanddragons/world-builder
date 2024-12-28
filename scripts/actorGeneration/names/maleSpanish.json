@@ -1,0 +1,24 @@
+{
+    "firstNames":[
+        "Alonso", "Bartolomé", "Bernardo", "Diego", "Domingo", "Fernando", "Francisco", "Gonzalo", "Hernando", "Iñigo",
+        "Jaime", "Juan", "Luis", "Manuel", "Martín", "Miguel", "Pedro", "Rodrigo", "Sancho", "Tomás",
+        "Agustín", "Andrés", "Antonio", "Baltasar", "Benito", "Carlos", "Cristóbal", "Emilio", "Esteban", "Félix",
+        "Gaspar", "Gregorio", "Guillermo", "Hugo", "Isidro", "Joaquín", "Jorge", "José", "Juan", "Leandro",
+        "Leonardo", "Lorenzo", "Marcos", "Mateo", "Nicolás", "Pablo", "Rafael", "Ramiro", "Ricardo", "Salvador",
+        "Santiago", "Sebastián", "Sergio", "Teodoro", "Vicente", "Adolfo", "Aurelio", "Bautista", "Cayetano", "Celso",
+        "Eduardo", "Enrique", "Eugenio", "Fausto", "Felipe", "Flavio", "Fortunato", "Gabriel", "Guido", "Hermenegildo",
+        "Jacinto", "Javier", "Jerónimo", "Julián", "Lázaro", "Marcelo", "Mauricio", "Modesto", "Narciso", "Octavio",
+        "Patricio", "Prudencio", "Raimundo", "Ruperto", "Severino", "Silvestre", "Tiburcio", "Valentín", "Venancio", "Zacarías"
+    ],
+    "lastNames":[
+        "Álvarez", "Benítez", "Cabrera", "Calvo", "Campos", "Castillo", "Castro", "Cortés", "Díaz", "Domínguez",
+        "Durán", "Fernández", "García", "Gómez", "González", "Guerrero", "Gutiérrez", "Hernández", "Iglesias", "Jiménez",
+        "López", "Martínez", "Medina", "Méndez", "Molina", "Morales", "Muñoz", "Navarro", "Núñez", "Ortega",
+        "Ortiz", "Pérez", "Ramírez", "Ramos", "Reyes", "Ríos", "Rodríguez", "Romero", "Ruiz", "Sáez",
+        "Sánchez", "Santana", "Santos", "Serrano", "Suárez", "Torres", "Vargas", "Vázquez", "Vega", "Velasco",
+        "Vicente", "Zamora", "Zapata", "Zúñiga", "Bravo", "Cano", "Caro", "Castaño", "Chacón", "Cordero",
+        "De la Cruz", "Delgado", "Escribano", "Franco", "Frías", "Galindo", "Gallego", "Hidalgo", "Izquierdo", "Lara",
+        "León", "Maldonado", "Marín", "Miranda", "Montero", "Moreno", "Pascual", "Peña", "Quintana", "Roca",
+        "Roldán", "Salazar", "Sampedro", "Santamaría", "Segura", "Sierra", "Solano", "Soria", "Tirado", "Valverde"
+    ]
+}

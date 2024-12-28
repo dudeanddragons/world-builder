@@ -1,0 +1,21 @@
+{
+    "firstNames":[
+        "Anara", "Brynna", "Caelynn", "Druella", "Elysande", "Faelwen", "Gwyneth", "Helena", "Ilvara", "Jocasta",
+        "Kara", "Liriel", "Maelis", "Nerissa", "Olwyn", "Phaedra", "Quenya", "Rowena", "Syrena", "Tamsin",
+        "Ursula", "Valeria", "Wynne", "Xanthe", "Ygritte", "Zara",
+        "Aria", "Beatrix", "Cassandra", "Diana", "Elara", "Fiona", "Gisela", "Hanna", "Isolde", "Jaina",
+        "Kiera", "Lydia", "Marina", "Nadia", "Odette", "Penelope", "Rhea", "Selene", "Thalia", "Una",
+        "Vera", "Willow", "Xenia", "Yvette", "Zelda", "Alanna", "Brienne", "Calista", "Daphne", "Eleanor",
+        "Freya", "Greta", "Helga", "Ingrid", "Jolene", "Kaida", "Leona", "Mira", "Nimue", "Orla",
+        "Phoebe", "Ravenna", "Sable", "Taryn", "Ulla", "Violet", "Willa", "Xara", "Yara", "Zinnia"
+    ],
+    "lastNames":[
+        "Strongarm", "Ironfist", "Stoneheart", "Windrider", "Stormcaller", "Fireheart", "Frostblade", "Shadowhunter", "Thunderstrike", "Wolfbane",
+        "Steelbreaker", "Bloodaxe", "Stormbringer", "Ironhide", "Battleborn", "Skysinger", "Wildrunner", "Stormshadow", "Frostfire", "Darkwalker",
+        "Brightblade", "Stonecrusher", "Wolfsbane", "Stormsinger", "Firestorm", "Winterwolf", "Darkflame", "Ironfoot", "Thundersong", "Stormwind",
+        "Ravenclaw", "Shadowblade", "Ironstorm", "Windblade", "Frostwolf", "Darkstorm", "Stormborn", "Stoneforge", "Windsong", "Ironclaw",
+        "Bloodraven", "Ironblood", "Stormwolf", "Darkblade", "Frostbite", "Stormhammer", "Windwalker", "Stoneshield", "Ironfang", "Shadowstorm",
+        "Bloodstone", "Thunderblade", "Stormforge", "Darkwind", "Ironthorn", "Froststorm", "Stormcaller", "Shadowheart", "Thundercall", "Darkfire",
+        "Frostborn", "Stormfang", "Ironshard", "Bloodshadow", "Ironheart", "Stormstrike", "Thunderheart", "Windrider", "Stonehammer", "Ironhunter"
+    ]
+}

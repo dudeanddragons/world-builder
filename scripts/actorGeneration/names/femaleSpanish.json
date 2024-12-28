@@ -1,0 +1,23 @@
+{
+    "firstNames":[
+        "Adelina", "Aldara", "Almudena", "Amalia", "Ana", "Antonia", "Beatriz", "Benedicta", "Blanca", "Catalina",
+        "Clara", "Constanza", "Cristina", "Dolores", "Eleanor", "Elvira", "Emilia", "Esperanza", "Estefanía", "Eulalia",
+        "Felicia", "Fernanda", "Francisca", "Gabriela", "Gracia", "Guadalupe", "Inés", "Isabel", "Juana", "Leonor",
+        "Lourdes", "Lucía", "Luisa", "Magdalena", "Manuela", "María", "Marta", "Mercedes", "Micaela", "Nieves",
+        "Petronila", "Pilar", "Ramona", "Reina", "Rosalía", "Rosa", "Salomé", "Sancha", "Sara", "Silvia",
+        "Soledad", "Teresa", "Urraca", "Valentina", "Verónica", "Victoria", "Yolanda", "Zahara", "Zita", "Zoraida",
+        "Ana María", "María José", "María Teresa", "María Dolores", "María del Carmen", "María de la Paz", "María de los Ángeles", "María Pilar", "María Elena", "María Rosa",
+        "Adriana", "Alejandra", "Angela", "Bárbara", "Carmen", "Diana", "Elena", "Eugenia", "Fátima", "Gloria",
+        "Isidora", "Jacinta", "Josefa", "Leticia", "Luz", "María Isabel", "Montserrat", "Natalia", "Paloma", "Rafaela"
+    ],
+    "lastNames":[
+        "Álvarez", "Arias", "Benítez", "Blanco", "Cabrera", "Campos", "Castillo", "Cortés", "Cruz", "Delgado",
+        "Díaz", "Domínguez", "Fernández", "García", "Giménez", "Gómez", "González", "Guerrero", "Gutiérrez", "Hernández",
+        "Iglesias", "Jiménez", "López", "Martínez", "Medina", "Mendoza", "Molina", "Morales", "Muñoz", "Navarro",
+        "Núñez", "Ortega", "Pérez", "Ramírez", "Ramos", "Reyes", "Rodríguez", "Romero", "Ruiz", "Sánchez",
+        "Santos", "Serrano", "Soler", "Suárez", "Torres", "Valencia", "Vargas", "Vázquez", "Vega", "Velázquez",
+        "Vicente", "Zamora", "Zapata", "Aguilar", "Alcalá", "Alonso", "Arroyo", "Bermúdez", "Bueno", "Cano",
+        "Caro", "Carrillo", "Casas", "Castañeda", "Castro", "Coronado", "Cuesta", "Esquivel", "Estrada", "Fajardo",
+        "Fuentes", "Galindo", "Herrera", "Ibáñez", "Lara", "León", "Márquez", "Mateo", "Montes", "Ortega"
+    ]
+}

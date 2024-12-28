@@ -1,0 +1,25 @@
+{
+    "firstNames":[
+        "Alexandru", "Andrei", "Bogdan", "Constantin", "Cristian", "Dumitru", "Florin", "Gheorghe", "Ion", "Ionut",
+        "Marin", "Mihai", "Nicolae", "Radu", "Sorin", "Stefan", "Tiberiu", "Vasile", "Vlad", "Alin",
+        "Aurel", "Claudiu", "Cornel", "Dan", "Daniel", "Dorin", "Dragos", "Emil", "Gabriel", "Horațiu",
+        "Ilarion", "Iulian", "Laurentiu", "Leonard", "Liviu", "Lucian", "Mircea", "Nicu", "Ovidiu", "Pavel",
+        "Petru", "Raul", "Sebastian", "Silviu", "Teodor", "Valentin", "Valeriu", "Viorel", "Zoltan", "Aron",
+        "Barbu", "Cezar", "Codrin", "Costel", "Dinu", "Dorian", "Ernest", "Felix", "Filip", "Gelu",
+        "Horia", "Ilie", "Iosif", "Laurentiu", "Leontin", "Marcel", "Marius", "Maxim", "Mihail", "Narcis",
+        "Oreste", "Petrus", "Relu", "Robert", "Sandu", "Sebastian", "Sever", "Silvan", "Speranta", "Toma",
+        "Traian", "Tudor", "Vasile", "Virgil", "Zaharia", "Zeno", "Antonie", "Augustin", "Bogdan", "Calin"
+    ],
+    "lastNames":[
+        "Ionescu", "Popescu", "Dumitrescu", "Stan", "Tudor", "Marinescu", "Georgescu", "Radu", "Stefan", "Nistor",
+        "Munteanu", "Ciobanu", "Dima", "Vasilescu", "Petrescu", "Stoica", "Constantinescu", "Baciu", "Balan", "Buzatu",
+        "Popa", "Neagu", "Iliescu", "Badea", "Zamfir", "Lazar", "Diaconu", "Roman", "Mihai", "Anghel",
+        "Nedelcu", "Enache", "Oprea", "Sandu", "Barbu", "Vasile", "Filip", "Pintea", "Radulescu", "Toma",
+        "Grigore", "Chirila", "Gheorghe", "Ionita", "Tudose", "Nita", "Preda", "Stanciu", "Bratu", "Dobre",
+        "Iancu", "Neacsu", "Moldoveanu", "Petrache", "Carstea", "Voicu", "Iorgulescu", "Dragomir", "Moise", "Cristea",
+        "Rusu", "Vasile", "Baciu", "Lupescu", "Florea", "Stanescu", "Marcu", "Jipa", "Costache", "Paraschiv",
+        "Simion", "Alexandrescu", "Visan", "Burcea", "David", "Vintila", "Tanase", "Dinca", "Grigoras", "Savulescu",
+        "Paun", "Mitrea", "Luca", "Mihailescu", "Maftei", "Popescu", "Negrea", "Sava", "Pirvu", "Serban",
+        "Mirea", "Albu", "Manole", "Racovitan", "Nicolescu", "Craciun", "Voinescu", "Florea", "Olteanu", "Voinea"
+    ]
+}

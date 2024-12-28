@@ -1,0 +1,23 @@
+{
+    "firstNames":[
+        "Adelaide", "Agnes", "Alice", "Anne", "Beatrice", "Bertha", "Blanche", "Cecily", "Christina", "Cicely",
+        "Constance", "Diana", "Edith", "Eleanor", "Elizabeth", "Ethel", "Frances", "Gillian", "Grace", "Hawise",
+        "Helen", "Isabella", "Jane", "Joan", "Judith", "Juliana", "Katherine", "Margaret", "Matilda", "Maud",
+        "Millicent", "Muriel", "Philippa", "Rose", "Sarah", "Sybil", "Theresa", "Ursula", "Winifred", "Yolande",
+        "Avice", "Bridget", "Clarice", "Edeline", "Elaine", "Emma", "Eva", "Freda", "Gertrude", "Giselle",
+        "Hilda", "Ida", "Irene", "Jacquetta", "Lettice", "Lilian", "Mabel", "Margery", "Mary", "Mildred",
+        "Olwen", "Ottilie", "Petronilla", "Priscilla", "Richenda", "Rosalind", "Rosamund", "Rowena", "Selina", "Sibyl",
+        "Sigrid", "Sophronia", "Susanna", "Theodora", "Thomasina", "Veronica", "Victoria", "Wanda", "Wilhelmina", "Zenobia",
+        "Adela", "Agatha", "Amice", "Angharad", "Baldwyn", "Blithild", "Christabel", "Desdemona", "Dulcia", "Emmeline"
+    ],
+    "lastNames":[
+        "Atwood", "Baker", "Bennett", "Brown", "Carpenter", "Chapman", "Clark", "Cooper", "Draper", "Fletcher",
+        "Forester", "Gardener", "Green", "Hall", "Hill", "Hunter", "Knight", "Mason", "Miller", "Parker",
+        "Potter", "Reeve", "Smith", "Taylor", "Thatcher", "Turner", "Walker", "Ward", "Webb", "Wright",
+        "Abbott", "Ainsworth", "Archer", "Armstrong", "Bailey", "Barker", "Bates", "Blake", "Bolton", "Bradley",
+        "Brooks", "Butler", "Carter", "Chandler", "Cole", "Cook", "Cross", "Dalton", "Dean", "Dixon",
+        "Edwards", "Elliot", "Fisher", "Foster", "Fox", "Gibson", "Glover", "Grant", "Gray", "Hamilton",
+        "Harris", "Hawkins", "Hayes", "Henderson", "Hughes", "Jackson", "Jenkins", "Kemp", "King", "Lambert",
+        "Lawrence", "Marshall", "Mitchell", "Nelson", "Newton", "Norris", "Palmer", "Pearson", "Perry", "Robinson"
+    ]
+}

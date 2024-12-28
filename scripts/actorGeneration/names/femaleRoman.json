@@ -1,0 +1,25 @@
+{
+    "firstNames":[
+        "Aelia", "Agrippina", "Alba", "Antonia", "Aquilina", "Augusta", "Aurelia", "Caelia", "Calpurnia", "Camilla",
+        "Cassia", "Claudia", "Cornelia", "Domitia", "Drusilla", "Fabia", "Faustina", "Flavia", "Fulvia", "Galla",
+        "Geminia", "Helena", "Hilaria", "Horatia", "Julia", "Junia", "Laelia", "Livia", "Lucilla", "Lucretia",
+        "Marcella", "Marcia", "Maria", "Maxima", "Octavia", "Paulina", "Pompeia", "Porcia", "Prisca", "Sabina",
+        "Scipia", "Sempronia", "Severina", "Tatia", "Tertulla", "Tullia", "Valeria", "Verginia", "Vibia", "Vipsania",
+        "Aemilia", "Ammiana", "Annia", "Arria", "Artoria", "Aurelia", "Aventina", "Caecilia", "Camilia", "Cloelia",
+        "Dulcia", "Emiliana", "Fabiola", "Flavia", "Florentina", "Fortunata", "Gaiia", "Germana", "Gratiana", "Hadriana",
+        "Horatia", "Iunia", "Justina", "Livia", "Marcellina", "Mariana", "Matidia", "Modesta", "Nepotia", "Octaviana",
+        "Placida", "Pomponia", "Priscilla", "Procula", "Rubellia", "Sabina", "Serena", "Sextina", "Tiberia", "Titiana",
+        "Ursula", "Venetia", "Vergilia", "Vespasia", "Veturia", "Vitalia", "Zosima", "Adriana", "Aurelia", "Bellica"
+    ],
+    "lastNames":[
+        "Acilius", "Aebutius", "Aemilius", "Albinus", "Antonius", "Aquilinus", "Asinius", "Atilius", "Atrius", "Aurelius",
+        "Calidius", "Calpurnius", "Cassius", "Claudius", "Cornelius", "Domitius", "Fabius", "Flavius", "Gellius", "Horatius",
+        "Julius", "Laelius", "Licinius", "Livius", "Manlius", "Marcius", "Marius", "Metilius", "Nonius", "Octavius",
+        "Ovidius", "Papirius", "Pompeius", "Porcius", "Quinctius", "Sempronius", "Sergius", "Sextius", "Tullius", "Valerius",
+        "Velius", "Vergilius", "Verres", "Vibius", "Vipsanius", "Virginius", "Vitellius", "Volumnius", "Vopiscus", "Vulcatius",
+        "Acilius", "Aebutius", "Aemilius", "Albinus", "Antonius", "Aquilinus", "Asinius", "Atilius", "Atrius", "Aurelius",
+        "Calidius", "Calpurnius", "Cassius", "Claudius", "Cornelius", "Domitius", "Fabius", "Flavius", "Gellius", "Horatius",
+        "Julius", "Laelius", "Licinius", "Livius", "Manlius", "Marcius", "Marius", "Metilius", "Nonius", "Octavius",
+        "Ovidius", "Papirius", "Pompeius", "Porcius", "Quinctius", "Sempronius", "Sergius", "Sextius", "Tullius", "Valerius"
+    ]
+}

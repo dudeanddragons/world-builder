@@ -1,0 +1,24 @@
+{
+    "firstNames":[
+        "Abbas", "Adil", "Ahmad", "Akbar", "Ali", "Arash", "Arman", "Asghar", "Ashkan", "Aydin",
+        "Babak", "Bahram", "Behnam", "Behrouz", "Bijan", "Darab", "Darius", "Davud", "Ebrahim", "Ehsan",
+        "Farhad", "Farid", "Farshad", "Firooz", "Hamid", "Hassan", "Hesam", "Hossein", "Hushang", "Isa",
+        "Jafar", "Jalal", "Javad", "Kamal", "Karim", "Kaveh", "Kazem", "Khosrow", "Mahmoud", "Malek",
+        "Masoud", "Mehdi", "Mehrdad", "Mohammad", "Mojtaba", "Mostafa", "Mousa", "Nader", "Nasser", "Navid",
+        "Omid", "Parviz", "Payam", "Pedram", "Peyman", "Ramin", "Rashid", "Reza", "Rostam", "Sadegh",
+        "Saeed", "Samad", "Sami", "Shahin", "Shapur", "Shayan", "Siavash", "Sohrab", "Soroush", "Taghi",
+        "Teymour", "Yahya", "Yasin", "Yousef", "Zahhak", "Zain", "Zal", "Zand", "Zarrin", "Zein",
+        "Zia", "Zohair", "Zubin", "Zulfiqar", "Bahman", "Behrad", "Borhan", "Borzou", "Changiz", "Cyrus"
+    ],
+    "lastNames":[
+        "Alavi", "Amiri", "Ardebili", "Ashtari", "Azadi", "Bahrami", "Bakhshi", "Bakhtiari", "Beheshti", "Boroujerdi",
+        "Dabbagh", "Daryani", "Davani", "Delshad", "Ebrahimi", "Ehsani", "Esfahani", "Farahani", "Faramarzi", "Farrokhi",
+        "Ghaznavi", "Ghorbani", "Golshani", "Hajjar", "Hakimi", "Hamidi", "Hosseini", "Jafari", "Javadi", "Kashani",
+        "Kazemi", "Keshavarz", "Khadem", "Khatami", "Khosravi", "Mahdavi", "Majidi", "Mansouri", "Mashhadi", "Mazandarani",
+        "Mirzaei", "Mohammadi", "Mokhtari", "Montazeri", "Mousavi", "Nabavi", "Naderi", "Najafi", "Namazi", "Naseri",
+        "Nikzad", "Norouzi", "Pahlavi", "Parsa", "Pirouz", "Qadri", "Qasemi", "Rahmani", "Rashidi", "Rostami",
+        "Saberi", "Sadeghi", "Safa", "Sahabi", "Samadi", "Sanjabi", "Shahidi", "Sharifi", "Shirazi", "Soltani",
+        "Tabrizi", "Tafreshi", "Taheri", "Talebi", "Tavakoli", "Vaziri", "Yazdi", "Yazdanpanah", "Zadeh", "Zamani",
+        "Zand", "Zarei", "Zarrabi", "Zarif", "Zarrin", "Zarrouk", "Zendeh", "Zoghi", "Zomorodi", "Zorzi"
+    ]
+}

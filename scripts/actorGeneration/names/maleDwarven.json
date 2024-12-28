@@ -1,0 +1,22 @@
+{
+    "firstNames":[
+        "Adrik", "Alberich", "Baern", "Barendd", "Brottor", "Bruenor", "Dain", "Darrak", "Delg", "Eberk",
+        "Einkil", "Fargrim", "Flint", "Gardain", "Harbek", "Kildrak", "Morgran", "Orsik", "Oskar", "Rangrim",
+        "Rurik", "Taklinn", "Thoradin", "Thorin", "Tordek", "Traubon", "Travok", "Ulfgar", "Veit", "Vondal",
+        "Balgrum", "Bharrom", "Bram", "Brubam", "Daerdred", "Durim", "Dworic", "Erag", "Gimli", "Grimm",
+        "Hagar", "Hilin", "Karg", "Kildor", "Korrin", "Lokran", "Malgran", "Norin", "Nurim", "Olmgar",
+        "Ragrim", "Rogar", "Sindri", "Stor", "Thark", "Thorim", "Tormek", "Tovar", "Ulgar", "Zorrin",
+        "Barak", "Barrus", "Bofin", "Bramor", "Dafrim", "Dorgrim", "Durgan", "Eldor", "Garn", "Gorin",
+        "Graldor", "Harsk", "Hovin", "Korin", "Mardam", "Murin", "Nurin", "Olvar", "Orim", "Ranek",
+        "Rurik", "Thrain", "Thurbok", "Tirgrim", "Torim", "Uram", "Vorim", "Wulfram", "Zugrim"
+    ],
+    "lastNames":[
+        "Balderk", "Battlehammer", "Brawnanvil", "Dankil", "Fireforge", "Frostbeard", "Gorunn", "Holderhek", "Ironfist", "Loderr",
+        "Lutgehr", "Rumnaheim", "Strakeln", "Torunn", "Ungart", "Axebreaker", "Barrelhelm", "Bonecrusher", "Boulderfist", "Brazzik",
+        "Brighthammer", "Bronzebrow", "Coppervein", "Deepdelver", "Emberstone", "Flintstriker", "Gemcutter", "Goldfinder", "Granitehand", "Hammerstone",
+        "Ironfoot", "Keghammer", "Marblemolder", "Oakenheart", "Proudstone", "Rockseeker", "Runecrusher", "Silveraxe", "Stonebreaker", "Stoneshield",
+        "Thundershield", "Titanforge", "Trueanvil", "Warfist", "Windrock", "Stonehelm", "Strongheart", "Torun", "Truehammer", "Underforge",
+        "Axebringer", "Battleborn", "Blackhammer", "Bloodarmor", "Brightshield", "Copperhand", "Deepdigger", "Diamondfist", "Emberhelm", "Firesword",
+        "Granitefist", "Hammerhelm", "Ironarm", "Keenshield", "Marbleaxe", "Oathkeeper", "Proudhammer", "Rockbeard", "Runeforge", "Silverhand"
+    ]
+}

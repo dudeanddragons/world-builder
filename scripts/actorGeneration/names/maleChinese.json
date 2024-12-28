@@ -1,0 +1,25 @@
+{
+    "firstNames":[
+        "An", "Bai", "Bo", "Chang", "Chao", "Chen", "Cheng", "Chiang", "Chin", "Chong",
+        "Chou", "Chung", "Dai", "De", "Dong", "Fang", "Feng", "Fu", "Gang", "Guo",
+        "Hai", "Hao", "Heng", "Hong", "Hua", "Huang", "Jian", "Jiang", "Jin", "Ju",
+        "Jun", "Kang", "Kun", "Lei", "Li", "Lin", "Liu", "Long", "Lu", "Meng",
+        "Ming", "Ning", "Peng", "Qi", "Qian", "Qing", "Qiu", "Ren", "Rong", "Shan",
+        "Shen", "Shi", "Shu", "Song", "Sun", "Tao", "Tian", "Wang", "Wei", "Wen",
+        "Wu", "Xian", "Xiang", "Xiao", "Xie", "Xin", "Xing", "Xu", "Yan", "Yang",
+        "Yao", "Yi", "Yin", "Yong", "Yu", "Yuan", "Yue", "Zan", "Zeng", "Zhai",
+        "Zhang", "Zhao", "Zheng", "Zhi", "Zhong", "Zhou", "Zhu", "Zhuang", "Zi", "Zou",
+        "Zun", "An", "Bing", "Bo", "Chang", "Chao", "Chen", "Cheng", "Chiang", "Chin"
+    ],
+    "lastNames":[
+        "Wang", "Li", "Zhang", "Liu", "Chen", "Yang", "Huang", "Zhao", "Wu", "Zhou",
+        "Xu", "Sun", "Ma", "Zhu", "Hu", "Guo", "He", "Gao", "Lin", "Luo",
+        "Zheng", "Xie", "Tang", "Xia", "Ding", "Cao", "Yuan", "Dong", "Yu", "Han",
+        "Jiang", "Fan", "Lai", "Fu", "Peng", "Cui", "Qin", "Cheng", "Lu", "Shen",
+        "Yao", "Tan", "Xiong", "Zeng", "Zhong", "Liang", "Kang", "Sha", "Bai", "Lian",
+        "Dai", "Huang", "Bao", "Liu", "Yan", "Mao", "Gan", "Fang", "Ren", "Liao",
+        "Mei", "Duan", "Zhou", "Dong", "Lu", "Su", "Hu", "Shen", "Luo", "Ge",
+        "Feng", "Qu", "Yin", "Bao", "Gao", "Liang", "Hong", "Kong", "Shi", "Fan",
+        "Pang", "Tao", "Huang", "Zeng", "Chai", "Lei", "Deng", "Jia", "Qian", "Cai"
+    ]
+}

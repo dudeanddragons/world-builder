@@ -1,0 +1,25 @@
+{
+    "firstNames":[
+        "Astrid", "Birgitta", "Bodil", "Dagmar", "Edda", "Eir", "Freya", "Gertrud", "Gudrun", "Gunnhild",
+        "Hilda", "Inga", "Ingeborg", "Jorunn", "Kari", "Kelda", "Liv", "Ragnhild", "Sigrid", "Signe",
+        "Solveig", "Thora", "Torhild", "Tyra", "Ulfhild", "Unn", "Yrsa", "Asta", "Bera", "Brynhild",
+        "Disa", "Eira", "Frida", "Geirhild", "Gro", "Gyda", "Hervor", "Hildur", "Idunn", "Jofrid",
+        "Katrina", "Lagertha", "Lofn", "Margit", "Nanna", "Olga", "Runa", "Saga", "Sigga", "Skadi",
+        "Svanhild", "Thurid", "Torborg", "Tordis", "Torunn", "Valka", "Valgerd", "Yrsa", "Asa", "Bertha",
+        "Dagny", "Eldrid", "Eydis", "Finnborg", "Gudny", "Gunnlod", "Hjordis", "Hulda", "Ingrid", "Jorun",
+        "Karis", "Ljosalf", "Magni", "Nidud", "Olrun", "Randi", "Revna", "Sigrun", "Soleil", "Steinunn",
+        "Thyri", "Thyra", "Toril", "Tova", "Unnr", "Valdis", "Vigdis", "Yrsa", "Asfrid", "Borghild",
+        "Dagna", "Eldbjorg", "Embla", "Frigg", "Gisla", "Gunnvor", "Halla", "Hertha", "Hillevi", "Jodis"
+    ],
+    "lastNames":[
+        "Aldisdottir", "Arndisdottir", "Asbjornsdottir", "Asgeirsdottir", "Bergljotsdottir", "Bjornsdottir", "Branddottir", "Dagnydottir", "Eiriksdottir", "Finnsdottir",
+        "Geirhildsdottir", "Gudmundsdottir", "Gunnarsdottir", "Halfdansdottir", "Haraldsdottir", "Helgasdottir", "Hjaltdottir", "Ingvildsdottir", "Ivarsdottir", "Johannsdottir",
+        "Kjetilsdottir", "Leifsdottir", "Magnusdottir", "Olavsdottir", "Ormsdottir", "Ragnarsdottir", "Sigurdsdottir", "Snorisdottir", "Steinsdottir", "Sveinsdottir",
+        "Thorvaldsdottir", "Torbjorgsdottir", "Tryggvadottir", "Ulfsdottir", "Valgardsdottir", "Vigdisdottir", "Yngvarsdottir", "Agnisdottir", "Audhildsdottir", "Baldursdottir",
+        "Bergdottir", "Eirikursdottir", "Eriksdottir", "Friggsdottir", "Gauksdottir", "Gislasdottir", "Gudmundrsdottir", "Haddsottir", "Helgisdottir", "Hrafnsdottir",
+        "Ingvildursdottir", "Ketilsdottir", "Kolbeinsdottir", "Laurentsdottir", "Ljosalfsdottir", "Magnarsdottir", "Njordsdottir", "Nuddsdottir", "Ottarssdottir", "Randidottir",
+        "Reidarssdottir", "Sigurdursdottir", "Skeggisdottir", "Steinarsdottir", "Thorgunnsdottir", "Thorildsdottir", "Torhildursdottir", "Tyrasdottir", "Unnarsdottir", "Valdisdottir",
+        "Vidarsdottir", "Yngvildsdottir", "Agathasdottir", "Arinbjornsdottir", "Asmundsdottir", "Bjartmarsdottir", "Brynjarsdottir", "Dagsdottir", "Eilifsdottir", "Eyvindursdottir",
+        "Gislisdottir", "Gunnarsdottir", "Halldorsdottir", "Hersteinsdottir", "Hogniursdottir", "Hroarssdottir", "Irisdottir", "Jakobssdottir", "Kalfssdottir", "Kollsottir"
+    ]
+}

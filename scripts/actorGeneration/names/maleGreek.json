@@ -1,0 +1,24 @@
+{
+    "firstNames":[
+        "Alexios", "Andreas", "Anthemius", "Athanasios", "Basil", "Charalampos", "Christos", "Constantinos", "Demetrios", "Dionysios",
+        "Eleftherios", "Evangelos", "Gerasimos", "Georgios", "Gregory", "Hector", "Ioannis", "Ippolytos", "Konstantinos", "Lambros",
+        "Leonidas", "Loukas", "Manolis", "Michail", "Nektarios", "Niketas", "Nikolaos", "Panagiotis", "Petros", "Polykarpos",
+        "Socrates", "Spiros", "Stavros", "Stephanos", "Theodoros", "Timotheos", "Vasilios", "Xenophon", "Yiannis", "Zacharias",
+        "Agapetos", "Anastasios", "Anthimos", "Apollonios", "Arkadios", "Charisios", "Chrysostomos", "Damianos", "Epaminondas", "Eustathios",
+        "Euthymios", "Fotios", "Gennadios", "Gerasimos", "Gregoras", "Herakles", "Iason", "Ioustinos", "Kallistos", "Kyriakos",
+        "Lykourgos", "Menelaos", "Miltiades", "Neophytos", "Nikon", "Orestes", "Pankratios", "Philipos", "Ptolemaios", "Sophronios",
+        "Stylianos", "Themistoklis", "Theokletos", "Theophanes", "Tryfon", "Xanthos", "Xenios", "Zosimos", "Aristarchos", "Aristeidis",
+        "Chrysanthos", "Dimitrios", "Eustratios", "Kyriacos", "Lysandros", "Pavlos", "Thales", "Varnavas", "Xanthe", "Zinon"
+    ],
+    "lastNames":[
+        "Anastasopoulos", "Andreadis", "Antoniou", "Apostolakis", "Bakogiannis", "Charalambous", "Christodoulou", "Constantinou", "Dimitriadis", "Dionysiou",
+        "Eliopoulos", "Galanis", "Georgiou", "Giannopoulos", "Hatzis", "Ioannidis", "Katsaros", "Konstantinou", "Kyriakopoulos", "Lambropoulos",
+        "Leventis", "Makris", "Manolis", "Marinos", "Mavros", "Nikolopoulos", "Oikonomou", "Papanikolaou", "Papazoglou", "Papadopoulos",
+        "Pappas", "Pavlou", "Petrou", "Raptis", "Sarris", "Sotiriou", "Spiros", "Stathopoulos", "Stefanidis", "Theodorou",
+        "Tsakiris", "Tsoukalas", "Vasilakis", "Vlahos", "Xenakis", "Yiannakopoulos", "Zacharopoulos", "Akrivopoulos", "Anagnostou", "Antonopoulos",
+        "Argyropoulos", "Barakos", "Chatzis", "Diamantis", "Efthymiadis", "Filippou", "Galani", "Gikas", "Hatzopoulos", "Kalogeropoulos",
+        "Karagiannis", "Karatza", "Katsaros", "Kyriazis", "Lagopoulos", "Laskaris", "Loukas", "Michalakis", "Nikitas", "Papageorgiou",
+        "Papadimitriou", "Papatheodorou", "Paraskevas", "Psaras", "Roussos", "Savvas", "Sfyris", "Sideris", "Skoufis", "Spyridakis",
+        "Stavropoulos", "Stylianou", "Theofanis", "Theotokis", "Tsiolkas", "Vournas", "Xanthos", "Zachariadis", "Zervas", "Zois"
+    ]
+}

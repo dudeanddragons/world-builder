@@ -1,0 +1,23 @@
+{
+    "firstNames":[
+        "Aine", "Aisling", "Aoife", "Brigid", "Caitlin", "Clodagh", "Deirdre", "Eilis", "Eimear", "Emer",
+        "Fiona", "Grainne", "Imogen", "Maeve", "Maire", "Mairead", "Moira", "Muireann", "Niamh", "Orla",
+        "Roisin", "Saoirse", "Siobhan", "Sinead", "Sorcha", "Aibhlinn", "Aideen", "Ailbhe", "Ailis", "Aineas",
+        "Alma", "Anya", "Aoibheann", "Aodhnait", "Aodh", "Aurelia", "Beibhinn", "Blathnaid", "Blathnat", "Bronagh",
+        "Caoimhe", "Cara", "Catriona", "Ciara", "Cliodhna", "Colleen", "Darina", "Dervla", "Doireann", "Eibhlin",
+        "Eilidh", "Eilis", "Eithne", "Elva", "Enya", "Eri", "Etain", "Evelyn", "Fidelma", "Finola",
+        "Fionnuala", "Isibeal", "Keira", "Lasairfhiona", "Liadan", "Lioslaith", "Lorna", "Mab", "Meabh", "Medb",
+        "Mina", "Morna", "Moyra", "Muadhnait", "Nessa", "Neve", "Nola", "Nora", "Oona", "Orna",
+        "Riona", "Sadhbh", "Shannon", "Siomha", "Slaney", "Sorcha", "Tara", "Treasa", "Una", "Ursula"
+    ],
+    "lastNames":[
+        "O'Brien", "O'Connor", "O'Doherty", "O'Farrell", "O'Flaherty", "O'Neill", "O'Reilly", "O'Sullivan", "Byrne", "Collins",
+        "Doyle", "Fitzgerald", "Flynn", "Gallagher", "Hayes", "Kavanagh", "Kelly", "Kennedy", "Lynch", "McCarthy",
+        "McDonnell", "McGrath", "McLoughlin", "Murphy", "O'Carroll", "O'Donnell", "O'Donoghue", "O'Dwyer", "O'Mahony", "O'Rourke",
+        "Quinn", "Ryan", "Sweeney", "Walsh", "Brennan", "Burke", "Casey", "Clarke", "Connolly", "Corcoran",
+        "Cullen", "Daly", "Doherty", "Doran", "Dowling", "Duffy", "Dunne", "Egan", "Farrell", "Foley",
+        "Glynn", "Griffin", "Healy", "Higgins", "Kearney", "Keating", "Keogh", "Kirwan", "Lally", "Lawless",
+        "Mannion", "Meehan", "Molloy", "Moran", "Moynihan", "Mulligan", "Nolan", "Nugent", "O'Keeffe", "O'Leary",
+        "O'Shea", "Rafferty", "Regan", "Roche", "Sheehan", "Sheridan", "Smyth", "Tobin", "Travers", "Whelan"
+    ]
+}

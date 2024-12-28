@@ -1,0 +1,26 @@
+{
+    "firstNames":[
+        "Aulus", "Aurelius", "Brutus", "Caecilius", "Caesar", "Cassius", "Cicero", "Claudius", "Cornelius", "Crispus",
+        "Decimus", "Domitius", "Drusus", "Fabian", "Felix", "Gaius", "Gnaeus", "Horatius", "Julius", "Livius",
+        "Lucius", "Marcus", "Maximus", "Nero", "Octavian", "Ovidius", "Paulus", "Pompeius", "Publius", "Quintus",
+        "Regulus", "Remus", "Romulus", "Rufus", "Sextus", "Servius", "Silvanus", "Tacitus", "Tiberius", "Tullius",
+        "Valerius", "Varius", "Vespasian", "Vitellius", "Vitus", "Vulcan", "Agrippa", "Antonius", "Balbus", "Cato",
+        "Cicero", "Constantine", "Fabius", "Flavius", "Gallus", "Germanicus", "Hortensius", "Ignatius", "Jovian", "Julius",
+        "Lepidus", "Licinius", "Longinus", "Magnus", "Marcellus", "Martialis", "Mucius", "Nerva", "Otho", "Pertinax",
+        "Pius", "Plinius", "Regulus", "Scipio", "Seneca", "Sergius", "Servius", "Spartacus", "Suetonius", "Titus",
+        "Trajan", "Tullius", "Valens", "Valerian", "Vergilius", "Vibius", "Victor", "Vitruvius", "Zeno", "Aelian",
+        "Albinus", "Appius", "Aquilinus", "Arruns", "Aulus", "Aventinus", "Belisarius", "Calvinus", "Caninius", "Carinus"
+    ],
+    "lastNames":[
+        "Agricola", "Ahenobarbus", "Albinus", "Antonius", "Aquilius", "Aurelius", "Balbinus", "Blandus", "Brutus", "Caecilius",
+        "Calpurnius", "Canidius", "Cassius", "Clodius", "Cornelius", "Domitius", "Egnatius", "Fabius", "Fabricius", "Flavius",
+        "Fulvius", "Gellius", "Horatius", "Julius", "Laelius", "Livius", "Lucretius", "Manlius", "Marcellus", "Metellus",
+        "Nonius", "Octavius", "Ostorius", "Paullus", "Plautius", "Pompeius", "Porcius", "Quinctilius", "Rutilius", "Sempronius",
+        "Servilius", "Sextius", "Silius", "Silvanus", "Tacitus", "Terentius", "Tertullian", "Ulpius", "Valerius", "Varius",
+        "Ventidius", "Verres", "Virgilius", "Vitellius", "Vulso", "Abudius", "Acilius", "Aemilius", "Afranius", "Agerius",
+        "Agerius", "Alfius", "Amatius", "Aminius", "Amulius", "Ancharius", "Annius", "Anser", "Antestius", "Atilius",
+        "Atrius", "Aufidius", "Aurelius", "Caedicius", "Caeparius", "Calidius", "Caninius", "Capito", "Carbo", "Catilina",
+        "Catius", "Celer", "Censorinus", "Cicero", "Cimber", "Cinna", "Cordus", "Cossus", "Crassus", "Dentatus",
+        "Dentatus", "Dexter", "Didius", "Domitius", "Durmius", "Epidius", "Equitius", "Fabricius", "Fadius", "Falco"
+    ]
+}

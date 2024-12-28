@@ -1,0 +1,24 @@
+{
+    "firstNames":[
+        "Ai", "An", "Bai", "Bao", "Bo", "Cai", "Chan", "Chao", "Chen", "Chun",
+        "Da", "Di", "Dong", "Fang", "Fen", "Fu", "Hua", "Huan", "Hui", "Ji",
+        "Jia", "Jie", "Jin", "Ju", "Lan", "Li", "Lian", "Lin", "Ling", "Mei",
+        "Ming", "Na", "Ning", "Pei", "Qi", "Qiao", "Qin", "Qing", "Rong", "Ru",
+        "Shan", "Shen", "Shi", "Shu", "Si", "Song", "Su", "Tian", "Ting", "Wen",
+        "Xia", "Xian", "Xiang", "Xiao", "Xin", "Xing", "Xiu", "Xu", "Ya", "Yan",
+        "Yang", "Ying", "Yong", "Yu", "Yue", "Yun", "Zan", "Zhen", "Zhi", "Zhu",
+        "Cui", "Dai", "Dongmei", "Feng", "Guiying", "Hai", "Hanying", "Jinlian", "Jing", "Lijuan",
+        "Liling", "Liqin", "Liqiu", "Liwen", "Lixue", "Liyan", "Min", "Nuo", "Qiu", "Rui",
+        "Shuang", "Suyin", "Tao", "Wei", "Xinyi", "Yajun", "Yingyue", "Yueqin", "Yunxi", "Zhilan"
+    ],
+    "lastNames":[
+        "Bai", "Cai", "Chen", "Cheng", "Cui", "Deng", "Fang", "Feng", "Gao", "Gu",
+        "Han", "Huang", "Jiang", "Jin", "Kong", "Lei", "Li", "Lin", "Liu", "Long",
+        "Ma", "Meng", "Pan", "Qian", "Qin", "Shen", "Shi", "Song", "Su", "Sun",
+        "Tan", "Tang", "Tian", "Wang", "Wei", "Wu", "Xia", "Xiang", "Xiao", "Xu",
+        "Yang", "Yao", "Ye", "Yin", "Yu", "Yuan", "Zeng", "Zhang", "Zhao", "Zheng",
+        "Zhou", "Zhu", "Bian", "Chang", "Chao", "Chun", "Dong", "Fan", "Fu", "Ge",
+        "Gong", "Hou", "Hua", "Ji", "Kang", "Lan", "Miao", "Pei", "Peng", "Qiu",
+        "Ruan", "Shou", "Tao", "Tie", "Wan", "Xue", "Yan", "Yang", "Yue", "Zhan"
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "firstNames":[
+        "Adelaide", "Agnes", "Alais", "Alienor", "Alix", "Amelie", "Aveline", "Beatrice", "Blanche", "Brunhild",
+        "Cecile", "Clotilde", "Constance", "Delphine", "Denise", "Eleanor", "Elisabeth", "Emeline", "Esclarmonde", "Eudeline",
+        "Fleur", "Francoise", "Gabrielle", "Genevieve", "Ghislaine", "Heloise", "Isabeau", "Isabelle", "Jacqueline", "Jehanne",
+        "Julienne", "Justine", "Leonie", "Lorette", "Louise", "Lucienne", "Madeleine", "Marguerite", "Mathilde", "Melisende",
+        "Nicolette", "Odile", "Orianne", "Peronelle", "Philippa", "Raphaelle", "Renee", "Romaine", "Roseline", "Sabine",
+        "Sybille", "Therese", "Valerie", "Vivienne", "Yolande", "Yseult", "Ysabel", "Alberte", "Ameline", "Aude",
+        "Azalais", "Bernadette", "Blancha", "Blandine", "Catherine", "Clarisse", "Clémence", "Diana", "Dulce", "Edelie",
+        "Emeline", "Emmeline", "Eulalie", "Felicie", "Giselle", "Guinevere", "Henriette", "Iseult", "Jeanne", "Joan",
+        "Léonor", "Lorraine", "Lucie", "Margot", "Mireille", "Ninon", "Odette", "Patricia", "Perrine", "Solange"
+    ],
+    "lastNames":[
+        "Abadie", "Allard", "Arnaud", "Aubry", "Barbier", "Beaumont", "Bernard", "Bertrand", "Bonnet", "Boucher",
+        "Bouvier", "Breton", "Chevalier", "Clément", "Couture", "David", "Dubois", "Dufour", "Dumas", "Dupont",
+        "Durand", "Fabre", "Faure", "Ferrier", "Fontaine", "Forestier", "Fortier", "Gagnon", "Garnier", "Gauthier",
+        "Girard", "Granger", "Guillot", "Hébert", "Jacques", "Joly", "Lambert", "Lapointe", "Lemoine", "Leroux",
+        "Leroy", "Martin", "Mercier", "Michel", "Moreau", "Moulin", "Noel", "Page", "Parmentier", "Pelletier",
+        "Perrin", "Pichon", "Picard", "Poirier", "Renard", "Renaud", "Rey", "Richard", "Robert", "Robin",
+        "Rousseau", "Roy", "Simon", "Thomas", "Vasseur", "Vernier", "Vincent", "Lacroix", "Leclair", "Legrand",
+        "Lejeune", "Leclerc", "Lefebvre", "Lemaitre", "Marchand", "Marin", "Morin", "Petit", "Roche", "Roussel"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "firstNames":[
+        "Arne", "Bjorn", "Canute", "Dag", "Einar", "Erik", "Finn", "Gunnar", "Halfdan", "Harald",
+        "Hjalmar", "Ivar", "Kjeld", "Leif", "Magnus", "Njal", "Olaf", "Orvar", "Ragnar", "Sigurd",
+        "Snorri", "Sten", "Sven", "Thorfinn", "Thorsten", "Torben", "Ulf", "Vidar", "Yngve", "Agnar",
+        "Alrik", "Asger", "Asmund", "Bardi", "Bersi", "Bork", "Brandr", "Egil", "Eirik", "Frode",
+        "Geir", "Gisli", "Hakon", "Havard", "Ingvar", "Knut", "Loki", "Njord", "Odd", "Rolf",
+        "Sigmund", "Skarde", "Starkad", "Styr", "Surt", "Thorbrand", "Thorgeir", "Thorgrim", "Thorkel", "Thrain",
+        "Trygve", "Ulfhedin", "Vebjorn", "Viggo", "Viking", "Yrsa", "Alf", "Arvid", "Balder", "Bo",
+        "Bragi", "Eystein", "Frey", "Gorm", "Gustav", "Hemming", "Jorund", "Ketil", "Magne", "Narvi",
+        "Sigtrygg", "Sindri", "Snaebjorn", "Stein", "Sturla", "Svein", "Thorir", "Thrainn", "Ulfar", "Vali",
+        "Vermund", "Vigfus", "Yngvar", "Ake", "Andor", "Arvid", "Bersi", "Bodil", "Eilif", "Eivind"
+    ],
+    "lastNames":[
+        "Arnesson", "Bergsson", "Canuteson", "Dagsson", "Einarsson", "Eriksson", "Finnsson", "Gunnarsson", "Halfdansson", "Haraldsson",
+        "Hjalmarrson", "Ivarsson", "Kjeldsson", "Leifsson", "Magnusson", "Njalson", "Olafsson", "Orvarsson", "Ragnarsson", "Sigurdsson",
+        "Snorrason", "Stensson", "Svensson", "Thorfinnsson", "Thorstensson", "Torbensson", "Ulfsson", "Vidarsson", "Yngvesson", "Agnarsson",
+        "Alriksson", "Asgerson", "Asmundsson", "Bardisson", "Bersisson", "Borksson", "Brandrsson", "Egilsson", "Eiriksson", "Frodeson",
+        "Geirsson", "Gislisson", "Hakonsson", "Havardsson", "Ingvarsson", "Knutsen", "Lokisson", "Njordsson", "Oddsson", "Rolfsson",
+        "Sigmundsson", "Skardesson", "Starkadsson", "Styrsson", "Surtsen", "Thorbrandsson", "Thorgeirsson", "Thorgrimsson", "Thorkelsson", "Thrainsson",
+        "Trygveson", "Ulfhedinsson", "Vebjornsson", "Viggosson", "Vikingsson", "Yrsa", "Alfsson", "Arvidsson", "Baldersson", "Bosson",
+        "Bragisson", "Eysteinson", "Freysson", "Gormsson", "Gustavsson", "Hemmingsson", "Jorundsson", "Ketilsson", "Magnesson", "Narvisson",
+        "Sigtryggsson", "Sindrisson", "Snaebjornsson", "Steinson", "Sturlasson", "Sveinsson", "Thorirsson", "Thrainnsson", "Ulfarsson", "Valisson",
+        "Vermundsson", "Vigfusson", "Yngvarsson", "Akeson", "Andorsson", "Arvidsson", "Bersisson", "Bodilsson", "Eilifsson", "Eivindsson"
+    ]
+}

@@ -106,7 +106,7 @@ export class WorldBuilderWindow extends Application {
       height: "auto",
       resizable: true,
       template: "modules/world-builder/templates/wb.hbs",
-      classes: ["worldbuilder", "sheet", "journal-sheet"],
+      classes: ["worldbuilder-form", "sheet", "journal-sheet"],
     });
   }
 

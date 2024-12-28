@@ -1,0 +1,15 @@
+{
+    "firstNames":[
+        "Bran", "Cade", "Dag", "Eld", "Finn", "Gorn", "Harl", "Ivor", "Jarl", "Kane",
+        "Lorn", "Madd", "Norr", "Orin", "Perr", "Quinn", "Ragn", "Sten", "Thor", "Ulf",
+        "Varr", "Wulf", "Xarn", "Yorr", "Zarn", "Bryn", "Cal", "Dane", "Erik", "Franz",
+        "Gunnar", "Haldor", "Ingvar", "Jorund", "Kjeld", "Lief", "Mord", "Njord", "Odin", "Pryderi",
+        "Rurik", "Sigurd", "Torin", "Ulric", "Viggo", "Wotan", "Xanth", "Yrsa", "Zoltan"
+    ],
+    "lastNames":[
+        "Bearclaw", "Boulderfist", "Brightaxe", "Cloudbreaker", "Doomhammer", "Dragonbane", "Eagleheart", "Earthshaker", "Fireforge", "Frostmane",
+        "Giantbane", "Goldenshield", "Grimwolf", "Hammerhand", "Ironfist", "Keenblade", "Lightbringer", "Lionheart", "Longspear", "Mightyaxe",
+        "Mountainbreaker", "Nightstalker", "Oathkeeper", "Quickfoot", "Ravenshield", "Rockbreaker", "Shadowhunter", "Skullcrusher", "Snowstalker", "Stonefist",
+        "Stormbringer", "Strongbow", "Swiftblade", "Thunderfist", "Treehugger", "Trollslayer", "Warbringer", "Windrider", "Wolfbrother", "Wyrmslayer"
+    ]
+}

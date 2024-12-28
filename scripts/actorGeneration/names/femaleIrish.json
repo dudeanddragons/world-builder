@@ -1,0 +1,25 @@
+{
+    "firstNames":[
+        "Ailbhe", "Aisling", "Aithne", "Aodhamair", "Aodhnait", "Bébinn", "Bláthnat", "Brigid", "Caireann", "Caoimhe",
+        "Catríona", "Ceara", "Ciara", "Clíodhna", "Dearbháil", "Deirdre", "Dervla", "Eabha", "Éadaoin", "Eibhlin",
+        "Eilis", "Eimear", "Éirinn", "Emer", "Enya", "Étaín", "Fainche", "Fionnuala", "Fionnghuala", "Gráinne",
+        "Iseult", "Laoise", "Lasairfhíona", "Liadan", "Maire", "Máirín", "Mebh", "Mór", "Muireann", "Neasa",
+        "Niamh", "Nollaig", "Orla", "Róisín", "Sadhbh", "Saoirse", "Séadna", "Síofra", "Siún", "Sorcha",
+        "Tadhg", "Tailtiu", "Tara", "Treasa", "Tuathla", "Uainín", "Úna", "Aideen", "Ailidh", "Ailis",
+        "Aoibheann", "Aoife", "Aurnia", "Beibhinn", "Branwen", "Caoilfhionn", "Caoilinn", "Catriona", "Ceibhfhionn", "Clodagh",
+        "Daireann", "Dechtire", "Dervorgilla", "Doireann", "Eadan", "Éibhleann", "Eimear", "Fainche", "Faolán", "Fiadh",
+        "Fionnuala", "Fionola", "Gormlaith", "Grainne", "Lasairfhíona", "Liadan", "Luighseach", "Mairéad", "Mealla", "Meidhbhín",
+        "Muadhnait", "Muirne", "Naoise", "Rónnat", "Saoirse", "Síle", "Síomha", "Slaine", "Sorcha", "Trian"
+    ],
+    "lastNames":[
+        "Ó Bríain", "Mac Cárthaigh", "Ó Conchobhair", "Ó Domhnaill", "Ó Donnchadha", "Mac Gabhann", "Ó Néill", "Ó Murchadha", "Ó Raghallaigh", "Ó Súilleabháin",
+        "Ó Ceallaigh", "Mac Mathúna", "Ó hEaghra", "Mac Aodhagáin", "Ó Baoighealláin", "Ó Dubhthaigh", "Mac Fhionnlaoich", "Ó Gríofa", "Mac Giolla Phádraig", "Ó Meadhra",
+        "Ó hEochaidh", "Ó Foghlú", "Ó hAodha", "Mac Laithimh", "Ó Leannáin", "Ó Lochlainn", "Ó Luinigh", "Mac Murchadha", "Ó Maolmhuire", "Ó Murchú",
+        "Ó hEadhra", "Ó Riain", "Ó Ruairc", "Mac Seáin", "Ó Tighearnaigh", "Ó Torna", "Ó Tuathail", "Ó hAnluain", "Ó hArgáin", "Mac Amhlaoibh",
+        "Ó Beoláin", "Mac Brádaigh", "Ó Brolcháin", "Ó Bruadair", "Ó Buidhe", "Mac Caisín", "Mac Cana", "Ó Carra", "Ó Catháin", "Ó Ceallaigh",
+        "Mac Ciaráin", "Mac Coitir", "Mac Conmara", "Ó Conchobhair", "Mac Craith", "Mac Cruitín", "Ó Daimhín", "Mac Diarmada", "Mac Dónaill", "Mac Donnchadha",
+        "Mac Dubhghaill", "Ó Duibhdhiorma", "Ó Duibhgheannáin", "Mac Eochadha", "Mac Fhlannchadha", "Mac Giolla Bhríde", "Mac Giolla Chomhaill", "Ó Glacáin", "Mac Gormáin", "Ó hAodha",
+        "Mac Íomhair", "Mac Laighin", "Ó Laoghaire", "Mac Liatháin", "Ó Líocháin", "Mac Lochlainn", "Mac Maoláin", "Ó Maoil Eoin", "Mac Mathghamhna", "Ó Mealla",
+        "Ó Murchadha", "Mac Neachtain", "Mac Niocaill", "Ó Nia", "Mac Raghnaill", "Mac Ruaidhrí", "Ó Seachnasaigh", "Mac Siúrtáin", "Ó Scolaighe", "Ó Treasaigh"
+    ]
+}
