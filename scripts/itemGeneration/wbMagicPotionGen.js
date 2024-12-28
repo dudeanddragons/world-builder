@@ -33,21 +33,33 @@ export class MagicPotionGenerator {
             return;
         }
 
-        const spellOptions = this.spellList
-            .map(spell => `<option value="${spell.id}">${spell.name} (Level ${spell.system.level || "N/A"})</option>`)
-            .join("");
+        const spellTypes = ["Arcane", "Divine"];
+        const spellLevels = Array.from({ length: 10 }, (_, i) => i);
 
         const dialogContent = `
             <div class="potion-generator">
                 <form>
                     <div class="form-group">
-                        <label for="spell-selector">Select a Spell:</label>
-                        <select id="spell-selector">${spellOptions}</select>
+                        <label for="type-selector">Select Spell Type:</label>
+                        <select id="type-selector">
+                            <option value="">All</option>
+                            ${spellTypes.map(type => `<option value="${type}">${type}</option>`).join("")}
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="caster-level">Caster Level:</label>
-                        <input type="number" id="caster-level" min="1" value="1" />
+                        <label for="level-selector">Select Spell Level:</label>
+                        <select id="level-selector">
+                            <option value="">All</option>
+                            ${spellLevels.map(level => `<option value="${level}">${level}</option>`).join("")}
+                        </select>
                     </div>
+                    <div class="form-group">
+                        <label for="spell-selector">Select a Spell:</label>
+                        <select id="spell-selector">
+                            <option value="">Select a spell</option>
+                        </select>
+                    </div>
+                    <button type="button" id="apply-filters">Apply Filters</button>
                     <button type="button" id="create-potion">Create Potion</button>
                 </form>
             </div>
@@ -56,13 +68,32 @@ export class MagicPotionGenerator {
         targetContainer.html(dialogContent);
 
         // Event listeners
+        targetContainer.find("#apply-filters").click(() => this.applyFilters(targetContainer));
         targetContainer.find("#create-potion").click(() => this.createPotion(targetContainer));
     }
 
-    // Create magical potion
+    // Apply filters to the spell list
+    applyFilters(targetContainer) {
+        const selectedType = targetContainer.find("#type-selector").val();
+        const selectedLevel = targetContainer.find("#level-selector").val();
+
+        const filteredSpells = this.spellList.filter(spell => {
+            const matchesType = !selectedType || spell.system.type === selectedType;
+            const matchesLevel = selectedLevel === "" || spell.system.level?.toString() === selectedLevel;
+            return matchesType && matchesLevel;
+        });
+
+        const spellOptions = filteredSpells
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map(spell => `<option value="${spell.id}">${spell.name}</option>`)
+            .join("");
+
+        targetContainer.find("#spell-selector").html(spellOptions);
+    }
+
+    // Create a magical potion
     async createPotion(targetContainer) {
         const spellId = targetContainer.find("#spell-selector").val();
-        const casterLevel = parseInt(targetContainer.find("#caster-level").val(), 10);
         const selectedSpell = game.items.get(spellId);
 
         if (!selectedSpell) {
@@ -70,36 +101,35 @@ export class MagicPotionGenerator {
             return;
         }
 
+        const spellType = selectedSpell.system.type || "Unknown";
         const spellName = selectedSpell.name;
-        const spellLevel = Math.max(1, selectedSpell.system.level || 1); // Ensure minimum level is 1
-        const potionCost = spellLevel * casterLevel * 50; // Potion cost formula: level × caster level × 50 gp
-        const xpValue = spellLevel * 50; // XP value as per schema: spell level × 50
+        const spellLevel = selectedSpell.system.level || 0;
+        const casterLevel = this.getCasterLevel(spellType, spellLevel);
+        const potionCost = this.calculatePotionCost(spellLevel, casterLevel);
+        const xpValue = spellLevel * 100; // XP value calculation: spell level × 100
 
         // Determine potion icon based on spell type
-        const spellType = selectedSpell.system.type || "Unknown";
         const potionIcon = spellType === "Arcane"
             ? "icons/consumables/potions/bottle-round-label-cork-red.webp"
             : "icons/consumables/potions/bottle-round-label-cork-blue.webp";
 
         const potionData = {
             name: `Potion of ${spellName}`,
-            type: "item", // Item type remains "item"
-            img: potionIcon, // Use the determined icon
+            type: "potion",
+            img: potionIcon,
             system: {
                 alias: "Potion",
                 attributes: {
                     magic: true,
                     rarity: "common",
-                    identified: true, // Potions are identified by default
-                    type: "Potion", // Explicitly setting the potion type
-                    material: "potions", // Material type set to "potions"
+                    identified: false,
                 },
                 description: `<p><strong>${spellName}:</strong> ${selectedSpell.system.description || "No description available."}</p>`,
                 cost: {
                     value: potionCost,
                     currency: "gp",
                 },
-                xp: xpValue, // Add xp value to the potion data
+                xp: xpValue, // Add XP value to the potion
                 actionGroups: [
                     {
                         id: foundry.utils.randomID(),
@@ -116,6 +146,24 @@ export class MagicPotionGenerator {
         };
 
         await Item.create(potionData);
-        ui.notifications.info(`Created potion: Potion of ${spellName}`);
+        ui.notifications.info(`Created unidentified potion: Potion of ${spellName}`);
+    }
+
+    // Get caster level based on spell type and level
+    getCasterLevel(type, level) {
+        const arcaneCasterLevels = {
+            1: 9, 2: 9, 3: 9, 4: 9, 5: 9,
+            6: 12, 7: 14, 8: 16, 9: 18,
+        };
+        const divineCasterLevels = {
+            1: 9, 2: 9, 3: 9, 4: 9, 5: 9,
+            6: 11, 7: 14, 8: 16, 9: 18,
+        };
+        return type === "Arcane" ? arcaneCasterLevels[level] : divineCasterLevels[level];
+    }
+
+    // Calculate potion cost
+    calculatePotionCost(level, casterLevel) {
+        return level * casterLevel * 50; // Pathfinder 1e formula for potion cost
     }
 }

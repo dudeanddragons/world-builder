@@ -2,6 +2,7 @@ let armorGenerator; // Declare globally for the armor generator
 let weaponGenerator; // Declare globally for the weapon generator
 let scrollGenerator; // Declare globally for the scroll generator
 let potionGenerator; // Declare globally for the potion generator
+let wandGenerator; // Declare globally for the wand generator
 
 export async function handleMagicItemsTab(builder, html) {
   const magicItemOptions = [
@@ -89,8 +90,15 @@ export async function handleMagicItemsTab(builder, html) {
         break;
 
       case "Wands":
-        targetContainer.html("<p>Wands generator not yet implemented.</p>");
-        builder.data.magicItems[index].embeddedContent = "Wands Generator Placeholder";
+        if (!wandGenerator) {
+          const { MagicWandGenerator } = await import('./itemGeneration/wbMagicWandGen.js');
+          wandGenerator = new MagicWandGenerator();
+          await wandGenerator.loadSpells();
+        }
+
+        console.log(`Rendering Wand Dialog for Magic Item ${index}...`);
+        wandGenerator.renderWandDialog(html, index);
+        builder.data.magicItems[index].embeddedContent = "Magic Wand Generator Loaded";
         break;
 
       case "Magic Misc":
