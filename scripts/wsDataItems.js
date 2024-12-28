@@ -1,15 +1,13 @@
-/**
- * wsDataItems.js
- * A helper module to retrieve and categorize items in the world into specified groups.
- */
-
-/**
- * Categorizes all items in the world into predefined categories.
- * @returns {Object} An object containing categorized arrays of items.
- */
 export function categorizeItems() {
     // Retrieve all items in the world
     const allItems = game.items.contents;
+
+    if (!allItems || allItems.length === 0) {
+        console.warn("No items available in the game.");
+        return {};
+    }
+
+    console.log("All Items Retrieved:", allItems);
 
     // Initialize categories
     const categories = {
@@ -34,44 +32,59 @@ export function categorizeItems() {
         const attributeType = (item.system?.attributes?.type || "none").toLowerCase(); // Normalize attribute type
         const spellType = (item.system?.type || "none").toLowerCase(); // For spells: arcane, divine, etc.
 
+        // Debug each item being processed
+        console.log(`Processing Item: ${item.name} (Type: ${type}, Magic: ${magic}, Attribute Type: ${attributeType})`);
+
         // Categorization logic
+        const itemData = {
+            id: item.id, // Include item ID
+            name: item.name,
+            type: type,
+            magic: magic,
+            system: item.system,
+            attributeType: attributeType,
+            spellType: spellType,
+        };
+
         if ((type === "item" || type === "container") && !magic && !["gem", "art"].includes(attributeType)) {
-            categories.items.push(item);
+            categories.items.push(itemData);
         }
         if (type === "armor" && !magic) {
-            categories.armor.push(item);
+            categories.armor.push(itemData);
         }
         if (type === "weapon" && !magic) {
-            categories.weapons.push(item); // Non-magic weapons
+            categories.weapons.push(itemData); // Non-magic weapons
         }
         if (type === "weapon" && magic) {
-            categories.magicWeapons.push(item); // Magic weapons
+            categories.magicWeapons.push(itemData); // Magic weapons
         }
         if (type === "currency") {
-            categories.currency.push(item);
+            categories.currency.push(itemData);
         }
         if (type === "potion") {
-            categories.potions.push(item);
+            categories.potions.push(itemData);
         }
         if (type === "container" && attributeType === "scroll" && magic) {
-            categories.scrolls.push(item); // Scrolls with `attributes.type === "scroll"` (case-insensitive)
+            categories.scrolls.push(itemData); // Scrolls with `attributes.type === "scroll"` (case-insensitive)
         }
         if (["item", "container", "potion"].includes(type) && magic) {
-            categories.magicItems.push(item);
+            categories.magicItems.push(itemData);
         }
         if (type === "item" && attributeType === "gem") {
-            categories.gems.push(item); // Gems with `attributes.type === "gem"` (case-insensitive)
+            categories.gems.push(itemData); // Gems with `attributes.type === "gem"` (case-insensitive)
         }
         if (type === "armor" && magic) {
-            categories.magicArmor.push(item);
+            categories.magicArmor.push(itemData);
         }
         if (type === "item" && ["art", "jewelry", "ring"].includes(attributeType)) {
-            categories.art.push(item); // Art with `attributes.type === "art", "jewelry", or "ring"` (case-insensitive)
+            categories.art.push(itemData); // Art with `attributes.type === "art", "jewelry", or "ring"` (case-insensitive)
         }
         if (type === "spell") {
-            categories.spells.push({ ...item, spellType }); // Spells with type information
+            categories.spells.push(itemData); // Spells with type information
         }
     }
+
+    console.log("Categorized Items:", categories);
 
     // Return categorized items
     return categories;

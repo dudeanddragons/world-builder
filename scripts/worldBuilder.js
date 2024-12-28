@@ -39,71 +39,9 @@ import {
 export class WorldBuilderWindow extends Application {
   constructor(options = {}) {
     super(options);
-  
+
     this.data = {
-      populationDensity: "Wilderness",
-      populationDensityOptions: [],
-      climateType: "Temperate",
-      climateTypeOptions: [],
-      terrainType: "",
-      terrainTypeOptions: [],
-      ruggedness: "",
-      travelTime: "",
-      encounterFrequency: "",
-      featureType: "",
-      selectedFeatureType: "",
-      selectedSubFeature: "",
-      featureDetails: {},
-      encounterResult: "",
-      isDungeon: false,
-      isCave: false,
-      dungeonFeatures: [],
-      lairFeatures: [],
-      encounterOptions: [],
-        lairRooms: [
-          {
-            lairRoomDescription: "",
-            lairRoomNotes: "",
-            lairRoomSecrets: "",
-            features: ["Room"],
-            encounters: [],
-            traps: [],
-            treasure: [],
-            collapsed: true,
-          },
-        ],      
-      caveFeatures: [],
-      lairRooms: [],
-      towns: [],
-      treasures: [],
-      magicItems: [],
-      traps: [],
-      actors: [],  
-    };
-
-        // Preload features during initialization
-        this.preloadFeatures();    
-  }
-
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      title: "World Builder",
-      width: 800,
-      height: "auto",
-      resizable: true,
-      template: "modules/world-builder/templates/wb.hbs",
-      classes: ["worldbuilder", "sheet", "journal-sheet"],
-    });
-  }
-
-
-/**
- * !!!!----------------------------------------------!!!!
- * !!!!-----------------LOAD DEFAULT-----------------!!!!
- * !!!!----------------------------------------------!!!!
- */
-  resetFormState() {
-    this.data = {
+      // Existing properties...
       populationDensity: "",
       populationDensityOptions: [],
       climateType: "",
@@ -123,6 +61,18 @@ export class WorldBuilderWindow extends Application {
       dungeonFeatures: [],
       lairFeatures: [],
       encounterOptions: [],
+      lairTreasureOptions: {
+        armor: [],
+        weapons: [],
+        potions: [],
+        scrolls: [],
+        magicItems: [],
+        magicWeapons: [],
+        gems: [],
+        magicArmor: [],
+        art: [],
+        spells: [],
+      },
       lairRooms: [
         {
           lairRoomDescription: "",
@@ -134,20 +84,105 @@ export class WorldBuilderWindow extends Application {
           treasure: [],
           collapsed: true,
         },
-      ],  
+      ],
       caveFeatures: [],
-      lairRooms: [],
       towns: [],
       treasures: [],
       magicItems: [],
       traps: [],
       actors: [],
     };
-    console.log("Form state reset to defaults.");
-      // Reset view state
-    viewState.resetState();
-    console.log("WorldBuilderWindow | Form and view state reset to defaults.");
-  }    
+    
+
+    // Preload features during initialization
+    this.preloadFeatures();
+  }
+  
+
+  static get defaultOptions() {
+    return foundry.utils.mergeObject(super.defaultOptions, {
+      title: "World Builder",
+      width: 800,
+      height: "auto",
+      resizable: true,
+      template: "modules/world-builder/templates/wb.hbs",
+      classes: ["worldbuilder", "sheet", "journal-sheet"],
+    });
+  }
+
+
+/**
+ * !!!!----------------------------------------------!!!!
+ * !!!!-----------------LOAD DEFAULT-----------------!!!!
+ * !!!!----------------------------------------------!!!!
+ */
+resetFormState() {
+  this.data = {
+    populationDensity: "",
+    populationDensityOptions: [],
+    climateType: "",
+    climateTypeOptions: [],
+    terrainType: "",
+    terrainTypeOptions: [],
+    ruggedness: "",
+    travelTime: "",
+    encounterFrequency: "",
+    featureType: "",
+    featureTypeOptions: [],
+    subFeatureType: "",
+    subFeatureTypeOptions: [],
+    featureDetails: {},
+    isDungeon: false,
+    isCave: false,
+    dungeonFeatures: [],
+    lairFeatures: [],
+    encounterOptions: [],
+    lairTreasureOptions: {
+      armor: [],
+      weapons: [],
+      potions: [],
+      scrolls: [],
+      magicItems: [],
+      magicWeapons: [],
+      gems: [],
+      magicArmor: [],
+      art: [],
+      spells: [],
+    },
+    lairRooms: [
+      {
+        lairRoomDescription: "",
+        lairRoomNotes: "",
+        lairRoomSecrets: "",
+        features: ["Room"],
+        encounters: [],
+        traps: [],
+        treasure: [],
+        collapsed: true,
+      },
+    ],
+    caveFeatures: [],
+    lairRooms: [],
+    towns: [],
+    treasures: [],
+    magicItems: [],
+    traps: [],
+    actors: [],
+  };
+
+  console.log("Form state reset to defaults.");
+
+  // Reset treasure options using categorizeItems
+  const treasureData = categorizeItems();
+  if (treasureData) {
+    this.data.lairTreasureOptions = treasureData;
+  } else {
+    console.warn("No items available for treasure options.");
+  }
+
+  console.log("Treasure options loaded into form state:", this.data.lairTreasureOptions);
+}
+ 
   
 /**
  * !!!!----------------------------------------------!!!!
@@ -383,6 +418,28 @@ async loadEncounterOptions() {
     this.data.encounterData = [];
   }
 }
+
+async loadTreasureOptions() {
+  try {
+    const categories = categorizeItems(); // Fetch categorized items from wsDataItems.js
+    if (!categories || Object.keys(categories).length === 0) {
+      console.warn("No treasure categories found.");
+      this.data.lairTreasureOptions = {}; // Reset if no categories found
+      return;
+    }
+    this.data.lairTreasureOptions = categories;
+    console.log("Lair Treasure Options Loaded:", this.data.lairTreasureOptions);
+  } catch (error) {
+    console.error("Error loading lair treasure options:", error);
+    this.data.lairTreasureOptions = {}; // Fallback to empty object
+  }
+}
+
+
+
+
+
+
 
 
 
@@ -1048,15 +1105,39 @@ async getData() {
   if (!this.data.featureTypeOptions.length) await this.loadFeatureType();
   if (!this.data.subFeatureTypeOptions.length) await this.loadSubFeatureType();
 
-  // Ensure Lair Features are preloaded
+  // Preload Lair Features
   if (!this.data.lairFeatures.length) {
     this.data.lairFeatures = await loadLairFeatures();
-    this.data.featureOptions = [...this.data.lairFeatures]; // Sync featureOptions
+    this.data.featureOptions = [...this.data.lairFeatures];
+  }
+
+  // Load Treasure Options from categorizeItems
+  if (!Object.keys(this.data.lairTreasureOptions).length) {
+    const treasureData = categorizeItems();
+    if (treasureData) {
+      this.data.lairTreasureOptions = treasureData;
+    } else {
+      console.warn("No items available for treasure options.");
+      this.data.lairTreasureOptions = {
+        armor: [],
+        weapons: [],
+        potions: [],
+        scrolls: [],
+        magicItems: [],
+        magicWeapons: [],
+        gems: [],
+        magicArmor: [],
+        art: [],
+        spells: [],
+      };
+    }
   }
 
   console.log("Final Data Sent to HBS:", this.data);
   return { ...this.data }; // Pass ALL data to the HBS template
 }
+
+
 
 
   
@@ -1189,7 +1270,9 @@ html.find(".room-entry").each((index, room) => {
   html.find(".room-entry").each((roomIndex, room) => {
     const roomData = this.data.lairRooms[roomIndex];
   
-// Add Encounter
+   // --------------------------------- \\
+  // ---------- Lair Encounter --------- \\
+ // ------------------------------------- \\
 $(room).find(".add-encounter").off("click").on("click", () => {
   roomData.encounters.push({ result: "", appearing: "" });
   this.render(false);
@@ -1276,6 +1359,92 @@ $(room).find(".remove-encounter").off("click").on("click", (event) => {
       this.render(false);
     });
   });
+  
+
+   // --------------------------------- \\
+  // ---------- Lair Treasure ---------- \\
+ // ------------------------------------- \\
+ html.find(".room-entry").each((roomIndex, room) => {
+  const roomData = this.data.lairRooms[roomIndex];
+
+  // Ensure treasure array exists
+  if (!Array.isArray(roomData.treasure)) {
+    roomData.treasure = [];
+  }
+
+  // Add Treasure
+  $(room).find(".add-treasure").off("click").on("click", () => {
+    roomData.treasure.push({ selectedCategory: "", result: "", details: "" });
+    this.render(false);
+  });
+
+  // Update Treasure Category
+  $(room).find(".treasure-category-select").each((treasureIndex, categoryDropdown) => {
+    const treasureData = roomData.treasure[treasureIndex];
+    const selectedCategory = treasureData.selectedCategory || "";
+
+    // Populate categories dynamically
+    $(categoryDropdown).empty();
+    Object.keys(this.data.lairTreasureOptions).forEach((category) => {
+      const option = new Option(category, category, category === selectedCategory, category === selectedCategory);
+      $(categoryDropdown).append(option);
+    });
+
+    // Handle selection
+    $(categoryDropdown).off("change").on("change", (event) => {
+      const selectedCategory = $(event.target).val();
+      treasureData.selectedCategory = selectedCategory;
+      treasureData.result = ""; // Reset item selection
+      treasureData.details = ""; // Clear details
+      this.render(false);
+    });
+  });
+
+  // Update Treasure Item
+  $(room).find(".treasure-select").each((treasureIndex, itemDropdown) => {
+    const treasureData = roomData.treasure[treasureIndex];
+    const selectedCategory = treasureData.selectedCategory;
+    const selectedItem = treasureData.result || "";
+
+    $(itemDropdown).empty();
+    if (selectedCategory && this.data.lairTreasureOptions[selectedCategory]) {
+      this.data.lairTreasureOptions[selectedCategory].forEach((item) => {
+        const option = new Option(item.name, item.id, item.id === selectedItem, item.id === selectedItem);
+        $(itemDropdown).append(option);
+      });
+    } else {
+      $(itemDropdown).append(new Option("No items available", "", true, true));
+    }
+
+    // Handle selection
+    $(itemDropdown).off("change").on("change", (event) => {
+      const selectedId = $(event.target).val();
+      const itemData = this.data.lairTreasureOptions[selectedCategory]?.find(item => item.id === selectedId);
+
+      if (itemData) {
+        treasureData.result = itemData.name;
+        treasureData.details = `
+          Name: ${itemData.name}; Type: ${itemData.type || "Unknown"};
+          Magic: ${itemData.magic ? "Yes" : "No"};
+          Attributes: ${JSON.stringify(itemData.system?.attributes || {}, null, 2)};
+        `.replace(/\s+/g, " ");
+        this.render(false);
+      }
+    });
+  });
+
+  // Remove Treasure
+  $(room).find(".remove-treasure").off("click").on("click", (event) => {
+    const treasureIndex = $(event.currentTarget).closest("tr").index();
+    roomData.treasure.splice(treasureIndex, 1);
+    this.render(false);
+  });
+});
+
+
+
+
+
   
 
 
