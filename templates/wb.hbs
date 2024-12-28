@@ -406,15 +406,15 @@
           <div class="magic-item-entry">
           <h4>Magic Item {{@index}}</h4>
 
-              <select class="magic-item-type-select" data-index="{{@index}}">
-                  <option value="" disabled {{#unless this.type}}selected{{/unless}}>Select a Magic Item Type</option>
-                  <option value="Magic Armor" {{#if (eq this.type "Magic Armor")}}selected{{/if}}>Magic Armor</option>
-                  <option value="Magic Weapons" {{#if (eq this.type "Magic Weapons")}}selected{{/if}}>Magic Weapons</option>
-                  <option value="Potions" {{#if (eq this.type "Potions")}}selected{{/if}}>Potions</option>
-                  <option value="Scrolls" {{#if (eq this.type "Scrolls")}}selected{{/if}}>Scrolls</option>
-                  <option value="Wands" {{#if (eq this.type "Wands")}}selected{{/if}}>Wands</option>
-                  <option value="Magic Misc" {{#if (eq this.type "Magic Misc")}}selected{{/if}}>Magic Misc</option>
-              </select>
+                  <select class="magic-item-type-select" data-index="{{@index}}">
+                      <option value="" disabled {{#unless this.type}}selected{{/unless}}>Select a Magic Item Type</option>
+                      <option value="Magic Armor" {{#if (eq this.type "Magic Armor")}}selected{{/if}}>Magic Armor</option>
+                      <option value="Magic Weapons" {{#if (eq this.type "Magic Weapons")}}selected{{/if}}>Magic Weapons</option>
+                      <option value="Potions" {{#if (eq this.type "Potions")}}selected{{/if}}>Potions</option>
+                      <option value="Scrolls" {{#if (eq this.type "Scrolls")}}selected{{/if}}>Scrolls</option>
+                      <option value="Wands" {{#if (eq this.type "Wands")}}selected{{/if}}>Wands</option>
+                      <option value="Magic Misc" {{#if (eq this.type "Magic Misc")}}selected{{/if}}>Magic Misc</option>
+                  </select>
 
               <div class="magic-item-generator-content" data-index="{{@index}}"></div>
 

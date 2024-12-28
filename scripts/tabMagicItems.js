@@ -1,4 +1,5 @@
-let armorGenerator; // Declare globally within this file, but do not initialize.
+let armorGenerator; // Declare globally for the armor generator
+let weaponGenerator; // Declare globally for the weapon generator
 
 export async function handleMagicItemsTab(builder, html) {
   const magicItemOptions = [
@@ -30,6 +31,11 @@ export async function handleMagicItemsTab(builder, html) {
 
     const targetContainer = html.find(`.magic-item-generator-content[data-index="${index}"]`);
 
+    if (!targetContainer.length) {
+      console.error(`Target container not found for Magic Item ${index}.`);
+      return;
+    }
+
     // Handle specific types
     switch (selectedType) {
       case "Magic Armor":
@@ -38,25 +44,22 @@ export async function handleMagicItemsTab(builder, html) {
           armorGenerator = new MagicArmorGenerator();
           await armorGenerator.loadItems();
         }
-      
-        const dropdown = $(this); // The dropdown that triggered the change event
-        const index = dropdown.data("index"); // Fetch the data-index attribute
-      
-        if (typeof index === "undefined") {
-          console.error("Magic item index is undefined. Ensure the dropdown has a valid data-index attribute.");
-          return;
-        }
-      
+
         console.log(`Rendering Armor Dialog for Magic Item ${index}...`);
         armorGenerator.renderArmorDialog(html, index);
         builder.data.magicItems[index].embeddedContent = "Magic Armor Generator Loaded";
         break;
-      
-      
 
       case "Magic Weapons":
-        targetContainer.html("<p>Magic Weapons generator not yet implemented.</p>");
-        builder.data.magicItems[index].embeddedContent = "Magic Weapons Generator Placeholder";
+        if (!weaponGenerator) {
+          const { MagicWeaponGenerator } = await import('./itemGeneration/wbMagicWeaponGen.js');
+          weaponGenerator = new MagicWeaponGenerator();
+          await weaponGenerator.loadItems();
+        }
+
+        console.log(`Rendering Weapon Dialog for Magic Item ${index}...`);
+        weaponGenerator.renderWeaponDialog(html, index);
+        builder.data.magicItems[index].embeddedContent = "Magic Weapon Generator Loaded";
         break;
 
       case "Potions":
