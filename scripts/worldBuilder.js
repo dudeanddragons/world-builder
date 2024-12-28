@@ -1198,6 +1198,7 @@ activateListeners(html) {
   html.find(".sub-feature-type-select").change(async () => {
     await this.updateFeatureDetails();
   });
+  
 
   // Lair Drop Down Listeners
   html.find(".features-select").each((index, dropdown) => {

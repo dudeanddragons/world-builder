@@ -41,7 +41,8 @@
     "scripts/tabTown.js",
     "scripts/tabTraps.js",
     "scripts/tabTreasure.js",
-    "scripts/mapping.js"
+    "scripts/mapping.js",
+    "scripts/itemGeneration/wbMagicArmorGen.js"
   ],
   "styles": ["styles/wb.css"],
   "template": [],
