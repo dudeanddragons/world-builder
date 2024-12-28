@@ -1,5 +1,6 @@
 let armorGenerator; // Declare globally for the armor generator
 let weaponGenerator; // Declare globally for the weapon generator
+let scrollGenerator; // Declare globally for the scroll generator
 
 export async function handleMagicItemsTab(builder, html) {
   const magicItemOptions = [
@@ -62,14 +63,21 @@ export async function handleMagicItemsTab(builder, html) {
         builder.data.magicItems[index].embeddedContent = "Magic Weapon Generator Loaded";
         break;
 
+      case "Scrolls":
+        if (!scrollGenerator) {
+          const { MagicScrollGenerator } = await import('./itemGeneration/wbMagicScrollGen.js');
+          scrollGenerator = new MagicScrollGenerator();
+          await scrollGenerator.loadSpells();
+        }
+
+        console.log(`Rendering Scroll Dialog for Magic Item ${index}...`);
+        scrollGenerator.renderScrollDialog(html, index);
+        builder.data.magicItems[index].embeddedContent = "Magic Scroll Generator Loaded";
+        break;
+
       case "Potions":
         targetContainer.html("<p>Potions generator not yet implemented.</p>");
         builder.data.magicItems[index].embeddedContent = "Potions Generator Placeholder";
-        break;
-
-      case "Scrolls":
-        targetContainer.html("<p>Scrolls generator not yet implemented.</p>");
-        builder.data.magicItems[index].embeddedContent = "Scrolls Generator Placeholder";
         break;
 
       case "Wands":

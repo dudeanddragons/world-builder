@@ -43,7 +43,8 @@
     "scripts/tabTreasure.js",
     "scripts/mapping.js",
     "scripts/itemGeneration/wbMagicArmorGen.js",
-    "scripts/itemGeneration/wbMagicWeaponGen.js"
+    "scripts/itemGeneration/wbMagicWeaponGen.js",
+    "scripts/itemGeneration/wbMagicScrollGen.js"
   ],
   "styles": ["styles/wb.css"],
   "template": [],
