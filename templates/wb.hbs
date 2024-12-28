@@ -445,25 +445,98 @@
   </section>
 
 
-  <!-- ACTORS TAB -->
-  <section class="tab-content" data-tab="actors" style="display: none;">
+<!-- ACTORS TAB -->
+<section class="tab-content" data-tab="actors" style="display: none;">
   <h3>Actors</h3>
   <button class="add-actor">Add Actor</button>
 
-      <div class="actor-list">
-      {{#each actors}}
-
-          <div class="actor-entry">
-          <h4>Actor {{@index}}</h4>
-              <textarea class="actor-description" placeholder="Description">{{this.description}}</textarea>
-              <button class="randomize-actor">Randomize</button>
-              <button class="actor-builder">Open Actor Builder</button>
+  <!-- Actor List -->
+  <div class="actor-list">
+    {{#each actors}}
+      <div class="actor-builder-ui" data-index="{{@index}}">
+        <form class="actor-builder-form">
+            <!-- Name Input -->
+          <div class="form-group">
+            <label for="name-input-{{@index}}">Name:</label>
+            <input type="text" id="name-input-{{@index}}" value="{{this.name}}" data-index="{{@index}}">
+            <label for="culture-select-{{@index}}">Culture:</label>
+            <select id="culture-select-{{@index}}" class="culture-select" data-index="{{@index}}">
+              <option value="" disabled selected>Select Culture</option>
+              <!-- Cultures will be populated dynamically -->
+            </select>
+            <button type="button" class="generate-name" data-index="{{@index}}">Generate Name</button>
+            <button type="button" class="delete-actor" data-index="{{@index}}">Delete Actor</button>
           </div>
 
-      {{/each}}
+          <!-- Race Selection -->
+          <div class="form-group">
+            <label for="race-select-{{@index}}">Race:</label>
+            <select id="race-select-{{@index}}" data-index="{{@index}}">
+              <option value="" disabled selected>Select Race</option>
+              <option value="Human" {{#if (eq this.race "Human")}}selected{{/if}}>Human</option>
+              <option value="Elf" {{#if (eq this.race "Elf")}}selected{{/if}}>Elf</option>
+              <option value="Dwarf" {{#if (eq this.race "Dwarf")}}selected{{/if}}>Dwarf</option>
+            </select>
+          </div>
+
+          <!-- Class Selection -->
+          <div class="form-group">
+            <label for="class-select-1-{{@index}}">Class 1:</label>
+            <select id="class-select-1-{{@index}}" data-index="{{@index}}">
+              <option value="" disabled selected>Select Class</option>
+              <option value="Fighter" {{#if (eq this.class1 "Fighter")}}selected{{/if}}>Fighter</option>
+              <option value="Wizard" {{#if (eq this.class1 "Wizard")}}selected{{/if}}>Wizard</option>
+            </select>
+          </div>
+
+          <!-- Equipment -->
+          <div class="form-group">
+            <label for="equipment-select-{{@index}}">Equipment Package:</label>
+            <select id="equipment-select-{{@index}}" data-index="{{@index}}">
+              <option value="" disabled selected>Select Equipment Package</option>
+              <option value="warrior" {{#if (eq this.equipmentPackage "warrior")}}selected{{/if}}>Warrior</option>
+              <option value="paladin" {{#if (eq this.equipmentPackage "paladin")}}selected{{/if}}>Paladin</option>
+              <option value="wizard" {{#if (eq this.equipmentPackage "wizard")}}selected{{/if}}>Wizard</option>
+              <option value="priest" {{#if (eq this.equipmentPackage "priest")}}selected{{/if}}>Priest</option>
+              <option value="druid" {{#if (eq this.equipmentPackage "druid")}}selected{{/if}}>Druid</option>
+              <option value="rogue" {{#if (eq this.equipmentPackage "rogue")}}selected{{/if}}>Rogue</option>
+              <option value="bard" {{#if (eq this.equipmentPackage "bard")}}selected{{/if}}>Bard</option>
+            </select>
+            <button type="button" class="build-equipment" data-index="{{@index}}">Build Equipment</button>
+          </div>
+
+          <!-- Generated Equipment -->
+          <div class="generated-equipment">
+            <h3>Generated Equipment</h3>
+            <table id="equipment-table-{{@index}}">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Populated dynamically -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Ability Scores -->
+          <div class="ability-scores">
+            <h3>Generated Ability Scores</h3>
+            <div id="ability-scores-section-{{@index}}">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </form>
       </div>
-      
-  </section>
+    {{/each}}
+  </div>
+</section>
+
+
+
 
   </form>
 
