@@ -1,6 +1,7 @@
 export function handleActorsTab(builder, html) {
   let mappedNames = null;
   let raceData = []; // Store race items for dropdown
+  let classData = []; // Store class items for dropdown
 
   // Load the mappedNames.json file dynamically
   async function loadMappedNames() {
@@ -32,6 +33,21 @@ export function handleActorsTab(builder, html) {
     }
   }
 
+  // Load class items from the game items
+  async function loadClassItems() {
+    try {
+      const classes = game.items.filter((item) => item.type === "class");
+      classData = classes.map((cls) => ({
+        uuid: cls.uuid,
+        name: cls.name,
+      }));
+      console.log("Class Data Loaded:", classData);
+    } catch (error) {
+      console.error("Error loading class items:", error);
+      ui.notifications.error("Failed to load class items. Please check the console for details.");
+    }
+  }
+
   // Populate culture options dynamically, including gender-specific options
   function populateCultures() {
     if (!mappedNames) return;
@@ -57,6 +73,26 @@ export function handleActorsTab(builder, html) {
     });
   }
 
+// Populate class dropdown dynamically
+function populateClasses() {
+  html.find(".class-select").each((index, select) => {
+    $(select).empty();
+    // Add "None" as the first option
+    $(select).append('<option value="none" selected>None</option>');
+    // Add all other classes dynamically
+    classData.forEach((cls) => {
+      $(select).append(`<option value="${cls.uuid}">${cls.name}</option>`);
+    });
+
+    // Pre-select the class if already set
+    const actorIndex = $(select).data("index");
+    const classIndex = $(select).data("class-index");
+    const actorClassUuid = builder.data.actors[actorIndex]?.[`class${classIndex}`]?.uuid || "none";
+    $(select).val(actorClassUuid);
+  });
+}
+
+
   // Add a new actor to the list
   html.find(".add-actor").click(() => {
     if (!builder.data.actors) builder.data.actors = [];
@@ -64,6 +100,9 @@ export function handleActorsTab(builder, html) {
     builder.data.actors.push({
       name: "",
       race: null,
+      class1: { uuid: "none", name: "None" }, // Default to none
+      class2: { uuid: "none", name: "None" }, // Default to none
+      class3: { uuid: "none", name: "None" }, // Default to none
       culture: null,
       gender: "female", // Default gender
     });
@@ -99,6 +138,22 @@ export function handleActorsTab(builder, html) {
       builder.data.actors[index].race = {
         uuid: selectedRace.uuid,
         name: selectedRace.name,
+      };
+    }
+  });
+
+  // Update the selected class for an actor (primary, secondary, tertiary)
+  html.on("change", ".class-select", function () {
+    const index = $(this).data("index");
+    const classIndex = $(this).data("class-index"); // Identifies which class selector (1, 2, or 3)
+    const selectedUuid = $(this).val();
+    const selectedClass = classData.find((cls) => cls.uuid === selectedUuid);
+
+    if (selectedClass) {
+      const classKey = `class${classIndex}`;
+      builder.data.actors[index][classKey] = {
+        uuid: selectedClass.uuid,
+        name: selectedClass.name,
       };
     }
   });
@@ -168,8 +223,9 @@ export function handleActorsTab(builder, html) {
   }
 
   // Load initial data
-  Promise.all([loadMappedNames(), loadRaceItems()]).then(() => {
+  Promise.all([loadMappedNames(), loadRaceItems(), loadClassItems()]).then(() => {
     populateCultures();
     populateRaces();
+    populateClasses();
   });
 }
