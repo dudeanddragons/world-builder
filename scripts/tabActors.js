@@ -167,21 +167,31 @@ export function handleActorsTab(builder, html) {
   function updateAbilityScores(method, rolls, actorIndex) {
     const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
     const defaultScore = 8;
-  
+
     abilities.forEach((ability, i) => {
-      const totalElement = document.querySelector(`#total-score-${actorIndex}-${ability}`);
-  
-      // Safeguard: Ensure the element exists before modifying it
-      if (!totalElement) {
-        console.error(`Element #total-score-${actorIndex}-${ability} not found`);
-        return;
-      }
-  
-      // Set the total to either the rolled value or the default
-      const total = rolls?.[i]?.total || defaultScore;
-      totalElement.textContent = total;
+        const totalElement = document.querySelector(`#total-score-${actorIndex}-${ability}`);
+
+        // Safeguard: Ensure the element exists before modifying it
+        if (!totalElement) {
+            console.error(`Element #total-score-${actorIndex}-${ability} not found`);
+            return;
+        }
+
+        // Determine the score based on the roll method
+        let total;
+        if (method === "method2") {
+            // For Method II, use the chosen value
+            total = rolls[i]?.chosen || defaultScore;
+        } else {
+            // For other methods, use the total value
+            total = rolls[i]?.total || defaultScore;
+        }
+
+        // Update the UI with the calculated score
+        totalElement.textContent = total;
     });
-  }
+}
+
   
   
   
@@ -293,37 +303,59 @@ export function handleActorsTab(builder, html) {
     renderEquipmentTable(index, equipment);
   });
 
-  html.on("change", ".roll-method-select", async function () {
+  html.on("click", ".roll-method-button", async function () {
     const actorIndex = $(this).data("index");
-    const rollMethod = $(this).val();
-  
+    const rollMethod = $(this).data("method");
+
     let rolls = null;
+
     try {
-      switch (rollMethod) {
-        case "method1":
-          rolls = await rollMethodI();
-          break;
-        case "method2":
-          rolls = await rollMethodII();
-          break;
-        case "method3":
-          rolls = await rollMethodIII();
-          break;
-        case "method4":
-          rolls = await rollMethodIV();
-          break;
-        case "method5":
-          rolls = await rollMethodV();
-          break;
-        case "method6":
-          rolls = await rollMethodVI();
-          break;
-      }
-      if (rolls) updateAbilityScores(rollMethod, rolls, actorIndex);
+        switch (rollMethod) {
+            case "method1":
+                rolls = await rollMethodI();
+                break;
+            case "method2":
+                rolls = await rollMethodII();
+                break;
+            case "method3":
+                rolls = await rollMethodIII();
+                break;
+            case "method4":
+                rolls = await rollMethodIV();
+                break;
+            case "method5":
+                rolls = await rollMethodV();
+                break;
+            case "method6":
+                rolls = await rollMethodVI();
+                break;
+            case "dmchoice":
+                // DM manual input logic
+                console.log("DM Choice selected: Please enter values manually.");
+                return;
+        }
+
+        if (rolls) {
+            const updatedAbilities = {};
+
+            // Process rolls dynamically
+            rolls.forEach((roll, i) => {
+                const ability = Object.keys(builder.data.actors[actorIndex].abilities)[i];
+                updatedAbilities[ability] = roll.chosen || roll.total || 8; // Use appropriate value for method
+            });
+
+            // Update the actor's abilities
+            builder.data.actors[actorIndex].abilities = updatedAbilities;
+
+            // Reflect the changes in the UI
+            updateAbilityScores(rollMethod, rolls, actorIndex);
+        }
     } catch (error) {
-      console.error(`Error in roll method '${rollMethod}':`, error);
+        console.error(`Error in roll method '${rollMethod}':`, error);
     }
-  });
+});
+
+
   
   
   

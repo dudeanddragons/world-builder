@@ -565,20 +565,22 @@
 <div class="ability-scores">
   <h3>Ability Scores</h3>
 
-  <!-- Dropdown for Roll Method Selection -->
-  <div class="form-group">
-    <label for="roll-method-{{@index}}">Select Roll Method:</label>
-    <select id="roll-method-{{@index}}" class="roll-method-select" data-index="{{@index}}">
-      <option value="" disabled selected>Select Roll Method</option>
-      <option value="method1">Method I: 3d6 in Order</option>
-      <option value="method2">Method II: 3d6 Twice, Keep Higher</option>
-      <option value="method3">Method III: 3d6, Assign as Desired</option>
-      <option value="method4">Method IV: 3d6 x12, Choose Best 6</option>
-      <option value="method5">Method V: 4d6, Drop Lowest</option>
-      <option value="method6">Method VI: 7d6 Assigned</option>
-      <option value="dmchoice">DM Choice: Manual Entry</option>
-    </select>
-  </div>
+<!-- Roll Method Buttons -->
+<div class="form-group">
+  <label for="roll-method-{{@index}}">Roll Methods:</label>
+  <table class="roll-method-buttons">
+    <tr>
+      <td><button type="button" id="roll-dmchoice-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="dmchoice">DM</button></td>
+      <td><button type="button" id="roll-method1-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method1">M-I</button></td>
+      <td><button type="button" id="roll-method2-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method2">M-II</button></td>
+      <td><button type="button" id="roll-method3-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method3">M-III</button></td>
+      <td><button type="button" id="roll-method4-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method4">M-IV</button></td>
+      <td><button type="button" id="roll-method5-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method5">M-V</button></td>
+      <td><button type="button" id="roll-method6-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method6">M-VI</button></td>
+    </tr>
+  </table>
+</div>
+
 
   <!-- Ability Scores Table -->
   <table class="ability-scores-table">

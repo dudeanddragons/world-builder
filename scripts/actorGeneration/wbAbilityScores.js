@@ -20,11 +20,11 @@ export async function rollMethodI() {
 }
 
 export async function rollMethodII() {
-    const abilities = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
+    const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
 
     // Roll 3d6 twice for each ability
     const rolls = await Promise.all(
-        abilities.map(async () => {
+        abilities.map(async (ability) => {
             const roll1 = new Roll("3d6");
             const roll2 = new Roll("3d6");
 
@@ -38,19 +38,26 @@ export async function rollMethodII() {
 
             const chosenRoll = roll1.total >= roll2.total ? roll1 : roll2;
 
+            // Debug logs
+            console.log(`Ability: ${ability}`);
+            console.log(`  Roll 1: ${roll1.total}, Rolls: ${roll1.dice[0].results.map((r) => r.result)}`);
+            console.log(`  Roll 2: ${roll2.total}, Rolls: ${roll2.dice[0].results.map((r) => r.result)}`);
+            console.log(`  Chosen: ${chosenRoll.total}`);
+
             return {
+                ability,
                 roll1: roll1.total,
                 roll2: roll2.total,
                 chosen: chosenRoll.total,
                 individualRolls1: roll1.dice[0].results.map((r) => r.result),
                 individualRolls2: roll2.dice[0].results.map((r) => r.result),
-                chosenRolls: chosenRoll.dice[0].results.map((r) => r.result),
             };
         })
     );
 
     return rolls;
 }
+
 
 export async function rollMethodIII() {
     const rolls = await Promise.all(
