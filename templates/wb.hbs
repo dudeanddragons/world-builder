@@ -457,25 +457,50 @@
         <form class="actor-builder-form">
             <!-- Name Input -->
           <div class="form-group">
-            <label for="name-input-{{@index}}">Name:</label>
-            <input type="text" id="name-input-{{@index}}" value="{{this.name}}" data-index="{{@index}}">
-            <label for="culture-select-{{@index}}">Culture:</label>
-            <select id="culture-select-{{@index}}" class="culture-select" data-index="{{@index}}">
-              <option value="" disabled selected>Select Culture</option>
-              <!-- Cultures will be populated dynamically -->
-            </select>
-            <button type="button" class="generate-name" data-index="{{@index}}">Generate Name</button>
-            <button type="button" class="delete-actor" data-index="{{@index}}">Delete Actor</button>
+            <table class="actor-details-table">
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Culture</th>
+                <th></th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <!-- Name Input -->
+                <td>
+                    <label for="name-input-{{@index}}" class="visually-hidden"></label>
+                    <input type="text" id="name-input-{{@index}}" value="{{this.name}}" data-index="{{@index}}" placeholder="Enter Name">
+                </td>
+
+                <!-- Culture Selection -->
+                <td>
+                    <label for="culture-select-{{@index}}" class="visually-hidden"></label>
+                    <select id="culture-select-{{@index}}" class="culture-select" data-index="{{@index}}">
+                    <option value="" disabled selected>Select Culture</option>
+                    <!-- Cultures will be populated dynamically -->
+                    </select>
+                </td>
+
+                <!-- Actions -->
+                <td>
+                    <button type="button" class="generate-name" data-index="{{@index}}">Generate Name</button>
+                </td>
+                <td>
+                    <button type="button" class="delete-actor" data-index="{{@index}}">Delete Actor</button>
+                </td>
+                </tr>
+            </tbody>
+            </table>
           </div>
 
           <!-- Race Selection -->
           <div class="form-group">
             <label for="race-select-{{@index}}">Race:</label>
-            <select id="race-select-{{@index}}" data-index="{{@index}}">
-              <option value="" disabled selected>Select Race</option>
-              <option value="Human" {{#if (eq this.race "Human")}}selected{{/if}}>Human</option>
-              <option value="Elf" {{#if (eq this.race "Elf")}}selected{{/if}}>Elf</option>
-              <option value="Dwarf" {{#if (eq this.race "Dwarf")}}selected{{/if}}>Dwarf</option>
+            <select id="race-select-{{@index}}" class="race-select" data-index="{{@index}}">
+            <option value="" disabled selected>Select Race</option>
+            <!-- Races will be populated dynamically -->
             </select>
           </div>
 

@@ -1,14 +1,14 @@
 export function handleActorsTab(builder, html) {
-  // Load the mappedNames.json file dynamically
   let mappedNames = null;
+  let raceData = []; // Store race items for dropdown
 
+  // Load the mappedNames.json file dynamically
   async function loadMappedNames() {
     try {
       const response = await fetch("modules/world-builder/scripts/actorGeneration/mappedNames.json");
       if (!response.ok) {
         throw new Error(`Failed to fetch mappedNames.json: ${response.statusText}`);
       }
-
       mappedNames = await response.json();
       console.log("Mapped Names Loaded:", mappedNames);
     } catch (error) {
@@ -17,18 +17,43 @@ export function handleActorsTab(builder, html) {
     }
   }
 
+  // Load race items from the game items
+  async function loadRaceItems() {
+    try {
+      const races = game.items.filter((item) => item.type === "race");
+      raceData = races.map((race) => ({
+        uuid: race.uuid,
+        name: race.name,
+      }));
+      console.log("Race Data Loaded:", raceData);
+    } catch (error) {
+      console.error("Error loading race items:", error);
+      ui.notifications.error("Failed to load race items. Please check the console for details.");
+    }
+  }
+
   // Populate culture options dynamically, including gender-specific options
   function populateCultures() {
     if (!mappedNames) return;
 
     const cultures = Object.keys(mappedNames.nameFiles.female); // Assuming male and female share the same cultures
-    const dropdown = html.find(".culture-select");
+    html.find(".culture-select").each((index, select) => {
+      $(select).empty();
+      $(select).append('<option value="" disabled selected>Select Culture and Gender</option>');
+      cultures.forEach((culture) => {
+        $(select).append(`<option value="female-${culture}">Female ${culture}</option>`);
+        $(select).append(`<option value="male-${culture}">Male ${culture}</option>`);
+      });
+    });
+  }
 
-    dropdown.empty();
-    dropdown.append('<option value="" disabled selected>Select Culture and Gender</option>');
-    cultures.forEach((culture) => {
-      dropdown.append(`<option value="female-${culture}">Female ${culture}</option>`);
-      dropdown.append(`<option value="male-${culture}">Male ${culture}</option>`);
+  // Populate race dropdown dynamically
+  function populateRaces() {
+    html.find(".race-select").each((index, select) => {
+      $(select).empty().append('<option value="" disabled selected>Select Race</option>');
+      raceData.forEach((race) => {
+        $(select).append(`<option value="${race.uuid}">${race.name}</option>`);
+      });
     });
   }
 
@@ -64,6 +89,20 @@ export function handleActorsTab(builder, html) {
     builder.data.actors[index].culture = culture;
   });
 
+  // Update the selected race for an actor
+  html.on("change", ".race-select", function () {
+    const index = $(this).data("index");
+    const selectedUuid = $(this).val();
+    const selectedRace = raceData.find((race) => race.uuid === selectedUuid);
+
+    if (selectedRace) {
+      builder.data.actors[index].race = {
+        uuid: selectedRace.uuid,
+        name: selectedRace.name,
+      };
+    }
+  });
+
   // Generate a random name for an actor
   html.on("click", ".generate-name", async function () {
     const index = $(this).data("index");
@@ -77,46 +116,21 @@ export function handleActorsTab(builder, html) {
     }
 
     const nameFilePath = `modules/world-builder/${mappedNames.nameFiles[gender][culture]}`;
-
     try {
       const response = await fetch(nameFilePath);
       if (!response.ok) {
         throw new Error(`Failed to fetch name file: ${response.statusText}`);
       }
-
       const nameData = await response.json();
       const firstName = nameData.firstNames[Math.floor(Math.random() * nameData.firstNames.length)];
       const lastName = nameData.lastNames[Math.floor(Math.random() * nameData.lastNames.length)];
       const fullName = `${firstName} ${lastName}`;
-
       actor.name = fullName;
       $(`#name-input-${index}`).val(fullName);
     } catch (error) {
       console.error(`Failed to load name file for ${culture} (${gender}):`, error);
       ui.notifications.error("Failed to generate name. Please check the console for details.");
     }
-  });
-
-  // Hook into Foundry's lifecycle to update UI when rendered
-  Hooks.once("renderWorldBuilderWindow", () => {
-    populateCultures();
-  });
-
-  // Load the mappedNames.json file and populate cultures on initialization
-  loadMappedNames().then(() => {
-    populateCultures();
-  });
-
-  // Update race selection
-  html.on("change", "[id^='race-select-']", function () {
-    const index = $(this).data("index");
-    builder.data.actors[index].race = $(this).val();
-  });
-
-  // Update class selection
-  html.on("change", "[id^='class-select-']", function () {
-    const index = $(this).data("index");
-    builder.data.actors[index].class1 = $(this).val();
   });
 
   // Generate equipment
@@ -152,4 +166,10 @@ export function handleActorsTab(builder, html) {
       renderEquipmentTable(actorIndex, builder.data.actors[actorIndex].equipment);
     });
   }
+
+  // Load initial data
+  Promise.all([loadMappedNames(), loadRaceItems()]).then(() => {
+    populateCultures();
+    populateRaces();
+  });
 }
