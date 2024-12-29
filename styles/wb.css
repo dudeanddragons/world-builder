@@ -305,3 +305,53 @@ legend {
   overflow: hidden;
   background-color: var(--wb-purple-light);
 }
+
+.wb-roll-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  justify-content: center;
+}
+
+.wb-dice-unit {
+  display: flex;
+  align-items: center;;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  cursor: grab;
+  justify-content: center;
+}
+        .wb-dice-unit .wb-die {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #000;
+            background: #ddd;
+        }
+        .wb-dice-unit .wb-die.lowest {
+            background: #ffcccc;
+            text-decoration: line-through;
+        }
+        .wb-drop-zone {
+          width: 100px;
+          height: 50px;
+          border: 1px dashed #ccc;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #f9f9f9;
+          cursor: pointer;
+          margin: 5px 0;
+          transition: var(--wb-red) 0.2s ease;
+      }
+
+      .wb-drop-zone.hovered {
+        background: #e3e3e3; /* Highlight when hovered */
+    }
+    
+    .wb-dice-unit.dragging {
+        opacity: 0.5; /* Reduce opacity of dragged dice */
+        background: #dcdcdc;
+    }

@@ -565,28 +565,27 @@
 <div class="ability-scores">
   <h3>Ability Scores</h3>
 
-<!-- Roll Method Buttons -->
-<div class="form-group">
-  <label for="roll-method-{{@index}}">Roll Methods:</label>
-  <table class="roll-method-buttons">
-    <tr>
-      <td><button type="button" id="roll-dmchoice-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="dmchoice">DM</button></td>
-      <td><button type="button" id="roll-method1-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method1">M-I</button></td>
-      <td><button type="button" id="roll-method2-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method2">M-II</button></td>
-      <td><button type="button" id="roll-method3-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method3">M-III</button></td>
-      <td><button type="button" id="roll-method4-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method4">M-IV</button></td>
-      <td><button type="button" id="roll-method5-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method5">M-V</button></td>
-      <td><button type="button" id="roll-method6-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method6">M-VI</button></td>
-    </tr>
-  </table>
-</div>
-
+  <!-- Roll Method Buttons -->
+  <div class="form-group">
+    <table class="roll-method-buttons">
+      <tr>
+        <td><button type="button" id="roll-dmchoice-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="dmchoice">DM's Option</button></td>
+        <td><button type="button" id="roll-method1-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method1">Method I</button></td>
+        <td><button type="button" id="roll-method2-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method2">Method II</button></td>
+        <td><button type="button" id="roll-method3-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method3">Method III</button></td>
+        <td><button type="button" id="roll-method4-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method4">Method IV</button></td>
+        <td><button type="button" id="roll-method5-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method5">Method V</button></td>
+        <td><button type="button" id="roll-method6-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method6">Method VI</button></td>
+      </tr>
+    </table>
+  </div>
 
   <!-- Ability Scores Table -->
   <table class="ability-scores-table">
     <thead>
       <tr>
         <th>Ability</th>
+        <th>Assigned</th>
         <th>Total</th>
       </tr>
     </thead>
@@ -595,13 +594,23 @@
       <tr>
         <td>{{@key}}</td>
         <td>
+          <div id="assigned-score-{{@../index}}-{{@key}}" class="assigned-score drop-zone" data-index="{{@../index}}" data-ability="{{@key}}"></div>
+        </td>
+        <td>
           <span id="total-score-{{@../index}}-{{@key}}" class="ability-total">{{this}}</span>
         </td>
       </tr>
       {{/each}}
     </tbody>
   </table>
+
+  <!-- Rolled Results -->
+  <div id="roll-container-{{@index}}" class="roll-container">
+    <!-- Dynamically filled with dice groups -->
+  </div>
 </div>
+
+
 
 
 

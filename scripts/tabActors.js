@@ -194,11 +194,6 @@ export function handleActorsTab(builder, html) {
 
   
   
-  
-  
-  
-  
-  
 
   // Delete an actor from the list
   html.on("click", ".delete-actor", function () {
@@ -303,57 +298,250 @@ export function handleActorsTab(builder, html) {
     renderEquipmentTable(index, equipment);
   });
 
-  html.on("click", ".roll-method-button", async function () {
-    const actorIndex = $(this).data("index");
-    const rollMethod = $(this).data("method");
 
-    let rolls = null;
 
-    try {
-        switch (rollMethod) {
-            case "method1":
-                rolls = await rollMethodI();
-                break;
-            case "method2":
-                rolls = await rollMethodII();
-                break;
-            case "method3":
-                rolls = await rollMethodIII();
-                break;
-            case "method4":
-                rolls = await rollMethodIV();
-                break;
-            case "method5":
-                rolls = await rollMethodV();
-                break;
-            case "method6":
-                rolls = await rollMethodVI();
-                break;
-            case "dmchoice":
-                // DM manual input logic
-                console.log("DM Choice selected: Please enter values manually.");
+
+
+
+
+
+
+
+
+
+// ABILITY SCORE BUTTON CLICK LISTENERS
+html.on("click", ".roll-method-button", async function () {
+  const actorIndex = $(this).data("index");
+  const rollMethod = $(this).data("method");
+
+  let rolls = null;
+
+  try {
+      switch (rollMethod) {
+          case "method1":
+              rolls = await rollMethodI();
+              break;
+          case "method2":
+              rolls = await rollMethodII();
+              break;
+          case "method3":
+              // Render drag-and-drop fields and process Method III
+              renderDragDropFields(actorIndex);
+              rolls = await rollMethodIII();
+              renderDiceResults(actorIndex, rolls);
+              enableDragDrop(actorIndex, rolls);
+              break;
+          case "method4":
+              rolls = await rollMethodIV();
+              break;
+          case "method5":
+              rolls = await rollMethodV();
+              break;
+          case "method6":
+              rolls = await rollMethodVI();
+              break;
+          case "dmchoice":
+              console.log("DM Choice selected: Please enter values manually.");
+              return;
+      }
+
+      // Handle rolls for methods other than Method III
+      if (rolls && rollMethod !== "method3") {
+          const updatedAbilities = {};
+
+          rolls.forEach((roll, i) => {
+              const ability = Object.keys(builder.data.actors[actorIndex].abilities)[i];
+              updatedAbilities[ability] = roll.chosen || roll.total || 8;
+          });
+
+          // Update actor's abilities and UI
+          builder.data.actors[actorIndex].abilities = updatedAbilities;
+          updateAbilityScores(rollMethod, rolls, actorIndex);
+      }
+  } catch (error) {
+      console.error(`Error in roll method '${rollMethod}':`, error);
+  }
+});
+
+
+
+
+
+
+
+// RENDER DRAG AND DROP FIELDS
+async function renderDiceResults(actorIndex, rolls) {
+  let rollContainer = document.querySelector(`#roll-container-${actorIndex}`);
+  if (!rollContainer) {
+      rollContainer = document.createElement("div");
+      rollContainer.id = `roll-container-${actorIndex}`;
+      rollContainer.classList.add("wb-roll-container"); // Use the correct class here
+      const abilityScoresTable = document.querySelector(".ability-scores-table");
+      if (abilityScoresTable) {
+          abilityScoresTable.parentNode.appendChild(rollContainer);
+      } else {
+          console.error("Ability Scores Table not found. Cannot append roll container.");
+          return;
+      }
+  }
+
+  // Ensure the container has the correct class
+  rollContainer.classList.add("wb-roll-container");
+
+  rollContainer.innerHTML = ""; // Clear previous rolls
+
+  // Render each dice group
+  rolls.forEach((roll, index) => {
+      const diceGroup = document.createElement("div");
+      diceGroup.classList.add("wb-dice-unit");
+      diceGroup.dataset.rollIndex = index;
+      diceGroup.dataset.value = roll.total;
+
+      roll.individualRolls.forEach((die) => {
+          const dieElement = document.createElement("div");
+          dieElement.classList.add("wb-die");
+          dieElement.textContent = die;
+          diceGroup.appendChild(dieElement);
+      });
+
+      rollContainer.appendChild(diceGroup); // Add dice group to container
+  });
+}
+
+
+
+
+
+
+// ENABLE DRAG AND DROP FIELDS
+function renderDragDropFields(actorIndex) {
+    const abilityScoresTable = document.querySelector(".ability-scores-table");
+    if (!abilityScoresTable) {
+        console.error("Ability scores table not found.");
+        return;
+    }
+
+    const rows = abilityScoresTable.querySelectorAll("tbody tr");
+
+    rows.forEach((row, i) => {
+        const ability = Object.keys(builder.data.actors[actorIndex].abilities)[i];
+
+        // Ensure a drop zone is added for each ability
+        if (!row.querySelector(`.wb-drop-zone[data-ability="${ability}"]`)) {
+            const dropZoneCell = document.createElement("td");
+            const dropZone = document.createElement("div");
+
+            dropZone.classList.add("wb-drop-zone");
+            dropZone.dataset.index = actorIndex;
+            dropZone.dataset.ability = ability;
+
+            dropZoneCell.appendChild(dropZone);
+            row.insertBefore(dropZoneCell, row.children[1]); // Insert drop zone after ability name
+        }
+    });
+}
+
+function enableDragDrop(actorIndex, rolls) {
+    const rollContainer = document.querySelector(`#roll-container-${actorIndex}`);
+    const dropZones = document.querySelectorAll(`[id^="assigned-score-${actorIndex}-"]`);
+
+    if (!rollContainer) {
+        console.error(`Roll container for actor index ${actorIndex} not found.`);
+        return;
+    }
+
+    // Make dice groups draggable
+    const diceGroups = rollContainer.querySelectorAll(".wb-dice-unit");
+    diceGroups.forEach((group) => {
+        group.draggable = true;
+
+        // When dragging starts
+        group.addEventListener("dragstart", (e) => {
+            e.dataTransfer.setData("text/plain", JSON.stringify({
+                rollIndex: group.dataset.rollIndex,
+                value: group.dataset.value
+            }));
+            group.classList.add("dragging");
+        });
+
+        // When dragging ends
+        group.addEventListener("dragend", () => {
+            group.classList.remove("dragging");
+        });
+    });
+
+    // Set up drop zones
+    dropZones.forEach((zone) => {
+        zone.addEventListener("dragover", (e) => {
+            e.preventDefault(); // Allow drop
+            zone.classList.add("hovered");
+        });
+
+        zone.addEventListener("dragleave", () => {
+            zone.classList.remove("hovered");
+        });
+
+        zone.addEventListener("drop", (e) => {
+            e.preventDefault();
+            zone.classList.remove("hovered");
+
+            const data = JSON.parse(e.dataTransfer.getData("text/plain"));
+
+            // Locate the dragged dice group
+            const draggedGroup = rollContainer.querySelector(`[data-roll-index="${data.rollIndex}"]`);
+            if (!draggedGroup) {
+                console.error("Dragged dice group not found.");
                 return;
-        }
+            }
 
-        if (rolls) {
-            const updatedAbilities = {};
+            // Check if this drop zone already has a dice group
+            const existingValue = zone.dataset.value || null;
+            if (existingValue) {
+                // Find the existing dice group in the roll container
+                const existingGroup = rollContainer.querySelector(`[data-value="${existingValue}"]`);
+                if (existingGroup) {
+                    // Return the existing group to the roll container
+                    rollContainer.appendChild(existingGroup);
+                }
+            }
 
-            // Process rolls dynamically
-            rolls.forEach((roll, i) => {
-                const ability = Object.keys(builder.data.actors[actorIndex].abilities)[i];
-                updatedAbilities[ability] = roll.chosen || roll.total || 8; // Use appropriate value for method
-            });
+            // Assign the dragged dice group to the drop zone
+            zone.dataset.value = data.value;
+            zone.textContent = data.value;
 
-            // Update the actor's abilities
-            builder.data.actors[actorIndex].abilities = updatedAbilities;
+            // Remove the dragged dice group from the roll container
+            draggedGroup.remove();
 
-            // Reflect the changes in the UI
-            updateAbilityScores(rollMethod, rolls, actorIndex);
-        }
-    } catch (error) {
-        console.error(`Error in roll method '${rollMethod}':`, error);
+            // Update the associated ability score in the UI
+            const abilityName = zone.dataset.ability;
+            const totalElement = document.querySelector(`#total-score-${actorIndex}-${abilityName}`);
+            if (totalElement) {
+                totalElement.textContent = data.value;
+            }
+        });
+    });
+}
+
+
+
+
+
+// Event listener for assigning scores in Method III
+html.on("input", ".assigned-score", function () {
+    const actorIndex = $(this).data("actor-index");
+    const ability = $(this).data("ability");
+    const value = parseInt($(this).val(), 10);
+
+    // Validate and update the actor's abilities
+    if (!isNaN(value) && value > 0) {
+        builder.data.actors[actorIndex].abilities[ability] = value;
+
+        // Reflect the changes in the UI
+        const totalElement = document.querySelector(`#total-score-${actorIndex}-${ability}`);
+        if (totalElement) totalElement.textContent = value;
     }
 });
+
 
 
   
