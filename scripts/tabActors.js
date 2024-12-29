@@ -1,9 +1,50 @@
+import { 
+  rollMethodI, 
+  rollMethodII, 
+  rollMethodIII, 
+  rollMethodIV, 
+  rollMethodV, 
+  rollMethodVI 
+} from './actorGeneration/wbAbilityScores.js';
+
 export function handleActorsTab(builder, html) {
   let mappedNames = null;
   let raceData = []; // Store race items for dropdown
   let classData = []; // Store class items for dropdown
   let backgroundData = []; // Store background items for dropdown
 
+  html.find(".add-actor").click(() => {
+    if (!builder.data.actors) builder.data.actors = [];
+  
+    const newActor = {
+      name: "",
+      race: null,
+      class1: { uuid: "none", name: "None" },
+      class2: { uuid: "none", name: "None" },
+      class3: { uuid: "none", name: "None" },
+      background: { uuid: "", name: "" },
+      culture: null,
+      gender: "female",
+      abilities: {
+        strength: 8,
+        dexterity: 8,
+        constitution: 8,
+        intelligence: 8,
+        wisdom: 8,
+        charisma: 8,
+      },
+    };
+  
+    builder.data.actors.push(newActor);
+  
+    // Safely re-render the builder
+    builder.render(false);
+  });
+  
+  
+  
+
+  
   // Load the mappedNames.json file dynamically
   async function loadMappedNames() {
     try {
@@ -123,23 +164,31 @@ export function handleActorsTab(builder, html) {
     });
   }
 
-  // Add a new actor to the list
-  html.find(".add-actor").click(() => {
-    if (!builder.data.actors) builder.data.actors = [];
-
-    builder.data.actors.push({
-      name: "",
-      race: null,
-      class1: { uuid: "none", name: "None" }, // Default to none
-      class2: { uuid: "none", name: "None" }, // Default to none
-      class3: { uuid: "none", name: "None" }, // Default to none
-      background: { uuid: "", name: "" }, // Default to none
-      culture: null,
-      gender: "female", // Default gender
+  function updateAbilityScores(method, rolls, actorIndex) {
+    const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+    const defaultScore = 8;
+  
+    abilities.forEach((ability, i) => {
+      const totalElement = document.querySelector(`#total-score-${actorIndex}-${ability}`);
+  
+      // Safeguard: Ensure the element exists before modifying it
+      if (!totalElement) {
+        console.error(`Element #total-score-${actorIndex}-${ability} not found`);
+        return;
+      }
+  
+      // Set the total to either the rolled value or the default
+      const total = rolls?.[i]?.total || defaultScore;
+      totalElement.textContent = total;
     });
-
-    builder.render(false);
-  });
+  }
+  
+  
+  
+  
+  
+  
+  
 
   // Delete an actor from the list
   html.on("click", ".delete-actor", function () {
@@ -243,6 +292,42 @@ export function handleActorsTab(builder, html) {
     builder.data.actors[index].equipment = equipment;
     renderEquipmentTable(index, equipment);
   });
+
+  html.on("change", ".roll-method-select", async function () {
+    const actorIndex = $(this).data("index");
+    const rollMethod = $(this).val();
+  
+    let rolls = null;
+    try {
+      switch (rollMethod) {
+        case "method1":
+          rolls = await rollMethodI();
+          break;
+        case "method2":
+          rolls = await rollMethodII();
+          break;
+        case "method3":
+          rolls = await rollMethodIII();
+          break;
+        case "method4":
+          rolls = await rollMethodIV();
+          break;
+        case "method5":
+          rolls = await rollMethodV();
+          break;
+        case "method6":
+          rolls = await rollMethodVI();
+          break;
+      }
+      if (rolls) updateAbilityScores(rollMethod, rolls, actorIndex);
+    } catch (error) {
+      console.error(`Error in roll method '${rollMethod}':`, error);
+    }
+  });
+  
+  
+  
+
 
   // Render equipment table
   function renderEquipmentTable(index, equipment) {

@@ -46,7 +46,8 @@
     "scripts/itemGeneration/wbMagicWeaponGen.js",
     "scripts/itemGeneration/wbMagicScrollGen.js",
     "scripts/itemGeneration/wbMagicPotionGen.js",
-    "scripts/itemGeneration/wbMagicWandGen.js"
+    "scripts/itemGeneration/wbMagicWandGen.js",
+    "scripts/actorGeneration/wbAbilityScores.js"
   ],
   "styles": ["styles/wb.css"],
   "template": [],

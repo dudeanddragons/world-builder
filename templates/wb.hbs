@@ -446,7 +446,7 @@
 
 
 <!-- ACTORS TAB -->
-<section class="tab-content" data-tab="actors" style="display: none;">
+<section class="tab-content tab-content wb-page-container" data-tab="actors" style="display: none;">
   <h3>Actors</h3>
   <button class="add-actor">Add Actor</button>
 
@@ -455,122 +455,156 @@
     {{#each actors}}
       <div class="actor-builder-ui" data-index="{{@index}}">
         <form class="actor-builder-form">
-            <!-- Name Input -->
+          <h3>Name and Culture</h3>
+          <!-- Name Input -->
           <div class="form-group">
             <table class="actor-details-table">
-            <thead>
+              <thead>
                 <tr>
-                <th>Name</th>
-                <th>Culture</th>
-                <th></th>
-                <th></th>
+                  <th>Name</th>
+                  <th>Sex / Culture</th>
+                  <th></th>
+                  <th></th>
                 </tr>
-            </thead>
-            <tbody>
+              </thead>
+              <tbody>
                 <tr>
-                <!-- Name Input -->
-                <td>
+                  <!-- Name Input -->
+                  <td>
                     <label for="name-input-{{@index}}" class="visually-hidden"></label>
                     <input type="text" id="name-input-{{@index}}" value="{{this.name}}" data-index="{{@index}}" placeholder="Enter Name">
-                </td>
+                  </td>
 
-                <!-- Culture Selection -->
-                <td>
+                  <!-- Culture Selection -->
+                  <td>
                     <label for="culture-select-{{@index}}" class="visually-hidden"></label>
                     <select id="culture-select-{{@index}}" class="culture-select" data-index="{{@index}}">
-                    <option value="" disabled selected>Select Culture</option>
-                    <!-- Cultures will be populated dynamically -->
+                      <option value="" disabled selected>Select Culture</option>
+                      <!-- Cultures will be populated dynamically -->
                     </select>
-                </td>
+                  </td>
 
-                <!-- Actions -->
-                <td>
+                  <!-- Actions -->
+                  <td>
                     <button type="button" class="generate-name" data-index="{{@index}}">Generate Name</button>
-                </td>
-                <td>
+                  </td>
+                  <td>
                     <button type="button" class="delete-actor" data-index="{{@index}}">Delete Actor</button>
-                </td>
+                  </td>
                 </tr>
-            </tbody>
+              </tbody>
             </table>
           </div>
 
           <!-- Race Selection -->
+          <h3>Race and Class</h3>
           <div class="form-group">
-                <table class="actor-data-table">
-                <thead>
-                    <tr>
-                    <th>Race</th>
-                    <th>Class 1</th>
-                    <th>Class 2</th>
-                    <th>Class 3</th>
-                    <th>Background</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <!-- Race Selection -->
-                    <td>
-                        <div class="form-group">
-                        <select id="race-select-{{@index}}" class="race-select" data-index="{{@index}}">
-                            <option value="" disabled selected>Select Race</option>
-                            <!-- Races will be populated dynamically -->
-                        </select>
-                        </div>
-                    </td>
+            <table class="actor-data-table">
+              <thead>
+                <tr>
+                  <th>Race</th>
+                  <th>Class 1</th>
+                  <th>Class 2</th>
+                  <th>Class 3</th>
+                  <th>Background</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!-- Race Selection -->
+                  <td>
+                    <select id="race-select-{{@index}}" class="race-select" data-index="{{@index}}">
+                      <option value="" disabled selected>Select Race</option>
+                      <!-- Races will be populated dynamically -->
+                    </select>
+                  </td>
 
-                    <!-- Class Selection -->
-                    <td>
-                        <div class="form-group">
-                        <select id="class-select-1-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="1">
-                            <option value="none" {{#if (eq this.class1.uuid "none")}}selected{{/if}}>None</option>
-                            {{#each ../classData}}
-                            <option value="{{this.uuid}}" {{#if (eq ../../class1.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
-                            {{/each}}
-                        </select>
-                        </div>
-                    </td>
+                  <!-- Class Selection -->
+                  <td>
+                    <select id="class-select-1-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="1">
+                      <option value="none" {{#if (eq this.class1.uuid "none")}}selected{{/if}}>None</option>
+                      {{#each ../classData}}
+                        <option value="{{this.uuid}}" {{#if (eq ../../class1.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
+                      {{/each}}
+                    </select>
+                  </td>
 
-                    <td>
-                        <div class="form-group">
-                        <select id="class-select-2-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="2">
-                            <option value="none" {{#if (eq this.class2.uuid "none")}}selected{{/if}}>None</option>
-                            {{#each ../classData}}
-                            <option value="{{this.uuid}}" {{#if (eq ../../class2.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
-                            {{/each}}
-                        </select>
-                        </div>
-                    </td>
+                  <td>
+                    <select id="class-select-2-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="2">
+                      <option value="none" {{#if (eq this.class2.uuid "none")}}selected{{/if}}>None</option>
+                      {{#each ../classData}}
+                        <option value="{{this.uuid}}" {{#if (eq ../../class2.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
+                      {{/each}}
+                    </select>
+                  </td>
 
-                    <td>
-                        <div class="form-group">
-                        <select id="class-select-3-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="3">
-                            <option value="none" {{#if (eq this.class3.uuid "none")}}selected{{/if}}>None</option>
-                            {{#each ../classData}}
-                            <option value="{{this.uuid}}" {{#if (eq ../../class3.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
-                            {{/each}}
-                        </select>
-                        </div>
-                    </td>
+                  <td>
+                    <select id="class-select-3-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="3">
+                      <option value="none" {{#if (eq this.class3.uuid "none")}}selected{{/if}}>None</option>
+                      {{#each ../classData}}
+                        <option value="{{this.uuid}}" {{#if (eq ../../class3.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
+                      {{/each}}
+                    </select>
+                  </td>
 
-                    <!-- Background Selection -->
-                    <td>
-                        <div class="form-group">
-                        <select id="background-select-{{@index}}" class="background-select" data-index="{{@index}}">
-                            <option value="" disabled selected>Select Background</option>
-                            {{#each ../backgroundData}}
-                            <option value="{{this.uuid}}" {{#if (eq ../../background.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
-                            {{/each}}
-                        </select>
-                        </div>
-                    </td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
+                  <!-- Background Selection -->
+                  <td>
+                    <select id="background-select-{{@index}}" class="background-select" data-index="{{@index}}">
+                      <option value="" disabled selected>Select Background</option>
+                      {{#each ../backgroundData}}
+                        <option value="{{this.uuid}}" {{#if (eq ../../background.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
+                      {{/each}}
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+<!-- Ability Scores Section -->
+<div class="ability-scores">
+  <h3>Ability Scores</h3>
+
+  <!-- Dropdown for Roll Method Selection -->
+  <div class="form-group">
+    <label for="roll-method-{{@index}}">Select Roll Method:</label>
+    <select id="roll-method-{{@index}}" class="roll-method-select" data-index="{{@index}}">
+      <option value="" disabled selected>Select Roll Method</option>
+      <option value="method1">Method I: 3d6 in Order</option>
+      <option value="method2">Method II: 3d6 Twice, Keep Higher</option>
+      <option value="method3">Method III: 3d6, Assign as Desired</option>
+      <option value="method4">Method IV: 3d6 x12, Choose Best 6</option>
+      <option value="method5">Method V: 4d6, Drop Lowest</option>
+      <option value="method6">Method VI: 7d6 Assigned</option>
+      <option value="dmchoice">DM Choice: Manual Entry</option>
+    </select>
+  </div>
+
+  <!-- Ability Scores Table -->
+  <table class="ability-scores-table">
+    <thead>
+      <tr>
+        <th>Ability</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each abilities}}
+      <tr>
+        <td>{{@key}}</td>
+        <td>
+          <span id="total-score-{{@../index}}-{{@key}}" class="ability-total">{{this}}</span>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
 
 
-          <!-- Equipment -->
+
+          <!-- Equipment Section -->
+          <h3>Equipment</h3>
           <div class="form-group">
             <label for="equipment-select-{{@index}}">Equipment Package:</label>
             <select id="equipment-select-{{@index}}" data-index="{{@index}}">
@@ -588,7 +622,6 @@
 
           <!-- Generated Equipment -->
           <div class="generated-equipment">
-            <h3>Generated Equipment</h3>
             <table id="equipment-table-{{@index}}">
               <thead>
                 <tr>
@@ -602,21 +635,11 @@
               </tbody>
             </table>
           </div>
-
-          <!-- Ability Scores -->
-          <div class="ability-scores">
-            <h3>Generated Ability Scores</h3>
-            <div id="ability-scores-section-{{@index}}">
-              <!-- Populated dynamically -->
-            </div>
-          </div>
         </form>
       </div>
     {{/each}}
   </div>
 </section>
-
-
 
 
   </form>
