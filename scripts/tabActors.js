@@ -2,6 +2,7 @@ export function handleActorsTab(builder, html) {
   let mappedNames = null;
   let raceData = []; // Store race items for dropdown
   let classData = []; // Store class items for dropdown
+  let backgroundData = []; // Store background items for dropdown
 
   // Load the mappedNames.json file dynamically
   async function loadMappedNames() {
@@ -48,6 +49,21 @@ export function handleActorsTab(builder, html) {
     }
   }
 
+  // Load background items from the game items
+  async function loadBackgroundItems() {
+    try {
+      const backgrounds = game.items.filter((item) => item.type === "background");
+      backgroundData = backgrounds.map((bg) => ({
+        uuid: bg.uuid,
+        name: bg.name,
+      }));
+      console.log("Background Data Loaded:", backgroundData);
+    } catch (error) {
+      console.error("Error loading background items:", error);
+      ui.notifications.error("Failed to load background items. Please check the console for details.");
+    }
+  }
+
   // Populate culture options dynamically, including gender-specific options
   function populateCultures() {
     if (!mappedNames) return;
@@ -73,25 +89,39 @@ export function handleActorsTab(builder, html) {
     });
   }
 
-// Populate class dropdown dynamically
-function populateClasses() {
-  html.find(".class-select").each((index, select) => {
-    $(select).empty();
-    // Add "None" as the first option
-    $(select).append('<option value="none" selected>None</option>');
-    // Add all other classes dynamically
-    classData.forEach((cls) => {
-      $(select).append(`<option value="${cls.uuid}">${cls.name}</option>`);
+  // Populate class dropdown dynamically
+  function populateClasses() {
+    html.find(".class-select").each((index, select) => {
+      $(select).empty();
+      // Add "None" as the first option
+      $(select).append('<option value="none" selected>None</option>');
+      // Add all other classes dynamically
+      classData.forEach((cls) => {
+        $(select).append(`<option value="${cls.uuid}">${cls.name}</option>`);
+      });
+
+      // Pre-select the class if already set
+      const actorIndex = $(select).data("index");
+      const classIndex = $(select).data("class-index");
+      const actorClassUuid = builder.data.actors[actorIndex]?.[`class${classIndex}`]?.uuid || "none";
+      $(select).val(actorClassUuid);
     });
+  }
 
-    // Pre-select the class if already set
-    const actorIndex = $(select).data("index");
-    const classIndex = $(select).data("class-index");
-    const actorClassUuid = builder.data.actors[actorIndex]?.[`class${classIndex}`]?.uuid || "none";
-    $(select).val(actorClassUuid);
-  });
-}
+  // Populate background dropdown dynamically
+  function populateBackgrounds() {
+    html.find(".background-select").each((index, select) => {
+      $(select).empty().append('<option value="" disabled selected>Select Background</option>');
+      backgroundData.forEach((bg) => {
+        $(select).append(`<option value="${bg.uuid}">${bg.name}</option>`);
+      });
 
+      // Pre-select the background if already set
+      const actorIndex = $(select).data("index");
+      const actorBackgroundUuid = builder.data.actors[actorIndex]?.background?.uuid || "";
+      $(select).val(actorBackgroundUuid);
+    });
+  }
 
   // Add a new actor to the list
   html.find(".add-actor").click(() => {
@@ -103,6 +133,7 @@ function populateClasses() {
       class1: { uuid: "none", name: "None" }, // Default to none
       class2: { uuid: "none", name: "None" }, // Default to none
       class3: { uuid: "none", name: "None" }, // Default to none
+      background: { uuid: "", name: "" }, // Default to none
       culture: null,
       gender: "female", // Default gender
     });
@@ -154,6 +185,20 @@ function populateClasses() {
       builder.data.actors[index][classKey] = {
         uuid: selectedClass.uuid,
         name: selectedClass.name,
+      };
+    }
+  });
+
+  // Update the selected background for an actor
+  html.on("change", ".background-select", function () {
+    const index = $(this).data("index");
+    const selectedUuid = $(this).val();
+    const selectedBackground = backgroundData.find((bg) => bg.uuid === selectedUuid);
+
+    if (selectedBackground) {
+      builder.data.actors[index].background = {
+        uuid: selectedBackground.uuid,
+        name: selectedBackground.name,
       };
     }
   });
@@ -223,9 +268,10 @@ function populateClasses() {
   }
 
   // Load initial data
-  Promise.all([loadMappedNames(), loadRaceItems(), loadClassItems()]).then(() => {
+  Promise.all([loadMappedNames(), loadRaceItems(), loadClassItems(), loadBackgroundItems()]).then(() => {
     populateCultures();
     populateRaces();
     populateClasses();
+    populateBackgrounds();
   });
 }

@@ -497,42 +497,77 @@
 
           <!-- Race Selection -->
           <div class="form-group">
-            <label for="race-select-{{@index}}">Race:</label>
-            <select id="race-select-{{@index}}" class="race-select" data-index="{{@index}}">
-            <option value="" disabled selected>Select Race</option>
-            <!-- Races will be populated dynamically -->
-            </select>
-          </div>
+                <table class="actor-data-table">
+                <thead>
+                    <tr>
+                    <th>Race</th>
+                    <th>Class 1</th>
+                    <th>Class 2</th>
+                    <th>Class 3</th>
+                    <th>Background</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <!-- Race Selection -->
+                    <td>
+                        <div class="form-group">
+                        <select id="race-select-{{@index}}" class="race-select" data-index="{{@index}}">
+                            <option value="" disabled selected>Select Race</option>
+                            <!-- Races will be populated dynamically -->
+                        </select>
+                        </div>
+                    </td>
 
-<!-- Class Selection -->
-<div class="form-group">
-  <!-- Class 1 -->
-  <label for="class-select-1-{{@index}}">Class 1:</label>
-  <select id="class-select-1-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="1">
-    <option value="none" {{#if (eq this.class1.uuid "none")}}selected{{/if}}>None</option>
-    {{#each ../classData}}
-      <option value="{{this.uuid}}" {{#if (eq ../../class1.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
-    {{/each}}
-  </select>
+                    <!-- Class Selection -->
+                    <td>
+                        <div class="form-group">
+                        <select id="class-select-1-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="1">
+                            <option value="none" {{#if (eq this.class1.uuid "none")}}selected{{/if}}>None</option>
+                            {{#each ../classData}}
+                            <option value="{{this.uuid}}" {{#if (eq ../../class1.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                        </div>
+                    </td>
 
-  <!-- Class 2 -->
-  <label for="class-select-2-{{@index}}">Class 2:</label>
-  <select id="class-select-2-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="2">
-    <option value="none" {{#if (eq this.class2.uuid "none")}}selected{{/if}}>None</option>
-    {{#each ../classData}}
-      <option value="{{this.uuid}}" {{#if (eq ../../class2.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
-    {{/each}}
-  </select>
+                    <td>
+                        <div class="form-group">
+                        <select id="class-select-2-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="2">
+                            <option value="none" {{#if (eq this.class2.uuid "none")}}selected{{/if}}>None</option>
+                            {{#each ../classData}}
+                            <option value="{{this.uuid}}" {{#if (eq ../../class2.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                        </div>
+                    </td>
 
-  <!-- Class 3 -->
-  <label for="class-select-3-{{@index}}">Class 3:</label>
-  <select id="class-select-3-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="3">
-    <option value="none" {{#if (eq this.class3.uuid "none")}}selected{{/if}}>None</option>
-    {{#each ../classData}}
-      <option value="{{this.uuid}}" {{#if (eq ../../class3.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
-    {{/each}}
-  </select>
-</div>
+                    <td>
+                        <div class="form-group">
+                        <select id="class-select-3-{{@index}}" class="class-select" data-index="{{@index}}" data-class-index="3">
+                            <option value="none" {{#if (eq this.class3.uuid "none")}}selected{{/if}}>None</option>
+                            {{#each ../classData}}
+                            <option value="{{this.uuid}}" {{#if (eq ../../class3.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                        </div>
+                    </td>
+
+                    <!-- Background Selection -->
+                    <td>
+                        <div class="form-group">
+                        <select id="background-select-{{@index}}" class="background-select" data-index="{{@index}}">
+                            <option value="" disabled selected>Select Background</option>
+                            {{#each ../backgroundData}}
+                            <option value="{{this.uuid}}" {{#if (eq ../../background.uuid this.uuid)}}selected{{/if}}>{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                        </div>
+                    </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
 
 
           <!-- Equipment -->
