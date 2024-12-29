@@ -60,24 +60,57 @@ export async function rollMethodII() {
 
 
 export async function rollMethodIII() {
-    const rolls = await Promise.all(
-        [...Array(6)].map(async () => {
-            const diceRoll = new Roll("3d6");
-            await diceRoll.evaluate();
+    const abilities = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
 
-            if (game.dice3d) await game.dice3d.showForRoll(diceRoll);
+    // Roll 3d6 twice for each ability
+    const rolls = await Promise.all(
+        abilities.map(async () => {
+            // Create two rolls
+            const roll1 = new Roll("3d6");
+            const roll2 = new Roll("3d6");
+
+            // Evaluate rolls asynchronously
+            await roll1.evaluate();
+            await roll2.evaluate();
+
+            // Trigger Dice So Nice animations if available
+            if (game.dice3d) {
+                await game.dice3d.showForRoll(roll1);
+                await game.dice3d.showForRoll(roll2);
+            }
+
+            // Select the higher roll
+            const chosenRoll = roll1.total >= roll2.total ? roll1 : roll2;
 
             return {
-                total: diceRoll.total,
-                individualRolls: diceRoll.dice[0].results.map((r) => r.result),
+                total: chosenRoll.total,
+                individualRolls: chosenRoll.dice[0]?.results.map((r) => r.result) || [],
             };
         })
     );
 
-    rolls.sort((a, b) => b.total - a.total); // Sort rolls from highest to lowest
+    // Sort rolls from highest to lowest total
+    rolls.sort((a, b) => b.total - a.total);
 
     return rolls;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export async function rollMethodIV() {
     const rolls = await Promise.all(

@@ -313,12 +313,18 @@ legend {
   justify-content: center;
 }
 
+.wb-roll-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  justify-content: center;
+}
+
 .wb-dice-unit {
   display: flex;
   align-items: center;;
   margin-bottom: 10px;
   padding: 5px;
-  border: 1px solid #ccc;
   cursor: grab;
   justify-content: center;
 }
@@ -335,21 +341,23 @@ legend {
             text-decoration: line-through;
         }
         .wb-drop-zone {
-          width: 100px;
-          height: 50px;
+          width: 0%;
+          height: 0px;
           border: 1px dashed #ccc;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #f9f9f9;
-          cursor: pointer;
           margin: 5px 0;
-          transition: var(--wb-red) 0.2s ease;
+          background: #f9f9f9;
+          position: relative;
+          cursor: pointer;
       }
-
-      .wb-drop-zone.hovered {
-        background: #e3e3e3; /* Highlight when hovered */
-    }
+      
+      .wb-drop-zone:hover {
+          background-color: #e3e3e3; /* Subtle change for hover */
+          border-color: #666; /* Optional: change border color too */
+          transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
     
     .wb-dice-unit.dragging {
         opacity: 0.5; /* Reduce opacity of dragged dice */
