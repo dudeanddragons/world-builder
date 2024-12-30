@@ -615,38 +615,70 @@
 
 
 
-          <!-- Equipment Section -->
-          <h3>Equipment</h3>
-          <div class="form-group">
-            <label for="equipment-select-{{@index}}">Equipment Package:</label>
-            <select id="equipment-select-{{@index}}" data-index="{{@index}}">
-              <option value="" disabled selected>Select Equipment Package</option>
-              <option value="warrior" {{#if (eq this.equipmentPackage "warrior")}}selected{{/if}}>Warrior</option>
-              <option value="paladin" {{#if (eq this.equipmentPackage "paladin")}}selected{{/if}}>Paladin</option>
-              <option value="wizard" {{#if (eq this.equipmentPackage "wizard")}}selected{{/if}}>Wizard</option>
-              <option value="priest" {{#if (eq this.equipmentPackage "priest")}}selected{{/if}}>Priest</option>
-              <option value="druid" {{#if (eq this.equipmentPackage "druid")}}selected{{/if}}>Druid</option>
-              <option value="rogue" {{#if (eq this.equipmentPackage "rogue")}}selected{{/if}}>Rogue</option>
-              <option value="bard" {{#if (eq this.equipmentPackage "bard")}}selected{{/if}}>Bard</option>
-            </select>
-            <button type="button" class="build-equipment" data-index="{{@index}}">Build Equipment</button>
-          </div>
+<!-- this section be added in later... Maybe.
 
-          <!-- Generated Equipment -->
-          <div class="generated-equipment">
-            <table id="equipment-table-{{@index}}">
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Quantity</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Populated dynamically -->
-              </tbody>
-            </table>
-          </div>
+            <h3>Equipment</h3>
+            <div class="form-group">
+              <label for="equipment-select-{{@index}}">Equipment Package:</label>
+              <select id="equipment-select-{{@index}}" data-index="{{@index}}">
+                <option value="" disabled selected>Select Equipment Package</option>
+                <option value="warrior" {{#if (eq this.equipmentPackage "warrior")}}selected{{/if}}>Warrior</option>
+                <option value="paladin" {{#if (eq this.equipmentPackage "paladin")}}selected{{/if}}>Paladin</option>
+                <option value="wizard" {{#if (eq this.equipmentPackage "wizard")}}selected{{/if}}>Wizard</option>
+                <option value="priest" {{#if (eq this.equipmentPackage "priest")}}selected{{/if}}>Priest</option>
+                <option value="druid" {{#if (eq this.equipmentPackage "druid")}}selected{{/if}}>Druid</option>
+                <option value="rogue" {{#if (eq this.equipmentPackage "rogue")}}selected{{/if}}>Rogue</option>
+                <option value="bard" {{#if (eq this.equipmentPackage "bard")}}selected{{/if}}>Bard</option>
+              </select>
+              <button type="button" class="build-equipment" data-index="{{@index}}">Build Equipment</button>
+            </div>
+
+
+            <div class="generated-equipment">
+              <table id="equipment-table-{{@index}}">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>
+            -->
+
+                <!-- Generate Actor -->
+              <div class="actor-actions">
+                <h3>Generate Actor</h3>
+                <table class="actor-actions-table">
+                  <tr>
+                    <!-- Create Character Button -->
+                    <td>
+                      <button type="button" class="create-character">Create Character</button>
+                    </td>
+
+                    <!-- Create NPC Button -->
+                    <td>
+                      <button type="button" class="create-npc" data-index="{{@index}}">Create NPC</button>
+                    </td>
+
+                    <!-- Clone NPC Dropdown -->
+                    <td>
+                      <label for="clone-npc-dropdown" class="visually-hidden">Clone NPC</label>
+                      <select id="clone-npc-dropdown-{{@index}}" class="clone-npc-dropdown" data-index="{{@index}}">
+                        <option value="none" selected>None</option>
+                        {{#each npcData}}
+                          <option value="{{this.id}}">{{this.name}}</option>
+                        {{/each}}
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
         </form>
       </div>
     {{/each}}

@@ -1,0 +1,11 @@
+{
+    "classPriestCleric": "scripts/actorGeneration/actorEquipment/actorEquipPriClr.json",
+    "classPriestDruid": "scripts/actorGeneration/actorEquipment/actorEquipPriDru.json",
+    "classRogueBard": "scripts/actorGeneration/actorEquipment/actorEquipRogBrd.json",
+    "classRogueThief": "scripts/actorGeneration/actorEquipment/actorEquipRogThf.json",
+    "classWarriorFighter": "scripts/actorGeneration/actorEquipment/actorEquipWarFtr.json",
+    "classWarriorPaladin": "scripts/actorGeneration/actorEquipment/actorEquipWarPld.json",
+    "classWarriorRanger": "scripts/actorGeneration/actorEquipment/actorEquipWarRng.json",
+    "classWizardMage": "scripts/actorGeneration/actorEquipment/actorEquipWizMag.json"
+  }
+  
