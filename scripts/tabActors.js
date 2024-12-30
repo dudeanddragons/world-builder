@@ -390,47 +390,159 @@ function manageDummyDice(zone) {
 }
 
 
-function activateDMChoice(actorIndex) {
-  const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
 
-  abilities.forEach((ability) => {
-      const totalElement = document.querySelector(`#total-score-${actorIndex}-${ability}`);
 
-      if (!totalElement) {
-          console.error(`Total element for ability '${ability}' not found.`);
+
+// ABILITY SCORE BUTTON CLICK LISTENERS
+html.on("click", ".roll-method-button", async function () {
+  const actorIndex = $(this).data("index");
+  const rollMethod = $(this).data("method");
+
+  try {
+      console.log(`Button clicked: Roll Method '${rollMethod}' for Actor Index '${actorIndex}'`);
+
+      // Reset abilities section to default state
+      const actor = builder.data.actors[actorIndex];
+      if (actor) {
+          actor.abilities = {
+              strength: 8,
+              dexterity: 8,
+              constitution: 8,
+              intelligence: 8,
+              wisdom: 8,
+              charisma: 8,
+          };
+      } else {
+          console.error(`Actor at index ${actorIndex} not found.`);
           return;
       }
 
-      // Create an input field to replace the current static text
-      const currentScore = totalElement.textContent.trim();
-      const inputField = document.createElement("input");
-      inputField.type = "number";
-      inputField.min = "1"; // Updated minimum score
-      inputField.max = "25"; // Updated maximum score
-      inputField.value = currentScore;
-      inputField.classList.add("editable-total");
-      inputField.style.width = "50px"; // Adjust width for consistency
-      inputField.dataset.ability = ability;
+      // Correctly target the abilities table
+      const abilitiesTableBody = html.find(`.ability-scores-table tbody`);
+      if (abilitiesTableBody.length) {
+          abilitiesTableBody.empty(); // Clear current abilities
 
-      // Replace the static text with the input field
-      totalElement.replaceWith(inputField);
+          // Re-render default abilities
+          for (const [key, value] of Object.entries(actor.abilities)) {
+              const totalElementId = `total-score-${actorIndex}-${key}`;
+              const dropZoneId = `assigned-score-${actorIndex}-${key}`;
 
-      // Listen for input changes
-      inputField.addEventListener("change", () => {
-          const newScore = parseInt(inputField.value, 10);
-
-          // Validate the input value
-          if (newScore >= 1 && newScore <= 25) {
-              // Update the actor's ability score
-              builder.data.actors[actorIndex].abilities[ability] = newScore;
-              console.log(`Updated ability '${ability}' to ${newScore} via DM's Choice.`);
-          } else {
-              console.error(`Invalid score for '${ability}': ${newScore}. Must be between 1 and 25.`);
-              inputField.value = currentScore; // Revert to previous valid score
+              const row = `
+                  <tr>
+                      <td>${key.charAt(0).toUpperCase() + key.slice(1)}</td>
+                      <td>
+                          <div id="${dropZoneId}" class="assigned-score drop-zone" data-index="${actorIndex}" data-ability="${key}"></div>
+                      </td>
+                      <td>
+                          <span id="${totalElementId}" class="ability-total">${value}</span>
+                      </td>
+                  </tr>
+              `;
+              abilitiesTableBody.append(row);
           }
-      });
-  });
-}
+          console.log(`Re-rendered abilities table for Actor Index ${actorIndex}.`);
+      } else {
+          console.error(`Abilities table for Actor Index ${actorIndex} not found.`);
+          return;
+      }
+
+      // Logic for rendering based on roll method
+      switch (rollMethod) {
+          case "method1":
+              const rolls1 = await rollMethodI();
+              renderDiceResults(actorIndex, rolls1);
+              updateAbilityScores("method1", rolls1, actorIndex);
+              console.log("Method 1 rendered with default state.");
+              break;
+
+          case "method2":
+              const rolls2 = await rollMethodII();
+              renderDiceResults(actorIndex, rolls2);
+              updateAbilityScores("method2", rolls2, actorIndex);
+              console.log("Method 2 rendered with default state.");
+              break;
+
+          case "method3":
+              const rolls3 = await rollMethodIII();
+              renderDiceResults(actorIndex, rolls3);
+              enableDragDrop(actorIndex);
+              updateAbilityScores("method3", rolls3, actorIndex);
+              console.log("Method 3 rendered with drag-and-drop enabled.");
+              break;
+
+          case "method4":
+              const rolls4 = await rollMethodI();
+              renderDiceResults(actorIndex, rolls4);
+              enableDragDrop(actorIndex);
+              updateAbilityScores("method4", rolls4, actorIndex);
+              console.log("Method 4 rendered with drag-and-drop enabled.");
+              break;
+
+          case "method5":
+              const rolls5 = await rollMethodV();
+              renderDiceResults(actorIndex, rolls5);
+              enableDragDrop(actorIndex);
+              updateAbilityScores("method5", rolls5, actorIndex);
+              console.log("Method 5 rendered with drag-and-drop enabled.");
+              break;
+
+          case "method6":
+              const rolls6 = await rollMethodVI();
+              renderDiceResults(actorIndex, rolls6, "method6");
+              enableDragDrop(actorIndex, "method6");
+              updateAbilityScores("method6", rolls6, actorIndex);
+              console.log("Method 6 rendered with stacking logic.");
+              break;
+
+          case "dmchoice":
+              for (const [key, value] of Object.entries(actor.abilities)) {
+                  const totalElementId = `total-score-${actorIndex}-${key}`;
+                  let totalElement = document.querySelector(`#${totalElementId}`);
+                  if (totalElement && totalElement.tagName !== "INPUT") {
+                      const inputField = document.createElement("input");
+                      inputField.type = "number";
+                      inputField.min = "1";
+                      inputField.max = "25";
+                      inputField.value = value;
+                      inputField.classList.add("editable-total");
+                      inputField.style.width = "50px";
+                      inputField.dataset.ability = key;
+
+                      totalElement.replaceWith(inputField);
+
+                      // Listen for input changes
+                      inputField.addEventListener("change", () => {
+                          const newScore = parseInt(inputField.value, 10);
+                          if (newScore >= 1 && newScore <= 25) {
+                              actor.abilities[key] = newScore;
+                              console.log(`Updated ability '${key}' to ${newScore} via DM's Choice.`);
+                          } else {
+                              inputField.value = value; // Revert to valid score
+                              console.error(`Invalid score for '${key}': ${newScore}.`);
+                          }
+                      });
+                  }
+              }
+              console.log("DM's Choice rendered with editable fields.");
+              break;
+
+          default:
+              console.error("Unknown roll method selected.");
+      }
+  } catch (error) {
+      console.error(`Error rendering roll method '${rollMethod}':`, error);
+  }
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -556,74 +668,9 @@ function activateDMChoice(actorIndex) {
 
 
 
-// ABILITY SCORE BUTTON CLICK LISTENERS
-html.on("click", ".roll-method-button", async function () {
-  const actorIndex = $(this).data("index");
-  const rollMethod = $(this).data("method");
 
-  let rolls = null;
 
-  try {
-      switch (rollMethod) {
-          case "method1":
-              rolls = await rollMethodI();
-              renderDiceResults(actorIndex, rolls);
-              updateAbilityScores("method1", rolls, actorIndex);
-              console.log("Drag-and-drop disabled for Method 1.");
-              break;
 
-          case "method2":
-              rolls = await rollMethodII();
-              renderDiceResults(actorIndex, rolls);
-              updateAbilityScores("method2", rolls, actorIndex);
-              console.log("Drag-and-drop disabled for Method 2.");
-              break;
-
-          case "method3":
-              rolls = await rollMethodIII();
-              renderDiceResults(actorIndex, rolls);
-              enableDragDrop(actorIndex);
-              updateAbilityScores("method3", rolls, actorIndex);
-              break;
-
-          case "method4":
-              rolls = await rollMethodI();
-              renderDiceResults(actorIndex, rolls);
-              enableDragDrop(actorIndex);
-              updateAbilityScores("method4", rolls, actorIndex);
-              break;
-
-          case "method5":
-              rolls = await rollMethodV();
-              renderDiceResults(actorIndex, rolls);
-              enableDragDrop(actorIndex);
-              updateAbilityScores("method5", rolls, actorIndex);
-              break;
-
-          case "method6":
-              rolls = await rollMethodVI();
-              renderDiceResults(actorIndex, rolls, "method6");
-              enableDragDrop(actorIndex, "method6");
-              updateAbilityScores("method6", rolls, actorIndex);
-              break;
-
-          case "dmchoice":
-              activateDMChoice(actorIndex); // Activate editable fields for DM
-              console.log("DM Choice activated: Editable fields enabled.");
-              break;
-
-          default:
-              console.error("Unknown roll method selected:", rollMethod);
-              return;
-      }
-
-      if (rolls && rollMethod !== "dmchoice") {
-          updateAbilityScores(rollMethod, rolls, actorIndex);
-      }
-  } catch (error) {
-      console.error(`Error in roll method '${rollMethod}':`, error);
-  }
-});
 
 
 
