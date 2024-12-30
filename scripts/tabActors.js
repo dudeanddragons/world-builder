@@ -166,9 +166,9 @@ export function handleActorsTab(builder, html) {
 
   function updateAbilityScores(method, rolls, actorIndex) {
     const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
-    const defaultScore = 8;
+    const defaultScore = 8; // Base score for Method VI
 
-    abilities.forEach((ability, i) => {
+    abilities.forEach((ability) => {
         const totalElement = document.querySelector(`#total-score-${actorIndex}-${ability}`);
         const dropZone = document.querySelector(`#assigned-score-${actorIndex}-${ability}`);
         let total = defaultScore;
@@ -185,46 +185,77 @@ export function handleActorsTab(builder, html) {
             return;
         }
 
-        // Check for a dice unit in the drop zone (for drag-and-drop cases)
-        const diceUnit = dropZone.querySelector(".wb-dice-unit");
-        if (diceUnit) {
-            total = parseInt(diceUnit.dataset.value, 10) || defaultScore;
+        if (method === "method6") {
+            // Method VI: Calculate total based on dice in the drop zone
+            const diceUnits = dropZone.querySelectorAll(".wb-dice-unit:not(.dummy-dice)");
+            diceUnits.forEach((dice) => {
+                const diceValue = parseInt(dice.dataset.value, 10) || 0;
+                total += diceValue;
+            });
 
-            // Update the ability in the actor's data
-            builder.data.actors[actorIndex].abilities[ability] = total;
-
-            // Update the UI dynamically when drag-and-drop occurs
-            totalElement.textContent = total;
-
-            console.log(`Updated ability '${ability}' dynamically to ${total} from drag-and-drop.`);
-        } else if (rolls[i]) {
-            // Otherwise, use the rolls passed to the function
-            switch (method) {
-                case "method2":
-                    total = rolls[i]?.chosen || defaultScore;
-                    break;
-
-                case "method3":
-                    total = rolls[i]?.total || defaultScore;
-                    break;
-
-                default:
-                    total = rolls[i]?.total || defaultScore;
-                    break;
+            // Cap the total at 18
+            if (total > 18) {
+                total = 18;
             }
 
             // Update the ability in the actor's data
             builder.data.actors[actorIndex].abilities[ability] = total;
 
-            // Update the UI with the initial scores
+            // Update the UI dynamically
             totalElement.textContent = total;
+
+            console.log(`Updated ability '${ability}' to ${total} for Method VI.`);
         } else {
-            console.warn(`No roll or dice unit found for ability '${ability}' at index ${i}`);
+            // Default logic for other methods
+            const diceUnit = dropZone.querySelector(".wb-dice-unit");
+            if (diceUnit) {
+                total = parseInt(diceUnit.dataset.value, 10) || defaultScore;
+
+                // Update the ability in the actor's data
+                builder.data.actors[actorIndex].abilities[ability] = total;
+
+                // Update the UI dynamically
+                totalElement.textContent = total;
+
+                console.log(`Updated ability '${ability}' dynamically to ${total} from drag-and-drop.`);
+            } else if (rolls) {
+                // Otherwise, use the rolls passed to the function
+                switch (method) {
+                    case "method2":
+                        total = rolls[abilities.indexOf(ability)]?.chosen || defaultScore;
+                        break;
+
+                    case "method3":
+                        total = rolls[abilities.indexOf(ability)]?.total || defaultScore;
+                        break;
+
+                    default:
+                        total = rolls[abilities.indexOf(ability)]?.total || defaultScore;
+                        break;
+                }
+
+                // Update the ability in the actor's data
+                builder.data.actors[actorIndex].abilities[ability] = total;
+
+                // Update the UI
+                totalElement.textContent = total;
+            } else {
+                console.warn(`No roll or dice unit found for ability '${ability}'`);
+            }
         }
     });
 
     console.log(`Ability scores updated for method '${method}' for actor index ${actorIndex}`);
 }
+
+
+
+
+
+
+
+
+
 
 
 function enableDragDrop(actorIndex, method = "default") {
@@ -341,7 +372,6 @@ function manageDummyDice(zone) {
   const diceUnits = Array.from(zone.querySelectorAll(".wb-dice-unit"));
   const dummyDice = zone.querySelector(".dummy-dice");
 
-  // Ensure a dummy dice is present if no real dice exist
   if (diceUnits.length === 0 && !dummyDice) {
       addDummyDice(zone);
   }
@@ -496,17 +526,19 @@ html.on("click", ".roll-method-button", async function () {
 
   try {
       switch (rollMethod) {
-          case "method1":
-              rolls = await rollMethodI();
-              renderDiceResults(actorIndex, rolls);
-              enableDragDrop(actorIndex); // Enable drag-and-drop for standard logic
-              break;
+        case "method1":
+          rolls = await rollMethodI();
+          renderDiceResults(actorIndex, rolls); // Render results for Method 1
+          updateAbilityScores("method1", rolls, actorIndex); // Update totals for Method 1
+          console.log("Drag-and-drop disabled for Method 1."); // No drag-and-drop
+          break;
 
-          case "method2":
-              rolls = await rollMethodII();
-              renderDiceResults(actorIndex, rolls);
-              enableDragDrop(actorIndex); // Enable drag-and-drop for standard logic
-              break;
+      case "method2":
+          rolls = await rollMethodII();
+          renderDiceResults(actorIndex, rolls); // Render results for Method 2
+          updateAbilityScores("method2", rolls, actorIndex); // Update totals for Method 2
+          console.log("Drag-and-drop disabled for Method 2."); // No drag-and-drop
+          break;
 
           case "method3":
               rolls = await rollMethodIII();
@@ -528,8 +560,9 @@ html.on("click", ".roll-method-button", async function () {
 
           case "method6":
               rolls = await rollMethodVI();
-              renderDiceResults(actorIndex, rolls, "method6"); // Render dice for Method VI
-              enableDragDrop(actorIndex, "method6"); // Enable stacking and dummy dice logic
+              renderDiceResults(actorIndex, rolls, "method6");
+              enableDragDrop(actorIndex, "method6");
+              updateAbilityScores("method6", rolls, actorIndex); // Trigger Method VI logic
               break;
 
           case "dmchoice":
@@ -541,9 +574,11 @@ html.on("click", ".roll-method-button", async function () {
               return;
       }
 
-      // Update ability scores after rolls
-      if (rolls) {
+      // Update ability scores after rolls (except Methods 1 and 2)
+      if (rollMethod !== "method1" && rollMethod !== "method2" && rolls) {
           updateAbilityScores(rollMethod, rolls, actorIndex);
+      } else if (rollMethod === "method1" || rollMethod === "method2") {
+          console.log(`Ability scores locked for Method ${rollMethod}.`);
       } else {
           console.error("Rolls array is null or undefined.");
       }
@@ -551,6 +586,7 @@ html.on("click", ".roll-method-button", async function () {
       console.error(`Error in roll method '${rollMethod}':`, error);
   }
 });
+
 
 
 
