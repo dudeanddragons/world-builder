@@ -20,37 +20,36 @@ export async function rollMethodI() {
 }
 
 export async function rollMethodII() {
-    const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+    const abilities = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
 
     // Roll 3d6 twice for each ability
     const rolls = await Promise.all(
-        abilities.map(async (ability) => {
+        abilities.map(async () => {
+            // Create two rolls
             const roll1 = new Roll("3d6");
             const roll2 = new Roll("3d6");
 
+            // Evaluate rolls asynchronously
             await roll1.evaluate();
             await roll2.evaluate();
 
+            // Trigger Dice So Nice animations if available
             if (game.dice3d) {
                 await game.dice3d.showForRoll(roll1);
                 await game.dice3d.showForRoll(roll2);
             }
 
+            // Select the higher roll
             const chosenRoll = roll1.total >= roll2.total ? roll1 : roll2;
 
-            // Debug logs
-            console.log(`Ability: ${ability}`);
-            console.log(`  Roll 1: ${roll1.total}, Rolls: ${roll1.dice[0].results.map((r) => r.result)}`);
-            console.log(`  Roll 2: ${roll2.total}, Rolls: ${roll2.dice[0].results.map((r) => r.result)}`);
-            console.log(`  Chosen: ${chosenRoll.total}`);
+            // Sort individual dice rolls
+            const sortedIndividualRolls = chosenRoll.dice[0]?.results
+                .map((r) => r.result)
+                .sort((a, b) => a - b) || [];
 
             return {
-                ability,
-                roll1: roll1.total,
-                roll2: roll2.total,
-                chosen: chosenRoll.total,
-                individualRolls1: roll1.dice[0].results.map((r) => r.result),
-                individualRolls2: roll2.dice[0].results.map((r) => r.result),
+                total: chosenRoll.total,
+                individualRolls: sortedIndividualRolls, // Store sorted rolls
             };
         })
     );
