@@ -569,13 +569,14 @@
   <div class="form-group">
     <table class="roll-method-buttons">
       <tr>
-        <td><button type="button" id="roll-dmchoice-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="dmchoice">DM's Option</button></td>
-        <td><button type="button" id="roll-method1-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method1">Method I</button></td>
-        <td><button type="button" id="roll-method2-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method2">Method II</button></td>
-        <td><button type="button" id="roll-method3-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method3">Method III</button></td>
-        <td><button type="button" id="roll-method4-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method4">Method IV</button></td>
-        <td><button type="button" id="roll-method5-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method5">Method V</button></td>
-        <td><button type="button" id="roll-method6-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method6">Method VI</button></td>
+        <td><button type="button" id="roll-dmchoice-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="dmchoice" title="Manually Input Scores">DM's Option</button></td>
+        <td><button type="button" id="roll-method1-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method1" title="Roll 3d6 in Order" >Method I</button></td>
+        <td><button type="button" id="roll-method2-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method2" title="Roll 3d6*2 in Order">Method II</button></td>
+        <!-- I accidently mixed up Method III and IV, For now I swapped buttons I might fix logic later -->
+        <td><button type="button" id="roll-method4-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method4" title="Roll 3d6 Choose Order">Method III</button></td>
+        <td><button type="button" id="roll-method3-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method3" title="Roll 3d6*2 Choose Order">Method IV</button></td>
+        <td><button type="button" id="roll-method5-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method5" title="Roll 4d6 Drop Lowest Choose Order">Method V</button></td>
+        <td><button type="button" id="roll-method6-{{@index}}" class="roll-method-button" data-index="{{@index}}" data-method="method6" title="Roll 7d6 Add to Points">Method VI</button></td>
       </tr>
     </table>
   </div>
