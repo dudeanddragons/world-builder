@@ -436,16 +436,18 @@ html.on("click", ".roll-method-button", async function () {
               renderDiceResults(actorIndex, rolls);
               break;
 
-              case "method3":
-                // Method 3: Roll twice for each ability and choose the best result
-                rolls = await rollMethodIII();
-                renderDiceResults(actorIndex, rolls); // Render results in drop zones
-                enableDragDrop(actorIndex); // Re-enable drag-and-drop for swapping
-                break;
+          case "method3":
+              // Method 3: Roll twice for each ability and choose the best result
+              rolls = await rollMethodIII();
+              renderDiceResults(actorIndex, rolls); // Render results in drop zones
+              enableDragDrop(actorIndex); // Re-enable drag-and-drop for swapping
+              break;
 
           case "method4":
-              rolls = await rollMethodIV();
-              renderDiceResults(actorIndex, rolls);
+              // Method 4: Roll six totals and let the user assign them to abilities
+              rolls = await rollMethodI(); // Reuse the rolling logic from Method 1
+              renderDiceResults(actorIndex, rolls); // Render dice in drop zones
+              enableDragDrop(actorIndex); // Allow drag-and-drop assignment
               break;
 
           case "method5":
@@ -477,6 +479,7 @@ html.on("click", ".roll-method-button", async function () {
       console.error(`Error in roll method '${rollMethod}':`, error);
   }
 });
+
 
 
 
