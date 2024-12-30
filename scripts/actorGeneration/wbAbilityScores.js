@@ -142,17 +142,23 @@ export async function rollMethodV() {
 
             const individualRolls = diceRoll.dice[0].results.map((r) => r.result);
             individualRolls.sort((a, b) => a - b); // Sort to identify the lowest roll
+
+            const droppedDie = individualRolls[0]; // Identify the lowest roll (first in sorted array)
             const total = individualRolls.slice(1).reduce((sum, roll) => sum + roll, 0); // Sum top three rolls
 
             return {
                 total,
                 individualRolls,
+                droppedDie, // Pass the exact dropped die value for highlighting
             };
         })
     );
 
     return rolls;
 }
+
+
+
 
 export async function rollMethodVI() {
     const rolls = await Promise.all(

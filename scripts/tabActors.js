@@ -451,8 +451,10 @@ html.on("click", ".roll-method-button", async function () {
               break;
 
           case "method5":
-              rolls = await rollMethodV();
-              renderDiceResults(actorIndex, rolls);
+              // Method 5: Roll 4d6 drop the lowest, enable drag-and-drop
+              rolls = await rollMethodV(); // Rolling logic for 4d6 drop lowest
+              renderDiceResults(actorIndex, rolls); // Render dice in drop zones
+              enableDragDrop(actorIndex); // Allow drag-and-drop assignment
               break;
 
           case "method6":
@@ -479,6 +481,15 @@ html.on("click", ".roll-method-button", async function () {
       console.error(`Error in roll method '${rollMethod}':`, error);
   }
 });
+
+
+
+
+
+
+
+
+
 
 
 
@@ -516,10 +527,18 @@ async function renderDiceResults(actorIndex, rolls) {
       diceUnit.dataset.rollIndex = i;
       diceUnit.dataset.value = roll.total;
 
+      let droppedCount = 0; // Track how many of the dropped value have been highlighted
       roll.individualRolls.forEach((die) => {
           const dieElement = document.createElement("div");
           dieElement.classList.add("wb-die");
-          dieElement.textContent = die; // No red highlighting for Method 3
+          dieElement.textContent = die;
+
+          // Highlight only the dropped die for Method V
+          if (roll.droppedDie === die && droppedCount === 0) {
+              dieElement.classList.add("lowest");
+              droppedCount++;
+          }
+
           diceUnit.appendChild(dieElement);
       });
 
@@ -528,6 +547,7 @@ async function renderDiceResults(actorIndex, rolls) {
 
   console.log("Dice rendered directly into drop zones for actor index:", actorIndex);
 }
+
 
 
 

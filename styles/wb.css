@@ -338,7 +338,6 @@ legend {
         }
         .wb-dice-unit .wb-die.lowest {
             background: #ffcccc;
-            text-decoration: line-through;
         }
         .wb-drop-zone {
           width: 0%;
