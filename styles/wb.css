@@ -340,17 +340,12 @@ legend {
             background: #ffcccc;
         }
         .wb-drop-zone {
-          width: 0%;
-          height: 0px;
-          border: 1px dashed #ccc;
           display: flex;
+          flex-wrap: wrap;
+          gap: 10px; 
+          justify-content: flex-start;
           align-items: center;
-          justify-content: center;
-          margin: 5px 0;
-          background: #f9f9f9;
-          position: relative;
-          cursor: pointer;
-      }
+        }
       
       .wb-drop-zone:hover {
           background-color: #e3e3e3; /* Subtle change for hover */

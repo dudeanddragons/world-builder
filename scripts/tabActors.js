@@ -227,7 +227,7 @@ export function handleActorsTab(builder, html) {
 }
 
 
-function enableDragDrop(actorIndex) {
+function enableDragDrop(actorIndex, method = "default") {
   const dropZones = document.querySelectorAll(`[id^="assigned-score-${actorIndex}-"]`);
 
   if (dropZones.length === 0) {
@@ -263,18 +263,25 @@ function enableDragDrop(actorIndex) {
 
           console.log("Drop event triggered for zone:", zone);
 
-          // Swap the dragged element with the current content of the drop zone
-          const currentElement = zone.querySelector(".wb-dice-unit");
-          if (currentElement) {
-              const sourceZone = draggedElement.parentElement;
-              sourceZone.appendChild(currentElement);
+          if (method === "method6") {
+              // Allow stacking of dice for Method VI
+              zone.appendChild(draggedElement);
+              console.log("Dice stacked in zone for Method VI:", zone);
+          } else {
+              // Swap logic for Methods 3, 4, and 5
+              const currentElement = zone.querySelector(".wb-dice-unit");
+              if (currentElement) {
+                  const sourceZone = draggedElement.parentElement;
+                  sourceZone.appendChild(currentElement);
+              }
+              zone.appendChild(draggedElement);
+              console.log("Dice swapped in zone for other methods:", zone);
           }
 
-          zone.appendChild(draggedElement);
           draggedElement = null;
 
-          console.log("Dice successfully dropped into zone:", zone);
-          updateAbilityScores("method3", [], actorIndex); // Recalculate and update UI
+          // Update ability scores after the drop
+          updateAbilityScores(method, [], actorIndex); // Recalculate and update UI
       });
   });
 
@@ -296,6 +303,8 @@ function enableDragDrop(actorIndex) {
       });
   });
 }
+
+
 
 
 
@@ -459,7 +468,8 @@ html.on("click", ".roll-method-button", async function () {
 
           case "method6":
               rolls = await rollMethodVI();
-              renderDiceResults(actorIndex, rolls);
+              renderDiceResults(actorIndex, rolls, "method6"); // Pass method for handling stacking
+              enableDragDrop(actorIndex, "method6"); // Enable stacking for Method VI
               break;
 
           case "dmchoice":
@@ -500,9 +510,49 @@ html.on("click", ".roll-method-button", async function () {
 
 
 
-async function renderDiceResults(actorIndex, rolls) {
+async function renderDiceResults(actorIndex, rolls, method = "default") {
   const dropZones = document.querySelectorAll(`[id^="assigned-score-${actorIndex}-"]`);
 
+  // Handle cases where the method is Method VI
+  if (method === "method6") {
+      // Clear all drop zones
+      dropZones.forEach((zone) => {
+          zone.innerHTML = ""; // Clear any content
+      });
+
+      // Find the drop zone for Strength
+      const strengthZone = document.querySelector(`#assigned-score-${actorIndex}-strength`);
+      if (!strengthZone) {
+          console.error("Drop zone for Strength not found.");
+          return;
+      }
+
+      // Ensure Strength drop zone uses flexbox for horizontal alignment
+      strengthZone.style.display = "flex";
+      strengthZone.style.flexWrap = "wrap";
+      strengthZone.style.gap = "10px";
+
+      // Assign all dice to Strength
+      rolls.forEach((roll, i) => {
+          const diceUnit = document.createElement("div");
+          diceUnit.classList.add("wb-dice-unit");
+          diceUnit.dataset.rollIndex = i;
+          diceUnit.dataset.value = roll.total;
+
+          // Add individual die result
+          const dieElement = document.createElement("div");
+          dieElement.classList.add("wb-die");
+          dieElement.textContent = roll.individualRoll;
+          diceUnit.appendChild(dieElement);
+
+          strengthZone.appendChild(diceUnit); // Append dice to Strength's drop zone
+      });
+
+      console.log("Dice assigned to Strength for Method VI.");
+      return;
+  }
+
+  // Default behavior for other methods
   if (dropZones.length !== rolls.length) {
       console.error("Number of drop zones does not match the number of rolls.");
       return;
@@ -558,34 +608,23 @@ async function renderDiceResults(actorIndex, rolls) {
 
 
 
+
+
+
+
+
 function renderDragDropFields(actorIndex) {
-  const abilityScoresTable = document.querySelector(".ability-scores-table");
-  if (!abilityScoresTable) {
-      console.error("Ability scores table not found.");
-      return;
-  }
-
-  const rows = abilityScoresTable.querySelectorAll("tbody tr");
-
-  rows.forEach((row, i) => {
-      const ability = Object.keys(builder.data.actors[actorIndex].abilities)[i];
-
-      // Ensure a drop zone exists for each ability
-      let dropZone = row.querySelector(`.wb-drop-zone[data-ability="${ability}"]`);
-      if (!dropZone) {
-          dropZone = document.createElement("div");
-          dropZone.classList.add("wb-drop-zone");
-          dropZone.dataset.index = actorIndex;
-          dropZone.dataset.ability = ability;
-          row.querySelector("td").appendChild(dropZone);
+  const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+  abilities.forEach((ability) => {
+      const dropZone = document.querySelector(`#assigned-score-${actorIndex}-${ability}`);
+      if (dropZone) {
+          dropZone.classList.add("wb-drop-zone"); // Ensure the class is added
+      } else {
+          console.warn(`Drop zone not found for ability: ${ability}`);
       }
-
-      // Clear existing dice in the drop zone
-      dropZone.innerHTML = "";
   });
-
-  console.log("Drag-and-drop fields rendered for actor index:", actorIndex);
 }
+
 
 
 
