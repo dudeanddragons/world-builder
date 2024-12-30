@@ -9,10 +9,12 @@ import {
 
 export function handleActorsTab(builder, html) {
   let mappedNames = null;
-  let raceData = []; // Store race items for dropdown
-  let classData = []; // Store class items for dropdown
-  let backgroundData = []; // Store background items for dropdown
+  let raceData = [];
+  let classData = [];
+  let backgroundData = [];
 
+
+  // Add actor Button
   html.find(".add-actor").click(() => {
     if (!builder.data.actors) builder.data.actors = [];
   
@@ -37,14 +39,14 @@ export function handleActorsTab(builder, html) {
   
     builder.data.actors.push(newActor);
   
-    // Safely re-render the builder
     builder.render(false);
   });
   
-  
-  
 
-  
+  //---------------------------------//
+  //------------FUNCTIONS------------//
+  //---------------------------------//
+
   // Load the mappedNames.json file dynamically
   async function loadMappedNames() {
     try {
@@ -164,7 +166,99 @@ export function handleActorsTab(builder, html) {
     });
   }
 
-  function updateAbilityScores(method, rolls, actorIndex) {
+//-------------------//
+//---Roll Methods---//
+//-----------------//
+
+// Render Dice Results  
+async function renderDiceResults(actorIndex, rolls, method = "default") {
+    const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
+    const dropZones = abilities.map((ability) => 
+        document.querySelector(`#assigned-score-${actorIndex}-${ability}`)
+    );
+  
+    // Method VI: Distribute dice across abilities
+    if (method === "method6") {
+        dropZones.forEach((zone) => {
+            zone.innerHTML = ""; // Clear existing content
+            zone.classList.add("wb-drop-zone"); // Ensure the correct class is added
+            zone.style.display = "flex"; // Enable flex layout for stacking
+            zone.style.flexWrap = "wrap";
+            zone.style.gap = "10px";
+        });
+  
+        // Distribute dice results
+        rolls.forEach((roll, i) => {
+            const abilityIndex = i < 2 ? 0 : i - 1; // First 2 in Strength, others distributed
+            const dropZone = dropZones[abilityIndex];
+  
+            if (!dropZone) {
+                console.error(`Drop zone not found for ability index: ${abilityIndex}`);
+                return;
+            }
+  
+            const diceUnit = document.createElement("div");
+            diceUnit.classList.add("wb-dice-unit");
+            diceUnit.dataset.rollIndex = i;
+            diceUnit.dataset.value = roll.total;
+            diceUnit.draggable = true; // Make dice draggable
+  
+            const dieElement = document.createElement("div");
+            dieElement.classList.add("wb-die");
+            dieElement.textContent = roll.individualRoll;
+            diceUnit.appendChild(dieElement);
+  
+            dropZone.appendChild(diceUnit);
+        });
+  
+        console.log("Dice distributed across abilities for Method VI.");
+        return;
+    }
+  
+    // Default behavior for other methods
+    if (dropZones.length !== rolls.length) {
+        console.error("Number of drop zones does not match the number of rolls.");
+        return;
+    }
+  
+    dropZones.forEach((zone) => {
+        zone.innerHTML = ""; // Clear existing content
+    });
+  
+    rolls.forEach((roll, i) => {
+        const dropZone = dropZones[i];
+        if (!dropZone) {
+            console.error("Drop zone not found for roll:", roll);
+            return;
+        }
+  
+        const diceUnit = document.createElement("div");
+        diceUnit.classList.add("wb-dice-unit");
+        diceUnit.dataset.rollIndex = i;
+        diceUnit.dataset.value = roll.total;
+  
+        let droppedCount = 0;
+        roll.individualRolls.forEach((die) => {
+            const dieElement = document.createElement("div");
+            dieElement.classList.add("wb-die");
+            dieElement.textContent = die;
+  
+            if (roll.droppedDie === die && droppedCount === 0) {
+                dieElement.classList.add("lowest");
+                droppedCount++;
+            }
+  
+            diceUnit.appendChild(dieElement);
+        });
+  
+        dropZone.appendChild(diceUnit);
+    });
+  
+    console.log("Dice rendered for other methods.");
+  }
+
+// Update Ability Score Results
+function updateAbilityScores(method, rolls, actorIndex) {
     const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
     const defaultScore = 8; // Base score for Method VI
 
@@ -248,16 +342,7 @@ export function handleActorsTab(builder, html) {
     console.log(`Ability scores updated for method '${method}' for actor index ${actorIndex}`);
 }
 
-
-
-
-
-
-
-
-
-
-
+// Enable Drag and Drop Features
 function enableDragDrop(actorIndex, method = "default") {
   const dropZones = document.querySelectorAll(`[id^="assigned-score-${actorIndex}-"]`);
 
@@ -356,7 +441,6 @@ function enableDragDrop(actorIndex, method = "default") {
   });
 }
 
-
 // Helper function to add a dummy dice to a drop zone
 function addDummyDice(zone) {
   const dummyDice = document.createElement("div");
@@ -389,9 +473,37 @@ function manageDummyDice(zone) {
   sortedDice.forEach((dice) => zone.appendChild(dice));
 }
 
+//--------------------//
+//---EQUIPMENT GEN---//
+//------------------//
 
+  // Render equipment table
+  function renderEquipmentTable(index, equipment) {
+    const tableBody = $(`#equipment-table-${index} tbody`);
+    const rows = equipment
+      .map(
+        (item, i) =>
+          `<tr>
+            <td>${item.name}</td>
+            <td>${item.quantity}</td>
+            <td><button class="delete-equipment" data-index="${i}" data-actor-index="${index}">Delete</button></td>
+          </tr>`
+      )
+      .join("");
+    tableBody.html(rows);
 
+    tableBody.find(".delete-equipment").click(function () {
+      const actorIndex = $(this).data("actor-index");
+      const itemIndex = $(this).data("index");
+      builder.data.actors[actorIndex].equipment.splice(itemIndex, 1);
+      renderEquipmentTable(actorIndex, builder.data.actors[actorIndex].equipment);
+    });
+  }
 
+  
+//---------------------------------------//
+//---------------LISTENERS---------------//
+//---------------------------------------//
 
 // ABILITY SCORE BUTTON CLICK LISTENERS
 html.on("click", ".roll-method-button", async function () {
@@ -534,29 +646,6 @@ html.on("click", ".roll-method-button", async function () {
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
   // Delete an actor from the list
   html.on("click", ".delete-actor", function () {
     const index = $(this).data("index");
@@ -661,147 +750,6 @@ html.on("click", ".roll-method-button", async function () {
   });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-async function renderDiceResults(actorIndex, rolls, method = "default") {
-  const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
-  const dropZones = abilities.map((ability) => 
-      document.querySelector(`#assigned-score-${actorIndex}-${ability}`)
-  );
-
-  // Method VI: Distribute dice across abilities
-  if (method === "method6") {
-      dropZones.forEach((zone) => {
-          zone.innerHTML = ""; // Clear existing content
-          zone.classList.add("wb-drop-zone"); // Ensure the correct class is added
-          zone.style.display = "flex"; // Enable flex layout for stacking
-          zone.style.flexWrap = "wrap";
-          zone.style.gap = "10px";
-      });
-
-      // Distribute dice results
-      rolls.forEach((roll, i) => {
-          const abilityIndex = i < 2 ? 0 : i - 1; // First 2 in Strength, others distributed
-          const dropZone = dropZones[abilityIndex];
-
-          if (!dropZone) {
-              console.error(`Drop zone not found for ability index: ${abilityIndex}`);
-              return;
-          }
-
-          const diceUnit = document.createElement("div");
-          diceUnit.classList.add("wb-dice-unit");
-          diceUnit.dataset.rollIndex = i;
-          diceUnit.dataset.value = roll.total;
-          diceUnit.draggable = true; // Make dice draggable
-
-          const dieElement = document.createElement("div");
-          dieElement.classList.add("wb-die");
-          dieElement.textContent = roll.individualRoll;
-          diceUnit.appendChild(dieElement);
-
-          dropZone.appendChild(diceUnit);
-      });
-
-      console.log("Dice distributed across abilities for Method VI.");
-      return;
-  }
-
-  // Default behavior for other methods
-  if (dropZones.length !== rolls.length) {
-      console.error("Number of drop zones does not match the number of rolls.");
-      return;
-  }
-
-  dropZones.forEach((zone) => {
-      zone.innerHTML = ""; // Clear existing content
-  });
-
-  rolls.forEach((roll, i) => {
-      const dropZone = dropZones[i];
-      if (!dropZone) {
-          console.error("Drop zone not found for roll:", roll);
-          return;
-      }
-
-      const diceUnit = document.createElement("div");
-      diceUnit.classList.add("wb-dice-unit");
-      diceUnit.dataset.rollIndex = i;
-      diceUnit.dataset.value = roll.total;
-
-      let droppedCount = 0;
-      roll.individualRolls.forEach((die) => {
-          const dieElement = document.createElement("div");
-          dieElement.classList.add("wb-die");
-          dieElement.textContent = die;
-
-          if (roll.droppedDie === die && droppedCount === 0) {
-              dieElement.classList.add("lowest");
-              droppedCount++;
-          }
-
-          diceUnit.appendChild(dieElement);
-      });
-
-      dropZone.appendChild(diceUnit);
-  });
-
-  console.log("Dice rendered for other methods.");
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function renderDragDropFields(actorIndex) {
   const abilities = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
   abilities.forEach((ability) => {
@@ -823,67 +771,6 @@ function renderDragDropFields(actorIndex) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-  // Render equipment table
-  function renderEquipmentTable(index, equipment) {
-    const tableBody = $(`#equipment-table-${index} tbody`);
-    const rows = equipment
-      .map(
-        (item, i) =>
-          `<tr>
-            <td>${item.name}</td>
-            <td>${item.quantity}</td>
-            <td><button class="delete-equipment" data-index="${i}" data-actor-index="${index}">Delete</button></td>
-          </tr>`
-      )
-      .join("");
-    tableBody.html(rows);
-
-    tableBody.find(".delete-equipment").click(function () {
-      const actorIndex = $(this).data("actor-index");
-      const itemIndex = $(this).data("index");
-      builder.data.actors[actorIndex].equipment.splice(itemIndex, 1);
-      renderEquipmentTable(actorIndex, builder.data.actors[actorIndex].equipment);
-    });
-  }
 
   // Load initial data
   Promise.all([loadMappedNames(), loadRaceItems(), loadClassItems(), loadBackgroundItems()]).then(() => {
