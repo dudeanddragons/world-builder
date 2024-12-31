@@ -755,15 +755,74 @@ html.on("click", ".create-npc", async function () {
     clonedData.name = clonedName; // Set the determined name
     clonedData.folder = null; // Ensure the cloned actor is not placed in any folder
 
+    // Update ability scores from formData to match the system structure
+    const abilities = clonedData.system.abilities;
+    abilities.str.value = formData.abilities.strength;
+    abilities.dex.value = formData.abilities.dexterity;
+    abilities.con.value = formData.abilities.constitution;
+    abilities.int.value = formData.abilities.intelligence;
+    abilities.wis.value = formData.abilities.wisdom;
+    abilities.cha.value = formData.abilities.charisma;
+
+    // Create the cloned actor
     const savedNPC = await Actor.create(clonedData);
 
+    // Add race as an embedded document
+    const itemsToAdd = [];
+    if (formData.race?.uuid) {
+      const raceItem = await fromUuid(formData.race.uuid);
+      if (raceItem) {
+        itemsToAdd.push(raceItem.toObject());
+        console.log(`Added race: ${raceItem.name} (UUID: ${raceItem.uuid})`);
+      } else {
+        console.warn(`Race with UUID ${formData.race.uuid} not found.`);
+      }
+    }
+
+    // Add class1, class2, and class3 as embedded documents
+    for (const classField of ["class1", "class2", "class3"]) {
+      if (formData[classField]?.uuid && formData[classField].uuid !== "none") {
+        const classItem = await fromUuid(formData[classField].uuid);
+        if (classItem) {
+          itemsToAdd.push(classItem.toObject());
+          console.log(`Added ${classField}: ${classItem.name} (UUID: ${classItem.uuid})`);
+        } else {
+          console.warn(`${classField} with UUID ${formData[classField].uuid} not found.`);
+        }
+      }
+    }
+
+    // Add background as an embedded document
+    if (formData.background?.uuid) {
+      const backgroundItem = await fromUuid(formData.background.uuid);
+      if (backgroundItem) {
+        itemsToAdd.push(backgroundItem.toObject());
+        console.log(`Added background: ${backgroundItem.name} (UUID: ${backgroundItem.uuid})`);
+      } else {
+        console.warn(`Background with UUID ${formData.background.uuid} not found.`);
+      }
+    }
+
+    // Create all embedded documents at once
+    if (itemsToAdd.length > 0) {
+      await savedNPC.createEmbeddedDocuments("Item", itemsToAdd);
+    }
+
     console.log(`Cloned NPC: ${savedNPC.name} (ID: ${savedNPC.id})`);
-    ui.notifications.info(`Successfully cloned NPC "${savedNPC.name}" without assigning it to a folder.`);
+    console.log(`Updated Abilities:`, savedNPC.system.abilities);
+    ui.notifications.info(`Successfully cloned NPC "${savedNPC.name}" with updated abilities, race, classes, and background.`);
   } catch (error) {
     console.error("Error cloning NPC:", error);
     ui.notifications.error("Failed to clone NPC. Check the console for details.");
   }
 });
+
+
+
+
+
+
+
 
 
 
