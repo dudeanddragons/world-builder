@@ -732,74 +732,89 @@ html.on("click", ".create-npc", async function () {
     const formData = builder.data.actors[actorIndex]; // Get actor data
     const cloneData = formData.cloneNPC; // Retrieve cloneNPC data
 
-    if (!cloneData || cloneData.uuid === "none") {
-      ui.notifications.warn("No NPC selected for cloning. Please select an NPC from the dropdown.");
-      return;
+    let newNPCData;
+    if (cloneData && cloneData.uuid !== "none") {
+      // If a Clone NPC is selected, fetch the NPC actor to clone
+      console.log(`Cloning NPC: ${cloneData.name} (UUID: ${cloneData.uuid})`);
+      const originalNPC = game.actors.get(cloneData.uuid);
+      if (!originalNPC) {
+        ui.notifications.error(`NPC with UUID ${cloneData.uuid} not found.`);
+        return;
+      }
+
+      // Clone the NPC and prepare data
+      newNPCData = originalNPC.toObject();
+      const customName = formData.name || "Clone";
+      newNPCData.name = `${originalNPC.name} (${customName})`; // Set the name for the cloned NPC
+      newNPCData.folder = null; // Ensure the cloned NPC is not placed in any folder
+
+      // Update ability scores from formData
+      const abilities = newNPCData.system.abilities;
+      abilities.str.value = formData.abilities.strength || abilities.str.value;
+      abilities.dex.value = formData.abilities.dexterity || abilities.dex.value;
+      abilities.con.value = formData.abilities.constitution || abilities.con.value;
+      abilities.int.value = formData.abilities.intelligence || abilities.int.value;
+      abilities.wis.value = formData.abilities.wisdom || abilities.wis.value;
+      abilities.cha.value = formData.abilities.charisma || abilities.cha.value;
+      console.log("Updated Abilities for Cloned NPC:", abilities);
+    } else {
+      // If no Clone NPC is selected, create a new blank NPC
+      console.log("Creating a new blank NPC.");
+      newNPCData = {
+        name: formData.name || "New NPC",
+        type: "npc",
+        folder: null, // Ensure the new NPC is not placed in any folder
+        system: {
+          abilities: {
+            str: { value: formData.abilities.strength || 10 },
+            dex: { value: formData.abilities.dexterity || 10 },
+            con: { value: formData.abilities.constitution || 10 },
+            int: { value: formData.abilities.intelligence || 10 },
+            wis: { value: formData.abilities.wisdom || 10 },
+            cha: { value: formData.abilities.charisma || 10 },
+          },
+          attributes: {
+            hp: { value: 10, max: 10 },
+            ac: { value: 10 },
+            movement: { walk: 30 },
+          },
+          details: {
+            alignment: "neutral",
+            type: { value: "npc" },
+          },
+          token: { vision: true, actorLink: false },
+        },
+      };
     }
 
-    console.log(`Cloning NPC: ${cloneData.name} (UUID: ${cloneData.uuid})`);
+    // Create the NPC actor
+    const savedNPC = await Actor.create(newNPCData);
 
-    // Fetch the NPC actor to clone
-    const originalNPC = game.actors.get(cloneData.uuid);
-    if (!originalNPC) {
-      ui.notifications.error(`NPC with UUID ${cloneData.uuid} not found.`);
-      return;
-    }
-
-    // Determine the name for the cloned NPC
-    const customName = formData.name || "Clone"; // Use the actor's name if provided, otherwise default to "Clone"
-    const clonedName = `${originalNPC.name} (${customName})`;
-
-    // Clone and create a new actor in the database
-    const clonedData = originalNPC.toObject();
-    clonedData.name = clonedName; // Set the determined name
-    clonedData.folder = null; // Ensure the cloned actor is not placed in any folder
-
-    // Update ability scores from formData to match the system structure
-    const abilities = clonedData.system.abilities;
-    abilities.str.value = formData.abilities.strength;
-    abilities.dex.value = formData.abilities.dexterity;
-    abilities.con.value = formData.abilities.constitution;
-    abilities.int.value = formData.abilities.intelligence;
-    abilities.wis.value = formData.abilities.wisdom;
-    abilities.cha.value = formData.abilities.charisma;
-
-    // Create the cloned actor
-    const savedNPC = await Actor.create(clonedData);
-
-    // Add race as an embedded document
+    // Add items (race, classes, background) as embedded documents
     const itemsToAdd = [];
     if (formData.race?.uuid) {
       const raceItem = await fromUuid(formData.race.uuid);
       if (raceItem) {
         itemsToAdd.push(raceItem.toObject());
         console.log(`Added race: ${raceItem.name} (UUID: ${raceItem.uuid})`);
-      } else {
-        console.warn(`Race with UUID ${formData.race.uuid} not found.`);
       }
     }
 
-    // Add class1, class2, and class3 as embedded documents
     for (const classField of ["class1", "class2", "class3"]) {
       if (formData[classField]?.uuid && formData[classField].uuid !== "none") {
         const classItem = await fromUuid(formData[classField].uuid);
         if (classItem) {
           itemsToAdd.push(classItem.toObject());
           console.log(`Added ${classField}: ${classItem.name} (UUID: ${classItem.uuid})`);
-        } else {
-          console.warn(`${classField} with UUID ${formData[classField].uuid} not found.`);
         }
       }
     }
 
-    // Add background as an embedded document
     if (formData.background?.uuid) {
       const backgroundItem = await fromUuid(formData.background.uuid);
       if (backgroundItem) {
         itemsToAdd.push(backgroundItem.toObject());
         console.log(`Added background: ${backgroundItem.name} (UUID: ${backgroundItem.uuid})`);
-      } else {
-        console.warn(`Background with UUID ${formData.background.uuid} not found.`);
       }
     }
 
@@ -808,14 +823,102 @@ html.on("click", ".create-npc", async function () {
       await savedNPC.createEmbeddedDocuments("Item", itemsToAdd);
     }
 
-    console.log(`Cloned NPC: ${savedNPC.name} (ID: ${savedNPC.id})`);
+    console.log(`NPC Created: ${savedNPC.name} (ID: ${savedNPC.id})`);
     console.log(`Updated Abilities:`, savedNPC.system.abilities);
-    ui.notifications.info(`Successfully cloned NPC "${savedNPC.name}" with updated abilities, race, classes, and background.`);
+    ui.notifications.info(
+      `Successfully created NPC "${savedNPC.name}" with updated abilities, race, classes, and background.`
+    );
   } catch (error) {
-    console.error("Error cloning NPC:", error);
-    ui.notifications.error("Failed to clone NPC. Check the console for details.");
+    console.error("Error creating or cloning NPC:", error);
+    ui.notifications.error("Failed to create or clone NPC. Check the console for details.");
   }
 });
+
+
+html.on("click", ".create-character", async function () {
+  try {
+    const actorIndex = $(this).data("index"); // Dynamically retrieve the actor index
+    if (actorIndex === undefined) {
+      console.error("Actor index is undefined. Ensure the button includes a data-index attribute.");
+      return;
+    }
+
+    const formData = builder.data.actors[actorIndex]; // Get actor data
+
+    // Prepare the new character data
+    const newCharacterData = {
+      name: formData.name || "New Character",
+      type: "character",
+      folder: null, // Ensure the new character is not placed in any folder
+      system: {
+        abilities: {
+          str: { value: formData.abilities.strength || 10 },
+          dex: { value: formData.abilities.dexterity || 10 },
+          con: { value: formData.abilities.constitution || 10 },
+          int: { value: formData.abilities.intelligence || 10 },
+          wis: { value: formData.abilities.wisdom || 10 },
+          cha: { value: formData.abilities.charisma || 10 },
+        },
+        attributes: {
+          hp: { value: 10, max: 10 },
+          ac: { value: 10 },
+          movement: { walk: 30 },
+        },
+        details: {
+          alignment: "neutral",
+          type: { value: "character" },
+        },
+        token: { vision: true, actorLink: true },
+      },
+    };
+
+    // Create the character actor
+    const savedCharacter = await Actor.create(newCharacterData);
+
+    // Add items (race, classes, background) as embedded documents
+    const itemsToAdd = [];
+    if (formData.race?.uuid) {
+      const raceItem = await fromUuid(formData.race.uuid);
+      if (raceItem) {
+        itemsToAdd.push(raceItem.toObject());
+        console.log(`Added race: ${raceItem.name} (UUID: ${raceItem.uuid})`);
+      }
+    }
+
+    for (const classField of ["class1", "class2", "class3"]) {
+      if (formData[classField]?.uuid && formData[classField].uuid !== "none") {
+        const classItem = await fromUuid(formData[classField].uuid);
+        if (classItem) {
+          itemsToAdd.push(classItem.toObject());
+          console.log(`Added ${classField}: ${classItem.name} (UUID: ${classItem.uuid})`);
+        }
+      }
+    }
+
+    if (formData.background?.uuid) {
+      const backgroundItem = await fromUuid(formData.background.uuid);
+      if (backgroundItem) {
+        itemsToAdd.push(backgroundItem.toObject());
+        console.log(`Added background: ${backgroundItem.name} (UUID: ${backgroundItem.uuid})`);
+      }
+    }
+
+    // Create all embedded documents at once
+    if (itemsToAdd.length > 0) {
+      await savedCharacter.createEmbeddedDocuments("Item", itemsToAdd);
+    }
+
+    console.log(`Character Created: ${savedCharacter.name} (ID: ${savedCharacter.id})`);
+    console.log(`Updated Abilities:`, savedCharacter.system.abilities);
+    ui.notifications.info(
+      `Successfully created Character "${savedCharacter.name}" with updated abilities, race, classes, and background.`
+    );
+  } catch (error) {
+    console.error("Error creating Character:", error);
+    ui.notifications.error("Failed to create Character. Check the console for details.");
+  }
+});
+
 
 
 
