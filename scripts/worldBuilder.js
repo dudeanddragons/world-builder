@@ -181,6 +181,9 @@ resetFormState() {
   }
 
   console.log("Treasure options loaded into form state:", this.data.lairTreasureOptions);
+
+  // Load default lair encounter options from dungeon compendium
+  this.loadDefaultEncounterOptions();
 }
  
   
@@ -400,14 +403,46 @@ randomizeConditionData(entries) {
  * !!!!----------------------------------------------!!!!
  */
 
+async loadDefaultEncounterOptions() {
+  try {
+    console.log("Loading default lair encounter options from dungeon compendium...");
+
+    // Default compendium to dungeon
+    const compendiumNames = ["world.wb-lairs-dungeons"];
+
+    // Fetch data from the compendium
+    const actorData = await getLairActors(compendiumNames);
+    if (!actorData || actorData.length === 0) {
+      console.warn("No actors found in the dungeon compendium.");
+      this.data.encounterOptions = [];
+      this.data.encounterData = [];
+      return;
+    }
+
+    // Populate default encounter options and data
+    this.data.encounterOptions = actorData.map((actor) => actor.name).sort((a, b) => a.localeCompare(b));
+    this.data.encounterData = actorData;
+
+    console.log("Default Lair Encounter Options:", this.data.encounterOptions);
+    console.log("Default Lair Encounter Data:", this.data.encounterData);
+  } catch (error) {
+    console.error("Error loading default lair encounter options:", error);
+    this.data.encounterOptions = [];
+    this.data.encounterData = [];
+  }
+}
+
 async loadEncounterOptions() {
   try {
-    // Determine the compendium name based on cave or dungeon
-    const compendiumNames = this.data.isCave ? ["world.wb-lairs-caves"] : ["world.wb-lairs-dungeons"];
+    // Determine the compendium name. Default to dungeons if no explicit flag is set.
+    const compendiumNames = this.data.isCave
+      ? ["world.wb-lairs-caves"]
+      : ["world.wb-lairs-dungeons"];
 
-    // Fetch detailed actor data from the compendiums via `getLairActors`
-    const actorData = await getLairActors(compendiumNames); // Fetches data directly from the compendiums
-    if (actorData.length === 0) {
+    // Fetch detailed actor data from the compendiums
+    const actorData = await getLairActors(compendiumNames);
+
+    if (!actorData || actorData.length === 0) {
       console.warn("No actors found in the specified compendiums.");
       this.data.encounterOptions = [];
       this.data.encounterData = [];
@@ -415,7 +450,7 @@ async loadEncounterOptions() {
     }
 
     // Populate encounter options with actor names
-    this.data.encounterOptions = actorData.map(actor => actor.name).sort((a, b) => a.localeCompare(b)); // Alphabetical order
+    this.data.encounterOptions = actorData.map((actor) => actor.name).sort((a, b) => a.localeCompare(b));
     this.data.encounterData = actorData; // Use the detailed actor data fetched from `getLairActors`
 
     console.log("Encounter Options:", this.data.encounterOptions);
@@ -426,6 +461,11 @@ async loadEncounterOptions() {
     this.data.encounterData = [];
   }
 }
+
+
+
+
+
 
 
 
