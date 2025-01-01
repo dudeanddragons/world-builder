@@ -29,6 +29,7 @@
   ],
   "esmodules": [
     "scripts/config.js",
+    "scripts/settings.js",
     "scripts/wsLairActors.js",
     "scripts/wsDataItems.js",
     "scripts/wbViewState.js",
