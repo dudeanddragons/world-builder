@@ -1,90 +1,90 @@
 /**
- * wsLairActors.js
- * A helper module to retrieve actor information from specified folders in a structured format.
- */
-
-/**
- * Retrieves actor information from specified folders in the Actors directory.
- * @param {Array<string>} folderNames - An array of folder names to search for.
+ * Retrieves actor information from specified compendiums in a structured format.
+ * @param {Array<string>} compendiumNames - An array of compendium names to search for.
  * @returns {Array<Object>} An array of objects containing actor details.
  */
-export async function getLairActors(folderNames) {
+export async function getLairActors(compendiumNames) {
     // Validate input
-    if (!Array.isArray(folderNames) || folderNames.length === 0) {
-        console.warn("getLairActors: folderNames must be a non-empty array.");
+    if (!Array.isArray(compendiumNames) || compendiumNames.length === 0) {
+        console.warn("getLairActors: compendiumNames must be a non-empty array.");
         return [];
     }
 
-    // Filter the folders in the Actors section with the specified names
-    const matchingFolders = game.folders.filter(
-        folder => folder.type === "Actor" && folderNames.includes(folder.name)
-    );
-
-    if (matchingFolders.length === 0) {
-        console.warn("getLairActors: No matching folders found.");
-        return [];
-    }
-
-    // Collect results
     let results = [];
-    for (const folder of matchingFolders) {
-        const actors = game.actors.filter(actor => actor.folder?.id === folder.id);
 
-        for (const actor of actors) {
-            const id = actor.id || "N/A";
-            const name = actor.name || "N/A";
-            const str = actor.system?.abilities?.str?.value || "N/A";
-            const dex = actor.system?.abilities?.dex?.value || "N/A";
-            const con = actor.system?.abilities?.con?.value || "N/A";
-            const int = actor.system?.abilities?.int?.value || "N/A";
-            const wis = actor.system?.abilities?.wis?.value || "N/A";
-            const cha = actor.system?.abilities?.cha?.value || "N/A";
-            const movement = actor.system?.attributes?.movement?.text || "N/A";
-            const hitdice = actor.system?.hitdice || "N/A";
-            const thac0 = actor.system?.attributes?.thaco?.value || "N/A";
-            const numAttacks = actor.system?.numberAttacks || "N/A";
-            const damage = actor.system?.damage || "N/A";
-            const specialAttacks = actor.system?.specialAttacks || "N/A";
-            const specialDefenses = actor.system?.specialDefenses || "N/A";
-            const magicResist = actor.system?.magicresist || "N/A";
-            const size = actor.system?.attributes?.size || "N/A";
-            const alignment = actor.system?.details?.alignment || "N/A";
-            const xp = actor.system?.xp?.value || "N/A";
-            let numberAppearing = actor.system?.numberAppearing || "N/A";
-            const treasureType = actor.system?.treasureType || "N/A";
+    try {
+        for (const compendiumName of compendiumNames) {
+            // Access the compendium
+            const compendium = game.packs.get(compendiumName);
+            if (!compendium) {
+                console.warn(`getLairActors: Compendium '${compendiumName}' not found.`);
+                continue;
+            }
 
-            // Sanitize number appearing
-            numberAppearing = sanitizeNumberAppearing(numberAppearing);
+            // Load all actor documents from the compendium
+            const actors = await compendium.getDocuments();
+            console.log(`Actors retrieved from compendium '${compendiumName}':`, actors);
 
-            // Add actor details to results
-            results.push({
-                id,
-                name,
-                str,
-                dex,
-                con,
-                int,
-                wis,
-                cha,
-                movement,
-                hitdice,
-                thac0,
-                numAttacks,
-                damage,
-                specialAttacks,
-                specialDefenses,
-                magicResist,
-                size,
-                alignment,
-                xp,
-                numberAppearing,
-                treasureType,
-            });
+            // Extract actor details
+            for (const actor of actors) {
+                const id = actor.id || "N/A";
+                const name = actor.name || "N/A";
+                const str = actor.system?.abilities?.str?.value || "N/A";
+                const dex = actor.system?.abilities?.dex?.value || "N/A";
+                const con = actor.system?.abilities?.con?.value || "N/A";
+                const int = actor.system?.abilities?.int?.value || "N/A";
+                const wis = actor.system?.abilities?.wis?.value || "N/A";
+                const cha = actor.system?.abilities?.cha?.value || "N/A";
+                const movement = actor.system?.attributes?.movement?.text || "N/A";
+                const hitdice = actor.system?.hitdice || "N/A";
+                const thac0 = actor.system?.attributes?.thaco?.value || "N/A";
+                const numAttacks = actor.system?.numberAttacks || "N/A";
+                const damage = actor.system?.damage || "N/A";
+                const specialAttacks = actor.system?.specialAttacks || "N/A";
+                const specialDefenses = actor.system?.specialDefenses || "N/A";
+                const magicResist = actor.system?.magicresist || "N/A";
+                const size = actor.system?.attributes?.size || "N/A";
+                const alignment = actor.system?.details?.alignment || "N/A";
+                const xp = actor.system?.xp?.value || "N/A";
+                let numberAppearing = actor.system?.numberAppearing || "N/A";
+                const treasureType = actor.system?.treasureType || "N/A";
+
+                // Sanitize number appearing
+                numberAppearing = sanitizeNumberAppearing(numberAppearing);
+
+                // Add actor details to results
+                results.push({
+                    id,
+                    name,
+                    str,
+                    dex,
+                    con,
+                    int,
+                    wis,
+                    cha,
+                    movement,
+                    hitdice,
+                    thac0,
+                    numAttacks,
+                    damage,
+                    specialAttacks,
+                    specialDefenses,
+                    magicResist,
+                    size,
+                    alignment,
+                    xp,
+                    numberAppearing,
+                    treasureType,
+                });
+            }
         }
+    } catch (error) {
+        console.error("getLairActors: Error retrieving actors from compendiums:", error);
     }
 
     return results;
 }
+
 
 /**
  * Sanitizes the "No. Appearing" value to ensure proper dice notation.

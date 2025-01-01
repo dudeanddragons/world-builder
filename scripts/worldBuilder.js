@@ -402,22 +402,34 @@ randomizeConditionData(entries) {
 
 async loadEncounterOptions() {
   try {
-    const folderNames = this.data.isCave ? ["WB Caves"] : ["WB Dungeons"];
-    const actors = await getLairActors(folderNames);
+    // Determine the compendium name based on cave or dungeon
+    const compendiumNames = this.data.isCave ? ["world.wb-lairs-caves"] : ["world.wb-lairs-dungeons"];
 
-    if (actors.length === 0) {
-      console.warn("No actors found in the specified folders.");
+    // Fetch detailed actor data from the compendiums via `getLairActors`
+    const actorData = await getLairActors(compendiumNames); // Fetches data directly from the compendiums
+    if (actorData.length === 0) {
+      console.warn("No actors found in the specified compendiums.");
+      this.data.encounterOptions = [];
+      this.data.encounterData = [];
+      return;
     }
 
-    this.data.encounterOptions = actors.map(actor => actor.name); // Populate dropdown with actor names
-    this.data.encounterData = actors; // Store full actor data for later use
-    console.log("Actor-based Encounter Options Loaded:", this.data.encounterOptions);
+    // Populate encounter options with actor names
+    this.data.encounterOptions = actorData.map(actor => actor.name).sort((a, b) => a.localeCompare(b)); // Alphabetical order
+    this.data.encounterData = actorData; // Use the detailed actor data fetched from `getLairActors`
+
+    console.log("Encounter Options:", this.data.encounterOptions);
+    console.log("Encounter Data (from Compendiums):", this.data.encounterData);
   } catch (error) {
     console.error("Error loading encounter options:", error);
     this.data.encounterOptions = [];
     this.data.encounterData = [];
   }
 }
+
+
+
+
 
 async loadTreasureOptions() {
   try {
@@ -1274,32 +1286,39 @@ html.find(".room-entry").each((index, room) => {
    // --------------------------------- \\
   // ---------- Lair Encounter --------- \\
  // ------------------------------------- \\
+// Add Encounter Button
 $(room).find(".add-encounter").off("click").on("click", () => {
+  // Add a new, empty encounter with default placeholder
   roomData.encounters.push({ result: "", appearing: "" });
+
+  // Re-render the UI to update the dropdown
   this.render(false);
 });
 
-// Update Encounter
+// Update Encounter Dropdowns
 $(room).find(".encounters-select").each((encounterIndex, dropdown) => {
   const encounterData = roomData.encounters[encounterIndex];
-  const selectedValue = encounterData.result || "";
+  const selectedValue = encounterData.result || ""; // Current selected value or default empty string
 
   // Populate dropdown options dynamically
   $(dropdown).empty(); // Clear existing options
+  $(dropdown).append(new Option("Select an NPC", "", !selectedValue, !selectedValue)); // Add default option
+
   this.data.encounterOptions.forEach((option) => {
-    const optionElement = new Option(option, option, option === selectedValue, option === selectedValue);
+    const isSelected = option === selectedValue;
+    const optionElement = new Option(option, option, isSelected, isSelected);
     $(dropdown).append(optionElement);
   });
 
   // Handle dropdown selection
   $(dropdown).off("change").on("change", (event) => {
     const selectedResult = $(event.target).val(); // Get the selected actor name
-    const actorData = this.data.encounterData.find(actor => actor.name === selectedResult);
-  
+    const actorData = this.data.encounterData.find(actor => actor.name === selectedResult); // Find the actor
+
     if (actorData) {
-      encounterData.result = actorData.name;
-      encounterData.appearing = parseDiceExpression(actorData.numberAppearing || "1"); // Calculate No. Appearing
-  
+      encounterData.result = actorData.name; // Update result
+      encounterData.appearing = parseDiceExpression(actorData.numberAppearing || "1"); // Parse "No. Appearing"
+
       // Generate the stat block
       encounterData.statblock = `
         ${encounterData.appearing} x ${actorData.name};
@@ -1308,15 +1327,17 @@ $(room).find(".encounters-select").each((encounterIndex, dropdown) => {
         SA ${actorData.specialAttacks}; SD ${actorData.specialDefenses}; MR ${actorData.magicResist}; 
         MV ${actorData.movement}; SZ ${actorData.size}; AL ${actorData.alignment}; 
         xps ${actorData.xp}; Treasure ${actorData.treasureType}
-      `.replace(/\s+/g, " "); // Remove excess whitespace
-  
+      `.replace(/\s+/g, " "); // Clean up whitespace
+
       console.log(`Room ${roomIndex} Encounter ${encounterIndex} Updated Statblock:`, encounterData.statblock);
-      this.render(false);
+      this.render(false); // Update UI
     } else {
       console.error(`Actor not found for: ${selectedResult}`);
     }
-  });  
+  });
 });
+
+
 
 // Randomize Encounter
 $(room).find(".randomize-encounter").off("click").on("click", (event) => {
@@ -1324,12 +1345,13 @@ $(room).find(".randomize-encounter").off("click").on("click", (event) => {
   const randomActor = this.data.encounterOptions[Math.floor(Math.random() * this.data.encounterOptions.length)];
 
   if (randomActor) {
-    dropdown.val(randomActor).trigger("change"); // Select the random actor and trigger the dropdown's change event
+    dropdown.val(randomActor).trigger("change"); // Update dropdown and trigger change event
     console.log(`Randomized Actor: ${randomActor}`);
   } else {
     console.error("No actors available to randomize.");
   }
 });
+
 
 // Remove Encounter
 $(room).find(".remove-encounter").off("click").on("click", (event) => {
@@ -1337,28 +1359,6 @@ $(room).find(".remove-encounter").off("click").on("click", (event) => {
   roomData.encounters.splice(encounterIndex, 1);
   this.render(false);
 });
-
-  
-    // Randomize Encounter
-    $(room).find(".randomize-encounter").off("click").on("click", (event) => {
-      const dropdown = $(event.currentTarget).closest("tr").find(".encounters-select");
-      const randomIndex = Math.floor(Math.random() * this.data.encounterOptions.length); // Random index
-      const randomOption = this.data.encounterOptions[randomIndex];
-  
-      if (randomOption) {
-        dropdown.val(randomOption).trigger("change"); // Select the random option and trigger its change event
-        console.log(`Randomized Encounter: ${randomOption}`);
-      } else {
-        console.error("No encounters available to randomize.");
-      }
-    });
-  
-    // Remove Encounter
-    $(room).find(".remove-encounter").off("click").on("click", (event) => {
-      const encounterIndex = $(event.currentTarget).closest("tr").index();
-      roomData.encounters.splice(encounterIndex, 1);
-      this.render(false);
-    });
   });
   
 
