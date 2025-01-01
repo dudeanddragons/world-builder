@@ -566,19 +566,45 @@ function manageDummyDice(zone) {
   
 
   // Populate NPC dropdown dynamically
-  function populateNPCDropdown() {
+  async function populateNPCDropdown() {
     const dropdown = html.find(".clone-npc-dropdown");
     if (!dropdown.length) {
       console.error("NPC dropdown element not found in the HTML.");
       return;
     }
+  
+    // Empty the dropdown and add the default "None" option
     dropdown.empty();
     dropdown.append('<option value="none" selected>None</option>');
-    npcData.forEach((npc) => {
-      dropdown.append(`<option value="${npc.id}">${npc.name}</option>`);
-    });
-    console.log("NPC dropdown populated.");
+  
+    // Correctly reference the compendium in the "world" package
+    const compendium = game.packs.get("world.wb-npc-clone");
+    if (!compendium) {
+      console.error("Compendium 'wb-npc-clone' not found in the 'world' package.");
+      return;
+    }
+  
+    try {
+      // Load all the entries in the compendium
+      const entries = await compendium.getDocuments();
+  
+      // Sort entries alphabetically by name
+      const sortedEntries = entries.sort((a, b) => a.name.localeCompare(b.name));
+  
+      // Populate the dropdown with sorted entries
+      sortedEntries.forEach((npc) => {
+        dropdown.append(`<option value="${npc.id}">${npc.name}</option>`);
+      });
+  
+      console.log("NPC dropdown populated from the 'wb-npc-clone' compendium in alphabetical order.");
+    } catch (error) {
+      console.error("Error loading entries from the 'wb-npc-clone' compendium:", error);
+    }
   }
+  
+  
+  
+  
   
 
   async function createNPCFromForm(formData) {
