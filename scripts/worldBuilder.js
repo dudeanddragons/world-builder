@@ -5,7 +5,7 @@ import { handleActorsTab } from './tabActors.js';
 import { handleLairsTab, loadLairFeatures  } from './tabLairs.js';
 import { handleMagicItemsTab } from './tabMagicItems.js';
 import { handleTownTab } from './tabTown.js';
-import { handleTrapsTab } from './tabTraps.js';
+import { handleStoryTab } from './tabStory.js';
 import { handleTreasureTab } from './tabTreasure.js';
 import { parseDiceExpression } from './helperDice.js';
 import { 
@@ -80,7 +80,7 @@ export class WorldBuilderWindow extends Application {
           lairRoomSecrets: "",
           features: ["Room"],
           encounters: [],
-          traps: [],
+          npc: [],
           treasure: [],
           collapsed: true,
         },
@@ -89,13 +89,15 @@ export class WorldBuilderWindow extends Application {
       towns: [],
       treasures: [],
       magicItems: [],
-      traps: [],
+      story: [],
       actors: [],
     };
     
 
     // Preload features during initialization
     this.preloadFeatures();
+
+    
   }
   
 
@@ -110,6 +112,60 @@ export class WorldBuilderWindow extends Application {
     });
   }
 
+  render(force = false, options = {}) {
+    super.render(force, options);
+
+    const html = this.element;
+
+    // Apply collapsible listeners
+    this.initializeCollapsibleListeners(html);
+    this.applyCollapsibleState(html);
+  }
+
+    /**
+   * Initialize collapsible listeners for all collapsible headers
+   */
+    initializeCollapsibleListeners(html) {
+      html.on("click", ".wb-header.wb-collapsible", (event) => {
+        const header = $(event.currentTarget);
+        const index = header.data("index"); // Use a `data-index` attribute for mapping
+    
+        if (index === undefined) {
+          console.warn("Collapsible header clicked without a valid index.");
+          return;
+        }
+    
+        // Toggle the collapsed state in the data model
+        const roomData = this.data.lairRooms[index];
+        roomData.collapsed = !roomData.collapsed;
+    
+        console.log(`Toggled collapse state for room ${index}:`, roomData.collapsed);
+    
+        // Re-render the UI to reflect the change
+        this.render(false);
+      });
+    }
+    
+  
+    /**
+     * Apply the current collapsible state to the DOM
+     */
+    applyCollapsibleState(html) {
+      html.find(".wb-collapsible-section").each((index, section) => {
+        const roomData = this.data.lairRooms[index];
+        const header = $(section).find(".wb-header.wb-collapsible");
+        const content = $(section).find(".wb-collapsible-content");
+    
+        // Synchronize DOM with data
+        if (roomData.collapsed) {
+          header.addClass("wb-collapsed");
+          content.removeClass("wb-visible").css({ maxHeight: "0" });
+        } else {
+          header.removeClass("wb-collapsed");
+          content.addClass("wb-visible").css({ maxHeight: content.prop("scrollHeight") + "px" });
+        }
+      });
+    }
 
 /**
  * !!!!----------------------------------------------!!!!
@@ -156,7 +212,7 @@ resetFormState() {
         lairRoomSecrets: "",
         features: ["Room"],
         encounters: [],
-        traps: [],
+        npc: [],
         treasure: [],
         collapsed: true,
       },
@@ -166,26 +222,18 @@ resetFormState() {
     towns: [],
     treasures: [],
     magicItems: [],
-    traps: [],
+    story: [],
     actors: [],
   };
 
-  console.log("Form state reset to defaults.");
+  // Load default treasure options
+  this.loadTreasureOptions();
 
-  // Reset treasure options using categorizeItems
-  const treasureData = categorizeItems();
-  if (treasureData) {
-    this.data.lairTreasureOptions = treasureData;
-  } else {
-    console.warn("No items available for treasure options.");
-  }
-
-  console.log("Treasure options loaded into form state:", this.data.lairTreasureOptions);
-
-  // Load default lair encounter options from dungeon compendium
+  // Load default lair encounter options
   this.loadDefaultEncounterOptions();
 }
  
+  
   
 /**
  * !!!!----------------------------------------------!!!!
@@ -473,19 +521,50 @@ async loadEncounterOptions() {
 
 async loadTreasureOptions() {
   try {
-    const categories = categorizeItems(); // Fetch categorized items from wsDataItems.js
+    console.log("Loading treasure options...");
+    
+    // Fetch categorized items
+    const categories = categorizeItems();
     if (!categories || Object.keys(categories).length === 0) {
-      console.warn("No treasure categories found.");
-      this.data.lairTreasureOptions = {}; // Reset if no categories found
+      console.warn("No treasure categories or items found.");
+      this.data.lairTreasureOptions = {
+        armor: [],
+        weapons: [],
+        potions: [],
+        scrolls: [],
+        magicItems: [],
+        magicWeapons: [],
+        gems: [],
+        magicArmor: [],
+        art: [],
+        spells: [],
+      };
       return;
     }
+
+    // Populate lairTreasureOptions with categorized items
     this.data.lairTreasureOptions = categories;
+
     console.log("Lair Treasure Options Loaded:", this.data.lairTreasureOptions);
   } catch (error) {
-    console.error("Error loading lair treasure options:", error);
-    this.data.lairTreasureOptions = {}; // Fallback to empty object
+    console.error("Error loading treasure options:", error);
+
+    // Reset to empty structure in case of error
+    this.data.lairTreasureOptions = {
+      armor: [],
+      weapons: [],
+      potions: [],
+      scrolls: [],
+      magicItems: [],
+      magicWeapons: [],
+      gems: [],
+      magicArmor: [],
+      art: [],
+      spells: [],
+    };
   }
 }
+
 
 
 
@@ -1238,7 +1317,7 @@ activateListeners(html) {
   handleLairsTab(this, html);
   handleMagicItemsTab(this, html);
   handleTownTab(this, html);
-  handleTrapsTab(this, html);
+  handleStoryTab(this, html);
   handleTreasureTab(this, html);
 
   // Main Drop Down Listeners
@@ -1317,12 +1396,16 @@ html.find(".room-entry").each((index, room) => {
   html.find(".add-town").click(() => console.log("Add Town placeholder."));
   html.find(".add-treasure").click(() => console.log("Add Treasure placeholder."));
   html.find(".add-magic-item").click(() => console.log("Add Magic Item placeholder."));
-  html.find(".add-trap").click(() => console.log("Add Trap placeholder."));
+  html.find(".add-story").click(() => console.log("Add Story placeholder."));
   html.find(".add-actor").click(() => console.log("Add Actor placeholder."));
 
   html.find(".room-entry").each((roomIndex, room) => {
     const roomData = this.data.lairRooms[roomIndex];
   
+  
+  
+  
+
    // --------------------------------- \\
   // ---------- Lair Encounter --------- \\
  // ------------------------------------- \\

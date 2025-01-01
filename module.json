@@ -40,7 +40,7 @@
     "scripts/tabLairs.js",
     "scripts/tabMagicItems.js",
     "scripts/tabTown.js",
-    "scripts/tabTraps.js",
+    "scripts/tabStory.js",
     "scripts/tabTreasure.js",
     "scripts/mapping.js",
     "scripts/itemGeneration/wbMagicArmorGen.js",

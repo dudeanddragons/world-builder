@@ -21,13 +21,13 @@
                 <i class="fas fa-hat-wizard"></i>
                 Magic Items
                 </a>
-                <a class="item" data-tab="traps">
-                <i class="fas fa-skull-crossbones"></i>
-                Traps
-                </a>
                 <a class="item" data-tab="actors">
                 <i class="fas fa-users"></i>
                 Actors
+                </a>
+                <a class="item" data-tab="story">
+                <i class="fas fa-book"></i>
+                Story
                 </a>
             </nav>
         <div class="tab-separator"></div>
@@ -199,18 +199,18 @@
 
 
   <!-- LAIRS TAB -->
-  <section class="tab-content wb-page-container" data-tab="lairs" style="display: none;">
+  <section class="tab-content wb-page-container wb-collapsible-section"  data-tab="lairs" style="display: none;">
   <h3>Lairs</h3>
   <button class="add-room">Add Room/Corridor</button>
       <div class="room-list">
       {{#each lairRooms}}
 
           <div class="room-entry">
-              <h4 class="wb-header collapsible {{#if this.collapsed}}collapsed{{/if}}" data-index="{{@index}}">
+              <h4 class="wb-header wb-collapsible {{#if this.collapsed}}collapsed{{/if}}" data-index="{{@index}}">
               Room {{@index}}
               </h4>
 
-              <div class="room-details" style="display: {{#if this.collapsed}}none{{else}}block{{/if}};">
+              <div class="room-details wb-collapsible-content" style="display: {{#if this.collapsed}}none{{else}}block{{/if}};">
                   <label for="lair-room-description-{{@index}}">Description</label>
                   <textarea id="lair-room-description-{{@index}}" class="lair-room-description" data-index="{{@index}}">
                       {{this.lairRoomDescription}}
@@ -423,39 +423,19 @@
 
   </section>
 
-
-  <!-- TRAPS TAB -->
-  <section class="tab-content" data-tab="traps" style="display: none;">
-      <h3>Traps</h3>
-      <button class="add-trap">Add Trap</button>
-
-      <div class="trap-list">
-      {{#each traps}}
-
-          <div class="trap-entry">
-              <h4>Trap {{@index}}</h4>
-              <textarea class="trap-description" placeholder="Description">{{this.description}}</textarea>
-              <button class="randomize-trap">Randomize</button>
-              <button class="trap-builder">Open Trap Builder</button>
-          </div>
-
-      {{/each}}
-      </div>
-
-  </section>
-
-
 <!-- ACTORS TAB -->
 <section class="tab-content tab-content wb-page-container" data-tab="actors" style="display: none;">
   <h3>Actors</h3>
   <button class="add-actor">Add Actor</button>
 
   <!-- Actor List -->
-  <div class="actor-list">
+  <div class="actor-list wb-collapsible-section">
     {{#each actors}}
+      <h3 class="wb-header wb-collapsible">Character/NPC {{@index}} Name and Culture</h3>
+    <div class="wb-collapsible-content">
       <div class="actor-builder-ui" data-index="{{@index}}">
         <form class="actor-builder-form">
-          <h3>Name and Culture</h3>
+
           <!-- Name Input -->
           <div class="form-group">
             <table class="actor-details-table">
@@ -681,9 +661,28 @@
 
         </form>
       </div>
+    </div>
     {{/each}}
   </div>
 </section>
+
+      <!-- Story TAB -->
+      <section class="tab-content" data-tab="story" style="display: none;">
+        <h3>Story</h3>
+          <button class="add-story">Add Story</button>
+
+          <div class="story-list">
+          {{#each story}}
+
+              <div class="story-entry">
+                  <h4>Story {{@index}}</h4>
+                  <textarea class="story-description" placeholder="Description">{{this.description}}</textarea>
+              </div>
+
+          {{/each}}
+          </div>
+
+      </section>
 
 
   </form>

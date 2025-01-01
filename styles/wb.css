@@ -185,25 +185,42 @@ legend {
   padding: 0.5rem;
 }
 
-.wb-header.collapsible {
+.wb-collapsible-section {
+  margin-bottom: 1rem; /* Optional spacing between sections */
+}
+
+.wb-header.wb-collapsible {
   cursor: pointer;
   background: var(--wb-purple-dark);
   color: rgb(255, 255, 255);
   user-select: none;
   position: relative;
+  padding: 0.5rem;
 }
 
-.wb-header.collapsible::after {
+.wb-header.wb-collapsible::after {
   content: "▶";
-  position: relative;
+  position: absolute;
+  right: 1rem;
   font-size: 0.8rem;
   transform: rotate(90deg);
   transition: transform 0.2s ease;
 }
 
-.wb-header.collapsible.collapsed::after {
+.wb-header.wb-collapsible.wb-collapsed::after {
   transform: rotate(0deg);
 }
+
+.wb-collapsible-content {
+  display: block;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.wb-collapsible-content.wb-hidden {
+  display: none;
+}
+
 
 
 /* Switches */

@@ -4,29 +4,19 @@ export function handleLairsTab(builder, html) {
   html.find(".add-room").click(() => {
     // Add a new room with default values
     builder.data.lairRooms.push({
-      lairRoomDescription: "", // Updated name
-      lairRoomNotes: "",       // Updated name
-      features: ["Room"],      // Default to "Room"
+      lairRoomDescription: "",
+      lairRoomNotes: "",
+      features: ["Room"],
       encounters: [],
       traps: [],
       treasure: [],
-      lairRoomSecrets: "",     // Updated name
-      collapsed: false,         // Default collapsed state
+      lairRoomSecrets: "",
+      collapsed: false, // Default collapsed state
     });
 
     console.log("Room added:", builder.data.lairRooms);
 
     builder.render(false); // Re-render and rebind
-  });
-
-  // Attach event listeners dynamically to handle collapsing
-  html.on("click", ".wb-header.collapsible", (event) => {
-    const index = $(event.currentTarget).data("index"); // Use data-index for precise identification
-    if (index !== undefined) {
-      builder.data.lairRooms[index].collapsed = !builder.data.lairRooms[index].collapsed;
-      console.log(`Room ${index} collapse state toggled:`, builder.data.lairRooms[index].collapsed);
-      builder.render(false); // Update the UI after the state change
-    }
   });
 
   // Dropdown change listener
@@ -39,9 +29,6 @@ export function handleLairsTab(builder, html) {
     }
   });
 }
-
-
-
 
 // Helper function to fetch lair features
 export async function loadLairFeatures() {
@@ -57,6 +44,3 @@ export async function loadLairFeatures() {
     return [];
   }
 }
-
-
-

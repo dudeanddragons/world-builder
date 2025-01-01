@@ -1111,6 +1111,7 @@ html.on("click", ".roll-method-button", async function () {
   }
 });
 
+
   // Delete an actor from the list
   html.on("click", ".delete-actor", function () {
     const index = $(this).data("index");
