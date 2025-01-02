@@ -66,47 +66,89 @@ export function handleActorsTab(builder, html) {
   // Load race items from the game items
   async function loadRaceItems() {
     try {
-      const races = game.items.filter((item) => item.type === "race");
+      const compendium = game.packs.get("world.wb-items-master");
+      if (!compendium) {
+        console.error("Compendium 'wb-items-master' not found in the 'world' package.");
+        return;
+      }
+  
+      // Fetch all documents from the compendium
+      const entries = await compendium.getDocuments();
+  
+      // Filter items of type "race"
+      const races = entries.filter((item) => item.type === "race");
+  
+      // Map the filtered items to the `raceData` array
       raceData = races.map((race) => ({
         uuid: race.uuid,
         name: race.name,
       }));
-      console.log("Race Data Loaded:", raceData);
+  
+      console.log("Race Data Loaded from wb-items-master:", raceData);
     } catch (error) {
-      console.error("Error loading race items:", error);
+      console.error("Error loading race items from wb-items-master:", error);
       ui.notifications.error("Failed to load race items. Please check the console for details.");
     }
   }
+  
 
   // Load class items from the game items
   async function loadClassItems() {
     try {
-      const classes = game.items.filter((item) => item.type === "class");
+      const compendium = game.packs.get("world.wb-items-master");
+      if (!compendium) {
+        console.error("Compendium 'wb-items-master' not found in the 'world' package.");
+        return;
+      }
+  
+      // Fetch all documents from the compendium
+      const entries = await compendium.getDocuments();
+  
+      // Filter items of type "class"
+      const classes = entries.filter((item) => item.type === "class");
+  
+      // Map the filtered items to the `classData` array
       classData = classes.map((cls) => ({
         uuid: cls.uuid,
         name: cls.name,
       }));
-      console.log("Class Data Loaded:", classData);
+  
+      console.log("Class Data Loaded from wb-items-master:", classData);
     } catch (error) {
-      console.error("Error loading class items:", error);
+      console.error("Error loading class items from wb-items-master:", error);
       ui.notifications.error("Failed to load class items. Please check the console for details.");
     }
   }
+  
 
   // Load background items from the game items
   async function loadBackgroundItems() {
     try {
-      const backgrounds = game.items.filter((item) => item.type === "background");
+      const compendium = game.packs.get("world.wb-items-master");
+      if (!compendium) {
+        console.error("Compendium 'wb-items-master' not found in the 'world' package.");
+        return;
+      }
+  
+      // Fetch all documents from the compendium
+      const entries = await compendium.getDocuments();
+  
+      // Filter items of type "background"
+      const backgrounds = entries.filter((item) => item.type === "background");
+  
+      // Map the filtered items to the `backgroundData` array
       backgroundData = backgrounds.map((bg) => ({
         uuid: bg.uuid,
         name: bg.name,
       }));
-      console.log("Background Data Loaded:", backgroundData);
+  
+      console.log("Background Data Loaded from wb-items-master:", backgroundData);
     } catch (error) {
-      console.error("Error loading background items:", error);
+      console.error("Error loading background items from wb-items-master:", error);
       ui.notifications.error("Failed to load background items. Please check the console for details.");
     }
   }
+  
 
   // Populate culture options dynamically, including gender-specific options
   function populateCultures() {
@@ -611,6 +653,7 @@ function manageDummyDice(zone) {
     try {
       let newNPC;
   
+      // Check if a Clone NPC is selected
       const cloneData = formData.cloneNPC;
   
       if (cloneData && cloneData.uuid !== "none") {
@@ -627,96 +670,83 @@ function manageDummyDice(zone) {
         newNPC = await originalNPC.clone({
           name: formData.name || `${originalNPC.name} Clone`,
         });
-  
-        // Validate and prepare item updates
-        const itemsToAdd = [];
-        if (formData.race?.uuid) {
-          const raceItem = await fromUuid(formData.race.uuid);
-          if (raceItem) itemsToAdd.push(raceItem.toObject());
-        }
-        if (formData.class1?.uuid) {
-          const classItem = await fromUuid(formData.class1.uuid);
-          if (classItem) itemsToAdd.push(classItem.toObject());
-        }
-        if (formData.class2?.uuid) {
-          const classItem = await fromUuid(formData.class2.uuid);
-          if (classItem) itemsToAdd.push(classItem.toObject());
-        }
-        if (formData.background?.uuid) {
-          const backgroundItem = await fromUuid(formData.background.uuid);
-          if (backgroundItem) itemsToAdd.push(backgroundItem.toObject());
-        }
-  
-        // Update the cloned NPC
-        const updateData = {
-          "system.abilities": formData.abilities,
-          "system.details.alignment": formData.alignment || "neutral",
-        };
-  
-        await newNPC.update(updateData);
-  
-        // Add items to the cloned NPC
-        if (itemsToAdd.length > 0) {
-          await newNPC.createEmbeddedDocuments("Item", itemsToAdd);
-        }
-  
-        ui.notifications.info(`Cloned NPC "${newNPC.name}" successfully and updated its data.`);
       } else {
         // Create a new NPC from scratch
-        const systemData = {
-          abilities: formData.abilities || {
-            strength: 10,
-            dexterity: 10,
-            constitution: 10,
-            intelligence: 10,
-            wisdom: 10,
-            charisma: 10,
-          },
-          details: {
-            alignment: formData.alignment || "neutral",
-          },
-        };
-  
-        // Create the new NPC
+        console.log("Creating a new blank NPC.");
         newNPC = await Actor.create({
           name: formData.name || "New NPC",
           type: "npc",
-          system: systemData,
+          system: {
+            abilities: formData.abilities || {
+              strength: 10,
+              dexterity: 10,
+              constitution: 10,
+              intelligence: 10,
+              wisdom: 10,
+              charisma: 10,
+            },
+            details: {
+              alignment: formData.alignment || "neutral",
+            },
+          },
         });
-  
-        // Add items to the new NPC
-        const itemsToAdd = [];
-        if (formData.race?.uuid) {
-          const raceItem = await fromUuid(formData.race.uuid);
-          if (raceItem) itemsToAdd.push(raceItem.toObject());
-        }
-        if (formData.class1?.uuid) {
-          const classItem = await fromUuid(formData.class1.uuid);
-          if (classItem) itemsToAdd.push(classItem.toObject());
-        }
-        if (formData.class2?.uuid) {
-          const classItem = await fromUuid(formData.class2.uuid);
-          if (classItem) itemsToAdd.push(classItem.toObject());
-        }
-        if (formData.background?.uuid) {
-          const backgroundItem = await fromUuid(formData.background.uuid);
-          if (backgroundItem) itemsToAdd.push(backgroundItem.toObject());
-        }
-  
-        if (itemsToAdd.length > 0) {
-          await newNPC.createEmbeddedDocuments("Item", itemsToAdd);
-        }
-  
-        ui.notifications.info(`New NPC "${newNPC.name}" created successfully.`);
       }
   
-      console.log("Created/Updated NPC:", newNPC);
+      // Add selected race, classes, and background as embedded items
+      const itemsToAdd = [];
+  
+      // Add race item
+      if (formData.race?.uuid) {
+        const raceItem = await fromUuid(formData.race.uuid);
+        if (raceItem) {
+          itemsToAdd.push(raceItem.toObject());
+          console.log(`Added race: ${raceItem.name}`);
+        } else {
+          console.warn(`Race item not found for UUID: ${formData.race.uuid}`);
+        }
+      }
+  
+      // Add class items
+      for (const classField of ["class1", "class2", "class3"]) {
+        if (formData[classField]?.uuid && formData[classField].uuid !== "none") {
+          const classItem = await fromUuid(formData[classField].uuid);
+          if (classItem) {
+            itemsToAdd.push(classItem.toObject());
+            console.log(`Added ${classField}: ${classItem.name}`);
+          } else {
+            console.warn(`Class item not found for UUID: ${formData[classField]?.uuid}`);
+          }
+        }
+      }
+  
+      // Add background item
+      if (formData.background?.uuid) {
+        const backgroundItem = await fromUuid(formData.background.uuid);
+        if (backgroundItem) {
+          itemsToAdd.push(backgroundItem.toObject());
+          console.log(`Added background: ${backgroundItem.name}`);
+        } else {
+          console.warn(`Background item not found for UUID: ${formData.background?.uuid}`);
+        }
+      }
+  
+      // Embed all items into the new NPC
+      if (itemsToAdd.length > 0) {
+        await newNPC.createEmbeddedDocuments("Item", itemsToAdd);
+        console.log(`Embedded ${itemsToAdd.length} items into NPC "${newNPC.name}".`);
+      }
+  
+      ui.notifications.info(`NPC "${newNPC.name}" created successfully with race, classes, and background.`);
+      console.log("Created NPC:", newNPC);
+  
       return newNPC;
     } catch (error) {
       console.error("Error creating or cloning NPC:", error);
       ui.notifications.error("Failed to create or clone NPC. Check the console for details.");
     }
   }
+  
+
   
   
   

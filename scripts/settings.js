@@ -83,7 +83,7 @@ export async function createNestedFoldersAndCompendiums() {
             { name: "wb-lairs-ledges", label: "WB Lairs Ledges", type: "Actor" },
         ],
         "WB Magic Items": [
-            { name: "wb-magic-item-gen", label: "WB Magic Item Gen", type: "Item" },
+            { name: "wb-items-master", label: "WB Items Master", type: "Item" },
         ],
     };
 
