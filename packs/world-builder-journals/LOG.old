@@ -1,3 +1,6 @@
-2025/01/01-14:06:23.524 3258 Recovering log #371
-2025/01/01-14:06:23.626 3258 Delete type=0 #371
-2025/01/01-14:06:23.626 3258 Delete type=3 #370
+2025/01/01-16:13:34.996 5ac4 Log #379: 0 ops saved to Table #382 OK
+2025/01/01-16:13:34.996 5ac4 Archiving F:\FoundryVTT\Data\modules\world-builder\packs\world-builder-journals/000379.log: OK
+2025/01/01-16:13:34.996 5ac4 Log #381: 0 ops saved to Table #383 OK
+2025/01/01-16:13:34.996 5ac4 Archiving F:\FoundryVTT\Data\modules\world-builder\packs\world-builder-journals/000381.log: OK
+2025/01/01-16:13:35.024 5ac4 Archiving F:\FoundryVTT\Data\modules\world-builder\packs\world-builder-journals/MANIFEST-000378: OK
+2025/01/01-16:13:35.094 5ac4 **** Repaired leveldb F:\FoundryVTT\Data\modules\world-builder\packs\world-builder-journals; recovered 0 files; 0 bytes. Some data may have been lost. ****

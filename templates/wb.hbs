@@ -9,9 +9,9 @@
                 <i class="fas fa-dungeon"></i>
                 Lairs
                 </a>
-                <a class="item" data-tab="towns">
+                <a class="item" data-tab="location">
                 <i class="fas fa-castle"></i>
-                Towns
+                Locations
                 </a>
                 <a class="item" data-tab="treasure">
                 <i class="fas fa-gem"></i>
@@ -346,32 +346,79 @@
       </div>
   </section>
 
+<!-- Location TAB -->
+<section class="tab-content" data-tab="location" style="display: none;">
+    <h3>Location</h3>
 
-  <!-- SETTLEMENT TAB -->
-  <section class="tab-content" data-tab="towns" style="display: none;">
-  <h3>Towns</h3>
-  <button class="add-town">Add Town</button>
+    <!-- Dynamic Location Type -->
+    <label for="location-type-select">Location Type</label>
+    <select class="location-type-select" id="location-type-select">
+        <option value="Plane" {{#ifEquals location.type "Plane"}}selected{{/ifEquals}}>Plane</option>
+        <option value="Celestial" {{#ifEquals location.type "Celestial"}}selected{{/ifEquals}}>Celestial</option>
+        <option value="Planet" {{#ifEquals location.type "Planet"}}selected{{/ifEquals}}>Planet</option>
+        <option value="Geographical" {{#ifEquals location.type "Geographical"}}selected{{/ifEquals}}>Geographical</option>
+        <option value="Settlement" {{#ifEquals location.type "Settlement"}}selected{{/ifEquals}}>Settlement</option>
+        <option value="Point of Interest" {{#ifEquals location.type "Point of Interest"}}selected{{/ifEquals}}>Point of Interest</option>
+    </select>
 
-      <div class="town-list">
-      {{#each towns}}
+    <!-- Settlement-Specific Fields -->
+    {{#ifEquals location.type "Settlement"}}
+    <div class="location-details">
+        <label for="wbTownComSize">Community Size</label>
+        <select id="wbTownComSize" class="wbTownComSize">
+            <option>Outpost</option>
+            <option>Hamlet</option>
+            <option>Village</option>
+            <option>Small Town</option>
+            <option>Large Town</option>
+            <option>Small City</option>
+            <option>Large City</option>
+            <option>Metropolis</option>
+            <option>Other</option>
+        </select>
 
-          <div class="town-entry">
-          <h4>Town {{@index}}</h4>
-              <textarea class="town-description" placeholder="Description">{{this.description}}</textarea>
-              <textarea class="town-notes" placeholder="Notes">{{this.notes}}</textarea>
-              <label for="town-features-select">Features</label>
-              <select class="town-features-select">
-                  {{#each townFeaturesOptions}}
-                  <option value="{{this}}">{{this}}</option>
-                  {{/each}}
-              </select>
-              <button class="randomize-town-feature">Randomize</button>
-          </div>
+        <textarea class="wbTownOverview" placeholder="Overview">{{location.wbTownOverview}}</textarea>
+        <textarea class="wbTownPopulation" placeholder="Population and Demographics">{{location.wbTownPopulation}}</textarea>
+        <textarea class="wbTownDescription" placeholder="Description">{{location.wbTownDescription}}</textarea>
+        <textarea class="wbTownNPC" placeholder="Notable NPCs">{{location.wbTownNPC}}</textarea>
+        <textarea class="wbTownProfile" placeholder="Profile">{{location.wbTownProfile}}</textarea>
+        <textarea class="wbTownStory" placeholder="Story">{{location.wbTownStory}}</textarea>
+        <textarea class="wbTownPoi" placeholder="Points of Interest">{{location.wbTownPoi}}</textarea>
+        <textarea class="wbTownVal" placeholder="Valuables">{{location.wbTownVal}}</textarea>
+        <textarea class="wbTownIntRelation" placeholder="Internal Relationships">{{location.wbTownIntRelation}}</textarea>
+        <textarea class="wbTownOutRelation" placeholder="Outward Relationships">{{location.wbTownOutRelation}}</textarea>
+        <textarea class="wbTownBackground" placeholder="Background">{{location.wbTownBackground}}</textarea>
+        <textarea class="wbTownAdditional" placeholder="Additional Details">{{location.wbTownAdditional}}</textarea>
+    </div>
+    {{/ifEquals}}
 
-      {{/each}}
-      </div>
+    <!-- Plane-Specific Fields -->
+    {{#ifEquals location.type "Plane"}}
+    <div class="location-details">
+        <label for="wbPlaneRegion">Region</label>
+        <select id="wbPlaneRegion" class="wbPlaneRegion">
+            <option>Dimension</option>
+            <option>Multiverse</option>
+            <option>Plane</option>
+        </select>
 
-  </section>
+        <textarea class="wbPlaneOverview" placeholder="Overview">{{location.wbPlaneOverview}}</textarea>
+        <textarea class="wbPlaneDescription" placeholder="Description">{{location.wbPlaneDescription}}</textarea>
+        <textarea class="wbPlaneNPC" placeholder="Notable NPCs">{{location.wbPlaneNPC}}</textarea>
+        <textarea class="wbPlaneProfile" placeholder="Profile">{{location.wbPlaneProfile}}</textarea>
+        <textarea class="wbPlaneStory" placeholder="Story">{{location.wbPlaneStory}}</textarea>
+        <textarea class="wbPlanePoi" placeholder="Points of Interest">{{location.wbPlanePoi}}</textarea>
+        <textarea class="wbPlaneResources" placeholder="Resources">{{location.wbPlaneResources}}</textarea>
+        <textarea class="wbPlaneRelationship" placeholder="Relationships">{{location.wbPlaneRelationship}}</textarea>
+        <textarea class="wbPlaneBackground" placeholder="Background">{{location.wbPlaneBackground}}</textarea>
+        <textarea class="wbPlaneAddDetails" placeholder="Additional Details">{{location.wbPlaneAddDetails}}</textarea>
+    </div>
+    {{/ifEquals}}
+</section>
+
+
+
+
 
 
   <!-- TREASURE TAB-->

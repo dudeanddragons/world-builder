@@ -4,7 +4,7 @@ import { categorizeItems } from './wsDataItems.js';
 import { handleActorsTab } from './tabActors.js';
 import { handleLairsTab, loadLairFeatures  } from './tabLairs.js';
 import { handleMagicItemsTab } from './tabMagicItems.js';
-import { handleTownTab } from './tabTown.js';
+import { handleDynamicLocationTab } from './tabTown.js';
 import { handleStoryTab } from './tabStory.js';
 import { handleTreasureTab } from './tabTreasure.js';
 import { parseDiceExpression } from './helperDice.js';
@@ -35,6 +35,11 @@ import {
   shipwreckSubCargoMap,
   creviceSubMap
 } from './mapping.js';
+
+// Register the Handlebars helper
+Handlebars.registerHelper("ifEquals", function (arg1, arg2, options) {
+  return arg1 === arg2 ? options.fn(this) : options.inverse(this);
+});
 
 export class WorldBuilderWindow extends Application {
   constructor(options = {}) {
@@ -86,7 +91,7 @@ export class WorldBuilderWindow extends Application {
         },
       ],
       caveFeatures: [],
-      towns: [],
+      locations: [],
       treasures: [],
       magicItems: [],
       story: [],
@@ -219,7 +224,7 @@ resetFormState() {
     ],
     caveFeatures: [],
     lairRooms: [],
-    towns: [],
+    locations: [],
     treasures: [],
     magicItems: [],
     story: [],
@@ -1316,7 +1321,7 @@ activateListeners(html) {
   handleActorsTab(this, html);
   handleLairsTab(this, html);
   handleMagicItemsTab(this, html);
-  handleTownTab(this, html);
+  handleDynamicLocationTab(this, html);
   handleStoryTab(this, html);
   handleTreasureTab(this, html);
 
@@ -1393,7 +1398,6 @@ html.find(".room-entry").each((index, room) => {
   html.find(".create-journal").click(() => this.createJournalEntry());
 
   // Remove .add-room listener here
-  html.find(".add-town").click(() => console.log("Add Town placeholder."));
   html.find(".add-treasure").click(() => console.log("Add Treasure placeholder."));
   html.find(".add-magic-item").click(() => console.log("Add Magic Item placeholder."));
   html.find(".add-story").click(() => console.log("Add Story placeholder."));
