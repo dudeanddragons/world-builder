@@ -3,20 +3,33 @@ export class MagicWandGenerator {
         this.spellList = [];
     }
 
-    // Load spells from the world
+    // Load spells from the wb-items-master compendium
     async loadSpells() {
-        const allItems = game.items.contents;
-
-        // Filter for spells
-        this.spellList = allItems.filter(item => item.type === "spell");
-        this.spellList.sort((a, b) => a.name.localeCompare(b.name));
-
-        if (this.spellList.length === 0) {
-            console.warn("No spells found in the world.");
-            ui.notifications.warn("No spells found.");
+        const compendium = game.packs.get("world.wb-items-master");
+        if (!compendium) {
+            console.error("Compendium 'wb-items-master' not found.");
+            ui.notifications.error("Compendium 'wb-items-master' not found.");
+            return;
         }
 
-        console.log("Loaded Spells for Wands:", this.spellList);
+        try {
+            // Fetch all items from the compendium
+            const allItems = await compendium.getDocuments();
+
+            // Filter for spells
+            this.spellList = allItems.filter(item => item.type === "spell");
+            this.spellList.sort((a, b) => a.name.localeCompare(b.name));
+
+            if (this.spellList.length === 0) {
+                console.warn("No spells found in the wb-items-master compendium.");
+                ui.notifications.warn("No spells found in the compendium.");
+            }
+
+            console.log("Loaded Spells for Wands:", this.spellList);
+        } catch (error) {
+            console.error("Error loading spells from compendium:", error);
+            ui.notifications.error("Failed to load spells. Check the console for details.");
+        }
     }
 
     // Render the Wand Creation UI
@@ -89,7 +102,7 @@ export class MagicWandGenerator {
     async createWand(targetContainer) {
         const spellId = targetContainer.find("#spell-selector").val();
         const casterLevel = parseInt(targetContainer.find("#caster-level").val(), 10);
-        const selectedSpell = game.items.get(spellId);
+        const selectedSpell = this.spellList.find(spell => spell.id === spellId);
 
         if (!selectedSpell) {
             ui.notifications.error("Please select a valid spell.");

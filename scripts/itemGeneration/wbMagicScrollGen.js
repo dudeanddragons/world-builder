@@ -3,14 +3,26 @@ export class MagicScrollGenerator {
         this.spellList = [];
     }
 
-    // Load spells into the generator
+    // Load spells into the generator from the compendium
     async loadSpells() {
-        const allItems = game.items.contents;
-        this.spellList = allItems.filter(item => item.type === "spell");
+        try {
+            const compendium = game.packs.get("world.wb-items-master");
+            if (!compendium) {
+                console.error("Compendium 'wb-items-master' not found.");
+                ui.notifications.error("Spell compendium not found.");
+                return;
+            }
 
-        if (this.spellList.length === 0) {
-            console.warn("No spells found in the world.");
-            ui.notifications.warn("No spells found.");
+            const compendiumItems = await compendium.getDocuments();
+            this.spellList = compendiumItems.filter(item => item.type === "spell");
+
+            if (this.spellList.length === 0) {
+                console.warn("No spells found in the compendium.");
+                ui.notifications.warn("No spells found in the spell compendium.");
+            }
+        } catch (error) {
+            console.error("Error loading spells from compendium:", error);
+            ui.notifications.error("Failed to load spells from the compendium.");
         }
     }
 
@@ -89,7 +101,7 @@ export class MagicScrollGenerator {
     // Create the scroll item
     async createScroll(targetContainer) {
         const selectedSpellId = targetContainer.find("#spell-selector").val();
-        const selectedSpell = game.items.get(selectedSpellId);
+        const selectedSpell = this.spellList.find(spell => spell.id === selectedSpellId);
 
         if (!selectedSpell) {
             ui.notifications.error("Please select a valid spell.");
