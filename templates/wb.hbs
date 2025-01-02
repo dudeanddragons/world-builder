@@ -414,6 +414,254 @@
         <textarea class="wbPlaneAddDetails" placeholder="Additional Details">{{location.wbPlaneAddDetails}}</textarea>
     </div>
     {{/ifEquals}}
+
+    <!-- Celestial-Specific Fields -->
+    {{#ifEquals location.type "Celestial"}}
+    <div class="location-details">
+        <label for="wbCelestialRegion">Region</label>
+        <select id="wbCelestialRegion" class="wbCelestialRegion">
+            <option>Void</option>
+            <option>Star System</option>
+            <option>Quasar</option>
+            <option>Nebula</option>
+            <option>Galaxy</option>
+            <option>Black Hole</option>
+            <option>Asteroid Field</option>
+            <option>Other</option>
+        </select>
+
+        <textarea class="wbCelestialOverview" placeholder="Overview">{{location.wbCelestialOverview}}</textarea>
+        <input type="file" class="wbCelestialMap" accept="image/*" placeholder="Upload Map" />
+        <textarea class="wbCelestialDescription" placeholder="Description">{{location.wbCelestialDescription}}</textarea>
+        <textarea class="wbCelestialNPC" placeholder="Notable NPCs">{{location.wbCelestialNPC}}</textarea>
+        <textarea class="wbCelestialProfile" placeholder="Profile">{{location.wbCelestialProfile}}</textarea>
+        <textarea class="wbCelestialStory" placeholder="Story">{{location.wbCelestialStory}}</textarea>
+        <textarea class="wbCelestialPoi" placeholder="Points of Interest">{{location.wbCelestialPoi}}</textarea>
+        <textarea class="wbCelestialResources" placeholder="Resources">{{location.wbCelestialResources}}</textarea>
+        <textarea class="wbCelestialRelationships" placeholder="Relationships">{{location.wbCelestialRelationships}}</textarea>
+        <textarea class="wbCelestialBackground" placeholder="Background">{{location.wbCelestialBackground}}</textarea>
+        <textarea class="wbCelestialAdditional" placeholder="Additional Details">{{location.wbCelestialAdditional}}</textarea>
+    </div>
+    {{/ifEquals}}
+
+    <!-- Planet-Specific Fields -->
+{{#ifEquals location.type "Planet"}}
+<div class="location-details">
+    <label for="wbPlanetGravity">Gravity</label>
+    <input type="text" id="wbPlanetGravity" class="wbPlanetGravity" placeholder="Gravity (e.g., Earth-like, High, Low)" value="{{location.wbPlanetGravity}}" />
+
+    <label for="wbPlanetAtmosphere">Atmosphere</label>
+    <textarea id="wbPlanetAtmosphere" class="wbPlanetAtmosphere" placeholder="Atmosphere">{{location.wbPlanetAtmosphere}}</textarea>
+
+    <label for="wbPlanetOrbit">Orbit</label>
+    <textarea id="wbPlanetOrbit" class="wbPlanetOrbit" placeholder="Orbit">{{location.wbPlanetOrbit}}</textarea>
+
+    <label for="wbPlanetOverview">Overview</label>
+    <textarea id="wbPlanetOverview" class="wbPlanetOverview" placeholder="Overview">{{location.wbPlanetOverview}}</textarea>
+
+    <label for="wbPlanetType">Type</label>
+    <select id="wbPlanetType" class="wbPlanetType">
+        <option>Barren</option>
+        <option>Gas Giant</option>
+        <option>Moon</option>
+        <option>Other</option>
+        <option>Planetoid</option>
+        <option>Radiated</option>
+        <option>Station</option>
+        <option>Terran</option>
+        <option>Toxic</option>
+        <option>Vaccum</option>
+    </select>
+
+    <label for="wbPlanetClimate">Climate</label>
+    <select id="wbPlanetClimate" class="wbPlanetClimate">
+        <option>Arctic</option>
+        <option>Arid</option>
+        <option>Other</option>
+        <option>Subtropical</option>
+        <option>Temperate</option>
+        <option>Tropical</option>
+    </select>
+
+    <label for="wbPlanetTerrainType">Terrain Type</label>
+    <select id="wbPlanetTerrainType" class="wbPlanetTerrainType">
+        <option>Badlands</option>
+        <option>Coastal</option>
+        <option>Croplands</option>
+        <option>Desert</option>
+        <option>Forest</option>
+        <option>Grasslands</option>
+        <option>Hills</option>
+        <option>Jungle</option>
+        <option>Marsh</option>
+        <option>Mountains</option>
+        <option>Other</option>
+        <option>Rainforest</option>
+        <option>Rocky</option>
+        <option>Swamp</option>
+        <option>Treacherous</option>
+        <option>Tundra</option>
+        <option>Underground</option>
+        <option>Urban</option>
+        <option>Volcanic</option>
+        <option>Water</option>
+    </select>
+
+    <textarea class="wbPlentDescription" placeholder="Description">{{location.wbPlentDescription}}</textarea>
+    <textarea class="wbPlanetNPC" placeholder="Notable NPCs">{{location.wbPlanetNPC}}</textarea>
+    <textarea class="wbPlanetProfile" placeholder="Profile">{{location.wbPlanetProfile}}</textarea>
+    <textarea class="wbPlanetStory" placeholder="Story">{{location.wbPlanetStory}}</textarea>
+    <textarea class="wbPlanetPoi" placeholder="Points of Interest">{{location.wbPlanetPoi}}</textarea>
+    <textarea class="wbPlanetValuables" placeholder="Valuables">{{location.wbPlanetValuables}}</textarea>
+    <textarea class="wbPlanetChallenges" placeholder="Challenges">{{location.wbPlanetChallenges}}</textarea>
+    <textarea class="wbPlanetObstacles" placeholder="Obstacles">{{location.wbPlanetObstacles}}</textarea>
+    <textarea class="wbPlanetIntRelation" placeholder="Internal Relationships">{{location.wbPlanetIntRelation}}</textarea>
+    <textarea class="wbPlanetOutRelation" placeholder="Outward Relationships">{{location.wbPlanetOutRelation}}</textarea>
+    <textarea class="wbPlanetAdditional" placeholder="Additional Details">{{location.wbPlanetAdditional}}</textarea>
+</div>
+{{/ifEquals}}
+
+<!-- Geographical-Specific Fields -->
+{{#ifEquals location.type "Geographical"}}
+<div class="location-details">
+    <label for="wbGeoRegion">Region</label>
+    <input type="text" id="wbGeoRegion" class="wbGeoRegion" placeholder="Enter Region" value="{{location.wbGeoRegion}}" />
+
+    <textarea class="wbGeoOverview" placeholder="Overview">{{location.wbGeoOverview}}</textarea>
+
+    <label for="wbGeoTerrain">Terrain</label>
+    <select id="wbGeoTerrain" class="wbGeoTerrain">
+        <option>Badlands</option>
+        <option>Coastal</option>
+        <option>Croplands</option>
+        <option>Desert</option>
+        <option>Forest</option>
+        <option>Plains</option>
+        <option>Hills</option>
+        <option>Jungle</option>
+        <option>Marsh</option>
+        <option>Mountains</option>
+        <option>Other</option>
+        <option>Rainforest</option>
+        <option>Rocky</option>
+        <option>Swamp</option>
+        <option>Treacherous</option>
+        <option>Tundra</option>
+        <option>Underground</option>
+        <option>Urban</option>
+        <option>Volcanic</option>
+        <option>Water</option>
+    </select>
+
+    <label for="wbGeoClimate">Climate</label>
+    <select id="wbGeoClimate" class="wbGeoClimate">
+        <option>Cold</option>
+        <option>Temperate</option>
+        <option>Warm</option>
+    </select>
+
+    <input type="file" class="wbGeoMap" accept="image/*" placeholder="Upload Map" />
+
+    <textarea class="wbGeoDescription" placeholder="Description">{{location.wbGeoDescription}}</textarea>
+    <textarea class="wbGeoNPC" placeholder="Notable NPCs">{{location.wbGeoNPC}}</textarea>
+    <textarea class="wbGeoProfile" placeholder="Profile">{{location.wbGeoProfile}}</textarea>
+    <textarea class="wbGeoStory" placeholder="Story">{{location.wbGeoStory}}</textarea>
+    <textarea class="wbGeoPoi" placeholder="Points of Interest">{{location.wbGeoPoi}}</textarea>
+    <textarea class="wbGeoResources" placeholder="Resources">{{location.wbGeoResources}}</textarea>
+    <textarea class="wbGeoRelation" placeholder="Relationships">{{location.wbGeoRelation}}</textarea>
+    <textarea class="wbGeoBackground" placeholder="Background">{{location.wbGeoBackground}}</textarea>
+    <textarea class="wbGeoAdditional" placeholder="Additional Details">{{location.wbGeoAdditional}}</textarea>
+</div>
+{{/ifEquals}}
+
+<!-- Point of Interest-Specific Fields -->
+{{#ifEquals location.type "Point of Interest"}}
+<div class="location-details">
+    <label for="wbPoiType">Type</label>
+    <select id="wbPoiType" class="wbPoiType">
+        <option>Anomaly</option>
+        <option>Area</option>
+        <option>Building</option>
+        <option>Castle</option>
+        <option>Cave</option>
+        <option>Chamber</option>
+        <option>Compound</option>
+        <option>Corridor</option>
+        <option>Dungeon</option>
+        <option>Facility</option>
+        <option>Keep</option>
+        <option>Landmark</option>
+        <option>Level</option>
+        <option>Marker</option>
+        <option>Merchant</option>
+        <option>Other</option>
+        <option>Room</option>
+        <option>Ruins</option>
+        <option>Shrine</option>
+        <option>Temple</option>
+        <option>Tower</option>
+        <option>Waypoint</option>
+    </select>
+
+    <textarea class="wbPoiOverview" placeholder="Overview">{{location.wbPoiOverview}}</textarea>
+    <input type="file" class="wbPoiPicture" accept="image/*" placeholder="Upload Picture" />
+    <textarea class="wbPoiDescription" placeholder="Description">{{location.wbPoiDescription}}</textarea>
+
+    <label for="wbPoiPrices">Prices</label>
+    <select id="wbPoiPrices" class="wbPoiPrices">
+        <option>None</option>
+        <option>Cheap</option>
+        <option>Average</option>
+        <option>Expensive</option>
+    </select>
+
+    <label for="wbPoiQuality">Quality</label>
+    <select id="wbPoiQuality" class="wbPoiQuality">
+        <option>None</option>
+        <option>Poor</option>
+        <option>Average</option>
+        <option>Superior</option>
+    </select>
+
+    <label for="wbPoiGoodsServices">Goods and Services</label>
+    <select id="wbPoiGoodsServices" class="wbPoiGoodsServices">
+        <option>None</option>
+        <option>Commerce</option>
+        <option>Communication</option>
+        <option>Construction</option>
+        <option>Crafting</option>
+        <option>Education</option>
+        <option>Entertainment</option>
+        <option>Food</option>
+        <option>Information</option>
+        <option>Legal</option>
+        <option>Lodging</option>
+        <option>Maintenance</option>
+        <option>Media</option>
+        <option>Medical</option>
+        <option>Other</option>
+        <option>Personal Care</option>
+        <option>Prostitution</option>
+        <option>Protective</option>
+        <option>Real Estate</option>
+        <option>Surveillance</option>
+        <option>Transportation</option>
+        <option>Utility</option>
+    </select>
+
+    <textarea class="wbPoiProfile" placeholder="Profile">{{location.wbPoiProfile}}</textarea>
+    <textarea class="wbPoiStory" placeholder="Story">{{location.wbPoiStory}}</textarea>
+    <textarea class="wbPoiNPC" placeholder="Notable NPCs">{{location.wbPoiNPC}}</textarea>
+    <textarea class="wbPoiValuables" placeholder="Valuables">{{location.wbPoiValuables}}</textarea>
+    <textarea class="wbPoiChallenges" placeholder="Challenges">{{location.wbPoiChallenges}}</textarea>
+    <textarea class="wbPoiObstacles" placeholder="Obstacles">{{location.wbPoiObstacles}}</textarea>
+    <textarea class="wbPoiRelationships" placeholder="Relationships">{{location.wbPoiRelationships}}</textarea>
+    <textarea class="wbPoiBackground" placeholder="Background">{{location.wbPoiBackground}}</textarea>
+    <textarea class="wbPoiAdditional" placeholder="Additional Details">{{location.wbPoiAdditional}}</textarea>
+</div>
+{{/ifEquals}}
+
+
 </section>
 
 
@@ -430,9 +678,7 @@
       {{#each treasures}}
           <div class="treasure-entry">
           <h4>Treasure {{@index}}</h4>
-              <textarea class="treasure-description" placeholder="Description">{{this.description}}</textarea>
-              <button class="randomize-treasure">Randomize</button>
-              <button class="treasure-builder">Open Treasure Builder</button>
+              <textarea class="treasure-description" placeholder="This Section is Under Construction">{{this.description}}</textarea>
           </div>
       {{/each}}
       </div>

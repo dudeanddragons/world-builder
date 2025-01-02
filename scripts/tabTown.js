@@ -30,6 +30,70 @@ export function handleDynamicLocationTab(builder, html) {
           wbPlaneRelationship: "",
           wbPlaneBackground: "",
           wbPlaneAddDetails: "",
+          // Celestial-Specific Fields
+          wbCelestialRegion: "",
+          wbCelestialOverview: "",
+          wbCelestialMap: null,
+          wbCelestialDescription: "",
+          wbCelestialNPC: "",
+          wbCelestialProfile: "",
+          wbCelestialStory: "",
+          wbCelestialPoi: "",
+          wbCelestialResources: "",
+          wbCelestialRelationships: "",
+          wbCelestialBackground: "",
+          wbCelestialAdditional: "",
+          // Planet-Specific Fields
+          wbPlanetGravity: "",
+          wbPlanetAtmosphere: "",
+          wbPlanetOrbit: "",
+          wbPlanetOverview: "",
+          wbPlanetType: "",
+          wbPlanetClimate: "",
+          wbPlanetTerrainType: "",
+          wbPlentDescription: "",
+          wbPlanetNPC: "",
+          wbPlanetProfile: "",
+          wbPlanetStory: "",
+          wbPlanetPoi: "",
+          wbPlanetValuables: "",
+          wbPlanetChallenges: "",
+          wbPlanetObstacles: "",
+          wbPlanetIntRelation: "",
+          wbPlanetOutRelation: "",
+          wbPlanetAdditional: "",
+        // Geographical Specific Fields
+          wbGeoRegion: "",
+          wbGeoOverview: "",
+          wbGeoTerrain: "",
+          wbGeoClimate: "",
+          wbGeoMap: null,
+          wbGeoDescription: "",
+          wbGeoNPC: "",
+          wbGeoProfile: "",
+          wbGeoStory: "",
+          wbGeoPoi: "",
+          wbGeoResources: "",
+          wbGeoRelation: "",
+          wbGeoBackground: "",
+          wbGeoAdditional: "",
+        // Point of Interest Specific Fields
+          wbPoiType: "",
+          wbPoiOverview: "",
+          wbPoiPicture: null,
+          wbPoiDescription: "",
+          wbPoiPrices: "",
+          wbPoiQuality: "",
+          wbPoiGoodsServices: "",
+          wbPoiProfile: "",
+          wbPoiStory: "",
+          wbPoiNPC: "",
+          wbPoiValuables: "",
+          wbPoiChallenges: "",
+          wbPoiObstacles: "",
+          wbPoiRelationships: "",
+          wbPoiBackground: "",
+          wbPoiAdditional: "",
       };
   }
 
@@ -41,37 +105,121 @@ export function handleDynamicLocationTab(builder, html) {
       builder.data.location.type = selectedType;
 
       // Reset fields for the selected type
-      if (selectedType === "Settlement") {
-          Object.assign(builder.data.location, {
-              wbTownComSize: "",
-              wbTownOverview: "",
-              wbTownPopulation: "",
-              wbTownMap: "",
-              wbTownDescription: "",
-              wbTownNPC: "",
-              wbTownProfile: "",
-              wbTownStory: "",
-              wbTownPoi: "",
-              wbTownVal: "",
-              wbTownIntRelation: "",
-              wbTownOutRelation: "",
-              wbTownBackground: "",
-              wbTownAdditional: "",
-          });
-      } else if (selectedType === "Plane") {
-          Object.assign(builder.data.location, {
-              wbPlaneRegion: "",
-              wbPlaneOverview: "",
-              wbPlaneDescription: "",
-              wbPlaneNPC: "",
-              wbPlaneProfile: "",
-              wbPlaneStory: "",
-              wbPlanePoi: "",
-              wbPlaneResources: "",
-              wbPlaneRelationship: "",
-              wbPlaneBackground: "",
-              wbPlaneAddDetails: "",
-          });
+      switch (selectedType) {
+          case "Settlement":
+              Object.assign(builder.data.location, {
+                  wbTownComSize: "",
+                  wbTownOverview: "",
+                  wbTownPopulation: "",
+                  wbTownMap: "",
+                  wbTownDescription: "",
+                  wbTownNPC: "",
+                  wbTownProfile: "",
+                  wbTownStory: "",
+                  wbTownPoi: "",
+                  wbTownVal: "",
+                  wbTownIntRelation: "",
+                  wbTownOutRelation: "",
+                  wbTownBackground: "",
+                  wbTownAdditional: "",
+              });
+              break;
+
+          case "Plane":
+              Object.assign(builder.data.location, {
+                  wbPlaneRegion: "",
+                  wbPlaneOverview: "",
+                  wbPlaneDescription: "",
+                  wbPlaneNPC: "",
+                  wbPlaneProfile: "",
+                  wbPlaneStory: "",
+                  wbPlanePoi: "",
+                  wbPlaneResources: "",
+                  wbPlaneRelationship: "",
+                  wbPlaneBackground: "",
+                  wbPlaneAddDetails: "",
+              });
+              break;
+
+          case "Celestial":
+              Object.assign(builder.data.location, {
+                  wbCelestialRegion: "",
+                  wbCelestialOverview: "",
+                  wbCelestialMap: null,
+                  wbCelestialDescription: "",
+                  wbCelestialNPC: "",
+                  wbCelestialProfile: "",
+                  wbCelestialStory: "",
+                  wbCelestialPoi: "",
+                  wbCelestialResources: "",
+                  wbCelestialRelationships: "",
+                  wbCelestialBackground: "",
+                  wbCelestialAdditional: "",
+              });
+              break;
+
+          case "Planet":
+              Object.assign(builder.data.location, {
+                  wbPlanetGravity: "",
+                  wbPlanetAtmosphere: "",
+                  wbPlanetOrbit: "",
+                  wbPlanetOverview: "",
+                  wbPlanetType: "",
+                  wbPlanetClimate: "",
+                  wbPlanetTerrainType: "",
+                  wbPlentDescription: "",
+                  wbPlanetNPC: "",
+                  wbPlanetProfile: "",
+                  wbPlanetStory: "",
+                  wbPlanetPoi: "",
+                  wbPlanetValuables: "",
+                  wbPlanetChallenges: "",
+                  wbPlanetObstacles: "",
+                  wbPlanetIntRelation: "",
+                  wbPlanetOutRelation: "",
+                  wbPlanetAdditional: "",
+              });
+              break;
+
+              case "Geographical":
+                Object.assign(builder.data.location, {
+                    wbGeoRegion: "",
+                    wbGeoOverview: "",
+                    wbGeoTerrain: "",
+                    wbGeoClimate: "",
+                    wbGeoMap: null,
+                    wbGeoDescription: "",
+                    wbGeoNPC: "",
+                    wbGeoProfile: "",
+                    wbGeoStory: "",
+                    wbGeoPoi: "",
+                    wbGeoResources: "",
+                    wbGeoRelation: "",
+                    wbGeoBackground: "",
+                    wbGeoAdditional: "",
+                });
+                break;
+
+                case "Point of Interest":
+                    Object.assign(builder.data.location, {
+                        wbPoiType: "",
+                        wbPoiOverview: "",
+                        wbPoiPicture: null,
+                        wbPoiDescription: "",
+                        wbPoiPrices: "",
+                        wbPoiQuality: "",
+                        wbPoiGoodsServices: "",
+                        wbPoiProfile: "",
+                        wbPoiStory: "",
+                        wbPoiNPC: "",
+                        wbPoiValuables: "",
+                        wbPoiChallenges: "",
+                        wbPoiObstacles: "",
+                        wbPoiRelationships: "",
+                        wbPoiBackground: "",
+                        wbPoiAdditional: "",
+                    });
+                    break;
       }
 
       // Re-render the form dynamically
