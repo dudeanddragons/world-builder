@@ -565,49 +565,8 @@ function manageDummyDice(zone) {
     }
   }
 
-  function actorGenFetchActorData(formData) {
-    return {
-      abilities: formData.abilities || {
-        strength: 10,
-        dexterity: 10,
-        constitution: 10,
-        intelligence: 10,
-        wisdom: 10,
-        charisma: 10,
-      },
-      saves: formData.saves || {
-        paralyzation: { value: 20 },
-        poison: { value: 20 },
-        death: { value: 20 },
-        rod: { value: 20 },
-        staff: { value: 20 },
-        wand: { value: 20 },
-        petrification: { value: 20 },
-        polymorph: { value: 20 },
-        breath: { value: 20 },
-        spell: { value: 20 },
-      },
-      attributes: formData.attributes || {
-        ac: { value: 10 },
-        thaco: { value: 20 },
-        hp: { value: 0, max: 0 },
-        movement: { value: 30, unit: "ft" },
-      },
-      details: {
-        alignment: formData.alignment || "neutral",
-        type: formData.details?.type || "",
-        source: formData.details?.source || "",
-      },
-      race: formData.race?.uuid || null,
-      class1: formData.class1?.uuid || "none",
-      class2: formData.class2?.uuid || "none",
-      class3: formData.class3?.uuid || "none",
-      background: formData.background?.uuid || "",
-    };
-  }
-  
 
-  // Populate NPC dropdown dynamically
+
   async function populateNPCDropdown() {
     const dropdown = html.find(".clone-npc-dropdown");
     if (!dropdown.length) {
@@ -615,142 +574,40 @@ function manageDummyDice(zone) {
       return;
     }
   
-    // Empty the dropdown and add the default "None" option
     dropdown.empty();
     dropdown.append('<option value="none" selected>None</option>');
   
-    // Correctly reference the compendium in the "world" package
-    const compendium = game.packs.get("world.wb-npc-clone");
-    if (!compendium) {
-      console.error("Compendium 'wb-npc-clone' not found in the 'world' package.");
-      return;
-    }
-  
     try {
-      // Load all the entries in the compendium
-      const entries = await compendium.getDocuments();
+      // Load NPCs from the compendium
+      const compendium = game.packs.get("world.wb-npc-clone");
+      if (!compendium) {
+        console.error("Compendium 'wb-npc-clone' not found in the 'world' package.");
+        return;
+      }
   
-      // Sort entries alphabetically by name
-      const sortedEntries = entries.sort((a, b) => a.name.localeCompare(b.name));
+      const compendiumEntries = await compendium.getDocuments();
+      const sortedEntries = compendiumEntries.sort((a, b) => a.name.localeCompare(b.name));
   
-      // Populate the dropdown with sorted entries
       sortedEntries.forEach((npc) => {
-        dropdown.append(`<option value="${npc.id}">${npc.name}</option>`);
+        dropdown.append(`<option value="${npc.uuid}">${npc.name}</option>`);
       });
   
-      console.log("NPC dropdown populated from the 'wb-npc-clone' compendium in alphabetical order.");
+      console.log("NPC dropdown populated with compendium entries.");
+  
+      // Include World Actors
+      const worldActors = game.actors.filter((actor) => actor.type === "npc");
+      worldActors.forEach((actor) => {
+        dropdown.append(`<option value="${actor.uuid}">${actor.name} (World)</option>`);
+      });
+  
+      console.log("NPC dropdown populated with world actors.");
     } catch (error) {
-      console.error("Error loading entries from the 'wb-npc-clone' compendium:", error);
-    }
-  }
-  
-  
-  
-  
-  
-
-  async function createNPCFromForm(formData) {
-    try {
-      let newNPC;
-  
-      // Check if a Clone NPC is selected
-      const cloneData = formData.cloneNPC;
-  
-      if (cloneData && cloneData.uuid !== "none") {
-        // Clone the selected NPC
-        const originalNPC = game.actors.get(cloneData.uuid);
-        if (!originalNPC) {
-          ui.notifications.error("Failed to find the NPC to clone.");
-          return;
-        }
-  
-        console.log(`Cloning NPC: ${cloneData.name} (UUID: ${cloneData.uuid})`);
-  
-        // Clone the NPC
-        newNPC = await originalNPC.clone({
-          name: formData.name || `${originalNPC.name} Clone`,
-        });
-      } else {
-        // Create a new NPC from scratch
-        console.log("Creating a new blank NPC.");
-        newNPC = await Actor.create({
-          name: formData.name || "New NPC",
-          type: "npc",
-          system: {
-            abilities: formData.abilities || {
-              strength: 10,
-              dexterity: 10,
-              constitution: 10,
-              intelligence: 10,
-              wisdom: 10,
-              charisma: 10,
-            },
-            details: {
-              alignment: formData.alignment || "neutral",
-            },
-          },
-        });
-      }
-  
-      // Add selected race, classes, and background as embedded items
-      const itemsToAdd = [];
-  
-      // Add race item
-      if (formData.race?.uuid) {
-        const raceItem = await fromUuid(formData.race.uuid);
-        if (raceItem) {
-          itemsToAdd.push(raceItem.toObject());
-          console.log(`Added race: ${raceItem.name}`);
-        } else {
-          console.warn(`Race item not found for UUID: ${formData.race.uuid}`);
-        }
-      }
-  
-      // Add class items
-      for (const classField of ["class1", "class2", "class3"]) {
-        if (formData[classField]?.uuid && formData[classField].uuid !== "none") {
-          const classItem = await fromUuid(formData[classField].uuid);
-          if (classItem) {
-            itemsToAdd.push(classItem.toObject());
-            console.log(`Added ${classField}: ${classItem.name}`);
-          } else {
-            console.warn(`Class item not found for UUID: ${formData[classField]?.uuid}`);
-          }
-        }
-      }
-  
-      // Add background item
-      if (formData.background?.uuid) {
-        const backgroundItem = await fromUuid(formData.background.uuid);
-        if (backgroundItem) {
-          itemsToAdd.push(backgroundItem.toObject());
-          console.log(`Added background: ${backgroundItem.name}`);
-        } else {
-          console.warn(`Background item not found for UUID: ${formData.background?.uuid}`);
-        }
-      }
-  
-      // Embed all items into the new NPC
-      if (itemsToAdd.length > 0) {
-        await newNPC.createEmbeddedDocuments("Item", itemsToAdd);
-        console.log(`Embedded ${itemsToAdd.length} items into NPC "${newNPC.name}".`);
-      }
-  
-      ui.notifications.info(`NPC "${newNPC.name}" created successfully with race, classes, and background.`);
-      console.log("Created NPC:", newNPC);
-  
-      return newNPC;
-    } catch (error) {
-      console.error("Error creating or cloning NPC:", error);
-      ui.notifications.error("Failed to create or clone NPC. Check the console for details.");
+      console.error("Error populating NPC dropdown:", error);
     }
   }
   
 
-  
-  
-  
-  
+
 // Update selected cloneNPC in structured data
 html.on("change", ".clone-npc-dropdown", function () {
   const actorIndex = $(this).data("index"); // Retrieve the index dynamically
@@ -761,12 +618,12 @@ html.on("change", ".clone-npc-dropdown", function () {
     return;
   }
 
-  // Find the selected NPC in npcData
-  const selectedNPC = npcData.find((npc) => npc.id === selectedUuid);
+  const selectedNPC = npcData.find((npc) => npc.id === selectedUuid) 
+                     || game.actors.get(selectedUuid) 
+                     || { uuid: selectedUuid }; // Fallback for compendium NPCs
 
-  // Update the cloneNPC field for the actor
   builder.data.actors[actorIndex].cloneNPC = selectedNPC
-    ? { uuid: selectedNPC.id, name: selectedNPC.name }
+    ? { uuid: selectedNPC.uuid || selectedUuid, name: selectedNPC.name || "Unknown NPC" }
     : { uuid: "none", name: "None" };
 
   console.log(`Updated cloneNPC for actor ${actorIndex}:`, builder.data.actors[actorIndex].cloneNPC);
@@ -779,32 +636,39 @@ html.on("change", ".clone-npc-dropdown", function () {
   
 html.on("click", ".create-npc", async function () {
   try {
-    const actorIndex = $(this).data("index"); // Dynamically retrieve the actor index
+    const actorIndex = $(this).data("index");
     if (actorIndex === undefined) {
       console.error("Actor index is undefined. Ensure the button includes a data-index attribute.");
       return;
     }
 
-    const formData = builder.data.actors[actorIndex]; // Get actor data
-    const cloneData = formData.cloneNPC; // Retrieve cloneNPC data
+    const formData = builder.data.actors[actorIndex];
+    const cloneData = formData.cloneNPC;
 
     let newNPCData;
+
     if (cloneData && cloneData.uuid !== "none") {
-      // If a Clone NPC is selected, fetch the NPC actor to clone
       console.log(`Cloning NPC: ${cloneData.name} (UUID: ${cloneData.uuid})`);
-      const originalNPC = game.actors.get(cloneData.uuid);
+
+      // Fetch the original NPC using fromUuid
+      const originalNPC = await fromUuid(cloneData.uuid);
       if (!originalNPC) {
         ui.notifications.error(`NPC with UUID ${cloneData.uuid} not found.`);
         return;
       }
 
-      // Clone the NPC and prepare data
+      // Clone the NPC and prepare its data
       newNPCData = originalNPC.toObject();
-      const customName = formData.name || "Clone";
-      newNPCData.name = `${originalNPC.name} (${customName})`; // Set the name for the cloned NPC
-      newNPCData.folder = null; // Ensure the cloned NPC is not placed in any folder
 
-      // Update ability scores from formData
+      // Set the name based on form input or default to "(Copy)"
+      const customName = formData.name
+        ? `${originalNPC.name} (${formData.name})`
+        : `${originalNPC.name} (Copy)`;
+
+      newNPCData.name = customName; // Assign the new name
+      newNPCData.folder = null; // Ensure the new NPC is not placed in any folder
+
+      // Update abilities from form data
       const abilities = newNPCData.system.abilities;
       abilities.str.value = formData.abilities.strength || abilities.str.value;
       abilities.dex.value = formData.abilities.dexterity || abilities.dex.value;
@@ -812,14 +676,16 @@ html.on("click", ".create-npc", async function () {
       abilities.int.value = formData.abilities.intelligence || abilities.int.value;
       abilities.wis.value = formData.abilities.wisdom || abilities.wis.value;
       abilities.cha.value = formData.abilities.charisma || abilities.cha.value;
-      console.log("Updated Abilities for Cloned NPC:", abilities);
+
+      console.log("Updated abilities for cloned NPC:", abilities);
     } else {
-      // If no Clone NPC is selected, create a new blank NPC
       console.log("Creating a new blank NPC.");
+
+      // Create a new NPC from scratch
       newNPCData = {
         name: formData.name || "New NPC",
         type: "npc",
-        folder: null, // Ensure the new NPC is not placed in any folder
+        folder: null,
         system: {
           abilities: {
             str: { value: formData.abilities.strength || 10 },
@@ -877,10 +743,11 @@ html.on("click", ".create-npc", async function () {
     // Create all embedded documents at once
     if (itemsToAdd.length > 0) {
       await savedNPC.createEmbeddedDocuments("Item", itemsToAdd);
+      console.log(`Embedded ${itemsToAdd.length} items into NPC "${savedNPC.name}".`);
     }
 
     console.log(`NPC Created: ${savedNPC.name} (ID: ${savedNPC.id})`);
-    console.log(`Updated Abilities:`, savedNPC.system.abilities);
+    console.log("Updated abilities:", savedNPC.system.abilities);
     ui.notifications.info(
       `Successfully created NPC "${savedNPC.name}" with updated abilities, race, classes, and background.`
     );
@@ -889,6 +756,12 @@ html.on("click", ".create-npc", async function () {
     ui.notifications.error("Failed to create or clone NPC. Check the console for details.");
   }
 });
+
+
+
+
+
+
 
 
 html.on("click", ".create-character", async function () {
