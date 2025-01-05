@@ -669,21 +669,44 @@
 
 
 
-  <!-- TREASURE TAB-->
-  <section class="tab-content" data-tab="treasure" style="display: none;">
-      <h3>Treasure</h3>
-      <button class="add-treasure">Add Treasure</button>
-
-      <div class="treasure-list">
-      {{#each treasures}}
-          <div class="treasure-entry">
-          <h4>Treasure {{@index}}</h4>
-              <textarea class="treasure-description" placeholder="This Section is Under Construction">{{this.description}}</textarea>
-          </div>
-      {{/each}}
+<!-- TREASURE TAB-->
+<section class="tab-content" data-tab="treasure" style="display: none;">
+  <h3>Treasure</h3>
+  <button class="add-treasure">Add Treasure</button>
+  <div class="treasure-list">
+    {{#each treasures}}
+      <div class="treasure-entry" data-index="{{@index}}">
+        <h4>Treasure {{@index}}</h4>
+        <textarea class="treasure-description" placeholder="Enter treasure description">{{this.description}}</textarea>
+        <div class="treasure-actions">
+          <button class="randomize-treasure">Randomize</button>
+          <button class="remove-treasure">Remove</button>
+        </div>
+        <!-- Dropdown for Treasure Value Options -->
+        <div class="treasure-value-selection">
+          <label for="treasure-value-{{@index}}">Select Treasure Value (gp):</label>
+          <select id="treasure-value-{{@index}}" class="treasure-value-dropdown">
+            <option value="1-100">1-100 gp</option>
+            <option value="30-180">30-180 gp</option>
+            <option value="100-600">100-600 gp</option>
+            <option value="100-1000">100-1000 gp</option>
+            <option value="200-1200">200-1200 gp</option>
+            <option value="300-1800">300-1800 gp</option>
+            <option value="400-2400">400-2400 gp</option>
+            <option value="500-3000">500-3000 gp</option>
+            <option value="1000-4000">1000-4000 gp</option>
+            <option value="1000-6000">1000-6000 gp</option>
+            <option value="2000-8000">2000-8000 gp</option>
+            <option value="2000-12000">2000-12000 gp</option>
+          </select>
+        </div>
       </div>
+    {{/each}}
+  </div>
+</section>
 
-  </section>
+
+
 
 
   <!-- MAGIC ITEM TAB -->

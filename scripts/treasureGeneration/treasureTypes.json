@@ -1,0 +1,25 @@
+{
+    "itemTypes": [
+      { "type": "Jewelry" },
+      { "type": "Sculptures" },
+      { "type": "Religious Items" },
+      { "type": "Art" },
+      { "type": "Literature" },
+      { "type": "Clothing" },
+      { "type": "Weapons" },
+      { "type": "Armor" },
+      { "type": "Containers" },
+      { "type": "Furniture" },
+      { "type": "Utensils" },
+      { "type": "Musical Instruments" },
+      { "type": "Mechanical Devices" },
+      { "type": "Toys and Games" },
+      { "type": "Maps" },
+      { "type": "Decorative Items" },
+      { "type": "Lighting" },
+      { "type": "Personal Effects" },
+      { "type": "Tools" },
+      { "type": "Relics and Fossils" }
+    ]
+  }
+  

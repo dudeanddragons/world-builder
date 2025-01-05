@@ -1,0 +1,26 @@
+{
+    "compatibility": {
+      "Jewelry": ["metals", "stones", "precious"],
+      "Sculptures": ["metals", "stones", "organic", "ceramic"],
+      "Religious Items": ["metals", "stones", "organic", "precious"],
+      "Art": ["fabric", "glass", "ceramic", "organic"],
+      "Literature": ["organic", "fabric"],
+      "Clothing": ["fabric", "organic"],
+      "Weapons": ["metals", "precious", "stones"],
+      "Armor": ["metals", "precious"],
+      "Containers": ["metals", "organic", "ceramic", "glass"],
+      "Furniture": ["organic", "metals", "fabric"],
+      "Utensils": ["metals", "ceramic", "glass"],
+      "Musical Instruments": ["organic", "metals", "fabric", "precious"],
+      "Mechanical Devices": ["metals", "glass", "precious"],
+      "Toys and Games": ["organic", "metals", "ceramic", "fabric", "glass"],
+      "Maps": ["organic", "fabric"],
+      "Decorative Items": ["metals", "stones", "glass", "ceramic", "organic"],
+      "Lighting": ["metals", "glass", "ceramic"],
+      "Personal Effects": ["metals", "stones", "organic", "fabric", "glass"],
+      "Tools": ["metals", "organic"],
+      "Relics and Fossils": ["stones", "organic", "precious"],
+      "Raw": ["metals", "stones", "organic"]
+    }
+  }
+  

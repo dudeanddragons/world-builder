@@ -1,0 +1,11 @@
+{
+    "sizeModifiers": [
+      { "size": "Tiny", "weightMultiplier": 0.1, "valueMultiplier": 0.8, "description": "Exceptionally small, pocket-sized items." },
+      { "size": "Small", "weightMultiplier": 0.5, "valueMultiplier": 0.9, "description": "Compact items that are easy to carry." },
+      { "size": "Medium", "weightMultiplier": 1.0, "valueMultiplier": 1.0, "description": "Standard-sized items with no adjustments." },
+      { "size": "Large", "weightMultiplier": 2.0, "valueMultiplier": 1.5, "description": "Bulky or oversized items, increasing value and weight." },
+      { "size": "Huge", "weightMultiplier": 5.0, "valueMultiplier": 2.5, "description": "Massive items that are rare and unwieldy." },
+      { "size": "Gargantuan", "weightMultiplier": 10.0, "valueMultiplier": 5.0, "description": "Enormous, legendary-scale items of immense value and weight." }
+    ]
+  }
+  
