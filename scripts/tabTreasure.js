@@ -100,6 +100,14 @@ export async function handleTreasureTab(builder, html) {
         builder.render(false);
     });
 
+        // Remove a treasure entry
+        html.on("click", ".remove-treasure", (event) => {
+            const index = $(event.currentTarget).closest(".treasure-entry").data("index");
+            builder.data.treasures.splice(index, 1); // Remove treasure from the array
+            console.log(`Treasure at index ${index} removed:`, builder.data.treasures);
+            builder.render(false); // Re-render the UI to reflect changes
+        });
+
     // Handle dropdown updates for treasure value ranges
     html.on("change", ".treasure-value-dropdown", async (event) => {
         const index = $(event.currentTarget).closest(".treasure-entry").data("index");
@@ -142,7 +150,7 @@ export async function handleTreasureTab(builder, html) {
 
         if (material && compatibleType && subtype && quality && size) {
             const finalCost = Math.round(material.baseValue * quality.valueModifier * size.valueMultiplier);
-            return `${quality.name} ${material.name} ${subtype.name} (${size.size}), worth ${finalCost} gp.`;
+            return `${quality.name} ${material.name} ${subtype.name} (${size.size}), ${finalCost} gp.`;
         }
 
         return "Failed to generate treasure.";

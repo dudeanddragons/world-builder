@@ -1,5 +1,6 @@
 {
   "valueBase": [
+    { "range": "None", "min": 0, "max": 0 },
     { "range": "1-100", "min": 1, "max": 100 },
     { "range": "30-180", "min": 30, "max": 180 },
     { "range": "100-600", "min": 100, "max": 600 },
