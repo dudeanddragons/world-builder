@@ -101,7 +101,6 @@ export class WorldBuilderWindow extends Application {
 
     // Preload features during initialization
     this.preloadFeatures();
-
     
   }
   
@@ -1961,5 +1960,6 @@ async _rollFeatureType() {
     async createJournalEntry() {
       console.log("Creating Journal Entry...");
     }
+    
   }
   

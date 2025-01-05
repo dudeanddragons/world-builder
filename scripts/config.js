@@ -35,4 +35,5 @@ Hooks.on("renderJournalDirectory", (app, html) => {
         // Render the window
         window.worldBuilder.render(true);
     });
+
 });
