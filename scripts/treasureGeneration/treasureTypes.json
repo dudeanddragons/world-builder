@@ -19,7 +19,8 @@
       { "type": "Lighting" },
       { "type": "Personal Effects" },
       { "type": "Tools" },
-      { "type": "Relics and Fossils" }
+      { "type": "Relics and Fossils" },
+      { "type": "Raw" }
     ]
   }
   

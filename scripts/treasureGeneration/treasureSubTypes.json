@@ -1,5 +1,5 @@
 {
-    "subtypes": [
+    "itemTypes": [
       {
         "type": "Jewelry",
         "itemSubTypes": [
@@ -528,7 +528,7 @@
         ]
       },
       {
-        "type": "Ingots",
+        "type": "Raw",
         "itemSubTypes": [
           { "name": "Ingot", "baseWeight": 10.0 },
           { "name": "Coin", "baseWeight": 0.05 },
