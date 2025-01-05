@@ -275,7 +275,7 @@
         ]
       },
       {
-        "type":"Literature",
+        "type": "Literature",
         "itemSubTypes": [
           { "type": "Scroll", "baseWeight": 0.05 },
           { "type": "Manuscript", "baseWeight": 0.25 },

@@ -94,11 +94,13 @@ export async function handleTreasureTab(builder, html) {
     html.find(".add-treasure").click(() => {
         builder.data.treasures.push({
             description: "",
-            valueRange: "1-100" // Default range
+            valueRange: "1-100", // Default range
+            generatedData: null // Initialize generatedData to null
         });
         console.log("Treasure added:", builder.data.treasures);
         builder.render(false);
     });
+    
 
         // Remove a treasure entry
         html.on("click", ".remove-treasure", (event) => {
@@ -123,39 +125,145 @@ export async function handleTreasureTab(builder, html) {
     // Randomize individual treasure
     html.on("click", ".randomize-treasure", (event) => {
         const index = $(event.currentTarget).closest(".treasure-entry").data("index");
-        const valueRange = builder.data.treasures[index].valueRange;
-
-        const treasureDescription = generateTreasureItem(valueRange);
+        const valueRange = builder.data.treasures[index]?.valueRange || "1-100";
+    
+        const treasureDescription = generateTreasureItem(valueRange, index);
         builder.data.treasures[index].description = treasureDescription;
-
+    
         console.log(`Treasure at index ${index} randomized:`, builder.data.treasures[index]);
         builder.render(false);
     });
+    
 
-    // Generate treasure item based on value range
-    function generateTreasureItem(valueRange) {
-        const [min, max] = valueRange.split("-").map(Number);
 
-        const materialsInRange = treasureData.valueRangeHierarchy.find(vr => vr.range === valueRange)?.materials || [];
-        if (!materialsInRange.length) {
-            console.error("No materials found in the selected GP range.");
-            return "No treasure available for this value range.";
+
+
+
+
+    
+    html.on("click", ".create-item-treasure", async (event) => {
+        try {
+            event.preventDefault(); // Prevent default behavior
+            console.log("Create Item button clicked.");
+    
+            // Get the treasure index
+            const index = $(event.currentTarget).closest(".treasure-entry").data("index");
+            if (index === undefined) throw new Error("Treasure entry index not found.");
+    
+            // Fetch the treasure entry
+            const treasure = builder.data.treasures[index];
+            if (!treasure || !treasure.generatedData) {
+                throw new Error("Treasure data is incomplete or not generated yet. Cannot create item.");
+            }
+    
+            const generatedData = treasure.generatedData;
+            console.log("Using Generated Data:", generatedData);
+    
+            // Define item data using structured data and custom image
+            const itemData = {
+                name: `${generatedData.quality} ${generatedData.material} ${generatedData.subtype.name}`,
+                type: "item",
+                img: "icons/containers/chest/chest-reinforced-steel-red.webp", // Set the custom image
+                system: {
+                    description: {
+                        value: `A ${generatedData.quality} ${generatedData.size.name} ${generatedData.material} ${generatedData.subtype.name}.`
+                    },
+                    attributes: {
+                        identified: false,
+                        type: "Art", // Set type as "Art"
+                        rarity: "Uncommon"
+                    },
+                    alias: `${generatedData.subtype.name}`, // Include the subtype name in the alias
+                    quantity: 1,
+                    cost: {
+                        value: generatedData.finalCost, // Use calculated cost
+                        currency: "gp"
+                    },
+                    xp: 0,
+                    weight: (generatedData.subtype.baseWeight || 1) * (generatedData.size.weightMultiplier || 1) // Adjusted weight
+                }
+            };
+    
+            // Create the item
+            const createdItem = await Item.create(itemData, { renderSheet: true });
+            if (createdItem) {
+                console.log("Item successfully created:", createdItem);
+                ui.notifications.info(`Item "${createdItem.name}" created successfully.`);
+            } else {
+                console.error("Failed to create the item.");
+                ui.notifications.error("Failed to create the item.");
+            }
+        } catch (error) {
+            console.error("Error creating item:", error);
+            ui.notifications.error("Error: Could not create the item. Check console for details.");
         }
+    });
+    
+    
 
-        const material = selectRandom(materialsInRange);
-        const compatibleType = selectRandom(material.compatibleItemTypes || []);
-        const subtype = selectRandom(compatibleType?.subtypes || []);
-        const quality = selectRandom(subtype?.qualities || []);
-        const size = selectRandom(subtype?.sizes || []);
 
-        if (material && compatibleType && subtype && quality && size) {
-            const finalCost = Math.round(material.baseValue * quality.valueModifier * size.valueMultiplier);
-            return `${quality.name} ${material.name} ${subtype.name} (${size.size}), ${finalCost} gp.`;
-        }
 
-        return "Failed to generate treasure.";
+
+
+
+
+// Add "Create Random Item" Button Listener with Custom Image and Correct Identified Attribute
+function generateTreasureItem(valueRange, index) {
+    const [min, max] = valueRange.split("-").map(Number);
+
+    const materialsInRange = treasureData.valueRangeHierarchy.find(vr => vr.range === valueRange)?.materials || [];
+    if (!materialsInRange.length) {
+        console.error("No materials found in the selected GP range.");
+        return "No treasure available for this value range.";
     }
 
+    const material = selectRandom(materialsInRange);
+    const compatibleType = selectRandom(material.compatibleItemTypes || []);
+    const subtype = selectRandom(compatibleType?.subtypes || []);
+    const quality = selectRandom(subtype?.qualities || []);
+    const size = selectRandom(subtype?.sizes || []);
+
+    if (material && compatibleType && subtype && quality && size) {
+        const finalCost = Math.round(material.baseValue * quality.valueModifier * size.valueMultiplier);
+
+        // Structure for data preparation
+        const generatedData = {
+            material: material.name,
+            compatibleType: compatibleType.itemType,
+            subtype: {
+                name: subtype.name,
+                baseWeight: subtype.baseWeight // Specifically capture baseWeight
+            },
+            quality: quality.name,
+            size: {
+                name: size.size,
+                weightMultiplier: size.weightMultiplier,
+                valueMultiplier: size.valueMultiplier
+            },
+            baseValue: material.baseValue,
+            finalCost: finalCost
+        };
+
+        console.log("Generated Treasure Data:", generatedData);
+
+        // Assign generatedData to the correct treasure entry
+        if (!builder.data.treasures[index]) {
+            builder.data.treasures[index] = { description: "", valueRange };
+        }
+        builder.data.treasures[index].generatedData = generatedData;
+
+        // Return the description
+        return `${quality.name} ${material.name} ${subtype.name} (${size.size}), ${finalCost} gp.`;
+    }
+
+    return "Failed to generate treasure.";
+}
+
+    
+    
+    
+    
+    
     function getCompatibleOptions(valueRange) {
         const [min, max] = valueRange.split("-").map(Number);
         return Object.entries(treasureData.materialCache).flatMap(([category, items]) =>
@@ -169,8 +277,12 @@ export async function handleTreasureTab(builder, html) {
         options.forEach(option => dropdown.append(`<option value="${option}">${option}</option>`));
     }
 
-    function selectRandom(array) {
-        if (!array || !array.length) return null;
-        return array[Math.floor(Math.random() * array.length)];
+// Helper Function to Select Random Entry
+function selectRandom(array) {
+    if (!array || !array.length) {
+        console.error("selectRandom called with invalid array:", array);
+        return null;
     }
+    return array[Math.floor(Math.random() * array.length)];
+}
 }

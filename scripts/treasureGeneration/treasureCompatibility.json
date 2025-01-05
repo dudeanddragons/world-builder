@@ -20,7 +20,7 @@
       "Personal Effects": ["metals", "stones", "organic", "glass"],
       "Tools": ["metals", "organic"],
       "Relics and Fossils": ["stones", "organic", "precious"],
-      "Raw": ["metals", "stones", "organic"]
+      "Raw": ["metals", "stones"]
     }
   }
   
