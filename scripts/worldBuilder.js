@@ -1446,7 +1446,7 @@ $(room).find(".encounters-select").each((encounterIndex, dropdown) => {
       encounterData.appearing = parseDiceExpression(actorData.numberAppearing || "1"); // Parse "No. Appearing"
 
       // Generate the stat block
-      encounterData.statblock = `
+      encounterData.statblock = `<strong>@UUID[Compendium.world.wb-lairs-dungeons.Actor.${actorData.id}]</strong><br>
         ${encounterData.appearing} x ${actorData.name};
         (STR ${actorData.str}, DEX ${actorData.dex}, CON ${actorData.con}, INT ${actorData.int}, WIS ${actorData.wis}, CHA ${actorData.cha});
         HD ${actorData.hitdice}; THAC0 ${actorData.thac0}; #ATT ${actorData.numAttacks}; DMG ${actorData.damage};
