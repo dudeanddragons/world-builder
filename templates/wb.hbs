@@ -27,12 +27,10 @@
                 <i class="fas fa-users"></i>
                 Actors
                 </a>
-                <!-- Still Needs Data Saving Will Add Later
                 <a class="item" data-tab="story">
                 <i class="fas fa-book"></i>
                 Story
                 </a>
-                -->
             </nav>
         <div class="tab-separator"></div>
     </header>
@@ -996,23 +994,49 @@
   </div>
 </section>
 
-      <!-- Story TAB -->
-      <section class="tab-content" data-tab="story" style="display: none;">
-        <h3>Story</h3>
-          <button class="add-story">Add Story</button>
+<!-- Story TAB -->
+<section class="tab-content" data-tab="story" style="display: none;">
+  <h3>Story</h3>
+  
+  <!-- Global Title -->
+  <div>
+    <label for="story-global-title">Title:</label>
+    <input type="text" id="story-global-title" class="story-global-title" placeholder="Enter a title" value="{{storyTitle}}" />
+  </div>
+  
+  <!-- Image Section -->
+  <div class="story-image-section">
+    <label for="story-global-image">Image:</label>
+    <img src="{{storyImage}}" class="story-image-preview" alt="Story Image" style="max-width: 100px; max-height: 100px; display: {{#if storyImage}}block{{else}}none{{/if}};" />
+    <button type="button" class="select-story-image">Select Image</button>
+  </div>
 
-          <div class="story-list">
-          {{#each story}}
+  <button class="add-story">Add Story</button>
 
-              <div class="story-entry">
-                  <h4>Story {{@index}}</h4>
-                  <textarea class="story-description" placeholder="Description">{{this.description}}</textarea>
-              </div>
+  <div class="story-list">
+    {{#each story}}
+      <div class="story-entry">
+        <h4>Story {{@index}}</h4>
+        <input type="text" class="story-title" placeholder="Title" value="{{this.title}}" />
+        <textarea class="story-description" placeholder="Description">{{this.description}}</textarea>
 
+        <!-- Additional Text Boxes -->
+        <div class="additional-text-boxes">
+          {{#each this.additionalText}}
+            <textarea class="additional-text" placeholder="Additional Text">{{this}}</textarea>
           {{/each}}
-          </div>
+        </div>
 
-      </section>
+        <!-- Add Text Button -->
+        <button type="button" class="add-text" data-index="{{@index}}">Add Text</button>
+      </div>
+    {{/each}}
+  </div>
+</section>
+
+
+
+
 
 
   </form>

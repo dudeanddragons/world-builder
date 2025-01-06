@@ -1958,8 +1958,124 @@ async _rollFeatureType() {
     }
   
     async createJournalEntry() {
-      console.log("Creating Journal Entry...");
+
+    
+      // Find the WorldBuilderWindow instance
+      const wbWindow = Object.values(ui.windows).find(w => w.options.title === "World Builder");
+    
+      if (!wbWindow) {
+        ui.notifications.warn("World Builder window is not open.");
+        return;
+      }
+    
+      // Access the World Builder data
+      const wbData = wbWindow.data;
+    
+      if (!wbData) {
+        ui.notifications.error("No data found in the World Builder window.");
+        return;
+      }
+    
+      // Construct the title
+      const populationDensity = wbData.populationDensity || "Unknown Density";
+      const climateType = wbData.climateType || "Unknown Climate";
+      const terrainTypeValue = wbData.terrainType || "Unknown Terrain";
+      const title = `World Builder - ${populationDensity} - ${climateType} - ${terrainTypeValue}`;
+    
+      // Create pages for each lair room
+      const lairRooms = wbData.lairRooms || [];
+      const lairRoomPages = lairRooms.map((room, index) => {
+        const roomTitle = `Lair Room ${index + 1}`;
+        const roomDescription = room.lairRoomDescription || "No description provided.";
+        const roomNotes = room.lairRoomNotes || "No notes provided.";
+        const roomSecrets = room.lairRoomSecrets || "No secrets provided.";
+        const encounters = (room.encounters || [])
+          .map(encounter => `<p>${encounter.statblock || "No statblock available."}</p>`)
+          .join("");
+        const treasure = (room.treasure || [])
+          .map(
+            t =>
+              `${t.quantity || 0} x <strong>@UUID[Item.${t.result || "unknown"}]</strong>, ${t.cost || 0} ${
+                t.currencyType || "gp"
+              }, ${t.xpValue || 0} xps`
+          )
+          .join("<br>");
+    
+        const content = `
+          <h1>Overview</h1>
+          <table style="width: 100%; text-align: left; border-collapse: collapse;">
+            <tr bgcolor="lightgrey">
+              <td>${roomDescription}</td>
+            </tr>
+          </table>
+          <h2>Notes</h2>
+          <p>${roomNotes}</p>
+          <h2>DM Notes</h2>
+          <section class="secret">${roomSecrets}</section>
+          <h2>Encounters</h2>
+          ${encounters}
+          <h2>Treasure</h2>
+          ${treasure}
+        `;
+    
+        return {
+          name: roomTitle,
+          type: "text",
+          text: {
+            content: content,
+            format: 1,
+          },
+        };
+      });
+    
+      // Create the journal entry with all pages
+      const journalContent = {
+        name: title,
+        pages: [
+          {
+            name: "Terrain Information",
+            type: "text",
+            text: {
+              content: `
+                <h1>Terrain Information</h1>
+                <table style="width: 100%; text-align: center; border-collapse: collapse; border: 1px solid black;">
+                  <thead>
+                    <tr>
+                      <th style="border: 1px solid black;">Terrain</th>
+                      <th style="border: 1px solid black;">Ruggedness</th>
+                      <th style="border: 1px solid black;">Travel Time</th>
+                      <th style="border: 1px solid black;">Encounter Frequency</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="border: 1px solid black;">${terrainTypeValue}</td>
+                      <td style="border: 1px solid black;">${wbData.ruggedness || "Unknown"}</td>
+                      <td style="border: 1px solid black;">${wbData.travelTime || "Unknown"}</td>
+                      <td style="border: 1px solid black;">${wbData.encounterFrequency || "Unknown"}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h2>${wbData.featureType || "Unknown Feature"} - ${wbData.subFeatureType || "Unknown Sub-Feature"}</h2>
+                <p>${(wbData.featureDetails?.results || []).join("<br>") || "No details available."}</p>
+              `,
+              format: 1,
+            },
+          },
+          ...lairRoomPages, // Add dynamic lair room pages
+        ],
+      };
+    
+      // Create the journal entry
+      try {
+        await JournalEntry.create(journalContent);
+        ui.notifications.info(`Journal entry '${title}' created successfully.`);
+      } catch (error) {
+        console.error("Failed to create journal entry:", error);
+        ui.notifications.error("Failed to create journal entry. Check the console for details.");
+      }
     }
+    
     
   }
   
