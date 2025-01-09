@@ -4,8 +4,8 @@
 Hooks.once("init", () => {
     game.settings.registerMenu("world-builder", "createFoldersAndCompendiumsButton", {
         name: "Create World Builder Folders and Compendiums",
-        label: "Create Folders & Compendiums", // The button text
-        hint: "Click to create folders and compendiums for the World Builder.",
+        label: "Create Folders", // The button text
+        hint: "Click to create folders for the World Builder.",
         icon: "fas fa-folder", // Button icon
         type: CreateFoldersAndCompendiumsForm,
         restricted: true, // Only available to GMs
@@ -13,14 +13,14 @@ Hooks.once("init", () => {
 });
 
 /**
- * A FormApplication that uses wbSettings.hbs for the UI and handles folder and compendium creation.
+ * A FormApplication that handles folder creation.
  */
 class CreateFoldersAndCompendiumsForm extends FormApplication {
     /** @override */
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             id: "create-folders-and-compendiums-form",
-            title: "Create World Builder Folders and Compendiums",
+            title: "Create World Builder Folders",
             template: "modules/world-builder/templates/wbSettings.hbs", // Use the Handlebars template
             closeOnSubmit: true,
         });
@@ -28,123 +28,92 @@ class CreateFoldersAndCompendiumsForm extends FormApplication {
 
     /** @override */
     async _updateObject(event, formData) {
-        console.log("World Builder | Button clicked. Creating folders and compendiums...");
+        console.log("World Builder | Button clicked. Creating folders...");
         try {
             await createNestedFoldersAndCompendiums();
-            ui.notifications.info("World Builder folders and compendiums successfully created.");
+            ui.notifications.info("World Builder folders successfully created.");
         } catch (error) {
-            console.error("World Builder | Error creating folders and compendiums:", error);
-            ui.notifications.error("An error occurred while creating folders and compendiums. Check the console.");
+            console.error("World Builder | Error creating folders:", error);
+            ui.notifications.error("An error occurred while creating folders. Check the console.");
         }
     }
 }
 
 /**
- * The function to create folders and compendiums.
+ * The function to create folders.
  */
 export async function createNestedFoldersAndCompendiums() {
-    const parentFolderName = "World Builder";
-    const folderColor = "#0000FF"; // Blue color in hex
+    const actorMainFolderName = "World Builder"; // Main actor folder
+    const actorSubFolderNames = [
+        "wb NPC Clones",
+        "wb Lair Dungeon",
+        "wb Lair Cave",
+        "wb Lair Dwelling",
+        "wb Lair Camp",
+        "wb Lair Shipwreck",
+        "wb Lair Crevice",
+        "wb Lair Ledge",
+    ]; // Actor subfolders
 
-    // Subfolder names
-    const subfolders = ["WB Actors", "WB Lairs", "WB Magic Items"];
+    const itemMainFolderName = "World Builder"; // Main item folder
+    const itemSubFolderNames = [
+        "wb Items Master",
+        "wb Lair Treasure",
+        "wb Equipment WAR FTR",
+        "wb Equipment WAR PLD",
+        "wb Equipment WAR RNG",
+        "wb Equipment PRI CLR",
+        "wb Equipment PRI DRU",
+        "wb Equipment ROG THF",
+        "wb Equipment ROG BRD",
+        "wb Equipment WIZ MAG",
+    ]; // Item subfolders
 
-    // Step 1: Create or find the parent folder
-    const parentFolder = await getFolder(parentFolderName, "Compendium", null, false, folderColor);
+    const actorMainColor = "#0000FF"; // Blue color for main actor folder
+    const actorSubColor = "#2f5e6f"; // Light blue for actor subfolders
+    const itemMainColor = "#0000FF"; // Blue color for main item folder
+    const itemSubColor = "#2f5e6f"; // Light blue for item subfolders
 
-    // Step 2: Create or find each subfolder inside the parent folder
-    const folderMap = {};
-    for (const subfolderName of subfolders) {
-        const subfolder = await getFolder(subfolderName, "Compendium", parentFolder.id, false, folderColor);
-        console.log(`Created or updated subfolder "${subfolder.name}" under "${parentFolder.name}".`);
-        folderMap[subfolderName] = subfolder; // Save reference to each folder
-    }
-
-    // Step 3: Create compendiums in their respective folders
-    const compendiumsToCreate = {
-        "WB Actors": [
-            { name: "wb-npc-clone", label: "WB NPC Clones", type: "Actor" },
-            { name: "wb-equip-war-ftr", label: "WB Equip WAR FTR", type: "Actor" },
-            { name: "wb-equip-war-pld", label: "WB Equip WAR PLD", type: "Actor" },
-            { name: "wb-equip-war-rng", label: "WB Equip WAR RNG", type: "Actor" },
-            { name: "wb-equip-pri-clr", label: "WB Equip PRI CLR", type: "Actor" },
-            { name: "wb-equip-pri-dru", label: "WB Equip PRI DRU", type: "Actor" },
-            { name: "wb-equip-rog-thf", label: "WB Equip ROG THF", type: "Actor" },
-            { name: "wb-equip-rog-brd", label: "WB Equip ROG BRD", type: "Actor" },
-            { name: "wb-equip-wiz-mag", label: "WB Equip WIZ MAG", type: "Actor" },
-        ],
-        "WB Lairs": [
-            { name: "wb-lairs-dungeons", label: "WB Lairs Dungeons", type: "Actor" },
-            { name: "wb-lairs-caves", label: "WB Lairs Caves", type: "Actor" },
-            { name: "wb-lairs-camps", label: "WB Lairs Camps", type: "Actor" },
-            { name: "wb-lairs-dwellings", label: "WB Lairs Dwellings", type: "Actor" },
-            { name: "wb-lairs-shipwrecks", label: "WB Lairs Shipwrecks", type: "Actor" },
-            { name: "wb-lairs-crevice", label: "WB Lairs Crevice", type: "Actor" },
-            { name: "wb-lairs-ledges", label: "WB Lairs Ledges", type: "Actor" },
-        ],
-        "WB Magic Items": [
-            { name: "wb-items-master", label: "WB Items Master", type: "Item" },
-        ],
-    };
-
-    for (const [folderName, compendiums] of Object.entries(compendiumsToCreate)) {
-        const folder = folderMap[folderName];
-        if (folder) {
-            for (const { name, label, type } of compendiums) {
-                await createCompendium(name, label, type, folder.id);
-            }
-        } else {
-            console.error(`Folder "${folderName}" not found. Compendiums not created.`);
+    try {
+        // Create Actor Folders
+        const actorMainFolder = await getFolder(actorMainFolderName, "Actor", null, false, actorMainColor);
+        for (const subFolderName of actorSubFolderNames) {
+            await getFolder(subFolderName, "Actor", actorMainFolder.id, false, actorSubColor);
         }
-    }
 
-    ui.notifications.info("Folders and compendiums successfully created.");
+        // Create Item Folders
+        const itemMainFolder = await getFolder(itemMainFolderName, "Item", null, false, itemMainColor);
+        for (const subFolderName of itemSubFolderNames) {
+            await getFolder(subFolderName, "Item", itemMainFolder.id, false, itemSubColor);
+        }
+
+        ui.notifications.info(`"World Builder" folders created successfully!`);
+    } catch (error) {
+        console.error("Error creating folders:", error);
+        ui.notifications.error("Failed to create folders. See console for details.");
+    }
 }
 
 /**
  * Function to get or create a folder.
  */
 async function getFolder(folderName, type, parentFolder = null, usePack = false, color = null) {
-    const folders = game.folders;
-    const found = folders.find(e => e.type === type && e.name === folderName && e.folder === parentFolder);
-    if (found) {
-        if (color && found.color !== color) {
-            await found.update({ color });
+    const folder = game.folders.find(f => f.name === folderName && f.type === type && f.folder === parentFolder);
+    if (folder) {
+        if (color && folder.color !== color) {
+            await folder.update({ color });
         }
-        return found;
+        return folder;
     }
 
-    return Folder.create({
+    const newFolder = await Folder.create({
         name: folderName,
         type,
         folder: parentFolder,
-        sorting: "m",
+        sorting: "a", // Alphabetical sorting
         color,
     });
-}
 
-/**
- * Function to create a compendium.
- */
-async function createCompendium(name, label, type, folderId) {
-    const existingCompendium = Array.from(game.packs).find(
-        pack => pack.metadata.name === name && pack.metadata.package === "world"
-    );
-
-    if (!existingCompendium) {
-        const createdCompendium = await CompendiumCollection.createCompendium({
-            label,
-            name,
-            type,
-            package: "world",
-        });
-
-        const newCompendium = game.packs.get(`world.${createdCompendium.metadata.name}`);
-        if (newCompendium) {
-            await newCompendium.configure({ folder: folderId });
-            console.log(`Compendium "${label}" created in folder ID "${folderId}".`);
-        }
-    } else {
-        console.log(`Compendium "${label}" already exists.`);
-    }
+    ui.notifications.info(`Created folder: ${folderName}`);
+    return newFolder;
 }
