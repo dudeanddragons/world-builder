@@ -6,31 +6,41 @@ export class MagicPotionGenerator {
     // Load spells from the "wb-items-master" compendium
     async loadSpells() {
         try {
-            const compendium = game.packs.get("world.wb-items-master");
-            if (!compendium) {
-                console.error("Compendium 'wb-items-master' not found.");
-                ui.notifications.error("Compendium 'wb-items-master' not found.");
-                return;
-            }
-
-            // Fetch all documents from the compendium
-            const allItems = await compendium.getDocuments();
-
-            // Filter for spells
-            this.spellList = allItems.filter(item => item.type === "spell");
-            this.spellList.sort((a, b) => a.name.localeCompare(b.name));
-
-            if (this.spellList.length === 0) {
-                console.warn("No spells found in the 'wb-items-master' compendium.");
-                ui.notifications.warn("No spells found in the compendium.");
-            }
-
+          // Step 1: Find all folders named "wb Spell"
+          const spellFolders = game.folders.filter(f => f.name === "wb Spell" && f.type === "Item");
+          if (spellFolders.length === 0) {
+            console.error("No folders named 'wb Spell' found.");
+            ui.notifications.error("No folders named 'wb Spell' found.");
+            return;
+          }
+      
+          console.log("Found Spell Folders:", spellFolders.map(f => f.name));
+      
+          // Step 2: Gather all items from "wb Spell" folders
+          const allItems = spellFolders.flatMap(folder => {
+            console.log(`Fetching contents of folder: ${folder.name}`);
+            return folder.contents;
+          });
+      
+          console.log("All spell items retrieved:", allItems.map(item => item.name));
+      
+          // Step 3: Filter for spells
+          this.spellList = allItems.filter(item => item.type === "spell");
+          this.spellList.sort((a, b) => a.name.localeCompare(b.name));
+      
+          // Step 4: Log results and notify if no spells are found
+          if (this.spellList.length === 0) {
+            console.warn("No spells found in the 'wb Spell' folders.");
+            ui.notifications.warn("No spells found in the 'wb Spell' folders.");
+          } else {
             console.log("Loaded Spells for Potions:", this.spellList);
+          }
         } catch (error) {
-            console.error("Error loading spells from compendium:", error);
-            ui.notifications.error("Failed to load spells from compendium. Check the console for details.");
+          console.error("Error loading spells from folders:", error);
+          ui.notifications.error("Failed to load spells from folders. Check the console for details.");
         }
-    }
+      }
+      
 
     // Render the Potion Creation UI
     renderPotionDialog(html, index) {

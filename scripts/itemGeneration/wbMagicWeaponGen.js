@@ -39,33 +39,71 @@ export class MagicWeaponGenerator {
       9: 81000,
     };
   
-    // Load weapons and spells
-    async loadItems() {
-      const allItems = game.items.contents;
-  
-      // Filter weapons without magic
-      this.weaponList = allItems
-        .filter(item => item.type === "weapon" && item.system.attributes?.magic === false)
-        .sort((a, b) => a.name.localeCompare(b.name));
-  
-      // Filter spells
-      this.spellList = allItems
-        .filter(item => item.type === "spell")
-        .sort((a, b) => a.name.localeCompare(b.name));
-  
-      console.log("Loaded Weapons:", this.weaponList);
-      console.log("Loaded Spells:", this.spellList);
+// Load weapons and spells
+async loadItems() {
+  try {
+    // Step 1: Find all folders named "wb Weapon" and "wb Spell"
+    const weaponFolders = game.folders.filter(f => f.name === "wb Weapon" && f.type === "Item");
+    const spellFolders = game.folders.filter(f => f.name === "wb Spell" && f.type === "Item");
+
+    if (weaponFolders.length === 0) {
+      console.warn("No folders named 'wb Weapon' found.");
     }
-  
-    // Fetch spells based on filters
-    async fetchFilteredSpells(spellType = "", spellLevel = "") {
-      return this.spellList.filter(spell => {
-        const system = spell.system || {};
-        const matchesType = !spellType || system.type === spellType;
-        const matchesLevel = !spellLevel || system.level === parseInt(spellLevel, 10);
-        return matchesType && matchesLevel;
-      }).sort((a, b) => a.name.localeCompare(b.name));
+    if (spellFolders.length === 0) {
+      console.warn("No folders named 'wb Spell' found.");
     }
+
+    console.log("Found Weapon Folders:", weaponFolders.map(f => f.name));
+    console.log("Found Spell Folders:", spellFolders.map(f => f.name));
+
+    // Step 2: Gather all items from the "wb Weapon" folders
+    const weaponItems = weaponFolders.flatMap(folder => {
+      console.log(`Fetching contents of folder: ${folder.name}`);
+      return folder.contents;
+    });
+
+    // Step 3: Gather all items from the "wb Spell" folders
+    const spellItems = spellFolders.flatMap(folder => {
+      console.log(`Fetching contents of folder: ${folder.name}`);
+      return folder.contents;
+    });
+
+    console.log("All weapon items retrieved:", weaponItems.map(item => item.name));
+    console.log("All spell items retrieved:", spellItems.map(item => item.name));
+
+    // Step 4: Filter weapons without magic
+    this.weaponList = weaponItems
+      .filter(item => item.type === "weapon" && item.system.attributes?.magic === false)
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    // Step 5: Filter spells and sort by level, then alphabetically
+    this.spellList = spellItems
+      .filter(item => item.type === "spell")
+      .sort((a, b) => {
+        const levelA = a.system.level || 0;
+        const levelB = b.system.level || 0;
+        if (levelA !== levelB) return levelA - levelB; // Sort by level
+        return a.name.localeCompare(b.name); // Sort alphabetically within the same level
+      });
+
+    // Step 6: Log results
+    console.log("Loaded Weapons:", this.weaponList);
+    console.log("Loaded Spells:", this.spellList);
+  } catch (error) {
+    console.error("Error loading items:", error);
+  }
+}
+
+// Fetch spells based on filters
+async fetchFilteredSpells(spellType = "", spellLevel = "") {
+  return this.spellList.filter(spell => {
+    const system = spell.system || {};
+    const matchesType = !spellType || system.type === spellType;
+    const matchesLevel = !spellLevel || system.level === parseInt(spellLevel, 10);
+    return matchesType && matchesLevel;
+  }).sort((a, b) => a.name.localeCompare(b.name));
+}
+
   
     // Render the Weapon Creation UI
     renderWeaponDialog(html, index) {

@@ -6,25 +6,40 @@ export class MagicScrollGenerator {
     // Load spells into the generator from the compendium
     async loadSpells() {
         try {
-            const compendium = game.packs.get("world.wb-items-master");
-            if (!compendium) {
-                console.error("Compendium 'wb-items-master' not found.");
-                ui.notifications.error("Spell compendium not found.");
-                return;
-            }
-
-            const compendiumItems = await compendium.getDocuments();
-            this.spellList = compendiumItems.filter(item => item.type === "spell");
-
-            if (this.spellList.length === 0) {
-                console.warn("No spells found in the compendium.");
-                ui.notifications.warn("No spells found in the spell compendium.");
-            }
+          // Step 1: Find all folders named "wb Spell"
+          const spellFolders = game.folders.filter(f => f.name === "wb Spell" && f.type === "Item");
+          if (spellFolders.length === 0) {
+            console.error("No folders named 'wb Spell' found.");
+            ui.notifications.error("Spell folders not found.");
+            return;
+          }
+      
+          console.log("Found Spell Folders:", spellFolders.map(f => f.name));
+      
+          // Step 2: Gather all items from "wb Spell" folders
+          const allItems = spellFolders.flatMap(folder => {
+            console.log(`Fetching contents of folder: ${folder.name}`);
+            return folder.contents;
+          });
+      
+          console.log("All spell items retrieved:", allItems.map(item => item.name));
+      
+          // Step 3: Filter for spells
+          this.spellList = allItems.filter(item => item.type === "spell");
+      
+          // Step 4: Log results and notify if no spells are found
+          if (this.spellList.length === 0) {
+            console.warn("No spells found in the 'wb Spell' folders.");
+            ui.notifications.warn("No spells found in the spell folders.");
+          } else {
+            console.log("Loaded Spells:", this.spellList.map(spell => spell.name));
+          }
         } catch (error) {
-            console.error("Error loading spells from compendium:", error);
-            ui.notifications.error("Failed to load spells from the compendium.");
+          console.error("Error loading spells from folders:", error);
+          ui.notifications.error("Failed to load spells from the folders. Check the console for details.");
         }
-    }
+      }
+      
 
     // Render the Scroll Creation UI
     renderScrollDialog(html, index) {

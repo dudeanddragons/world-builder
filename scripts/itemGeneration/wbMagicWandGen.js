@@ -5,32 +5,49 @@ export class MagicWandGenerator {
 
     // Load spells from the wb-items-master compendium
     async loadSpells() {
-        const compendium = game.packs.get("world.wb-items-master");
-        if (!compendium) {
-            console.error("Compendium 'wb-items-master' not found.");
-            ui.notifications.error("Compendium 'wb-items-master' not found.");
-            return;
-        }
-
         try {
-            // Fetch all items from the compendium
-            const allItems = await compendium.getDocuments();
-
-            // Filter for spells
-            this.spellList = allItems.filter(item => item.type === "spell");
-            this.spellList.sort((a, b) => a.name.localeCompare(b.name));
-
-            if (this.spellList.length === 0) {
-                console.warn("No spells found in the wb-items-master compendium.");
-                ui.notifications.warn("No spells found in the compendium.");
-            }
-
+          // Step 1: Find all folders named "wb Spell"
+          const spellFolders = game.folders.filter(f => f.name === "wb Spell" && f.type === "Item");
+          if (spellFolders.length === 0) {
+            console.error("No folders named 'wb Spell' found.");
+            ui.notifications.error("No folders named 'wb Spell' found.");
+            return;
+          }
+      
+          console.log("Found Spell Folders:", spellFolders.map(f => f.name));
+      
+          // Step 2: Gather all items from "wb Spell" folders
+          const allItems = spellFolders.flatMap(folder => {
+            console.log(`Fetching contents of folder: ${folder.name}`);
+            return folder.contents;
+          });
+      
+          console.log("All spell items retrieved:", allItems.map(item => item.name));
+      
+          // Step 3: Filter for spells
+          this.spellList = allItems.filter(item => item.type === "spell");
+      
+          // Step 4: Sort by level, then alphabetically by name
+          this.spellList.sort((a, b) => {
+            const levelA = a.system.level || 0;
+            const levelB = b.system.level || 0;
+            if (levelA !== levelB) return levelA - levelB; // Sort by level
+            return a.name.localeCompare(b.name); // Sort alphabetically within the same level
+          });
+      
+          // Step 5: Log results and notify if no spells are found
+          if (this.spellList.length === 0) {
+            console.warn("No spells found in the 'wb Spell' folders.");
+            ui.notifications.warn("No spells found in the 'wb Spell' folders.");
+          } else {
             console.log("Loaded Spells for Wands:", this.spellList);
+          }
         } catch (error) {
-            console.error("Error loading spells from compendium:", error);
-            ui.notifications.error("Failed to load spells. Check the console for details.");
+          console.error("Error loading spells from folders:", error);
+          ui.notifications.error("Failed to load spells from folders. Check the console for details.");
         }
-    }
+      }
+      
 
     // Render the Wand Creation UI
     renderWandDialog(html, index) {

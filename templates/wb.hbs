@@ -237,45 +237,46 @@
                       
                       <div class="encounters-container" data-index="{{@index}}">
                           <table class="encounters-table" style="width: 100%; table-layout: fixed;">
-                            <thead>
-                              <tr>
-                                <th style="width: 150px;"></th> <!-- Dropdown -->
-                                <th style="width: 400px;">Encounter Stat Block</th> <!-- Stat Block -->
-                                <th style="width: 25px;"></th> <!-- Randomize Button -->
-                                <th style="width: 25px;"></th> <!-- Remove Button -->
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {{#each this.encounters}}
-                              <tr>
-                                <td style="width: 150px;">
-                                  <select class="encounters-select" data-encounter-index="{{@index}}" style="width: 100%;">
-                                    {{#each ../../encounterOptions}}
-                                    <option value="{{this}}" {{#if (eq ../result this)}}selected{{/if}}>{{this}}</option>
-                                    {{/each}}
-                                  </select>
-                                </td>
-                                <td class="encounter-statblock" style="width: 400px; word-wrap: break-word;">
-                                  {{{this.statblock}}}
-                                </td>
-                                <td style="width: 25px; text-align: center;">
-                                  <button class="randomize-encounter" title="Randomize" style="width: 100%;">
-                                    <i class="fa fa-random"></i>
-                                  </button>
-                                </td>
-                                <td style="width: 25px; text-align: center;">
-                                  <button class="remove-encounter" title="Remove" style="width: 100%;">
-                                    <i class="fa fa-trash"></i>
-                                  </button>
-                                </td>
-                              </tr>
-                              {{/each}}
-                            </tbody>
+                              <thead>
+                                  <tr>
+                                      <th style="width: 150px;"></th> <!-- Dropdown -->
+                                      <th style="width: 400px;">Encounter Stat Block</th> <!-- Stat Block -->
+                                      <th style="width: 25px;"></th> <!-- Randomize Button -->
+                                      <th style="width: 25px;"></th> <!-- Remove Button -->
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {{#each this.encounters}}
+                                  <tr>
+                                      <td style="width: 150px;">
+                                        <select class="encounters-select" data-encounter-index="{{@index}}" style="width: 100%;">
+                                            {{#each ../../encounterOptions}}
+                                            <option value="{{this.id}}" {{#if (eq ../result this.id)}}selected{{/if}}>{{this.name}}</option>
+                                            {{/each}}
+                                        </select>
+
+                                      </td>
+                                      <td class="encounter-statblock" style="width: 400px; word-wrap: break-word;">
+                                          {{{this.statblock}}}
+                                      </td>
+                                      <td style="width: 25px; text-align: center;">
+                                          <button class="randomize-encounter" title="Randomize" style="width: 100%;">
+                                              <i class="fa fa-random"></i>
+                                          </button>
+                                      </td>
+                                      <td style="width: 25px; text-align: center;">
+                                          <button class="remove-encounter" title="Remove" style="width: 100%;">
+                                              <i class="fa fa-trash"></i>
+                                          </button>
+                                      </td>
+                                  </tr>
+                                  {{/each}}
+                              </tbody>
                           </table>
                           <button class="add-encounter">Add Encounter</button>
                       </div>
-                      
                   </div>
+
 
                   <button class="randomize-trap">Randomize</button>
                   <button class="trap-builder">Open Trap Builder</button>
@@ -306,16 +307,17 @@
                               </select>
                               </td>
                               <td>
-                              <select class="treasure-item-select" data-treasure-index="{{@index}}">
-                                  <option value="" disabled {{#if (eq ../result "")}}selected{{/if}}>Make selection</option>
-                                  {{#if ../../lairTreasureOptions.[../selectedCategory]}}
-                                  {{#each ../../lairTreasureOptions.[../selectedCategory] as |item|}}
-                                  <option value="{{item.id}}" {{#if (eq ../result item.id)}}selected{{/if}}>{{item.name}}</option>
-                                  {{/each}}
-                                  {{else}}
-                                  <option value="" disabled>No items available</option>
-                                  {{/if}}
-                              </select>
+<select class="treasure-item-select" data-treasure-index="{{@index}}">
+  <option value="" disabled {{#if (eq ../result "")}}selected{{/if}}>Make selection</option>
+  {{#if ../../lairTreasureOptions.[../selectedCategory]}}
+    {{#each ../../lairTreasureOptions.[../selectedCategory] as |item|}}
+      <option value="{{item.id}}" {{#if (eq ../result item.id)}}selected{{/if}}>{{item.name}}</option>
+    {{/each}}
+  {{else}}
+    <option value="" disabled>No items available</option>
+  {{/if}}
+</select>
+
                               </td>
                               <td class="treasure-details" data-treasure-index="{{@index}}">
                               <span>Quantity: {{../quantity}}</span><br>

@@ -39,33 +39,66 @@ export class MagicArmorGenerator {
     9: 81000,
   };
 
-  // Load items and initialize the generator
-  async loadItems() {
-    try {
-      const compendium = game.packs.get("world.wb-items-master");
-      if (!compendium) {
-        console.error("Compendium 'wb-items-master' not found.");
-        return;
-      }
 
-      const allItems = await compendium.getDocuments();
 
-      // Filter armors without magic
-      this.armorList = allItems
-        .filter(item => item.type === "armor" && item.system.attributes?.magic === false)
-        .sort((a, b) => a.name.localeCompare(b.name));
 
-      // Filter spells
-      this.spellList = allItems
-        .filter(item => item.type === "spell" || item.system.type === "Armor")
-        .sort((a, b) => a.name.localeCompare(b.name));
 
-      console.log("Loaded Armors:", this.armorList);
-      console.log("Loaded Spells:", this.spellList);
-    } catch (error) {
-      console.error("Error loading items from compendium:", error);
+
+
+  
+// Load items and initialize the generator
+// Load items and initialize the generator
+async loadItems() {
+  try {
+    // Step 1: Find all folders named "wb Armor"
+    const armorFolders = game.folders.filter(f => f.name === "wb Armor" && f.type === "Item");
+    if (armorFolders.length === 0) {
+      console.warn("No folders named 'wb Armor' found.");
+    } else {
+      console.log("Found Armor Folders:", armorFolders.map(f => f.name));
     }
+
+    // Step 2: Find all folders named "wb Spell"
+    const spellFolders = game.folders.filter(f => f.name === "wb Spell" && f.type === "Item");
+    if (spellFolders.length === 0) {
+      console.warn("No folders named 'wb Spell' found.");
+    } else {
+      console.log("Found Spell Folders:", spellFolders.map(f => f.name));
+    }
+
+    // Step 3: Gather items from all "wb Armor" folders
+    const armorItems = armorFolders.flatMap(folder => {
+      console.log(`Fetching contents of folder: ${folder.name}`);
+      return folder.contents;
+    });
+
+    // Step 4: Gather items from all "wb Spell" folders
+    const spellItems = spellFolders.flatMap(folder => {
+      console.log(`Fetching contents of folder: ${folder.name}`);
+      return folder.contents;
+    });
+
+    console.log("All armor items retrieved:", armorItems.map(item => item.name));
+    console.log("All spell items retrieved:", spellItems.map(item => item.name));
+
+    // Step 5: Filter items
+    this.armorList = armorItems
+      .filter(item => item.type === "armor" && item.system.attributes?.magic === false)
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    this.spellList = spellItems
+      .filter(item => item.type === "spell" || item.system.type === "Armor")
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    // Step 6: Log the results
+    console.log("Loaded Armors:", this.armorList);
+    console.log("Loaded Spells:", this.spellList);
+  } catch (error) {
+    console.error("Error loading items:", error);
   }
+}
+
+
 
   // Fetch spells based on filters
   async fetchFilteredSpells(spellType = "", spellLevel = "") {

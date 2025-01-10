@@ -457,22 +457,29 @@ randomizeConditionData(entries) {
 
 async loadDefaultEncounterOptions() {
   try {
-    console.log("Loading default lair encounter options from dungeon compendium...");
+    console.log("Loading default lair encounter options from the 'wb Lair Dungeon' folder...");
 
-    // Default compendium to dungeon
-    const compendiumNames = ["world.wb-lairs-dungeons"];
+    const folderName = "wb Lair Dungeon";
+    const folder = game.folders.find(f => f.name === folderName && f.type === "Actor");
 
-    // Fetch data from the compendium
-    const actorData = await getLairActors(compendiumNames);
-    if (!actorData || actorData.length === 0) {
-      console.warn("No actors found in the dungeon compendium.");
+    if (!folder) {
+      console.warn(`Folder ${folderName} not found.`);
       this.data.encounterOptions = [];
       this.data.encounterData = [];
       return;
     }
 
-    // Populate default encounter options and data
-    this.data.encounterOptions = actorData.map((actor) => actor.name).sort((a, b) => a.localeCompare(b));
+    // Retrieve all actors in the folder
+    const actorData = folder.contents.map(actor => actor.toObject());
+    if (!actorData || actorData.length === 0) {
+      console.warn(`No actors found in the folder ${folderName}.`);
+      this.data.encounterOptions = [];
+      this.data.encounterData = [];
+      return;
+    }
+
+    // Populate encounter options and data
+    this.data.encounterOptions = actorData.map(actor => ({ name: actor.name, id: actor._id })).sort((a, b) => a.name.localeCompare(b.name));
     this.data.encounterData = actorData;
 
     console.log("Default Lair Encounter Options:", this.data.encounterOptions);
@@ -484,29 +491,40 @@ async loadDefaultEncounterOptions() {
   }
 }
 
+
+
+
+
+
 async loadEncounterOptions() {
   try {
-    // Determine the compendium name. Default to dungeons if no explicit flag is set.
-    const compendiumNames = this.data.isCave
-      ? ["world.wb-lairs-caves"]
-      : ["world.wb-lairs-dungeons"];
+    console.log("Loading encounter options from world folders...");
 
-    // Fetch detailed actor data from the compendiums
-    const actorData = await getLairActors(compendiumNames);
+    const folderName = this.data.isCave ? "wb Lair Cave" : "wb Lair Dungeon";
+    const folder = game.folders.find(f => f.name === folderName && f.type === "Actor");
 
-    if (!actorData || actorData.length === 0) {
-      console.warn("No actors found in the specified compendiums.");
+    if (!folder) {
+      console.warn(`Folder ${folderName} not found.`);
       this.data.encounterOptions = [];
       this.data.encounterData = [];
       return;
     }
 
-    // Populate encounter options with actor names
-    this.data.encounterOptions = actorData.map((actor) => actor.name).sort((a, b) => a.localeCompare(b));
-    this.data.encounterData = actorData; // Use the detailed actor data fetched from `getLairActors`
+    // Retrieve all actors in the folder
+    const actorData = folder.contents.map(actor => actor.toObject());
+    if (!actorData || actorData.length === 0) {
+      console.warn(`No actors found in the specified folder ${folderName}.`);
+      this.data.encounterOptions = [];
+      this.data.encounterData = [];
+      return;
+    }
+
+    // Populate encounter options and data
+    this.data.encounterOptions = actorData.map(actor => ({ name: actor.name, id: actor._id })).sort((a, b) => a.name.localeCompare(b.name));
+    this.data.encounterData = actorData;
 
     console.log("Encounter Options:", this.data.encounterOptions);
-    console.log("Encounter Data (from Compendiums):", this.data.encounterData);
+    console.log("Encounter Data (from Folders):", this.data.encounterData);
   } catch (error) {
     console.error("Error loading encounter options:", error);
     this.data.encounterOptions = [];
@@ -523,12 +541,35 @@ async loadEncounterOptions() {
 
 
 
+
+
+
+
 async loadTreasureOptions() {
   try {
     console.log("Loading treasure options...");
-    
+
     // Fetch categorized items
     const categories = categorizeItems();
+
+    // Fetch items from the 'wb Lair Treasure' folder
+    const folderName = "wb Lair Treasure";
+    const folder = game.folders.find(f => f.name === folderName && f.type === "Item");
+
+    if (!folder) {
+      console.warn(`Folder "${folderName}" not found.`);
+    } else {
+      const folderItems = folder.contents.map(item => item.toObject());
+
+      // Merge folder items into existing categories
+      folderItems.forEach(item => {
+        const category = determineCategory(item);
+        if (category && categories[category]) {
+          categories[category].push(item);
+        }
+      });
+    }
+
     if (!categories || Object.keys(categories).length === 0) {
       console.warn("No treasure categories or items found.");
       this.data.lairTreasureOptions = {
@@ -568,6 +609,7 @@ async loadTreasureOptions() {
     };
   }
 }
+
 
 
 
@@ -1426,57 +1468,64 @@ $(room).find(".encounters-select").each((encounterIndex, dropdown) => {
   const encounterData = roomData.encounters[encounterIndex];
   const selectedValue = encounterData.result || ""; // Current selected value or default empty string
 
-  // Populate dropdown options dynamically
-  $(dropdown).empty(); // Clear existing options
-  $(dropdown).append(new Option("Select an NPC", "", !selectedValue, !selectedValue)); // Add default option
+  // Clear existing options
+  $(dropdown).empty();
 
+  // Add a default placeholder option
+  $(dropdown).append(new Option("Select an NPC", "", !selectedValue, !selectedValue));
+
+  // Add encounter options
   this.data.encounterOptions.forEach((option) => {
-    const isSelected = option === selectedValue;
-    const optionElement = new Option(option, option, isSelected, isSelected);
+    const isSelected = option.id === selectedValue; // Match by `id`
+    const optionElement = new Option(option.name, option.id, isSelected, isSelected);
     $(dropdown).append(optionElement);
   });
 
-  // Handle dropdown selection
+  // Attach change handler
   $(dropdown).off("change").on("change", (event) => {
-    const selectedResult = $(event.target).val(); // Get the selected actor name
-    const actorData = this.data.encounterData.find(actor => actor.name === selectedResult); // Find the actor
+    const selectedId = $(event.target).val(); // Get the selected actor ID
+    const actorData = this.data.encounterData.find((actor) => actor._id === selectedId); // Match by ID
 
     if (actorData) {
-      encounterData.result = actorData.name; // Update result
-      encounterData.appearing = parseDiceExpression(actorData.numberAppearing || "1"); // Parse "No. Appearing"
+      encounterData.result = actorData._id; // Save the selected ID
+      encounterData.appearing = parseDiceExpression(actorData.system?.numberAppearing || "1"); // Parse "No. Appearing"
 
       // Generate the stat block
-      encounterData.statblock = `<strong>@UUID[Compendium.world.wb-lairs-dungeons.Actor.${actorData.id}]</strong><br>
+      encounterData.statblock = `<strong>@UUID[Actor.${actorData._id}]</strong><br>
         ${encounterData.appearing} x ${actorData.name};
-        (STR ${actorData.str}, DEX ${actorData.dex}, CON ${actorData.con}, INT ${actorData.int}, WIS ${actorData.wis}, CHA ${actorData.cha});
-        HD ${actorData.hitdice}; THAC0 ${actorData.thac0}; #ATT ${actorData.numAttacks}; DMG ${actorData.damage};
-        SA ${actorData.specialAttacks}; SD ${actorData.specialDefenses}; MR ${actorData.magicResist}; 
-        MV ${actorData.movement}; SZ ${actorData.size}; AL ${actorData.alignment}; 
-        xps ${actorData.xp}; Treasure ${actorData.treasureType}
+        (STR ${actorData.system?.abilities?.str?.value}, DEX ${actorData.system?.abilities?.dex?.value}, CON ${actorData.system?.abilities?.con?.value}, INT ${actorData.system?.abilities?.int?.value}, WIS ${actorData.system?.abilities?.wis?.value}, CHA ${actorData.system?.abilities?.cha?.value});
+        HD ${actorData.system?.hitdice}; THAC0 ${actorData.system?.attributes?.thaco?.value}; #ATT ${actorData.system?.numberAttacks}; DMG ${actorData.system?.damage};
+        SA ${actorData.system?.specialAttacks}; SD ${actorData.system?.specialDefenses}; MR ${actorData.system?.magicresist}; 
+        MV ${actorData.system?.attributes?.movement?.text}; SZ ${actorData.system?.attributes?.size}; AL ${actorData.system?.details?.alignment}; 
+        xps ${actorData.system?.xp?.value}; Treasure ${actorData.system?.treasureType}
       `.replace(/\s+/g, " "); // Clean up whitespace
 
       console.log(`Room ${roomIndex} Encounter ${encounterIndex} Updated Statblock:`, encounterData.statblock);
       this.render(false); // Update UI
     } else {
-      console.error(`Actor not found for: ${selectedResult}`);
+      console.error(`Actor not found for ID: ${selectedId}`);
     }
   });
 });
 
 
-
 // Randomize Encounter
 $(room).find(".randomize-encounter").off("click").on("click", (event) => {
   const dropdown = $(event.currentTarget).closest("tr").find(".encounters-select");
+  
+  // Pick a random actor from encounterOptions
   const randomActor = this.data.encounterOptions[Math.floor(Math.random() * this.data.encounterOptions.length)];
 
   if (randomActor) {
-    dropdown.val(randomActor).trigger("change"); // Update dropdown and trigger change event
-    console.log(`Randomized Actor: ${randomActor}`);
+    // Set the dropdown value to the random actor's id and trigger the change event
+    dropdown.val(randomActor.id).trigger("change");
+
+    console.log(`Randomized Actor: ${randomActor.name} (ID: ${randomActor.id})`);
   } else {
     console.error("No actors available to randomize.");
   }
 });
+
 
 
 // Remove Encounter
@@ -1505,140 +1554,141 @@ $(room).find(".remove-encounter").off("click").on("click", (event) => {
     this.render(false);
   });
 
-  // Update Treasure Category
-  $(room).find(".treasure-category-select").each((treasureIndex, categoryDropdown) => {
-    const treasureData = roomData.treasure[treasureIndex];
-    const selectedCategory = treasureData.selectedCategory || "";
+// Update Treasure Category
+$(room).find(".treasure-category-select").each((treasureIndex, categoryDropdown) => {
+  const treasureData = roomData.treasure[treasureIndex];
+  const selectedCategory = treasureData.selectedCategory || "";
 
-    $(categoryDropdown)
-      .empty()
-      .append(`<option value="" disabled ${!selectedCategory ? "selected" : ""}>Make selection</option>`);
+  $(categoryDropdown)
+    .empty()
+    .append(`<option value="" disabled ${!selectedCategory ? "selected" : ""}>Make selection</option>`);
 
-    Object.keys(this.data.lairTreasureOptions)
-      .filter((category) => category !== "spells") // Exclude the "spells" category
-      .forEach((category) => {
-        const isSelected = category === selectedCategory;
-        const optionElement = new Option(category, category, isSelected, isSelected);
-        $(categoryDropdown).append(optionElement);
-      });
-
-    // Handle category selection
-    $(categoryDropdown).off("change").on("change", (event) => {
-      const selectedCategory = $(event.target).val();
-      treasureData.selectedCategory = selectedCategory;
-      treasureData.result = "";
-      treasureData.quantity = 1;
-      treasureData.cost = 0;
-      treasureData.currencyType = "gp";
-      treasureData.xpValue = 0;
-      this.render(false);
+  Object.keys(this.data.lairTreasureOptions)
+    .filter((category) => category !== "spells") // Exclude the "spells" category
+    .forEach((category) => {
+      const isSelected = category === selectedCategory;
+      const optionElement = new Option(category, category, isSelected, isSelected);
+      $(categoryDropdown).append(optionElement);
     });
+
+  // Handle category selection
+  $(categoryDropdown).off("change").on("change", (event) => {
+    const selectedCategory = $(event.target).val();
+    treasureData.selectedCategory = selectedCategory;
+    treasureData.result = "";
+    treasureData.quantity = 1;
+    treasureData.cost = 0;
+    treasureData.currencyType = "gp";
+    treasureData.xpValue = 0;
+    this.render(false);
   });
+});
 
-  // Update Treasure Item
-  $(room).find(".treasure-item-select").each((treasureIndex, itemDropdown) => {
-    const treasureData = roomData.treasure[treasureIndex];
-    const selectedItem = treasureData.result || "";
-    const selectedCategory = treasureData.selectedCategory;
+// Update Treasure Item
+$(room).find(".treasure-item-select").each((treasureIndex, itemDropdown) => {
+  const treasureData = roomData.treasure[treasureIndex];
+  const selectedItem = treasureData.result || "";
+  const selectedCategory = treasureData.selectedCategory;
 
-    $(itemDropdown)
-      .empty()
-      .append(`<option value="" disabled ${!selectedItem ? "selected" : ""}>Make selection</option>`);
+  $(itemDropdown)
+    .empty()
+    .append(`<option value="" disabled ${!selectedItem ? "selected" : ""}>Make selection</option>`);
 
-    if (selectedCategory && this.data.lairTreasureOptions[selectedCategory]) {
-      this.data.lairTreasureOptions[selectedCategory].forEach((item) => {
-        const isSelected = item.id === selectedItem;
-        const optionElement = new Option(item.name, item.id, isSelected, isSelected);
-        $(itemDropdown).append(optionElement);
-      });
-    }
-
-    // Handle item selection
-    $(itemDropdown).off("change").on("change", (event) => {
-      const selectedId = $(event.target).val();
-      const itemData = this.data.lairTreasureOptions[selectedCategory]?.find(item => item.id === selectedId);
-
-      if (itemData) {
-        treasureData.result = itemData.id;
-        treasureData.quantity = itemData.quantity || 1;
-        treasureData.cost = itemData.cost || 0;
-        treasureData.currencyType = itemData.currencyType || "gp";
-        treasureData.xpValue = itemData.xpValue || 0;
-
-        // Update the treasure details in the UI
-        const treasureDetailsContainer = $(room).find(`.treasure-details[data-treasure-index="${treasureIndex}"]`);
-        treasureDetailsContainer.html(`
-          ${treasureData.quantity} x ${itemData.name}; ${treasureData.cost} ${treasureData.currencyType}; ${treasureData.xpValue} xps
-        `);
-      }
+  if (selectedCategory && this.data.lairTreasureOptions[selectedCategory]) {
+    this.data.lairTreasureOptions[selectedCategory].forEach((item) => {
+      const isSelected = item.id === selectedItem;
+      const optionElement = new Option(item.name, item.id, isSelected, isSelected);
+      $(itemDropdown).append(optionElement);
     });
+  }
 
-    // If there's already a selected item, update its details on load
-    if (selectedItem) {
-      const itemData = this.data.lairTreasureOptions[selectedCategory]?.find(item => item.id === selectedItem);
-      if (itemData) {
-        const treasureDetailsContainer = $(room).find(`.treasure-details[data-treasure-index="${treasureIndex}"]`);
-        treasureDetailsContainer.html(`
-          ${treasureData.quantity} x ${itemData.name}; ${treasureData.cost} ${treasureData.currencyType}; ${treasureData.xpValue} xps
-        `);
-      }
+  // Handle item selection
+  $(itemDropdown).off("change").on("change", (event) => {
+    const selectedId = $(event.target).val();
+    const itemData = this.data.lairTreasureOptions[selectedCategory]?.find(item => item.id === selectedId);
+
+    if (itemData) {
+      treasureData.result = itemData.id;
+      treasureData.quantity = itemData.quantity || 1;
+      treasureData.cost = itemData.cost || 0;
+      treasureData.currencyType = itemData.currencyType || "gp";
+      treasureData.xpValue = itemData.xpValue || 0;
+
+      // Update the treasure details in the UI
+      const treasureDetailsContainer = $(room).find(`.treasure-details[data-treasure-index="${treasureIndex}"]`);
+      treasureDetailsContainer.html(`
+        ${treasureData.quantity} x ${itemData.name}; ${treasureData.cost} ${treasureData.currencyType}; ${treasureData.xpValue} xps
+      `);
     }
   });
 
-  // Randomize Treasure
-  $(room).find(".randomize-treasure").off("click").on("click", (event) => {
-    const treasureIndex = $(event.currentTarget).closest("tr").index();
-    const treasureData = roomData.treasure[treasureIndex];
-
-    // Step 1: Randomly select a category (excluding "spells")
-    const categories = Object.keys(this.data.lairTreasureOptions).filter(
-      (category) => category !== "spells" && this.data.lairTreasureOptions[category]?.length > 0
-    );
-    if (categories.length === 0) {
-      console.warn("No valid treasure categories available for randomization.");
-      return;
+  // If there's already a selected item, update its details on load
+  if (selectedItem) {
+    const itemData = this.data.lairTreasureOptions[selectedCategory]?.find(item => item.id === selectedItem);
+    if (itemData) {
+      const treasureDetailsContainer = $(room).find(`.treasure-details[data-treasure-index="${treasureIndex}"]`);
+      treasureDetailsContainer.html(`
+        ${treasureData.quantity} x ${itemData.name}; ${treasureData.cost} ${treasureData.currencyType}; ${treasureData.xpValue} xps
+      `);
     }
+  }
+});
 
-    const randomCategory = categories[Math.floor(Math.random() * categories.length)];
-    treasureData.selectedCategory = randomCategory;
+// Randomize Treasure
+$(room).find(".randomize-treasure").off("click").on("click", (event) => {
+  const treasureIndex = $(event.currentTarget).closest("tr").index();
+  const treasureData = roomData.treasure[treasureIndex];
 
-    // Step 2: Randomly select an item from the chosen category
-    const items = this.data.lairTreasureOptions[randomCategory];
-    const randomItem = items[Math.floor(Math.random() * items.length)];
+  // Step 1: Randomly select a category (excluding "spells")
+  const categories = Object.keys(this.data.lairTreasureOptions).filter(
+    (category) => category !== "spells" && this.data.lairTreasureOptions[category]?.length > 0
+  );
+  if (categories.length === 0) {
+    console.warn("No valid treasure categories available for randomization.");
+    return;
+  }
 
-    if (!randomItem) {
-      console.warn(`No items available in category: ${randomCategory}`);
-      return;
-    }
+  const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+  treasureData.selectedCategory = randomCategory;
 
-    treasureData.result = randomItem.id;
-    treasureData.quantity = randomItem.quantity || 1;
-    treasureData.cost = randomItem.cost || 0;
-    treasureData.currencyType = randomItem.currencyType || "gp";
-    treasureData.xpValue = randomItem.xpValue || 0;
+  // Step 2: Randomly select an item from the chosen category
+  const items = this.data.lairTreasureOptions[randomCategory];
+  const randomItem = items[Math.floor(Math.random() * items.length)];
 
-    // Step 3: Update the category dropdown
-    const categoryDropdown = $(room).find(`.treasure-category-select[data-treasure-index="${treasureIndex}"]`);
-    categoryDropdown.val(randomCategory);
+  if (!randomItem) {
+    console.warn(`No items available in category: ${randomCategory}`);
+    return;
+  }
 
-    // Step 4: Update the item dropdown
-    const itemDropdown = $(room).find(`.treasure-item-select[data-treasure-index="${treasureIndex}"]`);
-    itemDropdown.empty(); // Clear existing options
-    items.forEach((item) => {
-      const optionElement = new Option(item.name, item.id, item.id === treasureData.result, item.id === treasureData.result);
-      itemDropdown.append(optionElement);
-    });
-    itemDropdown.val(treasureData.result); // Set to the randomly selected item
+  treasureData.result = randomItem.id;
+  treasureData.quantity = randomItem.quantity || 1;
+  treasureData.cost = randomItem.cost || 0;
+  treasureData.currencyType = randomItem.currencyType || "gp";
+  treasureData.xpValue = randomItem.xpValue || 0;
 
-    // Step 5: Render the treasure details
-    const treasureDetailsContainer = $(room).find(`.treasure-details[data-treasure-index="${treasureIndex}"]`);
-    treasureDetailsContainer.html(`
-      ${treasureData.quantity} x ${randomItem.name}; ${treasureData.cost} ${treasureData.currencyType}; ${treasureData.xpValue} xps
-    `);
+  // Step 3: Update the category dropdown
+  const categoryDropdown = $(room).find(`.treasure-category-select[data-treasure-index="${treasureIndex}"]`);
+  categoryDropdown.val(randomCategory);
 
-    console.log(`Randomized Treasure:`, treasureData);
-    this.render(false); // Rerender to ensure UI consistency
+  // Step 4: Update the item dropdown
+  const itemDropdown = $(room).find(`.treasure-item-select[data-treasure-index="${treasureIndex}"]`);
+  itemDropdown.empty(); // Clear existing options
+  items.forEach((item) => {
+    const optionElement = new Option(item.name, item.id, item.id === treasureData.result, item.id === treasureData.result);
+    itemDropdown.append(optionElement);
   });
+  itemDropdown.val(treasureData.result); // Set to the randomly selected item
+
+  // Step 5: Render the treasure details
+  const treasureDetailsContainer = $(room).find(`.treasure-details[data-treasure-index="${treasureIndex}"]`);
+  treasureDetailsContainer.html(`
+    ${treasureData.quantity} x ${randomItem.name}; ${treasureData.cost} ${treasureData.currencyType}; ${treasureData.xpValue} xps
+  `);
+
+  console.log(`Randomized Treasure:`, treasureData);
+  this.render(false); // Rerender to ensure UI consistency
+});
+
 
   // Remove Treasure
   $(room).find(".remove-treasure").off("click").on("click", (event) => {
