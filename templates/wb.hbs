@@ -299,12 +299,13 @@
                           {{#each this.treasure}}
                           <tr>
                               <td>
-                              <select class="treasure-category-select" data-treasure-index="{{@index}}">
-                                  <option value="" disabled {{#if (eq ../selectedCategory "")}}selected{{/if}}>Make selection</option>
-                                  {{#each ../../lairTreasureOptions as |items category|}}
-                                  <option value="{{category}}" {{#if (eq ../selectedCategory category)}}selected{{/if}}>{{category}}</option>
-                                  {{/each}}
-                              </select>
+<select class="treasure-category-select" data-treasure-index="{{@index}}">
+  <option value="" disabled {{#if (eq ../selectedCategory "")}}selected{{/if}}>Make selection</option>
+  {{#each ../../lairTreasureOptions as |items category|}}
+  <option value="{{category}}" {{#if (eq ../selectedCategory category)}}selected{{/if}}>{{category}}</option>
+  {{/each}}
+</select>
+
                               </td>
                               <td>
 <select class="treasure-item-select" data-treasure-index="{{@index}}">

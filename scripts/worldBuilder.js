@@ -496,105 +496,62 @@ async loadDefaultEncounterOptions() {
 
 
 
-async loadEncounterOptions() {
-  try {
-    console.log("Loading encounter options from world folders...");
-
-    const folderName = this.data.isCave ? "wb Lair Cave" : "wb Lair Dungeon";
-    const folder = game.folders.find(f => f.name === folderName && f.type === "Actor");
-
-    if (!folder) {
-      console.warn(`Folder ${folderName} not found.`);
-      this.data.encounterOptions = [];
-      this.data.encounterData = [];
-      return;
-    }
-
-    // Retrieve all actors in the folder
-    const actorData = folder.contents.map(actor => actor.toObject());
-    if (!actorData || actorData.length === 0) {
-      console.warn(`No actors found in the specified folder ${folderName}.`);
-      this.data.encounterOptions = [];
-      this.data.encounterData = [];
-      return;
-    }
-
-    // Populate encounter options and data
-    this.data.encounterOptions = actorData.map(actor => ({ name: actor.name, id: actor._id })).sort((a, b) => a.name.localeCompare(b.name));
-    this.data.encounterData = actorData;
-
-    console.log("Encounter Options:", this.data.encounterOptions);
-    console.log("Encounter Data (from Folders):", this.data.encounterData);
-  } catch (error) {
-    console.error("Error loading encounter options:", error);
-    this.data.encounterOptions = [];
-    this.data.encounterData = [];
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 async loadTreasureOptions() {
   try {
     console.log("Loading treasure options...");
 
-    // Fetch categorized items
-    const categories = categorizeItems();
+    // Map categories to their respective folders
+    const folderMapping = {
+      armor: "wb Armor",
+      weapons: "wb Weapon",
+      potions: "wb Potion",
+      scrolls: "wb Scroll",
+      magicItems: "wb Magic Item",
+      magicWeapons: "wb Magic Weapon",
+      gems: "wb Gem",
+      magicArmor: "wb Magic Armor",
+      art: "wb Art",
+    };
 
-    // Fetch items from the 'wb Lair Treasure' folder
-    const folderName = "wb Lair Treasure";
-    const folder = game.folders.find(f => f.name === folderName && f.type === "Item");
+    // Initialize the structure for treasure options
+    const lairTreasureOptions = {
+      armor: [],
+      weapons: [],
+      potions: [],
+      scrolls: [],
+      magicItems: [],
+      magicWeapons: [],
+      gems: [],
+      magicArmor: [],
+      art: [],
+      spells: [],
+    };
 
-    if (!folder) {
-      console.warn(`Folder "${folderName}" not found.`);
-    } else {
-      const folderItems = folder.contents.map(item => item.toObject());
-
-      // Merge folder items into existing categories
-      folderItems.forEach(item => {
-        const category = determineCategory(item);
-        if (category && categories[category]) {
-          categories[category].push(item);
-        }
-      });
+    // Fetch items for each category and populate the structure
+    for (const [category, folderName] of Object.entries(folderMapping)) {
+      const folder = game.folders.find(f => f.name === folderName && f.type === "Item");
+      if (folder) {
+        lairTreasureOptions[category] = folder.contents.map(item => ({
+          id: item.id,
+          name: item.name,
+          quantity: item.system.quantity || 1,
+          cost: item.system.cost?.value || 0,
+          currencyType: item.system.cost?.currency || "gp",
+          xpValue: item.system.xp || 0,
+        }));
+      } else {
+        console.warn(`Folder "${folderName}" not found for category "${category}".`);
+      }
     }
 
-    if (!categories || Object.keys(categories).length === 0) {
-      console.warn("No treasure categories or items found.");
-      this.data.lairTreasureOptions = {
-        armor: [],
-        weapons: [],
-        potions: [],
-        scrolls: [],
-        magicItems: [],
-        magicWeapons: [],
-        gems: [],
-        magicArmor: [],
-        art: [],
-        spells: [],
-      };
-      return;
-    }
-
-    // Populate lairTreasureOptions with categorized items
-    this.data.lairTreasureOptions = categories;
+    // Assign the populated options to the treasure options data
+    this.data.lairTreasureOptions = lairTreasureOptions;
 
     console.log("Lair Treasure Options Loaded:", this.data.lairTreasureOptions);
   } catch (error) {
     console.error("Error loading treasure options:", error);
 
-    // Reset to empty structure in case of error
+    // Reset the structure if there's an error
     this.data.lairTreasureOptions = {
       armor: [],
       weapons: [],
@@ -609,6 +566,12 @@ async loadTreasureOptions() {
     };
   }
 }
+
+
+
+
+
+
 
 
 
