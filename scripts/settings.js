@@ -69,10 +69,35 @@ export async function createNestedFoldersAndCompendiums() {
         "wb Equipment WIZ MAG",
     ]; // Item subfolders
 
+    const itemsMasterSubFolders = [
+        "wb Armor",
+        "wb Background",
+        "wb Class",
+        "wb Container",
+        "wb Currency",
+        "wb Item",
+        "wb Race",
+        "wb Spell",
+        "wb Weapon",
+    ];
+
+    const lairTreasureSubFolders = [
+        "wb Art",
+        "wb Gem",
+        "wb Magic Armor",
+        "wb Magic Container",
+        "wb Magic Item",
+        "wb Magic Weapon",
+        "wb Potion",
+        "wb Scroll",
+        "wb Wand",
+    ];
+
     const actorMainColor = "#0000FF"; // Blue color for main actor folder
     const actorSubColor = "#2f5e6f"; // Light blue for actor subfolders
     const itemMainColor = "#0000FF"; // Blue color for main item folder
     const itemSubColor = "#2f5e6f"; // Light blue for item subfolders
+    const nestedSubColor = "#5fa8d3"; // Lightest blue for nested subfolders
 
     try {
         // Create Actor Folders
@@ -84,7 +109,21 @@ export async function createNestedFoldersAndCompendiums() {
         // Create Item Folders
         const itemMainFolder = await getFolder(itemMainFolderName, "Item", null, false, itemMainColor);
         for (const subFolderName of itemSubFolderNames) {
-            await getFolder(subFolderName, "Item", itemMainFolder.id, false, itemSubColor);
+            const subFolder = await getFolder(subFolderName, "Item", itemMainFolder.id, false, itemSubColor);
+
+            // Add nested subfolders for wb Items Master
+            if (subFolderName === "wb Items Master") {
+                for (const nestedFolderName of itemsMasterSubFolders) {
+                    await getFolder(nestedFolderName, "Item", subFolder.id, false, nestedSubColor);
+                }
+            }
+
+            // Add nested subfolders for wb Lair Treasure
+            if (subFolderName === "wb Lair Treasure") {
+                for (const nestedFolderName of lairTreasureSubFolders) {
+                    await getFolder(nestedFolderName, "Item", subFolder.id, false, nestedSubColor);
+                }
+            }
         }
 
         ui.notifications.info(`"World Builder" folders created successfully!`);
