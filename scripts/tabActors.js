@@ -63,91 +63,88 @@ export function handleActorsTab(builder, html) {
     }
   }
 
-  // Load race items from the game items
-  async function loadRaceItems() {
-    try {
-      const compendium = game.packs.get("world.wb-items-master");
-      if (!compendium) {
-        console.error("Compendium 'wb-items-master' not found in the 'world' package.");
-        return;
-      }
-  
-      // Fetch all documents from the compendium
-      const entries = await compendium.getDocuments();
-  
-      // Filter items of type "race"
-      const races = entries.filter((item) => item.type === "race");
-  
-      // Map the filtered items to the `raceData` array
-      raceData = races.map((race) => ({
-        uuid: race.uuid,
-        name: race.name,
-      }));
-  
-      console.log("Race Data Loaded from wb-items-master:", raceData);
-    } catch (error) {
-      console.error("Error loading race items from wb-items-master:", error);
-      ui.notifications.error("Failed to load race items. Please check the console for details.");
+// Load race items from the game items
+async function loadRaceItems() {
+  try {
+    // Fetch the folder named "wb Race"
+    const raceFolder = game.folders.find(f => f.name === "wb Race" && f.type === "Item");
+    if (!raceFolder) {
+      console.error('Folder "wb Race" not found.');
+      return;
     }
+
+    // Fetch all items from the folder
+    const races = raceFolder.contents;
+
+    // Map the filtered items to the `raceData` array
+    raceData = races.map(race => ({
+      uuid: race.uuid,
+      name: race.name,
+    }));
+
+    console.log("Race Data Loaded from wb Race folder:", raceData);
+  } catch (error) {
+    console.error("Error loading race items from wb Race folder:", error);
+    ui.notifications.error("Failed to load race items. Please check the console for details.");
   }
+}
+
   
 
-  // Load class items from the game items
-  async function loadClassItems() {
-    try {
-      const compendium = game.packs.get("world.wb-items-master");
-      if (!compendium) {
-        console.error("Compendium 'wb-items-master' not found in the 'world' package.");
-        return;
-      }
-  
-      // Fetch all documents from the compendium
-      const entries = await compendium.getDocuments();
-  
-      // Filter items of type "class"
-      const classes = entries.filter((item) => item.type === "class");
-  
-      // Map the filtered items to the `classData` array
-      classData = classes.map((cls) => ({
-        uuid: cls.uuid,
-        name: cls.name,
-      }));
-  
-      console.log("Class Data Loaded from wb-items-master:", classData);
-    } catch (error) {
-      console.error("Error loading class items from wb-items-master:", error);
-      ui.notifications.error("Failed to load class items. Please check the console for details.");
+// Load class items from the game items
+async function loadClassItems() {
+  try {
+    // Fetch the folder named "wb Class"
+    const classFolder = game.folders.find(f => f.name === "wb Class" && f.type === "Item");
+    if (!classFolder) {
+      console.error('Folder "wb Class" not found.');
+      return;
     }
+
+    // Fetch all items from the folder
+    const classes = classFolder.contents;
+
+    // Map the filtered items to the `classData` array
+    classData = classes.map(cls => ({
+      uuid: cls.uuid,
+      name: cls.name,
+    }));
+
+    console.log("Class Data Loaded from wb Class folder:", classData);
+  } catch (error) {
+    console.error("Error loading class items from wb Class folder:", error);
+    ui.notifications.error("Failed to load class items. Please check the console for details.");
   }
+}
+
   
 
-  // Load background items from the game items
-  async function loadBackgroundItems() {
-    try {
-      const compendium = game.packs.get("world.wb-items-master");
-      if (!compendium) {
-        console.error("Compendium 'wb-items-master' not found in the 'world' package.");
-        return;
-      }
-  
-      // Fetch all documents from the compendium
-      const entries = await compendium.getDocuments();
-  
-      // Filter items of type "background"
-      const backgrounds = entries.filter((item) => item.type === "background");
-  
-      // Map the filtered items to the `backgroundData` array
-      backgroundData = backgrounds.map((bg) => ({
-        uuid: bg.uuid,
-        name: bg.name,
-      }));
-  
-      console.log("Background Data Loaded from wb-items-master:", backgroundData);
-    } catch (error) {
-      console.error("Error loading background items from wb-items-master:", error);
-      ui.notifications.error("Failed to load background items. Please check the console for details.");
+// Load background items from the game items
+async function loadBackgroundItems() {
+  try {
+    // Fetch the folder named "wb Background"
+    const backgroundFolder = game.folders.find(f => f.name === "wb Background" && f.type === "Item");
+    if (!backgroundFolder) {
+      console.error('Folder "wb Background" not found.');
+      return;
     }
+
+    // Fetch all items from the folder
+    const backgrounds = backgroundFolder.contents;
+
+    // Map the filtered items to the `backgroundData` array
+    backgroundData = backgrounds.map(bg => ({
+      uuid: bg.uuid,
+      name: bg.name,
+    }));
+
+    console.log("Background Data Loaded from wb Background folder:", backgroundData);
+  } catch (error) {
+    console.error("Error loading background items from wb Background folder:", error);
+    ui.notifications.error("Failed to load background items. Please check the console for details.");
   }
+}
+
   
 
   // Populate culture options dynamically, including gender-specific options
@@ -578,33 +575,31 @@ function manageDummyDice(zone) {
     dropdown.append('<option value="none" selected>None</option>');
   
     try {
-      // Load NPCs from the compendium
-      const compendium = game.packs.get("world.wb-npc-clone");
-      if (!compendium) {
-        console.error("Compendium 'wb-npc-clone' not found in the 'world' package.");
+      // Fetch the folder named "wb NPC Clones"
+      const npcFolder = game.folders.find(f => f.name === "wb NPC Clones" && f.type === "Actor");
+      if (!npcFolder) {
+        console.error('Folder "wb NPC Clones" not found.');
         return;
       }
   
-      const compendiumEntries = await compendium.getDocuments();
-      const sortedEntries = compendiumEntries.sort((a, b) => a.name.localeCompare(b.name));
+      // Fetch all actors in the folder
+      const npcActors = npcFolder.contents;
   
-      sortedEntries.forEach((npc) => {
+      // Sort the NPCs alphabetically
+      const sortedNPCs = npcActors.sort((a, b) => a.name.localeCompare(b.name));
+  
+      // Populate the dropdown with NPCs
+      sortedNPCs.forEach(npc => {
         dropdown.append(`<option value="${npc.uuid}">${npc.name}</option>`);
       });
   
-      console.log("NPC dropdown populated with compendium entries.");
-  
-      // Include World Actors
-      const worldActors = game.actors.filter((actor) => actor.type === "npc");
-      worldActors.forEach((actor) => {
-        dropdown.append(`<option value="${actor.uuid}">${actor.name} (World)</option>`);
-      });
-  
-      console.log("NPC dropdown populated with world actors.");
+      console.log("NPC dropdown populated with NPCs from the wb NPC Clones folder.");
     } catch (error) {
       console.error("Error populating NPC dropdown:", error);
+      ui.notifications.error("Failed to populate NPC dropdown. Check the console for details.");
     }
   }
+  
   
 
 
