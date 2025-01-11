@@ -36,12 +36,15 @@ export async function handleTreasureTab(builder, html) {
 
         const subtypesMap = itemTypes.itemTypes.reduce((acc, type) => {
             acc[type.type] = type.itemSubTypes?.map(subtype => ({
-                ...subtype,
+                name: subtype.name,
+                baseWeight: subtype.baseWeight,
+                img: subtype.img, // Explicitly include img
                 qualities: qualities.qualities,
                 sizes: sizes.sizeModifiers
             })) || [];
             return acc;
         }, {});
+        
 
         const materialCache = Object.entries(materials.materials).reduce((acc, [category, items]) => {
             acc[category] = items.map(item => ({
@@ -159,54 +162,17 @@ export async function handleTreasureTab(builder, html) {
             const generatedData = treasure.generatedData;
             console.log("Using Generated Data:", generatedData);
     
-            // Map of item types to their respective image URLs
-            const itemTypeImages = {
-                "Jewelry": "icons/equipment/neck/choker-rounded-gold-green.webp",
-                "Sculptures": "icons/commodities/treasure/bust-carved-stone.webp",
-                "Religious Items": "icons/commodities/treasure/goblet-coins-gold.webp",
-                "Art": "icons/commodities/treasure/crystal-pedastal-red-gold.webp",
-                "Literature": "icons/sundries/books/book-embossed-jewel-blue-red.webp",
-                "Clothing": "icons/equipment/back/cloak-collared-purple-gold.webp",
-                "Weapons": "icons/weapons/swords/shortsword-guard-gold-red.webp",
-                "Armor": "icons/equipment/head/greathelm-banded-steel.webp",
-                "Containers": "icons/containers/chest/chest-reinforced-steel-red.webp",
-                "Furniture": "icons/containers/boxes/crate-heavy-brown.webp",
-                "Utensils": "icons/containers/kitchenware/goblet-jeweled-gold-red.webp",
-                "Musical Instruments": "icons/tools/instruments/lute-gold-brown.webp",
-                "Mechanical Devices": "icons/commodities/tech/cog-gold.webp",
-                "Toys and Games": "icons/sundries/gaming/playing-cards-black.webp",
-                "Maps": "icons/tools/navigation/map-marked-black.webp",
-                "Decorative Items": "icons/commodities/treasure/crown-blue-gold.webp",
-                "Lighting": "icons/sundries/lights/lantern-iron-yellow.webp",
-                "Personal Effects": "icons/tools/scribal/spectacles-glasses.webp",
-                "Tools": "icons/tools/hand/hammer-mason-white-grey.webp",
-                "Relics and Fossils": "icons/commodities/bones/horn-engraved-stripes-white.webp",
-                "Raw": "icons/commodities/metal/ingot-hammered-gold.webp"
-            };
-    
-            // Fetch the corresponding image for the compatibleType
-            const itemImage = itemTypeImages[generatedData.compatibleType] || "icons/commodities/treasure/chest-generic.webp"; // Default image if type is not found
-    
-            // Determine the item type
-            let itemType = "item"; // Default to "item"
-            if (["Weapons", "Armor"].includes(generatedData.compatibleType)) {
-                itemType = generatedData.compatibleType === "Weapons" ? "weapon" : "armor";
-            }
-    
-            // Calculate weight rounded to the nearest 0.01
-            const weight = Math.round(
-                ((generatedData.subtype.baseWeight || 1) * (generatedData.size.weightMultiplier || 1)) * 100
-            ) / 100;
+            // Directly use the image from generatedData
+            let itemImage = generatedData.subtype.img || "icons/commodities/treasure/chest-generic.webp";
+            console.log("Resolved Item Image Before Assignment:", itemImage);
     
             // Define item data using structured data and dynamically assigned image
             const itemData = {
                 name: `${generatedData.quality} ${generatedData.material} ${generatedData.subtype.name}`,
-                type: itemType, // Dynamically set the type
-                img: itemImage, // Use the dynamically assigned image
+                type: "item", // Default to "item"
+                img: itemImage, // Use the dynamically resolved image
                 system: {
-                    description: (
-                        `A ${generatedData.quality} ${generatedData.size.name} ${generatedData.material} ${generatedData.subtype.name}.`
-                    ),
+                    description: `A ${generatedData.quality} ${generatedData.size.name} ${generatedData.material} ${generatedData.subtype.name}.`,
                     attributes: {
                         identified: false,
                         type: "Art",
@@ -219,9 +185,13 @@ export async function handleTreasureTab(builder, html) {
                         currency: "gp"
                     },
                     xp: 0,
-                    weight: weight // Rounded weight
+                    weight: Math.round(
+                        ((generatedData.subtype.baseWeight || 1) * (generatedData.size.weightMultiplier || 1)) * 100
+                    ) / 100 // Rounded weight
                 }
             };
+    
+            console.log("Item Data Before Creation:", itemData);
     
             // Create the item
             const createdItem = await Item.create(itemData, { renderSheet: true });
@@ -233,10 +203,14 @@ export async function handleTreasureTab(builder, html) {
                 ui.notifications.error("Failed to create the item.");
             }
         } catch (error) {
-            console.error("Error creating item:", error);
+            console.error("Error creating item:", error.message, error.stack);
             ui.notifications.error("Error: Could not create the item. Check console for details.");
         }
     });
+    
+    
+    
+    
     
     
     
@@ -274,7 +248,8 @@ function generateTreasureItem(valueRange, index) {
             compatibleType: compatibleType.itemType,
             subtype: {
                 name: subtype.name,
-                baseWeight: subtype.baseWeight // Specifically capture baseWeight
+                baseWeight: subtype.baseWeight,
+                img: subtype.img // Include img here
             },
             quality: quality.name,
             size: {
@@ -300,6 +275,7 @@ function generateTreasureItem(valueRange, index) {
 
     return "Failed to generate treasure.";
 }
+
 
     
     
