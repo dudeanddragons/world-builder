@@ -1,7 +1,7 @@
 {
   "id": "world-builder",
   "title": "World Builder",
-  "version": "12.250111.01",
+  "version": "12.250111.02",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
@@ -61,7 +61,7 @@
   "styles": [
     "styles/wb.css"
   ],
-  "manifest": "https://raw.githubusercontent.com/dudeanddragons/adandd-useful-macros/refs/heads/master/module.json",
-  "download": "https://github.com/dudeanddragons/adandd-useful-macros/archive/refs/tags/12.250111.02.zip"
+  "manifest": "https://raw.githubusercontent.com/dudeanddragons/world-builder/refs/heads/master/module.json",
+  "download": "https://github.com/dudeanddragons/world-builder/archive/refs/tags/12.250111.02.zip"
 
 }
