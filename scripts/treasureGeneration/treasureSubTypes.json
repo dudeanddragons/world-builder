@@ -1,16 +1,16 @@
 {
     "itemTypes": [
       {
-      "type": "Jewelry",
-      "itemSubTypes": [
-    { "name": "Ring", "baseWeight": 0.01, "img": "icons/equipment/finger/ring-band-engraved-lines-gold.webp" },
-    { "name": "Necklace", "baseWeight": 0.05, "img": "icons/equipment/neck/amulet-round-engraved-gold.webp" },
-    { "name": "Bracelet", "baseWeight": 0.03, "img": "icons/equipment/finger/ring-inlay-red.webp" },
-    { "name": "Brooch", "baseWeight": 0.02, "img": "icons/commodities/treasure/broach-jewel-gold-blue.webp" },
-    { "name": "Earring", "baseWeight": 0.01, "img": "icons/equipment/finger/ring-horseshoe-gold-red.webp" },
-    { "name": "Crown", "baseWeight": 1.0, "img": "icons/equipment/head/crown-gold-blue.webp" },
-    { "name": "Anklet", "baseWeight": 0.04, "img": "icons/equipment/finger/ring-cabochon-spiral-gold-green.webp" }
-]
+        "type": "Jewelry",
+        "itemSubTypes": [
+            { "name": "Ring", "baseWeight": 0.01, "img": "icons/equipment/finger/ring-band-engraved-lines-gold.webp" },
+            { "name": "Necklace", "baseWeight": 0.05, "img": "icons/equipment/neck/amulet-round-engraved-gold.webp" },
+            { "name": "Bracelet", "baseWeight": 0.03, "img": "icons/equipment/finger/ring-inlay-red.webp" },
+            { "name": "Brooch", "baseWeight": 0.02, "img": "icons/commodities/treasure/broach-jewel-gold-blue.webp" },
+            { "name": "Earring", "baseWeight": 0.01, "img": "icons/equipment/finger/ring-horseshoe-gold-red.webp" },
+            { "name": "Crown", "baseWeight": 1.0, "img": "icons/equipment/head/crown-gold-blue.webp" },
+            { "name": "Anklet", "baseWeight": 0.04, "img": "icons/equipment/finger/ring-cabochon-spiral-gold-green.webp" }
+        ]
       },
       {
         "type": "Sculptures",

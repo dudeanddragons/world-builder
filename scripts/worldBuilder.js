@@ -87,7 +87,7 @@ export class WorldBuilderWindow extends Application {
           encounters: [],
           npc: [],
           treasure: [],
-          collapsed: true,
+          collapsed: false,
         },
       ],
       caveFeatures: [],
@@ -130,25 +130,29 @@ export class WorldBuilderWindow extends Application {
    * Initialize collapsible listeners for all collapsible headers
    */
     initializeCollapsibleListeners(html) {
+      // Unbind any previous click handlers to prevent stacking
+      html.off("click", ".wb-header.wb-collapsible");
+    
+      // Attach the click event handler
       html.on("click", ".wb-header.wb-collapsible", (event) => {
         const header = $(event.currentTarget);
-        const index = header.data("index"); // Use a `data-index` attribute for mapping
+        const index = header.data("index");
     
-        if (index === undefined) {
-          console.warn("Collapsible header clicked without a valid index.");
+        if (index === undefined || !this.data.lairRooms[index]) {
+          console.warn(`Collapsible header clicked with an invalid or missing index: ${index}`);
           return;
         }
     
-        // Toggle the collapsed state in the data model
         const roomData = this.data.lairRooms[index];
         roomData.collapsed = !roomData.collapsed;
     
         console.log(`Toggled collapse state for room ${index}:`, roomData.collapsed);
     
-        // Re-render the UI to reflect the change
+        // Re-render the UI to reflect the changes
         this.render(false);
       });
     }
+    
     
   
     /**
@@ -156,7 +160,7 @@ export class WorldBuilderWindow extends Application {
      */
     applyCollapsibleState(html) {
       html.find(".wb-collapsible-section").each((index, section) => {
-        const roomData = this.data.lairRooms[index];
+        const roomData = this.data.lairRooms[index] || { collapsed: false }; // Default if undefined
         const header = $(section).find(".wb-header.wb-collapsible");
         const content = $(section).find(".wb-collapsible-content");
     
@@ -170,6 +174,8 @@ export class WorldBuilderWindow extends Application {
         }
       });
     }
+    
+    
 
 /**
  * !!!!----------------------------------------------!!!!
@@ -218,7 +224,7 @@ resetFormState() {
         encounters: [],
         npc: [],
         treasure: [],
-        collapsed: true,
+        collapsed: false,
       },
     ],
     caveFeatures: [],

@@ -126,7 +126,7 @@ export async function createNestedFoldersAndCompendiums() {
             }
         }
 
-        ui.notifications.info(`"World Builder" folders created successfully!`);
+        //ui.notifications.info(`"World Builder" folders created successfully!`);
     } catch (error) {
         console.error("Error creating folders:", error);
         ui.notifications.error("Failed to create folders. See console for details.");
@@ -153,6 +153,6 @@ async function getFolder(folderName, type, parentFolder = null, usePack = false,
         color,
     });
 
-    ui.notifications.info(`Created folder: ${folderName}`);
+    //ui.notifications.info(`Created folder: ${folderName}`);
     return newFolder;
 }
